@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markmap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mindmap {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="mindmap"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@6.6.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.3"></script>
+  <script>
+    const { Markmap } = window.markmap;
+    Markmap.create("svg#mindmap", null, {
+      "t": "heading", "d": 1, "v": "HTML",
+      "c": [
+        {
+          "t": "heading", "d": 2, "v": "History",
+        }, {
+          "t": "heading", "d": 2, "v": "Aufbau eines HTML-Dokuments",
+        }, {
+          "t": "heading", "d": 2, "v": "Tags",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Block- vs Inline-Elemente"
+            }, {
+              "t": "list_item", "d": 4, "v": "Tag-Attribute",
+              "c": [
+                {
+                  "t": "list_item", "d": 6, "v": "Globale"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Drag&Drop"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Styling"
+                }
+              ]
+            }, {
+              "t": "list_item", "d": 4, "v": "Tag-Beispiele",
+              "c": [
+                {
+                  "t": "list_item", "d": 6, "v": "Absätze und Überschriften"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Semantische Textauszeichnung"
+                }
+              ]
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Verweise",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "URLs",
+              "c": [
+                {
+                  "t": "list_item", "d": 6, "v": "Aufbau"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Absolut vs. Relativ"
+                }
+              ]
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "HTTP",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Ablauf",
+            }, {
+              "t": "list_item", "d": 4, "v": "Statuscodes",
+            }, {
+              "t": "list_item", "d": 4, "v": "Anfragemethoden",
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Formulare",
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
