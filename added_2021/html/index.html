@@ -51,9 +51,11 @@
 </head>
 
 <!--
-	PDF-Export
+	PDF-Export (/?print-pdf)
 	Tag 1: 1,3-21
 	Tag 1 - Praxis: 23-24
+	Tag 2: 1,25-54
+	Tag 2 - Praxis: 55-58
 -->
 
 <body>
@@ -97,7 +99,8 @@
 					<p>Beschreibung eines "web"s mit "hypertext documents" die von "browsern" betrachtet werden</p>
 					<ul>
 						<li class="fragment">1990 (Ende): Erster Webserver und Browser für Demonstrationen</li>
-						<li class="fragment">1993: Erste HTML-Spezifikation von der Internet Engineering Task Force (IETF)</li>
+						<li class="fragment">1993: Erste HTML-Spezifikation von der Internet Engineering Task Force
+							(IETF)</li>
 					</ul>
 					<p>
 						Quelle: <a href="https://home.cern/science/computing/birth-web/short-history-web">CERN: A short
@@ -112,7 +115,8 @@
 						<li class="fragment">1997: HTML 3.2 durch das World Wide Web Consortium (W3C, <a
 								href="www.w3c.org">www.w3c.org</a>)
 							veröffentlicht</li>
-						<li class="fragment">1997-2000: HTML 4.x mit "Strict", "Transitional" und "Frameset" veröffentlicht</li>
+						<li class="fragment">1997-2000: HTML 4.x mit "Strict", "Transitional" und "Frameset"
+							veröffentlicht</li>
 						<li class="fragment">2008: HTML 5 durch das WW3C veröffentlicht</li>
 					</ul>
 					<p>
@@ -391,17 +395,19 @@
 						<li>Block-Elemente
 							<ul>
 								<li>können Block- oder Inline-Elemente enthalten</li>
-								<li>beginnt mit einer neuen Zeile davor und danach</li>
-								<li>(üblicherweise) mit Abstand davor und danach</li>
-								<li>bisher: h1 ... h6, p</li>
+								<li class="fragment" data-fragment-index="1">beginnt mit einer neuen Zeile davor und
+									danach</li>
+								<li class="fragment" data-fragment-index="1">(üblicherweise) mit Abstand davor und
+									danach</li>
+								<li class="fragment" data-fragment-index="2">bisher: h1 ... h6, p</li>
 							</ul>
 						</li>
-						<li>Inline-Elemente
+						<li class="fragment" data-fragment-index="3">Inline-Elemente
 							<ul>
-								<li>dürfen keine Blockelemente enthalten</li>
-								<li>Kein (extra) Zeilenumbruch</li>
-								<li>(üblicherweise) keine Abstände</li>
-								<li>bisher: b, i, sup, sub, br</li>
+								<li class="fragment" data-fragment-index="3">dürfen keine Blockelemente enthalten</li>
+								<li class="fragment" data-fragment-index="4">Kein (extra) Zeilenumbruch</li>
+								<li class="fragment" data-fragment-index="4">(üblicherweise) keine Abstände</li>
+								<li class="fragment" data-fragment-index="5">bisher: b, i, sup, sub, br</li>
 							</ul>
 						</li>
 					</ul>
@@ -411,59 +417,71 @@
 					<iframe class="code-example full-width"
 						data-src="./code-examples/7_block-inline-elemente/falsch.html"></iframe>
 					<pre class="language-html">
-						<code class="hljs" data-code="./code-examples/7_block-inline-elemente/falsch.html" data-line-numbers="9-15"></code>
+						<code class="hljs" data-code="./code-examples/7_block-inline-elemente/falsch.html" data-line-numbers="9-13"></code>
 					</pre>
+					<aside class="notes">
+						Richtig oder falsch? Falsch!
+						<a href="https://validator.w3.org/nu/">https://validator.w3.org/nu/</a>
+					</aside>
 				</section>
 				<section>
 					<h3>HTML - Block- vs. Inline-Elemente</h3>
 					<iframe class="code-example full-width"
 						data-src="./code-examples/7_block-inline-elemente/richtig.html"></iframe>
 					<pre class="language-html">
-						<code class="hljs" data-code="./code-examples/7_block-inline-elemente/richtig.html" data-line-numbers="9-15"></code>
+						<code class="hljs" data-code="./code-examples/7_block-inline-elemente/richtig.html" data-line-numbers="9-13"></code>
 					</pre>
+					<aside class="notes">
+						Richtig oder falsch? Richtig!
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>Tags und Attribute</h3>
 					<ul>
-						<li>Tags können mit Attributen versehen werden
+						<li class="fragment" data-fragment-index="1">Tags können mit Attributen versehen werden
 							<ul>
 								<li>&lt;tagname attribut1="value1" attribut2="value2"&gt;&lt;/tagname&gt;</li>
 								<li>Beispiel: &lt;p lang="fr"&gt; ... &lt;/p&gt;</li>
 							</ul>
 						</li>
 					</ul>
-					<p>Zugelassene Attribute sind abhänging vom Tag.</p>
-					<p>Einige Attribute sind global, also für alle Tags zulässig.</p>
+					<p class="fragment" data-fragment-index="2">Zugelassene Attribute sind abhänging vom Tag.</p>
+					<p class="fragment" data-fragment-index="2">Einige Attribute sind global, also für alle Tags
+						zulässig.</p>
 				</section>
 				<section>
 					<h3>Wichtige Globale Attribute</h3>
 					<ul>
 						<li>id - Eindeutiger Name des Elementes
 							<ul>
-								<li>Wert: Eindeutiger Name ohne Leerzeichen</li>
+								<li>Wert: eindeutiger Name ohne Leerzeichen</li>
 							</ul>
 						</li>
-						<li>class - Zuordnung zu einer oder mehreren Gruppen
+						<li class="fragment">class - Zuordnung zu einer oder mehreren Gruppen
 							<ul>
 								<li>Wert: unsortierte Liste von Namen</li>
 							</ul>
 						</li>
-						<li>lang - Sprache des Elementinhalts
+						<li class="fragment">lang - Sprache des Elementinhalts
 							<ul>
 								<li>Wert: Sprachbezeichner (z.B. de, en, en-us, ...)</li>
 							</ul>
 						</li>
-						<li>title - Zusatzinformation ("advisory information")
+						<li class="fragment" title="Zusatzinformation">title - Zusatzinformation ("advisory
+							information")
 							<ul>
 								<li>Wert: beliebiger Text</li>
-								<li title="Taucht üblicherweise als Tooltip auf">Taucht üblicherweise als Tooltip auf
+								<li>Taucht üblicherweise als Tooltip auf
 								</li>
 								<li>Wird an Unterelemente vererbt</li>
 							</ul>
 						</li>
 					</ul>
+					<aside class="notes">
+						Hover auf Tooltip nicht vergessen
+					</aside>
 				</section>
 				<section>
 					<h3>Mehr Wichtige Globale Attribute</h3>
@@ -473,19 +491,19 @@
 								<li>Wert: "ltr" (left to right), "rtl" (right to left), "auto"</li>
 							</ul>
 						</li>
-						<li>tabindex - Tabulator-Reihenfolge
+						<li class="fragment">tabindex - Tabulator-Reihenfolge
 							<ul>
 								<li>Wert: Zahl</li>
 							</ul>
 						</li>
-						<li>spellcheck
+						<li class="fragment">spellcheck - Rechtschreibprüfung
 							<ul>
 								<li>Wert: "true" or "false"</li>
-								<li>Browser entscheidet ob er es anwendet (z.B. typischerweise nur editierbare Elemente)
-								</li>
+								<li>Browser entscheidet ob er es anwendet<br />(z.B. typischerweise nur editierbare
+									Elemente)</li>
 							</ul>
 						</li>
-						<li>hidden - Verbergen eines Elements
+						<li class="fragment">hidden - Verbergen eines Elements
 							<ul>
 								<li>Wert: leer oder "hidden" (Case-Insensitiv)</li>
 								<li>Markiert nicht (mehr) relevante Elemente</li>
@@ -502,14 +520,14 @@
 								<li>Falls leer oder "true" kann Inhalt editiert werden</li>
 							</ul>
 						</li>
-						<li>translate - Übersetzbarkeit
+						<li class="fragment">translate - Übersetzbarkeit
 							<ul>
 								<li>Wert: leer, "true", "false"</li>
 								<li>Legt fest, ob der Inhalt übersetzt werden darf.</li>
 								<li>Wird an Unterelemente vererbt</li>
 							</ul>
 						</li>
-						<li>data-* - anwendungsspezifische Daten
+						<li class="fragment">data-* - anwendungsspezifische Daten
 							<ul>
 								<li>Wert: beliebiger Text</li>
 								<li>&lt;span data-nummer="1234"&gt;Max Müller&lt;/span&gt;</li>
@@ -526,13 +544,13 @@
 								<li>Wert: "true", "false"</li>
 							</ul>
 						</li>
-						<li>dropzone - Ablageort für ziehbare Elemente
+						<li class="fragment" data-fragment-index="1">dropzone - Ablageort für ziehbare Elemente
 							<ul>
 								<li>Wert: unsortierte Liste aus "copy", "move", "link", "string: [*]", "file: [*]"</li>
 								<li>Achtung: in gängigen Browsern noch nicht unterstützt :(</li>
 							</ul>
 						</li>
-						<li>ondragover - Eventhandler
+						<li class="fragment" data-fragment-index="1">ondragover - Eventhandler
 							<ul>
 								<li>Wert: JavaScript Funktion</li>
 								<li>Unterstützung durch alle Browser</li>
@@ -554,23 +572,26 @@
 			<section>
 				<section>
 					<h3>Semantische Textauszeichnung</h3>
+					<ul>
+						<li class="fragment" data-fragment-index="1">em &ndash; emphasis (Betonung)</li>
+						<li class="fragment" data-fragment-index="1">i &ndash; italics (kursive Schrift)</li>
+						<li class="fragment" data-fragment-index="2">strong &ndash; "strong importance" (hohe
+							Wichtigkeit)</li>
+						<li class="fragment" data-fragment-index="2">b &ndash; bold (Fettdruck)</li>
+						<li class="fragment" data-fragment-index="3">mark &ndash; marked (Markiert)</li>
+						<li class="fragment" data-fragment-index="3">u &ndash; underline (Unterstrichen)</li>
+					</ul>
+					<p>Betonung, hohe Wichtigkeit, Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
+						Auszeichnung</p>
+					<p>kursive Schrift, Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
+				</section>
+				<section>
+					<h3>Semantische Textauszeichnung</h3>
 					<iframe class="code-example full-width"
 						data-src="./code-examples/8_semantische-textauszeichnung/semantische-textauszeichnung.html"></iframe>
 					<pre class="language-html">
 						<code class="hljs" data-code="./code-examples/8_semantische-textauszeichnung/semantische-textauszeichnung.html" data-line-numbers="9-14"></code>
 					</pre>
-				</section>
-				<section>
-					<h3>Semantische Textauszeichnung</h3>
-					<ul>
-						<li>em &ndash; emphasis (Betonung)</li>
-						<li>i &ndash; italics (kursive Schrift)</li>
-						<li>strong &ndash; "strong importance" (hohe Wichtigkeit)</li>
-						<li>b &ndash; bold (Fettdruck)</li>
-						<li>mark &ndash; marked (Markiert)</li>
-					</ul>
-					<p>Betonung, hohe Wichtigkeit, Markierung:<br /><em>semantische</em> Auszeichnung</p>
-					<p>kursive Schrift, Fettdruck:<br /><b>optische</b> Auszeichnung</p>
 				</section>
 				<section>
 					<h3>Semantische Textauszeichnung<br />Inline-Beispiele</h3>
@@ -583,15 +604,16 @@
 								<li>Üblicherweise kursiv</li>
 							</ul>
 						</li>
-						<li>abbr &ndash; Abkürzung oder Akronym<ul>
+						<li class="fragment" data-fragment-index="1">abbr &ndash; Abkürzung oder Akronym<ul>
 								<li>Üblicherweise keine besondere Formatierung</li>
 							</ul>
 						</li>
-						<li>time &ndash; Zeitangabe<ul>
+						<li class="fragment" data-fragment-index="2">time &ndash; Zeitangabe<ul>
 								<li>Attribut "datetime" für maschinenlesbare Form!</li>
 							</ul>
 						</li>
-						<li>samp &ndash; Beispielausgaben<ul>
+						<li class="fragment" data-fragment-index="2">samp &ndash; Beispielausgabe eines
+							Computerprogramms<ul>
 								<li>Üblicherweise Schreibmaschinenschrift</li>
 							</ul>
 						</li>
@@ -604,16 +626,16 @@
 								<li>Üblicherweise eine horizontale Linie</li>
 							</ul>
 						</li>
-						<li>pre &ndash; Vorfomartierter Text<ul>
+						<li class="fragment">pre &ndash; Vorfomartierter Text<ul>
 								<li>Stellt auch Leerzeichen, Zeilen und Umbrüche dar</li>
 								<li>Üblicherweise Schreibmaschinenschrift</li>
 							</ul>
 						</li>
-						<li>blockquote &ndash; Zitat auf Absatzebene<ul>
+						<li class="fragment">blockquote &ndash; Zitat auf Absatzebene<ul>
 								<li>Üblicherweise beidseitig eingerückt</li>
 							</ul>
 						</li>
-						<li>figure &ndash; "Abbildung"<ul>
+						<li class="fragment">figure &ndash; "Abbildung"<ul>
 								<li>in sich geschlossener, vom Text getrennter Inhalt</li>
 								<li>optionale Unterschrift: &lt;figcation&gt;</li>
 							</ul>
@@ -627,19 +649,20 @@
 								<li>Abgeschlossener, unabhängiger Inhalt</li>
 							</ul>
 						</li>
-						<li>section &ndash; Abschnitt<ul>
+						<li class="fragment" data-fragment-index="1">section &ndash; Abschnitt<ul>
 								<li>Thematisch zusammengehöriger Teil
 									<!--, meist mit Überschrift-->
 								</li>
 							</ul>
 						</li>
-						<li>aside &ndash; Randbemerkung
+						<li class="fragment" data-fragment-index="2">aside &ndash; Randbemerkung
 						</li>
-						<li>header/footer &ndash; einleitender, abschließender Teil
+						<li class="fragment" data-fragment-index="3">header/footer &ndash; einleitender, abschließender
+							Teil
 						</li>
-						<li>nav &ndash; Navigation
+						<li class="fragment" data-fragment-index="3">nav &ndash; Navigation
 						</li>
-						<li>address &ndash; Kontaktinformation<ul>
+						<li class="fragment" data-fragment-index="4">address &ndash; Kontaktinformation<ul>
 								<li>Kontakt zum Inhalteersteller!!</li>
 							</ul>
 						</li>
@@ -649,10 +672,13 @@
 			<section>
 				<section>
 					<h3>Sonderzeichen in HTML</h3>
-					<p>Der verwendete Zeichensatz wird durch meta-Tag im Seitenkopf angegeben.<br />Ermöglicht: €$§²³
+					<p>Der verwendete Zeichensatz wird durch meta-Tag im Seitenkopf angegeben, z.B.:
+						"utf-8"<br />Ermöglicht: €$§²³
 						oder Umlaut äöüß</p>
-					<p><strong>Aber</strong>: Wie stelle ich reservierte Zeichen dar?<br />z.B. &gt; oder &lt;</p>
-					<p>Oder Zeichen die ich nicht einfach eingeben kann?<br />z.B. &copy;&hearts;&trade;</p>
+					<p class="fragment" data-fragment-index="1"><strong>Aber</strong>: Wie stelle ich reservierte
+						Zeichen dar?<br />z.B. &gt; oder &lt;</p>
+					<p class="fragment" data-fragment-index="1">Oder Zeichen die ich nicht einfach eingeben
+						kann?<br />z.B. &copy;&hearts;&trade;</p>
 				</section>
 				<section>
 					<h3>Sonderzeichen in HTML</h3>
@@ -662,31 +688,22 @@
 								<li>&amp;Name;&emsp;(Name ist vordefiniert)</li>
 							</ul>
 						</li>
-						<li>Verpflichtende vordefinierte Entitäten<ul>
+						<li class="fragment" data-fragment-index="1">Verpflichtende vordefinierte Entitäten<ul>
 								<li>Anführungszeichen&emsp;&quot;&emsp;&amp;quot;&amp;#34</li>
 								<li>Kaufmanns-Und&emsp;&amp;&emsp;&amp;amp;&amp;#38</li>
 								<li>Kleiner&emsp;&lt;&emsp;&amp;lt;&amp;#60</li>
 								<li>Größer&emsp;&gt;&emsp;&amp;gt;&amp;#34</li>
 							</ul>
 						</li>
-						<li>Viele weitere Entitäten: <a
+						<li class="fragment" data-fragment-index="2">Viele weitere Entitäten:<br /><a
 								href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">13.5
-								Named character references</a><br />z.B. &amp;copy;&ensp;&copy;
-						</li>
+								Named character references</a><br />z.B. &amp;copy;&ensp;&copy;</li>
 					</ul>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h3>HTML - unsortierte Liste</h3>
-					<iframe class="code-example full-width"
-						data-src="./code-examples/9_unsortierte-liste/unsortierte-liste.html"></iframe>
-					<pre class="language-html">
-						<code class="hljs" data-code="./code-examples/9_unsortierte-liste/unsortierte-liste.html" data-line-numbers="9-15"></code>
-					</pre>
-				</section>
-				<section>
-					<h3>Listen - unsortierte Liste</h3>
+					<h3>Unsortierte Liste</h3>
 					<ul>
 						<li>ul &ndash; Unsortierte Liste (unordered list)<ul>
 								<li>Üblicherweise dargestellt mit einem Punkt</li>
@@ -699,15 +716,15 @@
 					</ul>
 				</section>
 				<section>
-					<h3>HTML - sortierte Liste</h3>
+					<h3>HTML - Unsortierte Liste</h3>
 					<iframe class="code-example full-width"
-						data-src="./code-examples/10_sortierte-liste/sortierte-liste.html"></iframe>
+						data-src="./code-examples/9_unsortierte-liste/unsortierte-liste.html"></iframe>
 					<pre class="language-html">
-						<code class="hljs" data-code="./code-examples/10_sortierte-liste/sortierte-liste.html" data-line-numbers="9-15"></code>
+						<code class="hljs" data-code="./code-examples/9_unsortierte-liste/unsortierte-liste.html" data-line-numbers="9-15|10,14|11-13"></code>
 					</pre>
 				</section>
 				<section>
-					<h3>Listen - sortierte Liste</h3>
+					<h3>Sortierte Liste</h3>
 					<ul>
 						<li>ol &ndash; sortierte Liste (ordered list)<ul>
 								<li>Üblicherweise dargestellt mit arabischen Zahlen</li>
@@ -734,11 +751,19 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Listen - sortierte Liste</h3>
+					<h3>HTML Sortierte Liste</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/10_sortierte-liste/sortierte-liste.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/10_sortierte-liste/sortierte-liste.html" data-line-numbers="9-15|10,14"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>HTML Sortierte Liste</h3>
 					<iframe class="code-example full-width"
 						data-src="./code-examples/10_sortierte-liste/sortierte-liste_reversed-upper-alpha.html"></iframe>
 					<pre class="language-html">
-						<code class="hljs" data-code="./code-examples/10_sortierte-liste/sortierte-liste_reversed-upper-alpha.html" data-line-numbers="9-15"></code>
+						<code class="hljs" data-code="./code-examples/10_sortierte-liste/sortierte-liste_reversed-upper-alpha.html" data-line-numbers="9-15|10"></code>
 					</pre>
 				</section>
 				<section>
@@ -765,6 +790,143 @@
 					<pre class="language-html">
 						<code class="hljs" data-code="./code-examples/11_definitions-liste/definitions-liste.html" data-line-numbers="9-17"></code>
 					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML Tabellen</h3>
+					<ul>
+						<li>table &ndash; Tabelle<ul>
+								<li>Umfasst die gesamte Tabelle</li>
+							</ul>
+						</li>
+						<li>tr &ndash; Tabellenzeile (table row)<ul>
+								<li>deklariert eine neue Zeile</li>
+							</ul>
+						</li>
+						<li>td &ndash; Tabelleninhalt (table data)<ul>
+								<li>Definiert den Inhalt eine Zelle</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML Tabellen</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/12_tabellen/tabelle-grundstruktur.html"></iframe>
+					<pre class="language-html">
+					<code class="hljs" data-code="./code-examples/12_tabellen/tabelle-grundstruktur.html" data-line-numbers="9-22"></code>
+				</pre>
+				</section>
+				<section>
+					<h3>HTML Tabellen</h3>
+					<ul>
+						<li>caption &ndash; Überschrift (Legende)<ul>
+								<li>Üblicherweise über der Tabelle dargestellt</li>
+							</ul>
+						</li>
+						<li class="fragment">th &ndash; Spalten/Zeilen-Überschrift (table header)<ul>
+								<li>"scope" Attribut mit Wert "row" oder "col"</li>
+							</ul>
+						</li>
+						<li class="fragment">colgroup &ndash; Spaltenanzahl festlegen (columns)<ul>
+								<li>Definiert die Anzahl vorhandener Spalten</li>
+							</ul>
+						</li>
+						<li class="fragment">col &ndash; Spalte (column)<ul>
+								<li>"span" Attribut mit Wert ganze Zahl größer 0</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						there is no rowgroup
+					</aside>
+				</section>
+				<section>
+					<h3>Spalten, Unter- und Überschrift</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/12_tabellen/superhelden.html"></iframe>
+					<pre class="language-html">
+					<code class="hljs" data-code="./code-examples/12_tabellen/superhelden.html" data-line-numbers="37-60"></code>
+				</pre>
+				</section>
+				<section>
+					<h3>Zellen zusammenfassen</h3>
+					<ul>
+						<li>colspan &ndash; Spalten zusammenfassen<ul>
+								<li>Wert: ganze Zahl größer 0</li>
+							</ul>
+						</li>
+						<li>rowspan &ndash; Zeilen zusammenfassen<ul>
+								<li>Wert: ganze Zahl größer 0</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Zellen (zusammenfassen)</h3>
+					<iframe class="code-example full-width" data-src="./code-examples/12_tabellen/zellen.html"></iframe>
+					<pre class="language-html">
+					<code class="hljs" data-code="./code-examples/12_tabellen/zellen.html" data-line-numbers="9-24"></code>
+				</pre>
+				</section>
+				<section>
+					<h3>Zellen zusammenfassen</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/12_tabellen/zellen-zusammengefasst.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/12_tabellen/zellen-zusammengefasst.html" data-line-numbers="9-24"></code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - HTML</h3>
+					<p>Benötigtes Setup: Text-Editor &amp; Browser</p>
+					<ol start="2">
+						<li>Schreiben Sie den Satz des Pythagoras in HTML.</li>
+						<li>Testen Sie die Wirkungen der Auszeichnungen auf den vorangegangenen Folien (b, i, sup, sub,
+							br, hr, dfn, abbr, cite, time, samp, pre, blockquote, figure, article, section, aside,
+							header, footer, nav, address)<br />
+							Welche haben im Standard eine sichtbare Wirkung?<br />
+							Unterscheidet sich die Darstellung in verschiedenen Browsern?
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - Listen</h3>
+					<p>Benötigtes Setup: Text-Editor &amp; Browser</p>
+					<ol start="4">
+						<li>Erstellen Sie eine Liste mit 5 Einträgen. Diese sollen in römischer Darstellung abwärts
+							ab 50 gezählt werden.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - Listen</h3>
+					<ol start="5">
+						<li>Erstellen Sie eine Liste mit 3 Listen-Ebenen
+							<ul>
+								<li>Die erste Ebene hat 3 Einträge und ist ungeordnet.</li>
+								<li>Der erste Eintrag der ersten Ebene ist eine Liste mit 3 Einträgen geordnet nach
+									kleiner römischer zählweise aufwärts beginnen mit "ii"</li>
+								<li>Der zweite Eintrag der ersten Ebene besteht aus einer ungeordneten Liste mit 2
+									Einträgen.</li>
+								<li>Der dritte Eintrag der ersten Ebene besteht aus einer geordneten Liste gezählt mit
+									Kleinbuchstaben, dessen erster Eintrag wiederum eine Definitionsliste mit 3
+									Einträgen enthält.</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - Tabelle</h3>
+					<ol start="6">
+						<li>Was passiert, wenn die Anzahl der Zellen einer Zeile nicht der Anzahl der Spalten der
+							Tabelle entspricht (mehr/weniger)?</li>
+						<li>Wie lautet der Code für die unten angezeigte Tabelle? (Tipp: Tabellen lassen sich Schachteln
+							wie Listen)</li>
+					</ol>
+					<iframe class="code-example full-width" data-src="./code-examples/12_tabellen/praxis.html"></iframe>
 				</section>
 			</section>
 		</div>

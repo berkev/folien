@@ -5,18 +5,31 @@
     <meta charset="utf-8" />
     <title>HTML Tabellen</title>
     <style>
+        caption {
+            padding: 8px;
+        }
+
         table {
-            border: 2px solid black;
+            border-collapse: collapse;
+            border: 2px solid rgb(100, 100, 100);
         }
 
         td,
         th {
-            border-right: 1px solid rgb(100, 100, 100);
+            border: 1px solid rgb(100, 100, 100);
             padding: 10px 10px;
         }
-        td:last-child,
-        th:last-child {
-            border-right: none;
+
+        td {
+            text-align: center;
+        }
+
+        .batman {
+            background-color: #d7d9f2;
+        }
+
+        .flash {
+            background-color: #ffe8d4;
         }
     </style>
 </head>
@@ -26,8 +39,8 @@
         <caption>Superheros and sidekicks</caption>
         <colgroup>
             <col>
-            <col span="2">
-            <col span="2">
+            <col span="2" class="batman">
+            <col span="2" class="flash">
         </colgroup>
         <tr>
             <td> </td>
