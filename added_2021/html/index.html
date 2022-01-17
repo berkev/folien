@@ -581,9 +581,11 @@
 						<li class="fragment" data-fragment-index="3">mark &ndash; marked (Markiert)</li>
 						<li class="fragment" data-fragment-index="3">u &ndash; underline (Unterstrichen)</li>
 					</ul>
-					<p class="fragment" data-fragment-index="4">Betonung, hohe Wichtigkeit, Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
+					<p class="fragment" data-fragment-index="4">Betonung, hohe Wichtigkeit,
+						Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
 						Auszeichnung</p>
-					<p class="fragment" data-fragment-index="4">kursive Schrift, Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
+					<p class="fragment" data-fragment-index="4">kursive Schrift,
+						Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
 				</section>
 				<section>
 					<h3>Semantische Textauszeichnung</h3>
@@ -657,7 +659,8 @@
 						</li>
 						<li class="fragment" data-fragment-index="2">aside &ndash; Randbemerkung
 						</li>
-						<li class="fragment" data-fragment-index="3">header/main/footer &ndash; einleitender-, haupt-, abschließender Teil
+						<li class="fragment" data-fragment-index="3">header/main/footer &ndash; einleitender-, haupt-,
+							abschließender Teil
 						</li>
 						<li class="fragment" data-fragment-index="3">nav &ndash; Navigation
 						</li>
@@ -935,6 +938,1192 @@
 							wie Listen)</li>
 					</ol>
 					<img src="./images/praxis-tabelle-aufgabe.jpg" alt="Praxis Tabelle Aufgabe" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Verweise (Links)</h3>
+					<ul>
+						<li>a &ndash; Verweis/Link (anker)<ul>
+								<li>href: Verweisziel als URL</li>
+								<li class="fragment" data-fragment-index="1">target: Ziel-Fenster</li>
+								<li class="fragment" data-fragment-index="2">rel: Art des Verweises</li>
+								<li class="fragment" data-fragment-index="3">hreflang: Sprache des Ziels</li>
+								<li class="fragment" data-fragment-index="4">type: Dokumenttyp des Ziels</li>
+								<li class="fragment" data-fragment-index="4">download: Verweis zum Download gedacht</li>
+								<li class="fragment" data-fragment-index="5">Inhalt: auf ihn kann geklickt werden</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="5">&lt;a href="https://www.karlsruhe.dhbw.de/"&gt;Ein
+						Verweis auf die DHBW-Karlsruhe&lt;/a&gt;</p>
+					<aside class="notes">
+						rel Beispiel "external", "bookmark"
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>URL - Uniform Resource Locator</h3>
+					<p>Identifiziert und lokalisiert eine Ressource, über die zu verwendende Zugriffsmethode und den Ort der Ressource in Computernetzwerken.</p>
+					<p class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="2">&lt;Schema&gt;</span><span
+							class="fragment highlight-current-red"
+							data-fragment-index="3">:</span>&lt;schema-spezifisch&gt;</p>
+					<ul>
+						<li class="fragment" data-fragment-index="2">Schema<ul>
+								<li class="fragment" data-fragment-index="2">Definiert schema-spezifischen Teil</li>
+								<li class="fragment" data-fragment-index="2">Name des Schemas entspricht meist dem
+									Übertragungsprotokoll</li>
+								<li class="fragment" data-fragment-index="2">Beispiele: http, https, ftp, mailto, file,
+									smtp, imap</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						Resource, zum Beispiel eine Webseite
+						Zugriffsmethode, zum Beispiel das verwendete Netzwerkprotokoll wie HTTP oder FTP
+					</aside>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p><span class="fragment highlight-current-red" data-fragment-index="1">http</span>:<span
+							class="fragment highlight-current-red" data-fragment-index="1">//</span><span
+							class="fragment highlight-current-red"
+							data-fragment-index="2">&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;?<br />&lt;Anfrage&gt;#&lt;Fragment&gt;
+					</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Schema (hier http oder https)
+						</li>
+						<li class="fragment" data-fragment-index="2">Server<ul>
+								<li>Voll qualifizierter Domain-Name (FQDN)<br />z.B. "www.dhbw.de" oder "example.com"
+								</li>
+								<li>IPv4-Adresse dezimal, punkt-getreent<br />z.B. 193.99.144.80</li>
+								<li>IPv6-Adresse hexadezimal, doppelpunkt-getreent, in eckigen Klammern<br />z.B.
+									[2a02:2e0:3fe:1001:302::]</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						Gemäß Spezifikation (RFC1900) soll die Verwendung von IP-Adressen vermieden werden wo immer
+						möglich!
+					</aside>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>http://&lt;Server&gt;<span class="fragment highlight-current-red"
+							data-fragment-index="1">:&lt;Port&gt;</span><span class="fragment highlight-current-red"
+							data-fragment-index="2">/&lt;Pfad&gt;</span>?<br />&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Port<ul>
+								<li>Positive, ganze Zahl &gt; 65535</li>
+								<li>Falls nicht vorhanden wird der Standard-Port des Schemas verwendet, Z.B. http: 80,
+									https: 443</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="2">Pfad<ul>
+								<li>beliebige Zeichenkette ohne '?'</li>
+								<li>typischerweise mit '/' unterteilt (segmentiert)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<span
+							class="fragment highlight-current-red"
+							data-fragment-index="1">?<br />&lt;Anfrage&gt;</span>#&lt;Fragment&gt;</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Anfrage (Query)<ul>
+								<li>Keine verbindliche Spezifikation</li>
+								<li>Liste an Name-Wert-Paaren</li>
+								<li>Name und Wert mit '=' trennen, Paare mit '&amp;'<br />z.B.
+									x=6&amp;y=0&amp;q=Suchanfrage</li>
+								<li>Sonder- und Steuerzeichen korrekt codieren!</li>
+								<li>Vorsicht: moderne Browser-UIs verstecken URL-Codierung und Schema</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;?<br />&lt;Anfrage&gt;<span
+							class="fragment highlight-current-red" data-fragment-index="1">#&lt;Fragment&gt;</span></p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Fragment<ul>
+								<li>Verweist auf Element der Zielseite</li>
+								<li>Wird dem Server nie mitgeteilt</li>
+								<li>Verwendung in Kombination des a-Tags</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Basic Authentication</h3>
+					<p>&lt;Schema&gt;://<span class="fragment highlight-current-red"
+							data-fragment-index="1">&lt;Benutzer&gt;:&lt;Passwort&gt;@</span>&lt;Server&gt;:&lt;Port&gt;...
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>Im Schema http/https veraltet</li>
+						<li>Browser reagieren unterschiedlich (Rückfrage, Verweigerung, ...)</li>
+						<li>Für andere Schemata (z.B. FTP) wird es weiterhin genutzt</li>
+					</ul>
+				</section>
+				<section>
+					<h3>URL Kodierung</h3>
+					<p>Steuer- und Sonderzeichen müssen kodiert werden</p>
+					<p class="fragment" data-fragment-index="1">Codierung erfolgt byteweise durch '%' und Angabe des Zeichencodes (hexadezimal, zweistellig)</p>
+					<p class="fragment" data-fragment-index="1">Unicode-Zeichen via '%u' und vierstelliger Hexadezimalzahl</p>
+					<p class="fragment" data-fragment-index="2">Beispiele:
+					<ul class="fragment" data-fragment-index="2">
+						<li>'&amp;' = '%26' (ASCII)</li>
+						<li>'&euro;' = '%E2%82%AC' (Byteweise, UTF-8)</li>
+						<li>'&euro;' = '%u20AC' (Unicode, UTF-16)</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Relative URLs</h3>
+					<p>Präfixe relativ zur aktuellen URL</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>'//' = Gleiches Schema</li>
+						<li>'/' = Gleicher Server (und Port)</li>
+						<li>'#' = Gleiche Ressource (anderes Element)</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">Beispiele ausgehend von "https://example.com/pfad/datei.html#anfang"
+					<ul class="fragment" data-fragment-index="2">
+						<li class="fragment" data-fragment-index="3">//example.com/pfad/andere/datei.html</li>
+						<li class="fragment" data-fragment-index="3">/pfad/ganz/andere/datei.html</li>
+						<li class="fragment" data-fragment-index="3">#ende</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Relativer Pfad</h3>
+					<p>Präfixe relativ zum aktuellen Pfad</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>'../' = ein Pfadsegement "nach oben"</li>
+						<li>'./' = gleiches Pfadsegment</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">Beispiele ausgehend von "/pfad/datei.html"
+					<ul class="fragment" data-fragment-index="2">
+						<li class="fragment" data-fragment-index="3">../ganz/andere/datei.html</li>
+						<li class="fragment" data-fragment-index="3">./datei2.html</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Verweis - Fragment + Anker</h3>
+					<p>Zweck: An bestimmte Stelle auf einem (sehr) langen Dokument springen.</p>
+					<p class="fragment" data-fragment-index="1">Fragment: anhängen von #&lt;Fragment&gt; an die URL</p>
+					<p class="fragment" data-fragment-index="1">Anker: id-Attribut des a-Tags</p>
+					<p class="fragment" data-fragment-index="2">Beispiele:
+						<br /><a target="_blank"
+							href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element</a>
+						<br /><a target="_blank"
+							href="https://de.wikipedia.org/wiki/HTML5#Standarddarstellung">https://de.wikipedia.org/wiki/HTML5#Standarddarstellung</a>
+					</p>
+				</section>
+				<section>
+					<h3>Verweis - Target</h3>
+					<ul>
+						<li>Werte: "_blank", "_self", Bezeichner
+							<ul>
+								<li>"_blank" &ndash; Neue Seite öffnet sich in neuem Tab/Fenster</li>
+								<li>"_self" &ndash; Neue Seite öffnet sich im gleichen Fenster</li>
+								<li>"Bezeichner" &ndash; Neue Seite öffnet sich im bezeichneten Fenster, z.B.:<br />&lt;a
+									href="http://www.google.de" target="myid"&gt;Google&lt;/a&gt;</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Verweis - Download</h3>
+					<ul>
+						<li>Werte: leer oder Dateiname</li>
+						<li>&lt;a href="lebenslauf.pdf" download="Mein Lebenslauf.pdf"&gt;
+							Hier ist mein Lebenslauf
+							&lt;/a&gt;
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Verweis - rel</h3>
+					<ul>
+						<li>Liste von Werten:
+							<ul>
+								<li>"alternate" &ndash; Alternative Darstellung</li>
+								<li>"bookmark" &ndash; Bester permanenter Verweis</li>
+								<li class="fragment" data-fragment-index="1">"author" &ndash; Autor des Dokumentes</li>
+								<li class="fragment" data-fragment-index="1">"help" &ndash; Verweis zur Hilfe</li>
+								<li class="fragment" data-fragment-index="1">"search" &ndash; Verweis zur Suche</li>
+								<li class="fragment" data-fragment-index="2">"nofollow" &ndash; Autor unterstützt den
+									Inhalt nicht</li>
+								<li class="fragment" data-fragment-index="2">"noreferrer" &ndash; Keine Referenz
+									mitschicken</li>
+								<li class="fragment" data-fragment-index="3">"prefetch", "preload", ("preconnect",
+									"prerender") Performanceoptimierung für Navigation</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Verweis - Attribute</h3>
+					<ul>
+						<li>hreflang - Sprache des Verweisziels
+							<ul>
+								<li>Wert: Sprachbezeichner (z.B. de, en, en-us, ...)</li>
+							</ul>
+						</li>
+						<li>type - Dokumenttyp des Verweisziels
+							<ul>
+								<li>Wert: MIME-type</li>
+							</ul>
+						</li>
+					</ul>
+					<p>hreflang und type nur eine Vorindikation</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Bilder</h3>
+					<ul>
+						<li>img &ndash; Bild (image)<ul>
+								<li>src: Bildquelle<ul>
+										<li>Wert: absolute oder relative URL</li>
+									</ul>
+								</li>
+								<li>alt: Alternative Beschreibung<ul>
+										<li>Wert: Text</li>
+										<li>Achtung: Text wird oft als Tooltip angezeigt</li>
+									</ul>
+								</li>
+								<li>width: Breite<ul>
+										<li>Wert: Ganze Zahl Pixel oder "%"</li>
+									</ul>
+								</li>
+								<li>height: Höhe<ul>
+										<li>Wert: Ganze Zahl Pixel oder "%"</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Bilder - Attribute</h3>
+					<ul>
+						<li>crossorigin - Bild stammt von anderem Server
+							<ul>
+								<li>Wert: "anonymous", "use-credentials"</li>
+							</ul>
+						</li>
+						<li>ismap - Wenn Verweis, Mitschicken der Klick-Koordinaten
+							<ul>
+								<li>Wert: "ismap", leer</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Bilder - Performance-Attribute</h3>
+					<ul>
+						<li>decoding - Hinweis wie Browser Bild verarbeiten soll
+							<ul>
+								<li>Wert: "sync", "async", "auto"</li>
+							</ul>
+						</li>
+						<li>loading - Hinweis wann Browser Bild laden soll
+							<ul>
+								<li>Wert: "eager", "lazy"</li>
+								<li>Achtung: nicht von allen Browsern unterstützt, nur wenn JavaScript aktiviert ist
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3><b class="fragment highlight-current-red" data-fragment-index="1">H</b>yper<b
+							class="fragment highlight-current-red" data-fragment-index="1">t</b>ext <b
+							class="fragment highlight-current-red" data-fragment-index="1">T</b>ransport <b
+							class="fragment highlight-current-red" data-fragment-index="1">P</b>rotocol</h3>
+					<div class="two-columns">
+						<div class="text-column">
+							<ol class="fragment">
+								<li>Browser sendet HTTP GET Request an Server</li>
+								<li>Server berechnet Seite</li>
+								<li>Server schickt Seite an Browser</li>
+								<li>Browser stellt Seite dar</li>
+							</ol>
+						</div>
+						<img src="./images/html-Formulare-Client-Server_1.jpg">
+					</div>
+				</section>
+				<section>
+					<h3>HTTP - OSI Schichten-Modell</h3>
+					<p>Open Systems Interconnection model (OSI) beschreibt sieben Schichten (Layer)</p>
+					<ol reversed="reversed">
+						<li class="fragment" data-fragment-index="5">Anwendung - HTTP(S), DNS, DHCP, FTP</li>
+						<li class="fragment" data-fragment-index="5">Darstellung</li>
+						<li class="fragment" data-fragment-index="5">Sitzung</li>
+						<li class="fragment" data-fragment-index="4">Transport &ndash; TCP/UDP</li>
+						<li class="fragment" data-fragment-index="3">Vermittlung &ndash; IP (Router)</li>
+						<li class="fragment" data-fragment-index="2">Sicherung &ndash; Ethernet (Switch)</li>
+						<li class="fragment" data-fragment-index="1">Bitübertragung &ndash; 1000BASE-T (Netzwerkkabel)
+						</li>
+					</ol>
+					<aside class="notes">
+						Application, Presentation, Session, Transport, Network, Data Link, Physical
+						DNS=Domain Name Systems
+						DHCP=Dynamic Host Configuration Protocol
+					</aside>
+				</section>
+				<section>
+					<h3>HTTP/1.1</h3>
+					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc2068">RFC 2068</a> in 1997.
+					</p>
+					<p>Striktes Request/Response Protokoll in einem Client-Server Model</p>
+					<p>Zustandsloses Protokoll</p>
+				</section>
+				<section>
+					<h3>HTTP/1.1 - Anfrage/Request</h3>
+					<pre><code data-line-numbers="1|2|3">GET /index.html HTTP/1.1
+Host: example.com
+
+					</code></pre>
+					<ol>
+						<li class="fragment">Anfragemethode: GET, Leerzeichen, absolute URL, Leerzeichen,
+							Protokollversion</li>
+						<li class="fragment">HTTP-Header: Host<br />Headername Doppelpunkt Headerwert</li>
+						<li class="fragment">Anfrageabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+					</ol>
+				</section>
+				<section>
+					<h3>HTTP/1.1 - Antwort/Response</h3>
+					<pre><code data-line-numbers="1|2-4|5|6">HTTP/1.1 200 OK
+Server: Apache/1.3.29 (Unix) PHP/4.3.4
+Content-Length: 123456
+Content-Type: text/html; charset=utf-8
+
+&lt;!DOCTYPE ...</code></pre>
+					<ul>
+						<li class="fragment">Statuszeile: Protokoll, Leerzeichen, Statuscode, Leerzeichen, Beschreibung
+						</li>
+						<li class="fragment">HTTP-Header: Headername Doppelpunkt Headerwert</li>
+						<li class="fragment">Headerabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+						<li class="fragment">Inhalt (Body)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP Status codes</h3>
+					<ul>
+						<li class="fragment">1xx &ndash; Information<br />verhindert eine Zeitüberschreitung der Anfrage
+						</li>
+						<li class="fragment">2xx &ndash; Erfolg<br />Antwort geht raus</li>
+						<li class="fragment">3xx &ndash; Umleitung<br />die Prinzessin ist in einem anderen Schloss</li>
+						<li class="fragment">4xx &ndash; Client Fehler<br />die Anfrage des Clients ist fehlerbehaftet
+						</li>
+						<li class="fragment">5xx &ndash; Server Fehler<br />der Server hat einen Fehler verursacht</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP Anfragemethode POST</h3>
+					<p>Anfrage beinhaltet Inhalt (Body)</p>
+					<pre><code data-line-numbers="|1|2-4|5|6|">POST /test HTTP/1.1
+Host: example.com
+Content-Type: text/plain
+Content-Length: 32
+
+This is my awesome request body</code></pre>
+					<ul>
+						<li class="fragment">Anfragemethode: POST, Leerzeichen, absolute URL, Leerzeichen,
+							Protokollversion</li>
+						<li class="fragment">HTTP-Header: Host, Content-Type</li>
+						<li class="fragment">Headerabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+						<li class="fragment">Inhalt/Body</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP: Wikipedia-Suche</h3>
+					<p>Anfrage:</p>
+					<pre><code data-line-numbers="|1|2-4|6|">POST /wiki/Spezial:Search HTTP/1.1
+Host: de.wikipedia.org
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 24
+
+search=Katzen&go=Artikel</code></pre>
+				</section>
+				<section>
+					<h3>HTTP: Wikipedia-Suche</h3>
+					<p>Antwort:</p>
+					<pre><code data-line-numbers="|1|2|">HTTP/1.1 302 Found
+Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
+					<p class="fragment">Client (Browser) schickt eine weitere GET-Anfrage um "Location" abzurufen (und
+						anzuzeigen)</p>
+				</section>
+				<section data-visibility="hidden">
+					<h3>HTTP/2</h3>
+					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc7540">RFC 7540</a> in 2015.
+					</p>
+					<p>Verbesserungen gegenüber HTTP/1.1
+					<ul>
+						<li>Komprimierte HTTP Header</li>
+						<li>Server kann mit mehr als dem angefragten Inhalt antworten (Server Push)</li>
+						<li>"chunked transfer encoding" ersetzt durch "data streaming"</li>
+						<li>Mehrere gleichzeitige HTTP-Transaktionen mit einer TCP-Verbindung</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<div class="r-stack">
+						<img class="fragment fade-in-then-out" src="images/forms_amazon-login.jpg">
+						<img class="fragment fade-in-then-out" src="images/forms_amazon-neue-addresse.jpg">
+						<img class="fragment fade-in-then-out" src="images/forms_namecheap-login.jpg">
+						<img class="fragment fade-in-then-out" src="images/forms_namecheap-add-card.jpg">
+					</div>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<p>Nicht alle Browser unterstützen alle neuen HML5 Möglichkeiten</p>
+					<ul>
+						<li>Neue Eingabetypen</li>
+						<li>Validierung</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>form &ndash; Formular
+							<ul>
+								<li>method: Sendemethode</li>
+								<li>action: Sendeziel (auszulösende "Aktion")</li>
+								<li>name: eindeutiger Name des Formulars</li>
+								<li>target: Zielfenster</li>
+								<li class="li-space-above">autocomplete: Autovervollständigung</li>
+								<li>formnovalidate: Validierung vor Übertragung</li>
+								<li class="li-space-above">formenctype: Enkodierungsmethode</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						formenctype: Form data set encoding type to use for form submission
+					</aside>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>method &ndash; Sendemethode
+							<ul>
+								<li>Wert: "post", "get"</li>
+								<li>"get" &ndash; Eingabeparameter werden an URL angehängt</li>
+								<li>"post" &ndash; Eingabeparameter werden als Nachrichteninhalt gesendet</li>
+							</ul>
+						</li>
+						<li>action &ndash; Sendeziel
+							<ul>
+								<li>Wert: absolute oder relative URL</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						get: einfach sichtbar, gut für z.B. Bookmarks
+						post: nicht so einfach sichtbar, nicht einfach speicherbar
+					</aside>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>name &ndash; Name des Formulars
+							<ul>
+								<li>Wert: bezüglich aller form-Tags eindeutiger Bezeichner</li>
+								<li>Dient der Auswahl eines Formulars (JavaScript/CSS)</li>
+							</ul>
+						</li>
+						<li>target &ndash; Zielfenster
+							<ul>
+								<li>Wert: "_blank", "_self", Bezeichner</li>
+								<li>Gleiche Funktion wie bei Verweisen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>autocomplete &ndash; Autovervollständigung
+							<ul>
+								<li>Wert: "on", "off" (default ist "on")</li>
+								<li>Autovervollständigung durch Browser erwünscht?</li>
+								<li>Voreinstellung für alle Eingabefelder</li>
+							</ul>
+						</li>
+						<li>formnovalidate &ndash; Validierung durch Browser
+							<ul>
+								<li>Wert: "novalidate", leer</li>
+								<li>Deaktiviert Validierung durch den Browser</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input.html" data-line-numbers="|11,13|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Named</h3>
+					<ul>
+						<li>name &ndash; eindeutiger Names des Eingabefeldes
+							<ul>
+								<li>Wert: eindeutiger Bezeichner</li>
+								<li>Wird als Parametername verwendet</li>
+								<li>Dient der Auswahl eines Formulars (JavaScript/CSS)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Named</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-named.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-named.html" data-line-numbers="|11,13|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>autocomplete &ndash; Autovervollständigung (siehe form)</li>
+						<li>autofocus &ndash; Fokus automatisch zuweisen
+							<ul>
+								<li>Wert: "autofocus", leer</li>
+								<li>Wird als Parametername verwendet</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>disabled &ndash; Eingabemöglichkeit ausschalten
+							<ul>
+								<li>Wert: "disabled", leer</li>
+								<li>Keine Änderung der Eingabe möglich</li>
+							</ul>
+						</li>
+						<li>readonly &ndash; Eingabemöglichkeit ausschalten aber fokussierbar
+							<ul>
+								<li>Wert: "readonly", leer</li>
+								<li>Keine Änderung der Eingabe möglich, Feld aber fokussierbar</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>required &ndash; Pflichtfeld
+							<ul>
+								<li>Wert: "required", leer</li>
+								<li>Leere Eingabe wird bei Eingabeüberprüfung nicht akzeptiert</li>
+							</ul>
+						</li>
+						<li>pattern &ndash; Eingabeformat
+							<ul>
+								<li>Wert: JavaScript Pattern (regular expression)</li>
+								<li>Formatangabe für die Eingabeüberprüfung</li>
+								<li>Tipp: mit <a href="https://regex101.com/">regex101.com</a> reguläre Ausdrücke testen
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Advanced</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-advanced.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-advanced.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>maxlength &ndash; Maximale Eingabelänge
+							<ul>
+								<li>Wert: positive, ganze Zahl</li>
+							</ul>
+						</li>
+						<li>size &ndash; Sichtbare Eingabegröße
+							<ul>
+								<li>Wert: positive, ganze Zahl</li>
+								<li>Anzahl der gleichzeitig sichtbaren Zeichen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Size</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-size.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-size.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>placeholder &ndash; Eingabehinweis
+							<ul>
+								<li>Wert: Einzeiliger Text</li>
+								<li>Wird angezeigt, solange keine Eingabe erfolgt ist.</li>
+							</ul>
+						</li>
+						<li>value &ndash; Standardwert
+							<ul>
+								<li>Wert: Text (je nach Input-Typ!)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Value</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-value.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-value.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>list &ndash; Vorgabeliste
+							<ul>
+								<li>Wert: ID einer Vorgabeliste</li>
+								<li>Erlaubt die Auswahl aus vorgegebenen Werten</li>
+							</ul>
+						</li>
+						<li>Vorgabeliste: datalist</li>
+						<li>Vorgabewert: option</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - List</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-list.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-list.html" data-line-numbers="|12|13-20"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Praxis - HTML Formulare 1</h3>
+					<ol>
+						<li>Schreiben Sie eine HTML-Seite mit einem Formular mit einem Eingabefeld. Die mit dem Formular
+							aufgerufene Seite sei die Suche von <a
+								href="https://www.wolframalpha.com/">wolframalpha.com</a>.</li>
+						<li>Beobachten Sie mit dem Browser die Kommunikation zum Server und dessen Antwort, wenn Sie als
+							Methode "post" oder "get" verwenden.</li>
+					</ol>
+					<aside class="notes">
+						Wolframalpha: https://www.wolframalpha.com/input/?i=Suche
+					</aside>
+				</section>
+				<section>
+					<h3>Praxis - HTML Formulare 1</h3>
+					<ol start="3">
+						<li>Überprüfen Sie die Wirkung der Attribute disabled, readonly, autocomplete, required,
+							pattern, maxlength, size, placeholder, und value. Werden die Attribute in verschiedenen
+							Browsern gleich dargestellt?</li>
+						<li>Schlagen Sie mit Hilfe einer Vorgabeliste Werte vor.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Type</h3>
+					<ul>
+						<li>type &ndash; Eingabefeldtyp
+							<ul>
+								<li>Wert: "hidden", "text", "search", "tel", "url", "email", "password", "date",
+									"datetime-local", "month", "week", "time", "number", "range", "color", "checkbox",
+									"radio", "file", "submit", "image", "reset", "button"</li>
+								<li>Default: "text"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Search</h3>
+					<ul>
+						<li>"search"
+							<ul>
+								<li>Keine Zeilenumbrüche</li>
+								<li>Löschen Symbol, falls Browser es unterstützt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Search</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-search.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-search.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Hidden, Password</h3>
+					<ul>
+						<li>"hidden"
+							<ul>
+								<li>Wird nicht angezeigt</li>
+								<li>Dient dem "Durchreichen" von Parametern durch Formulare.</li>
+							</ul>
+						</li>
+						<li>"password"
+							<ul>
+								<li>Keine Anzeiger der eingegebenen Zeichen</li>
+								<li>Dient der Eingabe von Passwörtern</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Tel, Email, Url</h3>
+					<ul>
+						<li>"tel"
+							<ul>
+								<li>Gedacht für Telefonnummern, zeigt je nach Gerät und Browser einen Nummernblock an.
+								</li>
+								<li>Keine Eingabeüberprüfung! (-> Pattern)</li>
+							</ul>
+						</li>
+						<li>"email"
+							<ul>
+								<li>Eingabeüberprüfung auf gültige Email-Adresse</li>
+							</ul>
+						</li>
+						<li>"url"
+							<ul>
+								<li>Eingabeüberprüfung auf gültige absolute URL</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Submit</h3>
+					<ul>
+						<li>"submit" &ndash; Senden-Knopf
+							<ul>
+								<li>Abschicken eines Formulars</li>
+								<li>"value" bestimmt den sichtbaren Text des Knopfs</li>
+								<li>ohne "value" wird ein lokalisierter "Senden"-Text angezeigt</li>
+								<li>mit "name" wir dein Parameter mit name und Wert "value" mitgeschickt</li>
+								<li class="li-space-above">formaction, formenctype, formmethod, formtarget &ndash;
+									Überschreibt Werte im form-Element</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Uhrzeit, Tag</h3>
+					<ul>
+						<li>"time", "date", "week", "month", "datetime-local"
+							<ul>
+								<li>Eingabe von Datum und/oder Uhrzeit bzw. Woche</li>
+								<li>Eingabehilfe mit "date picker"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Uhrzeit, Tag</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-date-time.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-date-time.html" data-line-numbers="|12-16|17"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Zahlen</h3>
+					<ul>
+						<li>type="number"
+							<ul>
+								<li>Direkte Eingabe, evtl. hoch-runter Knöpfe</li>
+							</ul>
+						</li>
+						<li>type="range"
+							<ul>
+								<li>Eingabe via Schieberegler</li>
+							</ul>
+						</li>
+						<li>Attribute
+							<ul>
+								<li>min &ndash; Minimum</li>
+								<li>max &ndash; Maximum</li>
+								<li>step &ndash; Schrittweite</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Color</h3>
+					<ul>
+						<li>type="color"
+							<ul>
+								<li>Farbauswahlfeld</li>
+								<li>Ergibt 8-Bit RGB-Wert</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Color</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-color.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-color.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Checkbox, Radio</h3>
+					<ul>
+						<li>type="checkbox"
+							<ul>
+								<li>Nicht ausgewählt, kein Parameter wird übergeben</li>
+								<li>Ausgewählt, value oder "on" wird übergeben</li>
+							</ul>
+						</li>
+						<li>type="radio"
+							<ul>
+								<li>alle mit gleichem Namen werden zu einer Gruppe zusammengefasst</li>
+							</ul>
+						</li>
+						<li>Attribute
+							<ul>
+								<li>checked &ndash; Zustand auf "ausgewählt" setzen<br />Wert: "checked", leer</li>
+								<li>value &ndash; Wert des Eingabefelds<br />Wert: Text</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Checkbox, Radio</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-checkbox-radio.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-checkbox-radio.html" data-line-numbers="|12|13-14"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - File</h3>
+					<ul>
+						<li>type="file" &ndash; Datei hochladen
+							<ul>
+								<li>accept &ndash; Einschränkung auf Dateitypen<br />Werte: komma-getrennte Liste von
+									Endungen (.xml) oder Mime-Types (application/msword)</li>
+								<li>multiple &ndash; mehrere Dateien hochladen</li>
+							</ul>
+						</li>
+						<p>Pflicht: formenctype="multipart/form-data" und method="post", ansonsten nur Dateiname</p>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Bild</h3>
+					<ul>
+						<li>type="image" &ndash; Bild-Knopf
+							<ul>
+								<li>src &ndash; relative oder absolute URL zu einem Bild</li>
+								<li>width, height &ndash; siehe Bilder</li>
+								<li class="li-space-above">Abschicken eines Formulars über ein Bild.</li>
+								<li>Schickt das Formular bei Klick auf das Bild ab.</li>
+								<li>zusätzlich wird die geklickte Koordinate relativ zur oberen linken Ecke übertragen.
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Bild</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-image.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-image.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Reset, Button</h3>
+					<ul>
+						<li>type="reset" &ndash; Zurücksetzen-Knopf
+							<ul>
+								<li>Zurücksetzen der Eingaben eines Formulars</li>
+								<li>value &ndash; Text für den Knopf (siehe Submit)</li>
+							</ul>
+						</li>
+						<li>type="button" &ndash; Generischer Knopf
+							<ul>
+								<li>Knopf "ohne" Funktion, gedacht für Scripting</li>
+								<li>value &ndash; Text für den Knopf</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Button</h3>
+					<ul>
+						<li>button &ndash; Knopf
+							<ul>
+								<li>type &ndash; Werte: "submit", "reset", "button"</li>
+								<li>Siehe input type="submit", "reset", "button"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Auswahl</h3>
+					<ul>
+						<li>select &ndash; Auswahl
+							<ul>
+								<li>Attribute wie input (z.B. disabled, name, required, etc.)</li>
+							</ul>
+						</li>
+						<li>option &ndash; Auswahl-Option
+							<ul>
+								<li>value &ndash; Wert des Parameters</li>
+								<li>disabled &ndash; Nicht auswählbare Option</li>
+								<li>selected &ndash; vorgewählte Option</li>
+								<li class="li-space-above">Ist value nicht gesetzt, wird der Tag-Inhalt verwendet</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Auswahl - Gruppiert</h3>
+					<ul>
+						<li>optgroup &ndash; Gruppierung von "option"
+							<ul>
+								<li>disabled &ndash; nicht wählbare Gruppe</li>
+								<li>label &ndash; angezeigter Text</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Auswahl</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-select.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-select.html" data-line-numbers="|12-23|13-16|17-22"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabebereich</h3>
+					<ul>
+						<li>textarea &ndash; Eingabebereich
+							<ul>
+								<li>cols &ndash; Spalten (Wert: ganze positive Zahl)</li>
+								<li>rows &ndash; Zeilen (Wert: ganze positive Zahl)</li>
+								<li>wrap &ndash; Zeilenumbruch (Wert: "soft", "hard")</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Beschriftung</h3>
+					<ul>
+						<li>label &ndash; Beschriftung
+							<ul>
+								<li>for &ndash; zu beschriftendes Element (Wert: id)</li>
+								<li class="li-space-above">Das erste Element mit "id" wird genutzt, alle weiteren
+									ignoriert.</li>
+								<li>Das Element mit "id" muss <a
+										href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#form_labelable">"labelable"</a>
+									sein, bisher: button, input, select, textarea</li>
+								<li>Ein Element mit "id" kann mit mehreren labeln versehen werden.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabebereich</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-textarea-label.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-textarea-label.html" data-line-numbers="|12-13|14"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabegruppe</h3>
+					<ul>
+						<li>fieldset &ndash; Eingabegruppe
+							<ul>
+								<li>name &ndash; Name der Gruppe</li>
+								<li>disabled &ndash; Alle Eingaben der Gruppe deaktivieren</li>
+							</ul>
+						</li>
+						<li>legend &ndash; Beschriftung einer Eingabegruppe
+							<ul>
+								<li>keine zusätzlichen Attribute</li>
+								<li>Tag-Wert wird angezeigt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabegruppe</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-fieldset.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-fieldset.html" data-line-numbers="|12-20|13|14-15"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Formularattribute</h3>
+					<ul>
+						<li>Alle Eingabe-Elemente:
+							<ul>
+								<li>form &ndash; Zuordnung zu einem anderen Formular (Wert: ID eines form-Elements)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Aufbau eines HTML-Dokuments</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/1_hello-world/hello-world.html" data-line-numbers="|1|2,10|3-6|7-9|"></code>
+					</pre>
+					<aside class="notes">
+						Kurzer refresh: Wofuer steht doctype?
+					</aside>
+				</section>
+				<section>
+					<h3>HTML - head</h3>
+					<p>Muss mindestens einen Titel beinhalten:<br />
+						&lt;title&gt;Titel des Dokuments&lt;/title&gt;
+					</p>
+					<p>Charset muss definiert werden, z.B.:<br />
+						&lt;meta charset="UTF-8"&gt;<br />
+						(Kann auch per HTTP-Header gesetzt werden)
+					</p>
+					<p>Mobile Websiten setzen den viewport via:<br />
+						&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+					</p>
+				</section>
+				<section>
+					<h3>Head - Default Viewport</h3>
+					<p>Gerät (Moto G4) - Breite: 360px - Paragraph: 380px</p>
+					<img height="500"
+						src="./code-examples/2_mobile-non-mobile/non-mobile-hello-world.html(Moto G4).png">
+				</section>
+				<section>
+					<h3>Head - Mobile Viewport</h3>
+					<p>Gerät (Moto G4) - Breite: 360px - Paragraph: 380px</p>
+					<img height="500" src="./code-examples/2_mobile-non-mobile/mobile-hello-world.html(Moto G4).png">
+				</section>
+				<section>
+					<h3>HTML - head</h3>
+					<p>Weitere Elemente:
+					<ul>
+						<li>base &ndash; Basis für relative URLs</li>
+						<li>link &ndash; Logische Beziehungen</li>
+						<li>meta &ndash; Metadaten</li>
+						<li>script &ndash; JavaScript einbinden</li>
+						<li>style &ndash; CSS einbinden</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Head - base, link</h3>
+					<ul>
+						<li>base &ndash; URL-Basis
+							<ul>
+								<li>Basis für alle relativen URLs eines HTML-Dokuments</li>
+							</ul>
+						</li>
+						<li>link &ndash; Logische Beziehung
+							<ul>
+								<li>rel &ndash; Art der Beziehung (z.B. author, stylesheet, icon, manifest)</li>
+								<li>href &ndash; Referenz (absolute oder relative URL)</li>
+								<li>type &ndash; MIME-Type (z.B. text/css, text/html, image/png)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Head - meta</h3>
+					<ul>
+						<li>meta &ndash; Metadaten
+							<ul>
+								<li>Genau eines der Attribute "name", "charset" und "http-equiv" setzen.</li>
+								<li class="li-space-above">name &ndash; Zusatzinformation<br />Werte: "author",
+									"description", "keywords"</li>
+								<li>charset &ndash; Zeichensatz<br />(muss ASCII-Kompatibel und sollte UTF-8 sein)</li>
+								<li>http-equiv &ndash; Werte aus HTTP-Header ändern<br />Werte: "content-language",
+									"content-type"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Verweise</h3>
+					<ol start="8">
+						<li>Erstellen Sie drei kleine HTML-Seiten A, B und C. Verweisen sie von A auf B und von B auf C
+						</li>
+						<li>Erstellen Sie eine umfangreiche Seite D mit mehreren Überschriften und Absätzen, die jeweils
+							eine ganze Bildschirmseite füllen.</li>
+						<li>Erstellen Sie auf der Seite D ein "Inhaltsvereichnis" mit Verweisen auf die einzelnen
+							Überschriften. Verweisen Sie zusätzlich von A auf die einzelnen Überschriften von D.</li>
+					</ol>
+					<p>Tip - Erzeugung von Fließtext: <a href="http://www.loremipsum.de/">http://www.loremipsum.de/</a>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - Verweise</h3>
+					<ol start="11">
+						<li>Verweisen Sie von B jetzt so auf C, dass bei jedem Folgen des Verweises ein neues Fenster
+							(oder Tab) geöffnet wird.</li>
+						<li>Verweisen Sie von A so auf D, dass einmal ein neues Fenster geöffnet wird, beim wiederholten
+							Folgen des Verweises aber immer dieses Fenster wieder angewählt wird.</li>
+						<li>Verwiesen Sie auch von C auf das erzeugte Fenster für D.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - Verweise/Bild</h3>
+					<ol start="14">
+						<li>Fügen Sie auf Seite C ein Bild ein.</li>
+						<li>Bieten Sie das Bild auf Seite C zum Download an.</li>
+						<li>Fügen Sie mehrere bildschirmfüllende Bilder auf Seite C ein und nutzen Sie loading="lazy".
+							Wie verhalten Sie die verschiedenen Browser beim runterscrollen?</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - HTML-Formulare</h3>
+					<ol>
+						<li>Bei welchen Browsern wirken für welche Input-Typen die Autovervollständigung und die
+							Validierung?</li>
+						<li>Wie verhält sich ein Label-Element bei Checkboxen und Radio-Buttons?</li>
+						<li>Erstellen Sie ein Eingabefeld, das nur Hexadezimalzahlen akzeptiert.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - HTML-Formulare</h3>
+					<ol start="4">
+						<li>Erstellen Sie eine Eingabeseite für Personendaten mit Angaben zu Anrede, Titel, Vorname,
+							Nachname, Straße, Hausnummer, PLZ, Ort, Bundesland, Geburtsdatum und -uhrzeit, Sternzeichen,
+							Bild (upload), Familienstand, Anzahl Kinder, Kommentar, ...<br />Verwenden Sie passende
+							Gruppierungen und Beschriftungen und Validierungen!</li>
+					</ol>
 				</section>
 			</section>
 		</div>
