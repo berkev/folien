@@ -166,7 +166,7 @@
 					</ul>
 				</section>
 				<section>
-					<h3>Tags</h3>
+					<h3>Tags - Elemente</h3>
 					<ul>
 						<li>Struktur: &lt;tagname&gt;&lt;/tagname&gt;</li>
 						<li class="fragment" data-fragment-index="0">Öffnendes Tag: <b
@@ -353,18 +353,6 @@
 			</section>
 			<section>
 				<section>
-					<h3>Bisherige Tags</h3>
-					<ul>
-						<li>h1, h2, h3, h4, h5, h6</li>
-						<li>p, br</li>
-						<li>b, i</li>
-						<li>sup, sub</li>
-					</ul>
-					<p>Sind diese Tags alle gleichwertig?</p>
-				</section>
-			</section>
-			<section>
-				<section>
 					<h3>Praxis - HTML</h3>
 					<p>Benötigtes Setup: Text-Editor &amp; Browser</p>
 					<ol>
@@ -386,6 +374,18 @@
 						<li>MacOS: ???</li>
 					</ul>
 					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Bisherige Tags</h3>
+					<ul>
+						<li>h1, h2, h3, h4, h5, h6</li>
+						<li>p, br</li>
+						<li>b, i</li>
+						<li>sup, sub</li>
+					</ul>
+					<p>Sind diese Tags alle gleichwertig?</p>
 				</section>
 			</section>
 			<section>
@@ -459,7 +459,7 @@
 								<li>Wert: eindeutiger Name ohne Leerzeichen</li>
 							</ul>
 						</li>
-						<li class="fragment">class - Zuordnung zu einer oder mehreren Gruppen
+						<li class="fragment">class - Zuordnung des Elements zu einer oder mehreren Gruppen
 							<ul>
 								<li>Wert: unsortierte Liste von Namen</li>
 							</ul>
@@ -493,7 +493,7 @@
 						</li>
 						<li class="fragment">tabindex - Tabulator-Reihenfolge
 							<ul>
-								<li>Wert: Zahl</li>
+								<li>Wert: Zahl (ganzzahlig, aufsteigend)</li>
 							</ul>
 						</li>
 						<li class="fragment">spellcheck - Rechtschreibprüfung
@@ -581,9 +581,9 @@
 						<li class="fragment" data-fragment-index="3">mark &ndash; marked (Markiert)</li>
 						<li class="fragment" data-fragment-index="3">u &ndash; underline (Unterstrichen)</li>
 					</ul>
-					<p>Betonung, hohe Wichtigkeit, Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
+					<p class="fragment" data-fragment-index="4">Betonung, hohe Wichtigkeit, Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
 						Auszeichnung</p>
-					<p>kursive Schrift, Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
+					<p class="fragment" data-fragment-index="4">kursive Schrift, Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
 				</section>
 				<section>
 					<h3>Semantische Textauszeichnung</h3>
@@ -657,8 +657,7 @@
 						</li>
 						<li class="fragment" data-fragment-index="2">aside &ndash; Randbemerkung
 						</li>
-						<li class="fragment" data-fragment-index="3">header/footer &ndash; einleitender, abschließender
-							Teil
+						<li class="fragment" data-fragment-index="3">header/main/footer &ndash; einleitender-, haupt-, abschließender Teil
 						</li>
 						<li class="fragment" data-fragment-index="3">nav &ndash; Navigation
 						</li>
@@ -685,19 +684,20 @@
 					<ul>
 						<li>Entity &ndash; Entität<ul>
 								<li>&amp;#Code-Nummer;&emsp;(Code-Nummer ist dezimal)</li>
+								<li>&amp;#xUTF8-Nummer;&emsp;(UTF8-Nummer ist dezimal)</li>
 								<li>&amp;Name;&emsp;(Name ist vordefiniert)</li>
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="1">Verpflichtende vordefinierte Entitäten<ul>
-								<li>Anführungszeichen&emsp;&quot;&emsp;&amp;quot;&amp;#34</li>
-								<li>Kaufmanns-Und&emsp;&amp;&emsp;&amp;amp;&amp;#38</li>
-								<li>Kleiner&emsp;&lt;&emsp;&amp;lt;&amp;#60</li>
-								<li>Größer&emsp;&gt;&emsp;&amp;gt;&amp;#34</li>
+								<li>Anführungszeichen&emsp;&quot;&emsp;&amp;quot;&amp;#34;</li>
+								<li>Kaufmanns-Und&emsp;&amp;&emsp;&amp;amp;&amp;#38;</li>
+								<li>Kleiner&emsp;&lt;&emsp;&amp;lt;&amp;#60;</li>
+								<li>Größer&emsp;&gt;&emsp;&amp;gt;&amp;#62;</li>
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="2">Viele weitere Entitäten:<br /><a
 								href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">13.5
-								Named character references</a><br />z.B. &amp;copy;&ensp;&copy;</li>
+								Named character references</a>, z.B. &amp;copy;&ensp;&copy;</li>
 					</ul>
 				</section>
 			</section>
@@ -778,7 +778,7 @@
 							</ul>
 						</li>
 						<li>dd &ndash; Definition (description details)<ul>
-								<li>die definition selbst</li>
+								<li>die Definition selbst</li>
 							</ul>
 						</li>
 					</ul>
