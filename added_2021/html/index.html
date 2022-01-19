@@ -52,10 +52,14 @@
 
 <!--
 	PDF-Export (/?print-pdf)
-	Tag 1: 1,3-21
-	Tag 1 - Praxis: 23-24
-	Tag 2: 1,25-55
-	Tag 2 - Praxis: 56-59
+	Tag 1: 1,3-23
+	Tag 1 - Praxis: 24-25
+	Tag 2: 1,26-62
+	Tag 2 - Praxis: 63-66
+	Tag 3: 1,67-104
+	Tag 3 - Praxis: 105-108
+	Tag 4: 1,109-155
+	Tag 4 - Praxis: 156-158
 -->
 
 <body>
@@ -965,9 +969,10 @@
 			<section>
 				<section>
 					<h3>URL - Uniform Resource Locator</h3>
-					<p>Identifiziert und lokalisiert eine Ressource, über die zu verwendende Zugriffsmethode und den Ort der Ressource in Computernetzwerken.</p>
-					<p class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="2">&lt;Schema&gt;</span><span
-							class="fragment highlight-current-red"
+					<p>Identifiziert und lokalisiert eine Ressource, über die zu verwendende Zugriffsmethode und den Ort
+						der Ressource in Computernetzwerken.</p>
+					<p class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red"
+							data-fragment-index="2">&lt;Schema&gt;</span><span class="fragment highlight-current-red"
 							data-fragment-index="3">:</span>&lt;schema-spezifisch&gt;</p>
 					<ul>
 						<li class="fragment" data-fragment-index="2">Schema<ul>
@@ -1071,8 +1076,10 @@
 				<section>
 					<h3>URL Kodierung</h3>
 					<p>Steuer- und Sonderzeichen müssen kodiert werden</p>
-					<p class="fragment" data-fragment-index="1">Codierung erfolgt byteweise durch '%' und Angabe des Zeichencodes (hexadezimal, zweistellig)</p>
-					<p class="fragment" data-fragment-index="1">Unicode-Zeichen via '%u' und vierstelliger Hexadezimalzahl</p>
+					<p class="fragment" data-fragment-index="1">Codierung erfolgt byteweise durch '%' und Angabe des
+						Zeichencodes (hexadezimal, zweistellig)</p>
+					<p class="fragment" data-fragment-index="1">Unicode-Zeichen via '%u' und vierstelliger
+						Hexadezimalzahl</p>
 					<p class="fragment" data-fragment-index="2">Beispiele:
 					<ul class="fragment" data-fragment-index="2">
 						<li>'&amp;' = '%26' (ASCII)</li>
@@ -1089,7 +1096,8 @@
 						<li>'/' = Gleicher Server (und Port)</li>
 						<li>'#' = Gleiche Ressource (anderes Element)</li>
 					</ul>
-					<p class="fragment" data-fragment-index="2">Beispiele ausgehend von "https://example.com/pfad/datei.html#anfang"
+					<p class="fragment" data-fragment-index="2">Beispiele ausgehend von
+						"https://example.com/pfad/datei.html#anfang"
 					<ul class="fragment" data-fragment-index="2">
 						<li class="fragment" data-fragment-index="3">//example.com/pfad/andere/datei.html</li>
 						<li class="fragment" data-fragment-index="3">/pfad/ganz/andere/datei.html</li>
@@ -1128,11 +1136,12 @@
 				<section>
 					<h3>Verweis - Target</h3>
 					<ul>
-						<li>Werte: "_blank", "_self", Bezeichner
+						<li>Werte: "_self", "_blank", Bezeichner
 							<ul>
-								<li>"_blank" &ndash; Neue Seite öffnet sich in neuem Tab/Fenster</li>
-								<li>"_self" &ndash; Neue Seite öffnet sich im gleichen Fenster</li>
-								<li>"Bezeichner" &ndash; Neue Seite öffnet sich im bezeichneten Fenster, z.B.:<br />&lt;a
+								<li>"_self" &ndash; Neue Seite öffnet sich im gleichen Fenster (standard)</li>
+								<li class="fragment">"_blank" &ndash; Neue Seite öffnet sich in neuem Tab/Fenster</li>
+								<li class="fragment">"Bezeichner" &ndash; Neue Seite öffnet sich im bezeichneten Fenster
+									oder öffnet ein Fenster mit diesem Bezeichner, z.B.:<br />&lt;a
 									href="http://www.google.de" target="myid"&gt;Google&lt;/a&gt;</li>
 							</ul>
 						</li>
@@ -1140,7 +1149,8 @@
 				</section>
 				<section>
 					<h3>Verweis - Download</h3>
-					<ul>
+					<p>Deklariert den Link als Download (anstatt Anzeige)</p>
+					<ul class="fragment">
 						<li>Werte: leer oder Dateiname</li>
 						<li>&lt;a href="lebenslauf.pdf" download="Mein Lebenslauf.pdf"&gt;
 							Hier ist mein Lebenslauf
@@ -1150,19 +1160,20 @@
 				</section>
 				<section>
 					<h3>Verweis - rel</h3>
-					<ul>
+					<p>Definiert die Verweisart (relationship)</p>
+					<ul class="fragment" data-fragment-index="1">
 						<li>Liste von Werten:
 							<ul>
 								<li>"alternate" &ndash; Alternative Darstellung</li>
 								<li>"bookmark" &ndash; Bester permanenter Verweis</li>
-								<li class="fragment" data-fragment-index="1">"author" &ndash; Autor des Dokumentes</li>
-								<li class="fragment" data-fragment-index="1">"help" &ndash; Verweis zur Hilfe</li>
-								<li class="fragment" data-fragment-index="1">"search" &ndash; Verweis zur Suche</li>
-								<li class="fragment" data-fragment-index="2">"nofollow" &ndash; Autor unterstützt den
+								<li class="fragment" data-fragment-index="2">"author" &ndash; Autor des Dokumentes</li>
+								<li class="fragment" data-fragment-index="2">"help" &ndash; Verweis zur Hilfe</li>
+								<li class="fragment" data-fragment-index="2">"search" &ndash; Verweis zur Suche</li>
+								<li class="fragment" data-fragment-index="3">"nofollow" &ndash; Autor unterstützt den
 									Inhalt nicht</li>
-								<li class="fragment" data-fragment-index="2">"noreferrer" &ndash; Keine Referenz
+								<li class="fragment" data-fragment-index="3">"noreferrer" &ndash; Keine Referenz
 									mitschicken</li>
-								<li class="fragment" data-fragment-index="3">"prefetch", "preload", ("preconnect",
+								<li class="fragment" data-fragment-index="4">"prefetch", "preload", ("preconnect",
 									"prerender") Performanceoptimierung für Navigation</li>
 							</ul>
 						</li>
@@ -1176,13 +1187,13 @@
 								<li>Wert: Sprachbezeichner (z.B. de, en, en-us, ...)</li>
 							</ul>
 						</li>
-						<li>type - Dokumenttyp des Verweisziels
+						<li class="fragment" data-fragment-index="1">type - Dokumenttyp des Verweisziels
 							<ul>
 								<li>Wert: MIME-type</li>
 							</ul>
 						</li>
 					</ul>
-					<p>hreflang und type nur eine Vorindikation</p>
+					<p class="fragment" data-fragment-index="2">hreflang und type nur eine Vorindikation</p>
 				</section>
 			</section>
 			<section>
@@ -1194,16 +1205,16 @@
 										<li>Wert: absolute oder relative URL</li>
 									</ul>
 								</li>
-								<li>alt: Alternative Beschreibung<ul>
+								<li class="fragment" data-fragment-index="1">alt: Alternative Beschreibung<ul>
 										<li>Wert: Text</li>
 										<li>Achtung: Text wird oft als Tooltip angezeigt</li>
 									</ul>
 								</li>
-								<li>width: Breite<ul>
+								<li class="fragment" data-fragment-index="2">width: Breite<ul>
 										<li>Wert: Ganze Zahl Pixel oder "%"</li>
 									</ul>
 								</li>
-								<li>height: Höhe<ul>
+								<li class="fragment" data-fragment-index="2">height: Höhe<ul>
 										<li>Wert: Ganze Zahl Pixel oder "%"</li>
 									</ul>
 								</li>
@@ -1219,7 +1230,8 @@
 								<li>Wert: "anonymous", "use-credentials"</li>
 							</ul>
 						</li>
-						<li>ismap - Wenn Verweis, Mitschicken der Klick-Koordinaten
+						<li class="fragment" data-fragment-index="1">ismap - Wenn Verweis, Mitschicken der
+							Klick-Koordinaten
 							<ul>
 								<li>Wert: "ismap", leer</li>
 							</ul>
@@ -1234,7 +1246,7 @@
 								<li>Wert: "sync", "async", "auto"</li>
 							</ul>
 						</li>
-						<li>loading - Hinweis wann Browser Bild laden soll
+						<li class="fragment" data-fragment-index="1">loading - Hinweis wann Browser Bild laden soll
 							<ul>
 								<li>Wert: "eager", "lazy"</li>
 								<li>Achtung: nicht von allen Browsern unterstützt, nur wenn JavaScript aktiviert ist
@@ -1285,12 +1297,14 @@
 					<h3>HTTP/1.1</h3>
 					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc2068">RFC 2068</a> in 1997.
 					</p>
-					<p>Striktes Request/Response Protokoll in einem Client-Server Model</p>
-					<p>Zustandsloses Protokoll</p>
+					<p class="fragment">Protokoll zum Übertragen von Daten<br />über ein Netzwerk</p>
+					<p class="fragment">Striktes Request/Response Protokoll in einem<br />Client-Server Model</p>
+					<p class="fragment">Zustandsloses Protokoll</p>
+					<p class="fragment">Anfragen und Antworten bestehen aus<br />Kopf (header) und Inhalt (content)</p>
 				</section>
 				<section>
 					<h3>HTTP/1.1 - Anfrage/Request</h3>
-					<pre><code data-line-numbers="1|2|3">GET /index.html HTTP/1.1
+					<pre><code class="language-http hljs" data-line-numbers="1|2|3|">GET /index.html HTTP/1.1
 Host: example.com
 
 					</code></pre>
@@ -1303,7 +1317,7 @@ Host: example.com
 				</section>
 				<section>
 					<h3>HTTP/1.1 - Antwort/Response</h3>
-					<pre><code data-line-numbers="1|2-4|5|6">HTTP/1.1 200 OK
+					<pre><code class="language-http hljs" data-line-numbers="1|2-4|5|6|">HTTP/1.1 200 OK
 Server: Apache/1.3.29 (Unix) PHP/4.3.4
 Content-Length: 123456
 Content-Type: text/html; charset=utf-8
@@ -1331,8 +1345,8 @@ Content-Type: text/html; charset=utf-8
 				</section>
 				<section>
 					<h3>HTTP Anfragemethode POST</h3>
-					<p>Anfrage beinhaltet Inhalt (Body)</p>
-					<pre><code data-line-numbers="|1|2-4|5|6|">POST /test HTTP/1.1
+					<p>Anfrage kommt mit Inhalt (Body)</p>
+					<pre><code class="language-http hljs" data-line-numbers="|1|2-4|5|6|">POST /test HTTP/1.1
 Host: example.com
 Content-Type: text/plain
 Content-Length: 32
@@ -1349,22 +1363,22 @@ This is my awesome request body</code></pre>
 				<section>
 					<h3>HTTP: Wikipedia-Suche</h3>
 					<p>Anfrage:</p>
-					<pre><code data-line-numbers="|1|2-4|6|">POST /wiki/Spezial:Search HTTP/1.1
+					<pre><code class="language-http hljs" data-line-numbers="|1|2-4|6|">POST /wiki/Spezial:Search HTTP/1.1
 Host: de.wikipedia.org
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 24
 
-search=Katzen&go=Artikel</code></pre>
+search=Katze&go=Artikel</code></pre>
 				</section>
 				<section>
 					<h3>HTTP: Wikipedia-Suche</h3>
 					<p>Antwort:</p>
-					<pre><code data-line-numbers="|1|2|">HTTP/1.1 302 Found
-Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
+					<pre><code class="language-http hljs" data-line-numbers="|1|2|">HTTP/1.1 302 Found
+Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 					<p class="fragment">Client (Browser) schickt eine weitere GET-Anfrage um "Location" abzurufen (und
 						anzuzeigen)</p>
 				</section>
-				<section data-visibility="hidden">
+				<section>
 					<h3>HTTP/2</h3>
 					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc7540">RFC 7540</a> in 2015.
 					</p>
@@ -1382,7 +1396,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 				<section>
 					<h3>HTML - Formulare</h3>
 					<div class="r-stack">
-						<img class="fragment fade-in-then-out" src="images/forms_amazon-login.jpg">
+						<img class="fragment fade-out" src="images/forms_amazon-login.jpg">
 						<img class="fragment fade-in-then-out" src="images/forms_amazon-neue-addresse.jpg">
 						<img class="fragment fade-in-then-out" src="images/forms_namecheap-login.jpg">
 						<img class="fragment fade-in-then-out" src="images/forms_namecheap-add-card.jpg">
@@ -1390,7 +1404,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 				</section>
 				<section>
 					<h3>HTML - Formulare</h3>
-					<p>Nicht alle Browser unterstützen alle neuen HML5 Möglichkeiten</p>
+					<p>Nicht alle Browser unterstützen alle neuen HTML5 Formular-Möglichkeiten</p>
 					<ul>
 						<li>Neue Eingabetypen</li>
 						<li>Validierung</li>
@@ -1405,9 +1419,12 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>action: Sendeziel (auszulösende "Aktion")</li>
 								<li>name: eindeutiger Name des Formulars</li>
 								<li>target: Zielfenster</li>
-								<li class="li-space-above">autocomplete: Autovervollständigung</li>
-								<li>formnovalidate: Validierung vor Übertragung</li>
-								<li class="li-space-above">formenctype: Enkodierungsmethode</li>
+								<li class="li-space-above fragment" data-fragment-index="1">autocomplete:
+									Autovervollständigung</li>
+								<li class="fragment" data-fragment-index="1">formnovalidate: Validierung vor Übertragung
+								</li>
+								<li class="li-space-above fragment" data-fragment-index="2">formenctype:
+									Enkodierungsmethode</li>
 							</ul>
 						</li>
 					</ul>
@@ -1421,11 +1438,13 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 						<li>method &ndash; Sendemethode
 							<ul>
 								<li>Wert: "post", "get"</li>
-								<li>"get" &ndash; Eingabeparameter werden an URL angehängt</li>
-								<li>"post" &ndash; Eingabeparameter werden als Nachrichteninhalt gesendet</li>
+								<li class="fragment" data-fragment-index="1">"get" &ndash; Eingabeparameter werden an
+									URL angehängt</li>
+								<li class="fragment" data-fragment-index="2">"post" &ndash; Eingabeparameter werden als
+									Nachrichteninhalt gesendet</li>
 							</ul>
 						</li>
-						<li>action &ndash; Sendeziel
+						<li class="fragment" data-fragment-index="3">action &ndash; Sendeziel
 							<ul>
 								<li>Wert: absolute oder relative URL</li>
 							</ul>
@@ -1445,7 +1464,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Dient der Auswahl eines Formulars (JavaScript/CSS)</li>
 							</ul>
 						</li>
-						<li>target &ndash; Zielfenster
+						<li class="fragment">target &ndash; Zielfenster
 							<ul>
 								<li>Wert: "_blank", "_self", Bezeichner</li>
 								<li>Gleiche Funktion wie bei Verweisen</li>
@@ -1463,7 +1482,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Voreinstellung für alle Eingabefelder</li>
 							</ul>
 						</li>
-						<li>formnovalidate &ndash; Validierung durch Browser
+						<li class="fragment">formnovalidate &ndash; Validierung durch Browser
 							<ul>
 								<li>Wert: "novalidate", leer</li>
 								<li>Deaktiviert Validierung durch den Browser</li>
@@ -1486,7 +1505,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 							<ul>
 								<li>Wert: eindeutiger Bezeichner</li>
 								<li>Wird als Parametername verwendet</li>
-								<li>Dient der Auswahl eines Formulars (JavaScript/CSS)</li>
+								<li>Dient der Auswahl eines Parameters (JavaScript/CSS)</li>
 							</ul>
 						</li>
 					</ul>
@@ -1499,11 +1518,60 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-named.html" data-line-numbers="|11,13|12"></code>
 					</pre>
 				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Verweise</h3>
+					<ol start="8">
+						<li>Erstellen Sie drei kleine HTML-Seiten A, B und C. Verweisen sie von A auf B und von B auf C
+						</li>
+						<li>Erstellen Sie eine umfangreiche Seite D mit mehreren Überschriften und Absätzen, die jeweils
+							eine ganze Bildschirmseite füllen.</li>
+						<li>Erstellen Sie auf der Seite D ein "Inhaltsvereichnis" mit Verweisen auf die einzelnen
+							Überschriften. Verweisen Sie zusätzlich von A auf die einzelnen Überschriften von D.</li>
+					</ol>
+					<p>Tip - Erzeugung von Fließtext: <a href="http://www.loremipsum.de/">http://www.loremipsum.de/</a>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - Verweise</h3>
+					<ol start="11">
+						<li>Verweisen Sie von B jetzt so auf C, dass bei jedem Folgen des Verweises ein neues Fenster
+							(oder Tab) geöffnet wird.</li>
+						<li>Verweisen Sie von A so auf D, dass einmal ein neues Fenster geöffnet wird, beim wiederholten
+							Folgen des Verweises aber immer dieses Fenster wieder angewählt wird.</li>
+						<li>Verwiesen Sie auch von C auf das erzeugte Fenster für D.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - Verweise/Bild</h3>
+					<ol start="14">
+						<li>Fügen Sie auf Seite C ein Bild ein.</li>
+						<li>Bieten Sie das Bild auf Seite C zum Download an.</li>
+						<li>Fügen Sie mehrere bildschirmfüllende Bilder auf Seite C ein und nutzen Sie loading="lazy".
+							Wie verhalten Sie die verschiedenen Browser beim runterscrollen?</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - HTML Formulare</h3>
+					<ol start="17">
+						<li>Schreiben Sie eine HTML-Seite mit einem Formular mit einem Eingabefeld. Die mit dem Formular
+							aufgerufene Seite sei die Suche von <a
+								href="https://www.wolframalpha.com/">wolframalpha.com</a>.</li>
+						<li>Beobachten Sie mit dem Browser die Kommunikation zum Server und dessen Antwort, wenn Sie als
+							Methode "post" oder "get" verwenden.</li>
+					</ol>
+					<aside class="notes">
+						Wolframalpha: https://www.wolframalpha.com/input/?i=Suche
+					</aside>
+				</section>
+			</section>
+			<section>
 				<section>
 					<h3>Eingabefelder - Input</h3>
 					<ul>
 						<li>autocomplete &ndash; Autovervollständigung (siehe form)</li>
-						<li>autofocus &ndash; Fokus automatisch zuweisen
+						<li class="fragment">autofocus &ndash; Fokus automatisch zuweisen
 							<ul>
 								<li>Wert: "autofocus", leer</li>
 								<li>Wird als Parametername verwendet</li>
@@ -1520,7 +1588,8 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Keine Änderung der Eingabe möglich</li>
 							</ul>
 						</li>
-						<li>readonly &ndash; Eingabemöglichkeit ausschalten aber fokussierbar
+						<li class="fragment">readonly &ndash; Eingabemöglichkeit ausschalten, aber nachwievor
+							fokussierbar
 							<ul>
 								<li>Wert: "readonly", leer</li>
 								<li>Keine Änderung der Eingabe möglich, Feld aber fokussierbar</li>
@@ -1537,7 +1606,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Leere Eingabe wird bei Eingabeüberprüfung nicht akzeptiert</li>
 							</ul>
 						</li>
-						<li>pattern &ndash; Eingabeformat
+						<li class="fragment">pattern &ndash; Eingabeformat
 							<ul>
 								<li>Wert: JavaScript Pattern (regular expression)</li>
 								<li>Formatangabe für die Eingabeüberprüfung</li>
@@ -1563,7 +1632,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Wert: positive, ganze Zahl</li>
 							</ul>
 						</li>
-						<li>size &ndash; Sichtbare Eingabegröße
+						<li class="fragment">size &ndash; Sichtbare Eingabegröße
 							<ul>
 								<li>Wert: positive, ganze Zahl</li>
 								<li>Anzahl der gleichzeitig sichtbaren Zeichen</li>
@@ -1588,7 +1657,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Wird angezeigt, solange keine Eingabe erfolgt ist.</li>
 							</ul>
 						</li>
-						<li>value &ndash; Standardwert
+						<li class="fragment">value &ndash; Standardwert
 							<ul>
 								<li>Wert: Text (je nach Input-Typ!)</li>
 							</ul>
@@ -1612,8 +1681,12 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Erlaubt die Auswahl aus vorgegebenen Werten</li>
 							</ul>
 						</li>
-						<li>Vorgabeliste: datalist</li>
-						<li>Vorgabewert: option</li>
+						<li class="fragment" data-fragment-index="1">Vorgabeliste: datalist
+							<ul>
+								<li>id: zusammengehöriges Input-Feld</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">Vorgabewert: option</li>
 					</ul>
 				</section>
 				<section>
@@ -1625,33 +1698,12 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 					</pre>
 				</section>
 				<section>
-					<h3>Praxis - HTML Formulare 1</h3>
-					<ol>
-						<li>Schreiben Sie eine HTML-Seite mit einem Formular mit einem Eingabefeld. Die mit dem Formular
-							aufgerufene Seite sei die Suche von <a
-								href="https://www.wolframalpha.com/">wolframalpha.com</a>.</li>
-						<li>Beobachten Sie mit dem Browser die Kommunikation zum Server und dessen Antwort, wenn Sie als
-							Methode "post" oder "get" verwenden.</li>
-					</ol>
-					<aside class="notes">
-						Wolframalpha: https://www.wolframalpha.com/input/?i=Suche
-					</aside>
-				</section>
-				<section>
-					<h3>Praxis - HTML Formulare 1</h3>
-					<ol start="3">
-						<li>Überprüfen Sie die Wirkung der Attribute disabled, readonly, autocomplete, required,
-							pattern, maxlength, size, placeholder, und value. Werden die Attribute in verschiedenen
-							Browsern gleich dargestellt?</li>
-						<li>Schlagen Sie mit Hilfe einer Vorgabeliste Werte vor.</li>
-					</ol>
-				</section>
-				<section>
 					<h3>Eingabefelder - Input - Type</h3>
 					<ul>
 						<li>type &ndash; Eingabefeldtyp
 							<ul>
-								<li>Wert: "hidden", "text", "search", "tel", "url", "email", "password", "date",
+								<li class="fragment">Wert: "hidden", "text", "search", "tel", "url", "email",
+									"password", "date",
 									"datetime-local", "month", "week", "time", "number", "range", "color", "checkbox",
 									"radio", "file", "submit", "image", "reset", "button"</li>
 								<li>Default: "text"</li>
@@ -1687,7 +1739,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Dient dem "Durchreichen" von Parametern durch Formulare.</li>
 							</ul>
 						</li>
-						<li>"password"
+						<li class="fragment">"password"
 							<ul>
 								<li>Keine Anzeiger der eingegebenen Zeichen</li>
 								<li>Dient der Eingabe von Passwörtern</li>
@@ -1705,12 +1757,12 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Keine Eingabeüberprüfung! (-> Pattern)</li>
 							</ul>
 						</li>
-						<li>"email"
+						<li class="fragment">"email"
 							<ul>
 								<li>Eingabeüberprüfung auf gültige Email-Adresse</li>
 							</ul>
 						</li>
-						<li>"url"
+						<li class="fragment">"url"
 							<ul>
 								<li>Eingabeüberprüfung auf gültige absolute URL</li>
 							</ul>
@@ -1723,10 +1775,14 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 						<li>"submit" &ndash; Senden-Knopf
 							<ul>
 								<li>Abschicken eines Formulars</li>
-								<li>"value" bestimmt den sichtbaren Text des Knopfs</li>
-								<li>ohne "value" wird ein lokalisierter "Senden"-Text angezeigt</li>
-								<li>mit "name" wir dein Parameter mit name und Wert "value" mitgeschickt</li>
-								<li class="li-space-above">formaction, formenctype, formmethod, formtarget &ndash;
+								<li class="fragment" data-fragment-index="1">"value" bestimmt den sichtbaren Text des
+									Knopfs</li>
+								<li class="fragment" data-fragment-index="1">ohne "value" wird ein lokalisierter
+									"Senden"-Text angezeigt</li>
+								<li class="fragment" data-fragment-index="2">mit "name" wir ein Parameter mit name und
+									Wert "value" mitgeschickt</li>
+								<li class="li-space-above fragment" data-fragment-index="3">formaction, formenctype,
+									formmethod, formtarget &ndash;
 									Überschreibt Werte im form-Element</li>
 							</ul>
 						</li>
@@ -1867,7 +1923,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>value &ndash; Text für den Knopf (siehe Submit)</li>
 							</ul>
 						</li>
-						<li>type="button" &ndash; Generischer Knopf
+						<li class="fragment">type="button" &ndash; Generischer Knopf
 							<ul>
 								<li>Knopf "ohne" Funktion, gedacht für Scripting</li>
 								<li>value &ndash; Text für den Knopf</li>
@@ -2001,22 +2057,31 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 					<pre class="language-html">
 						<code class="hljs" data-code="./code-examples/1_hello-world/hello-world.html" data-line-numbers="|1|2,10|3-6|7-9|"></code>
 					</pre>
+					<p class="fragment">
+						HTML4 transitional doctype:<br />
+						&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"<br />
+						"http://www.w3.org/TR/html4/transitional.dtd"&gt;
+					</p>
 					<aside class="notes">
 						Kurzer refresh: Wofuer steht doctype?
 					</aside>
 				</section>
 				<section>
 					<h3>HTML - head</h3>
-					<p>Muss mindestens einen Titel beinhalten:<br />
+					<p class="fragment">Muss mindestens einen Titel beinhalten:<br />
 						&lt;title&gt;Titel des Dokuments&lt;/title&gt;
 					</p>
-					<p>Charset muss definiert werden, z.B.:<br />
+					<p class="fragment">Charset muss definiert werden, z.B.:<br />
 						&lt;meta charset="UTF-8"&gt;<br />
 						(Kann auch per HTTP-Header gesetzt werden)
 					</p>
-					<p>Mobile Websiten setzen den viewport via:<br />
+					<p class="fragment">Mobile Websiten setzen den viewport via:<br />
 						&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 					</p>
+					<aside class="notes">
+						Old school youtube:
+						https://web.archive.org/web/20060529054400/http://www.youtube.com/
+					</aside>
 				</section>
 				<section>
 					<h3>Head - Default Viewport</h3>
@@ -2040,6 +2105,10 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 						<li>style &ndash; CSS einbinden</li>
 					</ul>
 					</p>
+					<aside class="notes">
+						Good list:
+						https://www.computerbase.de/
+					</aside>
 				</section>
 				<section>
 					<h3>Head - base, link</h3>
@@ -2049,7 +2118,7 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 								<li>Basis für alle relativen URLs eines HTML-Dokuments</li>
 							</ul>
 						</li>
-						<li>link &ndash; Logische Beziehung
+						<li class="fragment">link &ndash; Logische Beziehung
 							<ul>
 								<li>rel &ndash; Art der Beziehung (z.B. author, stylesheet, icon, manifest)</li>
 								<li>href &ndash; Referenz (absolute oder relative URL)</li>
@@ -2064,10 +2133,12 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 						<li>meta &ndash; Metadaten
 							<ul>
 								<li>Genau eines der Attribute "name", "charset" und "http-equiv" setzen.</li>
-								<li class="li-space-above">name &ndash; Zusatzinformation<br />Werte: "author",
+								<li class="li-space-above fragment">name &ndash; Zusatzinformation<br />Werte: "author",
 									"description", "keywords"</li>
-								<li>charset &ndash; Zeichensatz<br />(muss ASCII-Kompatibel und sollte UTF-8 sein)</li>
-								<li>http-equiv &ndash; Werte aus HTTP-Header ändern<br />Werte: "content-language",
+								<li class="fragment">charset &ndash; Zeichensatz<br />(muss ASCII-Kompatibel und sollte
+									UTF-8 sein)</li>
+								<li class="fragment">http-equiv &ndash; Werte aus HTTP-Header ändern<br />Werte:
+									"content-language",
 									"content-type"</li>
 							</ul>
 						</li>
@@ -2076,40 +2147,8 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 			</section>
 			<section>
 				<section>
-					<h3>Praxis - Verweise</h3>
-					<ol start="8">
-						<li>Erstellen Sie drei kleine HTML-Seiten A, B und C. Verweisen sie von A auf B und von B auf C
-						</li>
-						<li>Erstellen Sie eine umfangreiche Seite D mit mehreren Überschriften und Absätzen, die jeweils
-							eine ganze Bildschirmseite füllen.</li>
-						<li>Erstellen Sie auf der Seite D ein "Inhaltsvereichnis" mit Verweisen auf die einzelnen
-							Überschriften. Verweisen Sie zusätzlich von A auf die einzelnen Überschriften von D.</li>
-					</ol>
-					<p>Tip - Erzeugung von Fließtext: <a href="http://www.loremipsum.de/">http://www.loremipsum.de/</a>
-					</p>
-				</section>
-				<section>
-					<h3>Praxis - Verweise</h3>
-					<ol start="11">
-						<li>Verweisen Sie von B jetzt so auf C, dass bei jedem Folgen des Verweises ein neues Fenster
-							(oder Tab) geöffnet wird.</li>
-						<li>Verweisen Sie von A so auf D, dass einmal ein neues Fenster geöffnet wird, beim wiederholten
-							Folgen des Verweises aber immer dieses Fenster wieder angewählt wird.</li>
-						<li>Verwiesen Sie auch von C auf das erzeugte Fenster für D.</li>
-					</ol>
-				</section>
-				<section>
-					<h3>Praxis - Verweise/Bild</h3>
-					<ol start="14">
-						<li>Fügen Sie auf Seite C ein Bild ein.</li>
-						<li>Bieten Sie das Bild auf Seite C zum Download an.</li>
-						<li>Fügen Sie mehrere bildschirmfüllende Bilder auf Seite C ein und nutzen Sie loading="lazy".
-							Wie verhalten Sie die verschiedenen Browser beim runterscrollen?</li>
-					</ol>
-				</section>
-				<section>
 					<h3>Praxis - HTML-Formulare</h3>
-					<ol>
+					<ol start="20">
 						<li>Bei welchen Browsern wirken für welche Input-Typen die Autovervollständigung und die
 							Validierung?</li>
 						<li>Wie verhält sich ein Label-Element bei Checkboxen und Radio-Buttons?</li>
@@ -2118,11 +2157,20 @@ Location: http://de.wikipedia.org/wiki/Katzen</code></pre>
 				</section>
 				<section>
 					<h3>Praxis - HTML-Formulare</h3>
-					<ol start="4">
+					<ol start="23">
 						<li>Erstellen Sie eine Eingabeseite für Personendaten mit Angaben zu Anrede, Titel, Vorname,
 							Nachname, Straße, Hausnummer, PLZ, Ort, Bundesland, Geburtsdatum und -uhrzeit, Sternzeichen,
 							Bild (upload), Familienstand, Anzahl Kinder, Kommentar, ...<br />Verwenden Sie passende
 							Gruppierungen und Beschriftungen und Validierungen!</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - HTML Formulare</h3>
+					<ol start="24">
+						<li>Überprüfen Sie die Wirkung der Attribute disabled, readonly, autocomplete, required,
+							pattern, maxlength, size, placeholder, und value. Werden die Attribute in verschiedenen
+							Browsern gleich dargestellt?</li>
+						<li>Schlagen Sie mit Hilfe einer Vorgabeliste Werte vor.</li>
 					</ol>
 				</section>
 			</section>
