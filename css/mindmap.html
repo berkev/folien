@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markmap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mindmap {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="mindmap"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@6.6.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.3"></script>
+  <script>
+    const { Markmap } = window.markmap;
+    Markmap.create("svg#mindmap", null, {
+      "t": "heading", "d": 1, "v": "CSS",
+      "c": [
+        {
+          "t": "heading", "d": 2, "v": "Syntax",
+          "c": [
+            {
+              "t": "list_item", "d": 6, "v": "Selektor",
+              "c": [
+                {
+                  "t": "list_item", "d": 6, "v": "Einfache Selektoren"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Attribut Selektoren"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Prioritäten"
+                }
+              ]
+            }, {
+              "t": "list_item", "d": 6, "v": "Eigenschaft",
+              "c": [
+                {
+                  "t": "list_item", "d": 6, "v": "Text"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Rahmen"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Abstände"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Positionierung"
+                }
+              ]
+            }, {
+              "t": "list_item", "d": 6, "v": "Werte",
+              "c": [
+                {
+                  "t": "list_item", "d": 6, "v": "Masseinheiten"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Farben"
+                }, {
+                  "t": "list_item", "d": 6, "v": "Rechtecke"
+                }
+              ]
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Pseudoklassen",
+          "c": [
+            {
+              "t": "list_item", "d": 6, "v": "Strukturelle"
+            }, {
+              "t": "list_item", "d": 6, "v": "Nicht-Strukturelle"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Box-Modell"
+        }, {
+          "t": "heading", "d": 2, "v": "Anordnung von Elementen"
+        }, {
+          "t": "heading", "d": 2, "v": "Mediatypes"
+        }, {
+          "t": "heading", "d": 2, "v": "Prioritäten"
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>

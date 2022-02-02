@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML mit CSS</title>
+    <link rel="stylesheet" type="text/css" href="./CSSThemeLight.css" title="Standard">
+    <link rel="stylesheet" type="text/css" href="./CSSThemeDark.css" title="DarkMode" disabled="disabled">
+</head>
+
+<body>
+    <h1>CSS</h1>
+    <pre><code class="language-css hljs"><span class="hljs-keyword">@font-face</span> {
+    <span class="hljs-attribute">font-family</span>: Chunkfive; <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'Chunkfive.otf'</span>);
+}
+
+<span class="hljs-selector-tag">body</span>, <span class="hljs-selector-class">.usertext</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#F0F0F0</span>; <span class="hljs-attribute">background</span>: <span class="hljs-number">#600</span>;
+    <span class="hljs-attribute">font-family</span>: Chunkfive, sans;
+    <span class="hljs-attr">--heading-1</span>: <span class="hljs-number">30px</span>/<span class="hljs-number">32px</span> Helvetica, sans-serif;
+}
+
+<span class="hljs-keyword">@import</span> url(print.css);
+    <span class="hljs-keyword">@media</span> print {
+    <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href^=http]</span><span class="hljs-selector-pseudo">::after</span> {
+        <span class="hljs-attribute">content</span>: <span class="hljs-built_in">attr</span>(href)
+    }
+}
+      </code></pre>
+
+    <script>
+        // No production ready code, just for demo purposes
+        let click = 1;
+        document.querySelector("h1").addEventListener("click", () => {
+            if (click % 2 === 0) {
+                document.querySelector(`link[title="Standard"]`).removeAttribute("disabled");
+                document.querySelector(`link[title="DarkMode"]`).setAttribute("disabled", "disabled");
+            } else {
+                document.querySelector(`link[title="DarkMode"]`).removeAttribute("disabled");
+                document.querySelector(`link[title="Standard"]`).setAttribute("disabled", "disabled");
+            }
+            click += 1;
+        })
+    </script>
+</body>
+
+</html>
