@@ -1509,6 +1509,9 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 							</ul>
 						</li>
 					</ul>
+					<aside class="notes">
+						action="GET" macht URL-Kodierung automatisch
+					</aside>
 				</section>
 				<section>
 					<h3>Eingabefelder - Input - Named</h3>
@@ -1570,7 +1573,10 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 				<section>
 					<h3>Eingabefelder - Input</h3>
 					<ul>
-						<li>autocomplete &ndash; Autovervollständigung (siehe form)</li>
+						<li>autocomplete &ndash; Autovervollständigung (siehe form)
+							<ul>
+								<li>Mögliche Werte: "street-address", "cc-name"</li>
+							</ul></li>
 						<li class="fragment">autofocus &ndash; Fokus automatisch zuweisen
 							<ul>
 								<li>Wert: "autofocus", leer</li>
@@ -1632,6 +1638,11 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 								<li>Wert: positive, ganze Zahl</li>
 							</ul>
 						</li>
+						<li class="fragment">minlength &ndash; Minimale Eingabelänge
+							<ul>
+								<li>Wert: positive, ganze Zahl, klein oder gleich "maxlength"</li>
+							</ul>
+						</li>
 						<li class="fragment">size &ndash; Sichtbare Eingabegröße
 							<ul>
 								<li>Wert: positive, ganze Zahl</li>
@@ -1657,7 +1668,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 								<li>Wird angezeigt, solange keine Eingabe erfolgt ist.</li>
 							</ul>
 						</li>
-						<li class="fragment">value &ndash; Standardwert
+						<li class="fragment">value &ndash; Startwert
 							<ul>
 								<li>Wert: Text (je nach Input-Typ!)</li>
 							</ul>
@@ -1779,7 +1790,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 									Knopfs</li>
 								<li class="fragment" data-fragment-index="1">ohne "value" wird ein lokalisierter
 									"Senden"-Text angezeigt</li>
-								<li class="fragment" data-fragment-index="2">mit "name" wir ein Parameter mit name und
+								<li class="fragment" data-fragment-index="2">mit "name" wird ein Parameter mit name und
 									Wert "value" mitgeschickt</li>
 								<li class="li-space-above fragment" data-fragment-index="3">formaction, formenctype,
 									formmethod, formtarget &ndash;
@@ -2078,16 +2089,16 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 					<p class="fragment">Mobile Websiten setzen den viewport via:<br />
 						&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 					</p>
-					<aside class="notes">
-						Old school youtube:
-						https://web.archive.org/web/20060529054400/http://www.youtube.com/
-					</aside>
 				</section>
 				<section>
 					<h3>Head - Default Viewport</h3>
 					<p>Gerät (Moto G4) - Breite: 360px - Paragraph: 380px</p>
 					<img height="500"
 						src="./code-examples/2_mobile-non-mobile/non-mobile-hello-world.html(Moto G4).png">
+					<aside class="notes">
+						Old school youtube:
+						https://web.archive.org/web/20060529054400/http://www.youtube.com/
+					</aside>
 				</section>
 				<section>
 					<h3>Head - Mobile Viewport</h3>
