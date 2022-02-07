@@ -951,6 +951,74 @@
 					<img src="./images/css-praxis-aufgabe4.jpg" alt="Praxis CSS Aufgabe 4" />
 				</section>
 			</section>
+			<section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 1</h3>
+					<p>Die Elemente mit welchen Ids werden hier selektiert?</p>
+					<div class="two-columns-half-half">
+						<ul>
+							<li>h2: "h2"</li>
+							<li>.b: "ol1", "p3"</li>
+							<li>#li2: "li2"</li>
+							<li>p[lang=de]: "p3"</li>
+							<li>p[lang="de"]: "p3"</li>
+							<li>*[title="x"]</li>
+							<li>*[title="x abc"]</li>
+							<li>*[title~="x"]: "h2", "li1"</li>
+							<li>*[title~="x abc"]</li>
+						</ul>
+						<ul>
+							<li>*[title|="abc"]</li>
+							<li>*[title|="x abc"]: "li1"</li>
+							<li>*[title^="abc"]</li>
+							<li>*[title$="c z"]: "h2"</li>
+							<li>*[title*="abc"]: "h2", "li1"</li>
+							<li>*[title*= "x abc"]: "h2", "li1"</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>CSS - Lösungen Aufgabe 2</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>h2: "h2", "h3"</li>
+						<li>p li</li>
+						<li>ol li: "li1", "li2", "li3"</li>
+						<li>h2 ~ p: "p2", "p3", "p4"</li>
+						<li>h2 > p</li>
+						<li>p + p</li>
+						<li>h1 ~ h2: "h2", "h3"</li>
+						<li>ol *: "li1", "li2", "b", "li3"</li>
+						<li>ol > *: "li1", "li2", "li3"</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Lösungen Aufgabe 2</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>:first-child: "h1", "li1", "b"</li>
+						<li>:only-child: "b"</li>
+						<li>h2:first-of-type: "h2"</li>
+						<li>.k: "p4"</li>
+						<li>.p4</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Lösungen Aufgabe 3</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>p[lang~=de] p[lang=fr]</li>
+						<li>p[lang~=de] ~ p[lang=fr]: "p2"</li>
+						<li>p[lang~=de] + p[lang=fr]</li>
+						<li>#ol1 *[title|=abc]</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 4</h3>
+					<a
+						href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/css/code-examples/10_aufgabe4/aufgabe4.html">Lösung</a>
+				</section>
+			</section>
 		</div>
 
 		<script src="dist/reveal.js"></script>
