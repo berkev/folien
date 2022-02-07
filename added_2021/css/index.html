@@ -330,15 +330,27 @@
 					<h3>CSS - Attribut Selektoren</h3>
 					<ol start="3">
 						<li>[att~=wert]<ul>
-								<li>Selektiert die Elemente mit Attribut <span class="fragment highlight-current-red" data-fragment-index="1">"att"</span> die Wert <span class="fragment highlight-current-red" data-fragment-index="2">"wert"</span> enthalten</li>
-								<li>Beispiel: p[<span class="fragment highlight-current-red" data-fragment-index="1">class</span>~=<span class="fragment highlight-current-red" data-fragment-index="2">xy</span>] &lt;p class="ab xy cd"&gt;...&lt;/p&gt;</li>
+								<li>Selektiert die Elemente mit Attribut <span class="fragment highlight-current-red"
+										data-fragment-index="1">"att"</span> die Wert <span
+										class="fragment highlight-current-red" data-fragment-index="2">"wert"</span>
+									enthalten</li>
+								<li>Beispiel: p[<span class="fragment highlight-current-red"
+										data-fragment-index="1">class</span>~=<span
+										class="fragment highlight-current-red" data-fragment-index="2">xy</span>] &lt;p
+									class="ab xy cd"&gt;...&lt;/p&gt;</li>
 								<li class="fragment" data-fragment-index="3">ABER: p[class~=x] selektiert nicht!</li>
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="4">[att|=wert]<ul>
-								<li>Selektiert die Elemente mit Attribut <span class="fragment highlight-current-red" data-fragment-index="5">"att"</span> exakt auf Wert <span class="fragment highlight-current-red" data-fragment-index="6">"wert"</span> gesetzt oder mit
+								<li>Selektiert die Elemente mit Attribut <span class="fragment highlight-current-red"
+										data-fragment-index="5">"att"</span> exakt auf Wert <span
+										class="fragment highlight-current-red" data-fragment-index="6">"wert"</span>
+									gesetzt oder mit
 									Wert "wert" und Zeichen "-" beginnen</li>
-								<li>Beispiel: p[<span class="fragment highlight-current-red" data-fragment-index="5">lang</span>|=<span class="fragment highlight-current-red" data-fragment-index="6">en</span>] &lt;p lang="en-us"&gt;...&lt;/p&gt;</li>
+								<li>Beispiel: p[<span class="fragment highlight-current-red"
+										data-fragment-index="5">lang</span>|=<span
+										class="fragment highlight-current-red" data-fragment-index="6">en</span>] &lt;p
+									lang="en-us"&gt;...&lt;/p&gt;</li>
 							</ul>
 						</li>
 					</ol>
@@ -367,7 +379,8 @@
 					<h3>CSS - Kombinierte Attribut Selektoren</h3>
 					<ol start="8">
 						<li>[Selektor1][Selektor2]<ul>
-								<li class="fragment">Selektiert die Elemente, die sowohl von Selektor1 und Selektor2 gewählt werden</li>
+								<li class="fragment">Selektiert die Elemente, die sowohl von Selektor1 und Selektor2
+									gewählt werden</li>
 								<li class="fragment">Beispiel:<br />
 									input[lang=de][name*=xy]<br />
 									&lt;input lang="de" name="xyz" /&gt;
@@ -530,8 +543,10 @@
 						<li>:last-child&emsp;- letztes Kind Element</li>
 						<li>:nth-child(n)&ensp;- n-tes Kind Element</li>
 						<li>:only-child&emsp;- einziges Kind Element</li>
-						<li class="fragment li-space-above" data-fragment-index="1">:first-of-type&emsp;- erstes Element dieses Typs</li>
-						<li class="fragment" data-fragment-index="1">:first-of-type&emsp;- erstes Element dieses Typs<br />
+						<li class="fragment li-space-above" data-fragment-index="1">:first-of-type&emsp;- erstes Element
+							dieses Typs</li>
+						<li class="fragment" data-fragment-index="1">:first-of-type&emsp;- erstes Element dieses
+							Typs<br />
 							:last-of-type, :nth-of-type, :nth-last-of-type, :only-of-type</li>
 					</ul>
 				</section>
@@ -588,7 +603,9 @@
 						<ul>
 							<li>ul<span class="hljs-selector-pseudo">:first-child</span><br />Ohne
 								Leerzeichen:<br />keine Selektion!</li>
-								<li class="fragment" data-fragment-index="1"><span class="fragment" data-fragment-index="1">Warum?</span><span class="fragment" data-fragment-index="2"> Weil ul selbst kein first-child!</span></li>
+							<li class="fragment" data-fragment-index="1"><span class="fragment"
+									data-fragment-index="1">Warum?</span><span class="fragment" data-fragment-index="2">
+									Weil ul selbst kein first-child!</span></li>
 						</ul>
 					</div>
 				</section>
@@ -621,10 +638,14 @@
 								<li class="fragment" data-fragment-index="1">px&ensp;Pixel</li>
 								<li class="fragment" data-fragment-index="2">pt&ensp;Punkt: 1pt = 1/72inch</li>
 								<li class="fragment" data-fragment-index="2">pc&ensp;Pica: 1pc = 12pt</li>
-								<li class="fragment" data-fragment-index="2">in, mm, cm&ensp;Inch, Millimeter, Zentimeter</li>
-								<li class="fragment" data-fragment-index="3">em&ensp;Schriftgröße des (Eltern)Elements</li>
-								<li class="fragment" data-fragment-index="3">rem&ensp;Schriftgröße des Root-Elements</li>
-								<li class="fragment" data-fragment-index="3">ex&ensp;Höhe von 'x' im (Eltern)Element</li>
+								<li class="fragment" data-fragment-index="2">in, mm, cm&ensp;Inch, Millimeter,
+									Zentimeter</li>
+								<li class="fragment" data-fragment-index="3">em&ensp;Schriftgröße des (Eltern)Elements
+								</li>
+								<li class="fragment" data-fragment-index="3">rem&ensp;Schriftgröße des Root-Elements
+								</li>
+								<li class="fragment" data-fragment-index="3">ex&ensp;Höhe von 'x' im (Eltern)Element
+								</li>
 								<li class="fragment" data-fragment-index="4">%&ensp;Relativ zum (Eltern)Element</li>
 							</ul>
 						</li>
@@ -646,7 +667,7 @@
 						</li>
 						<li class="fragment">Rechtecke
 							<ul>
-								<li>rect(top, right, bottom, left)<br />z.B. um mit mit <a
+								<li>rect(top, right, bottom, left)<br />z.B. um mit <a
 										href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">clip</a> einen
 									sichtbaren Bereich anzugeben</li>
 							</ul>
@@ -753,7 +774,8 @@
 						</li>
 						<li class="fragment">background-image: Hintergrundbild
 						</li>
-						<li class="fragment">background-repeat: Wiederholung des Hintergrundbildes (repeat-x, repeat-y, no-repeat)
+						<li class="fragment">background-repeat: Wiederholung des Hintergrundbildes (repeat-x, repeat-y,
+							no-repeat)
 						</li>
 						<li class="fragment">background-attachment: Hintergrundfixierung (scroll, fixed)
 						</li>
