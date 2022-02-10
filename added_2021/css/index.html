@@ -1019,6 +1019,430 @@
 						href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/css/code-examples/10_aufgabe4/aufgabe4.html">Lösung</a>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h3>CSS - Box-Modell</h3>
+					<img src="./images/css-Boxmodell.png" alt="CSS Boxmodel" />
+				</section>
+				<section>
+					<h3>CSS - Abstände und Größe</h3>
+					<ul>
+						<li>Innenabstände (padding)
+							<ul>
+								<li>-left, -right, -top, -bottom</li>
+								<li class="fragment" data-fragment-index="1">padding mit vier Werten:<br />
+									<span class="smaller-font">padding: 10px 20px 30px 40px (top right bottom
+										left)</span>
+								</li>
+								<li class="fragment" data-fragment-index="2">padding mit einem Werte: alle Abstände
+									gleich</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="4">Außenabstände (margin)
+							<ul>
+								<li class="fragment" data-fragment-index="4">-left, -right, -top, -bottom</li>
+								<li class="fragment" data-fragment-index="4">margin mit einem und vier Werten: siehe
+									padding</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="5">Größe
+							<ul>
+								<li class="fragment" data-fragment-index="6">width, min-width, max-width: Breite</li>
+								<li class="fragment" data-fragment-index="7">height, min-height, max-height: Höhe</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Abstände und Größe</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/12_margin-padding/margin-padding.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/12_margin-padding/margin-padding.html" data-line-numbers="|9-15|16-22|23-29|30-36|37-43|44-50"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>CSS - Abstände und Größe</h3>
+					<ul>
+						<li>overflow: Umgang mit zu großen Inhalten (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow">MDN</a>)
+							<ul>
+								<li>auto: Browser entscheidet</li>
+								<li class="fragment">visible: Inhalt ragt über das Element hinaus</li>
+								<li class="fragment">hidden: Inhalt wird abgeschnitten</li>
+								<li class="fragment">scroll: Inhalt wird abgeschnitten mit Scrollbar</li>
+							</ul>
+						</li>
+						<li class="fragment">clip: Inhalt unabhängig von der Größe des Elementes zuschneiden
+							<ul>
+								<li class="fragment">shape value: z.B. rect(top, right, bottom, left)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Rahmen</h3>
+					<ul>
+						<li>border-width: Breite des Rahmens<br />border-left-width, -right-, -top-, -bottom-</li>
+						<li class="fragment">border-style: Art des Rahmens
+							<ul>
+								<li>solid, dotted, dashed, double, groove, ridge, inset, outset, hidden, none</li>
+							</ul>
+						</li>
+						<li class="fragment">border-color: Farbe des Rahmens</li>
+						<li class="fragment li-space-above">border: &lt;width&gt; &lt;style&gt; &lt;color&gt;</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Rahmen - Collapse</h3>
+					<ul>
+						<li>border-collapse: Zusammenfassen von direkt benachbarten Rahmens
+							<ul>
+								<li>collapse, separate</li>
+							</ul>
+						</li>
+					</ul>
+					<iframe class="code-example full-width min-height-200"
+						data-src="./code-examples/11_border-collapse/border-collapse.html"></iframe>
+					<ul class="fragment">
+						<li>border-collapse: collapse
+							<ul>
+								<li>none + border = border</li>
+								<li>hidden + border = hidden</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Anordnung von Elementen</h3>
+					<ul>
+						<li>Inline: &lt;span&gt;
+							<ul>
+								<li>Bildung eines inneren Bereiches Zwecks Formatierung</li>
+							</ul>
+						</li>
+						<li class="fragment">Block Semantisch: &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;,
+							&lt;navigation&gt;;
+							Generisch: &lt;div&gt;
+							<ul>
+								<li class="fragment">Gruppierung von Block-Elementen</li>
+								<li class="fragment">Ohne CSS nur standard Block-Element Darstellung</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Anordnung von Elementen</h3>
+					<ul>
+						<li>float: left, right, none
+							<ul>
+								<li>Element wird vom nachfolgenden Nicht-Float-Objekt umflossen</li>
+							</ul>
+						</li>
+					</ul>
+					<iframe class="code-example full-width min-height-200"
+						data-src="./code-examples/13_float/float.html"></iframe>
+				</section>
+				<section>
+					<h3>CSS - Anordnung von Elementen</h3>
+					<ul>
+						<li>clear: left, right, both, none
+							<ul>
+								<li>Erzwingt den Abbruch des Umflusses</li>
+								<li>left: im Falle eines float: left</li>
+								<li>right: im Falle eines float: right</li>
+								<li>both: in jedem Fall</li>
+							</ul>
+						</li>
+					</ul>
+					<iframe class="code-example full-width min-height-200"
+						data-src="./code-examples/14_clear/clear.html"></iframe>
+				</section>
+				<section>
+					<h3>CSS - Anordnung von Elementen</h3>
+					<ul>
+						<li>position: static, relative, absolute, fixed (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a>)
+							<ul>
+								<li>static: keine besondere Positionierung</li>
+								<li class="fragment">relative: relativ zur Anfangsposition</li>
+								<li class="fragment">absolute: bezogen auf den Rand des nächsthöheren Vorfahrenelements
+								</li>
+								<li class="fragment">fixed: bezogen auf Browserfenster</li>
+								<li class="fragment">Achtung: absolute und fixed geben den ursprünglichen Platz frei!
+								</li>
+							</ul>
+						</li>
+						<li class="fragment">top, left, buttom, right
+							<ul>
+								<li>Angabe der (relativen) Position</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Anordnung von Elementen</h3>
+					<ul>
+						<li>position: absolut, relative, fixed, static</li>
+					</ul>
+					<iframe class="code-example full-width min-height-200"
+						data-src="./code-examples/15_position/position.html"></iframe>
+				</section>
+				<section>
+					<h3>CSS - Anordnung von Elementen</h3>
+					<ul>
+						<li>z-index: Ganzzahl
+							<ul>
+								<li>Ordnungsnummer für die Überlagerung</li>
+								<li>kleine Nummern hinten, große Nummern vorne</li>
+							</ul>
+						</li>
+					</ul>
+					<iframe class="code-example full-width min-height-200"
+						data-src="./code-examples/16_z-index/z-index.html"></iframe>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Sichtbarkeit</h3>
+					<ul>
+						<li>visibility: visible, hidden, collapse (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility">MDN</a>)<br />
+							Anzeigen mit Platzhalter
+							<ul>
+								<li class="fragment">visible: Element ist sichtbar</li>
+								<li class="fragment">hidden: Element ist nicht sichtbar</li>
+								<li class="fragment">collapse: wie hidden<br />
+									Ausnahme: in table oder flexbox <em>ohne</em> Platzhalter</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Sichtbarkeit</h3>
+					<ul>
+						<li>display: block, inline, inline-block, list-item, none, ... (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">MDN</a>)<br />
+							Anzeigen ohne Platzhalter
+							<ul>
+								<li class="fragment">block: erzwingt Block-Element</li>
+								<li class="fragment">inline: erzwingt Inline-Element</li>
+								<li class="fragment">none: Element ist nicht sichtbar</li>
+								<li class="fragment li-space-above">inline-block: Block-Element das umflossen wird wie
+									ein
+									Inline-Element</li>
+								<li class="fragment li-space-above">list-item: wie block, aber mit Aufzählungszeichen
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Prioritäten</h3>
+					<p>Browser berechnet für jede Eigenschaft und jedes Element die Menge der anzuwendenden Regeln</p>
+					<ul>
+						<li class="fragment">Erste Priorisierung nach Ursprung und Wichtigkeit
+							<ul>
+								<li>Wichtige Regeln aus Benutzer-Stylesheet</li>
+								<li>Wichtige Regeln aus Autoren-Stylesheet</li>
+								<li>Regeln aus Benutzer-Stylesheet</li>
+								<li>Regeln aus Autoren-Stylesheet</li>
+								<li>Regeln aus Browser-Stylesheet</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Prioritäten</h3>
+					<ul>
+						<li>Zweite Priorisierung nach Spezifität
+							<ul class="fragment" data-fragment-index="1">
+								<li class="fragment" data-fragment-index="4">Inline-Style</li>
+								<li class="fragment" data-fragment-index="3">ID-Selektor (#example)</li>
+								<li class="fragment" data-fragment-index="2">Class-Selektor (.example),
+									Attribut-Selektor ([type="radio"]), pseudo-classes
+									(:hover)</li>
+								<li class="fragment" data-fragment-index="1">Type-Selektor (h1), pseudo-elements
+									(::marker)</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="4">Siehe auch: <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">MDN - CSS
+							Specificity</a>, und <a href="https://specifishity.com/">specifishity.com</a></p>
+				</section>
+				<section>
+					<h3>CSS - Wichtige Regel</h3>
+					<p>CSS-Regeln können mittels "!important" als wichtig markiert werden</p>
+					<p class="fragment"><span class="hljs-selector-tag">Selektor</span> { <span
+							class="hljs-attribute">Eigenschaft</span>: <span class="hljs-value">Wert</span> <span
+							class="hljs-meta">!important</span>; }</p>
+					<p class="fragment">Wichtig: Sollte in der Anwendungsentwicklung die Ausnahme bleiben</p>
+					<p class="fragment">Wichtig: Ist in der Framework/Bibliothek/Plugin Entwicklung
+						<strong>verboten</strong>
+					</p>
+				</section>
+				<section>
+					<h3>CSS - Prioritäten - Best Practices</h3>
+					<p>Vermeidet die Situation, in denen mehr als eine Regel für ein Element gilt!<br />Ausnahme:
+						Überschreiben von Regeln der Eltern</p>
+					<p class="fragment">Verwendet eine einheitliche Vorgehensweise
+					<ul class="fragment">
+						<li>Identifikation über Elementnamen oder(!)</li>
+						<li>Identifikation über Klassen oder</li>
+						<li>...</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Media-Queries</h3>
+					<p>CSS-Regeln auf spezifischen Medientyp einschränken</p>
+					<p><span class="hljs-keyword">@media</span> &lt;medium&gt; { ... }</p>
+					<ul>
+						<li class="fragment">Media Types: all, print, screen</li>
+						<li class="fragment">Media Features: width, orientation, prefers-color-scheme, color and many
+							more
+							<ul>
+								<li>Ranges mit "min-" und "max-" prefix</li>
+							</ul>
+						</li>
+						<li class="fragment">Komplexe Queries
+							<ul>
+								<li>Logische Verkettung, Und: "and", Oder: ","</li>
+								<li>Negierung, "not"</li>
+							</ul>
+						</li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">MDN: @media</a></p>
+				</section>
+				<section>
+					<h3>CSS - Media-Queries</h3>
+					<p>Beispiel "Druck"</p>
+					<p>
+					<pre>
+<span class="hljs-keyword">@media</span> print {
+  <span class="hljs-selector-tag">nav</span> {
+    <span class="hljs-attribute">display</span>: none;
+  }
+}</pre>
+					</p>
+					<p class="fragment" data-fragment-index="1">Beispiel "Großes Displays"<br />(Inhalt nicht auf der
+						ganzen Breite)</p>
+					<p>
+					<pre class="fragment" data-fragment-index="1">
+<span class="hljs-keyword">@media</span> screen and (min-width: 1000px) {
+  <span class="hljs-selector-id">#content</span> {
+    <span class="hljs-attribute">max-width</span>: 80%;
+    <span class="hljs-attribute">margin</span>: auto;
+  }
+}</pre>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 5</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/17_aufgabe5/aufgabe5.html" data-line-numbers="11-26"></code>
+					</pre>
+					<p><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/css/code-examples/17_aufgabe5/aufgabe5.html">./code-examples/17_aufgabe5/aufgabe5.html</a>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 5</h3>
+					<ul class="smaller-font">
+						<li>Färbt den Hintergrund alle geraden Tabellenzeilen grau</li>
+						<li>Gebt allen Tabellenzeilen mit nur einer Zelle einen roten Rahmen</li>
+						<li>Gebt der Tabelle ein Gitternetz in blau</li>
+						<li>Gebt der ersten Überschrift einen serifenlosen Zeichensatz in der Größe 16pt und Fettdruck
+						</li>
+						<li>Absatz 1 soll linksbündig angeordnet werden, der Absatz 4 rechtsbündig</li>
+						<li>Zweite Spalte der Tabelle soll zentriert erscheinen</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 6</h3>
+					<p class="smaller-font">Auf welcher Position (x,y) befindet sich die rechte untere Ecke des roten,
+						grünen, blauen und orangen Rechtecks?</p>
+					<pre class="language-css">
+						<code class="hljs" data-code="./code-examples/18_aufgabe6/aufgabe6.css"></code>
+					</pre>
+					<p><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/css/code-examples/18_aufgabe6/aufgabe6.css">./code-examples/18_aufgabe6/aufgabe6.css</a>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 7</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;<span class="hljs-name">body</span>&gt;
+  &lt;div class="box"&gt;
+    &lt;<span class="hljs-name">h1</span>&gt;Meine Überschrift&lt;/<span class="hljs-name">h1</span>&gt;
+    &lt;p&gt;&lt;span
+      class="firstletter"&gt;I
+      &lt;/span&gt;ste quidem veteres
+      inter ponetur honeste,
+      qui vel mense brevi vel
+      toto est iunior anno.
+    &lt;/p&gt;
+    &lt;p&gt;Utor permisso, caudaeque
+      pilos ut equinae paulatim
+      vello unum, demo etiam
+      unum, dum cadat elusus
+      ratione ruentis acervi,
+      qui redit in fastos
+      et annis miraturque.
+    &lt;/p&gt;
+</pre>
+						<pre>
+    &lt;table&gt;
+      &lt;tr class="odd row"&gt;
+        &lt;td&gt;Jakobus&lt;/td&gt;
+        &lt;td&gt;Müller&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class="even odd"&gt;
+        &lt;td&gt;Petra&lt;/td&gt;
+        &lt;td&gt;Maier&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class="row odd"&gt;
+        &lt;td colspan="2"&gt;
+        Georg IV&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;div class="important"&gt;
+    Wichtig!!&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/<span class="hljs-name">body</span>&gt;</pre>
+					</div>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 7</h3>
+					<img src="./images/css-praxis-aufgabe7.jpg" alt="Praxis CSS Aufgabe 7" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 6</h3>
+					<ul>
+						<li>rot: bottom=260,right:260</li>
+						<li>grün: bottom=126,right:226</li>
+						<li>blau: bottom=218,right:226</li>
+						<li>orange: bottom=162,right:277</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 7</h3>
+					<a
+						href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/css/code-examples/19_aufgabe7/aufgabe7.html">Lösung</a>
+				</section>
+			</section>
 		</div>
 
 		<script src="dist/reveal.js"></script>
