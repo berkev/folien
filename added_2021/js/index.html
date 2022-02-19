@@ -1,0 +1,973 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: JavaScript</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+
+		.js-output {
+			border: 2px solid grey;
+			text-align: left;
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+		.min-height-200 {
+			min-height: 400px;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?print-pdf)
+	Tag 1: 1,3-49
+	Tag 1 - Praxis: 50-52
+	Tag 1 - Praxis-Loesungen: 53
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>JS</h1>
+
+				<p>
+					JavaScript
+				</p>
+			</section>
+			<section>
+				<h3>JS - Mindmap</h3>
+				<iframe class="mindmap" data-src="./mindmap.html"></iframe>
+			</section>
+			<section>
+				<section>
+					<h3>JS - JavaScript</h3>
+					<p>
+						Dynamisch typisierte Skriptsprache zur clientseitigen Programmierung von Webanwendungen
+					</p>
+				</section>
+				<section>
+					<h3>JS - Ruf</h3>
+					<img src="./images/javascript-and-python-are-weirdos.jpg" height="450px"
+						alt="Javascript and python are weirdos" />
+					<p>
+						<a href="https://www.reddit.com/r/ProgrammerHumor/comments/skfag9/all_assemble/">Quelle:
+							r/ProgrammerHumor</a>
+					</p>
+				</section>
+				<section>
+					<h3>JS - Ruf</h3>
+					<img src="./images/javascript-the-good-parts.jpg" height="450px" alt="Javascript the good parts" />
+					<p>
+						<a href="https://www.reddit.com/r/ProgrammerHumor/comments/621qrt/javascript_the_good_parts/">Quelle:
+							r/ProgrammerHumor</a>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Historie - Steinzeit</h3>
+					<ul>
+						<li>1995 (September): LiveScript als Beta in Netscape veröffentlicht (erster graphischer
+							Web-Browser)</li>
+						<li class="fragment">1995 (Dezember): JavaScript offiziell in Netscape</li>
+						<li class="fragment">1996 (August): JScript im InternetExplorer</li>
+						<li class="fragment">Netscape gibt JavaScript an <a
+								href="http://www.ecma-international.org/">"Ecma
+								International"</a> zur Standardisierung (ECMAScript 1)</li>
+						<li class="fragment">Beginn des Browserkriegs</li>
+					</ul>
+					<div class="r-stack">
+						<img class="fragment" src="./images/browserkrieg.png" height="200">
+						<img class="fragment" src="./images/browserkrieg_best-viewed-in.png" height="200">
+					</div>
+					<aside class="notes">
+						Brendan Eich bastelt LiveScript in 10 Tagen, inspiriert von SmallTalk und C-like Syntax
+					</aside>
+				</section>
+				<section>
+					<h3>Historie - Bronzezeit</h3>
+					<!-- https://en.wikipedia.org/wiki/JavaScript -->
+					<ul>
+						<li>Microsoft gewinnt den Browserkrieg:<br />95% Marktanteil in 2004 <a
+								href="https://www.searchenginejournal.com/mozilla-firefox-internet-browser-market-share-gains-to-74/1082/">[0]</a>
+						</li>
+						<li class="fragment">2004: Mozilla veröffentlicht Firefox und gewinnt Marktanteile zurück von
+							Microsoft IE</li>
+						<li class="fragment">Versuche ECMAScript 4 zu standardisieren scheiterten</li>
+						<li class="fragment">ab 2005: Open-Source Bibliotheken beleben JavaScript wieder: Ajax (2005)
+							und jQuery (2006)
+						</li>
+						<li class="fragment">2008: Google veröffentlicht Chrome</li>
+						<li class="fragment">2009 (Dezember): ECMAScript 5 veröffentlicht, Browserkrieg beendet</li>
+					</ul>
+					<aside class="notes">
+						Chrome mit "just-in-time" Compilation
+						Browserkrieg wird auf einer Konferenz in Oslo beendet
+					</aside>
+				</section>
+				<section>
+					<h3>Historie - Neuzeit</h3>
+					<ul>
+						<li>2009: Ryan Dahl veröffentlicht NodeJS: alleinstehende JavaScript-Umgebung</li>
+						<li class="fragment">2015: ECMAScript 6 mit (sehr) vielen neuen <a
+								href="http://es6-features.org/">Features</a>
+							veröffentlicht: modernes JavaScript</li>
+						<li class="fragment">2016: Umstellung auf jährliche Releases</li>
+						<li class="fragment">2018: Npm ist die größte Sammlung an Modulen überhaupt</li>
+						<li class="fragment">das Web hat sich als Platform gegen bestehende native Platformen (Mobile,
+							PC) etabliert</li>
+					</ul>
+				</section>
+				<aside class="notes">
+					Pip: Python Package Manager
+					Npm: Node Package Manager
+					Crate: Rust Package Manager
+					Maven: Jar Dependencies
+				</aside>
+			</section>
+			<section>
+				<section>
+					<h3>JS - Hello World</h3>
+					<pre class="language-js">
+						<code class="hljs" data-code="./code-examples/1_hello-world/hello-world.js"></code>
+					</pre>
+					<a
+						href="./code-examples/1_hello-world/hello-world.js">./code-examples/1_hello-world/hello-world.js</a>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Javascript einbinden</h3>
+					<ul>
+						<li class="fragment" data-fragment-index="3">Methode 1: Event-Handler-Attribut<br />
+							&lt;button onclick="meineFunktion('p');"&gt;&lt;/button&gt;
+							<ul>
+								<li>im globalen Kontext</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="2">Methode 2: Script-Tag<br />
+							&lt;script type="text/javascript"&gt;Mein Code&lt;/script&gt;
+							<ul>
+								<li>Zentrale Stelle für JS-Code</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">Methode 3: JS-Datei<br />
+							&lt;script type="text/javascript" src="MeinCode.js"&gt;&lt;/script&gt;
+							<ul>
+								<li>Seitenübergreifend möglich</li>
+							</ul>
+						</li>
+						<li>Methode 4: Debugger-Console (REPL, im Kontext)
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>JS - Anwendungsszenarien</h3>
+					<ul>
+						<li>Validierung bzw. Plausibilisieren von Formulardaten</li>
+						<li>Rückfragen (Dialogfenster)</li>
+						<li>Vorschlagen von Eingabewerten</li>
+						<li class="fragment">Dynamisches Verändern von Webseiten</li>
+						<li class="fragment">Senden und Empfangen von Daten ohne neues Laden der Seite (AJAX)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JS - Eigenschaften</h3>
+					<ul>
+						<li>Skriptsprache: keine Kompilierung, Code wird zur Laufzeit interpretiert</li>
+						<li class="fragment">Dynamisch Typisiert:<br />"Typ nach aktueller Verwendung"</li>
+						<li class="fragment">Multi-Paradigma: objektorientiertes und funktionales Programmieren</li>
+						<li class="fragment">Ein einziges Root-Objekt (im Browser: window)</li>
+						<li class="fragment">Ein einziger Ausführungskontext (im Browser: Fenster/Tab)</li>
+						<li class="fragment">Sandbox: Websiten haben keinen direkten Systemzugriff</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JS - Sandbox</h3>
+					<ul>
+						<li>Browser kappselt JavaScript vom System ab<br />
+							<span class="fragment">Ausbrechen kann viel Geld bringen: z.B. <a
+									href="https://www.heise.de/mac-and-i/meldung/Pwn2Own-Touch-Bar-eines-MacBook-Pro-via-Safari-gehackt-3998145.html">60k€</a></span>
+						</li>
+						<li class="fragment">Kein Zugriff auf Inhalte anderer Webseiten:<br />"same-origin-policy"</li>
+						<li class="fragment">Zugriffe auf das System (z.B. Dateien, Webcam, Mikro) nur über definierte
+							Schnittstellen</li>
+					</ul>
+					<p class="fragment">ABER: keine Abkappselung von eingebundener Dritt-Software (z.B. Werbebanner,
+						Like-Button)</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Datentypen und Variablen</h3>
+					<pre class="language-js">
+						<code class="hljs" data-code="./code-examples/2_variablen/datentypen.js" data-line-numbers="|1-2|4-5|7-8|10-11"></code>
+					</pre>
+					<p>Typ der Variable ergibt sich aus dem Ergebnis des Ausdrucks</p>
+				</section>
+				<section>
+					<h3>Datentypen und Variablen</h3>
+					<pre class="language-js">
+						<code class="hljs" data-code="./code-examples/2_variablen/schluesselwort.js" data-line-numbers="|1|2|4-5|7-8"></code>
+					</pre>
+					<p>Ohne Schlüsselwort: Kontext-Globale Variable</p>
+				</section>
+				<section>
+					<h3>Operatoren</h3>
+					<ul>
+						<li>+, -, *, /, %, ++ (Post- und Präfix), -- (Post- und Präfix)</li>
+						<li class="fragment" data-fragment-index="1">+=, -=, *=, /=, %=</li>
+						<li class="fragment" data-fragment-index="2">&& (und), || (oder), ! (Negation),<br />==, ===,
+							!=, !==, &lt;, &gt;, &lt;=, &gt;=</li>
+						<li class="fragment" data-fragment-index="3">Bit-Operatoren: &lt;&lt;, &gt;&gt;, &amp;, |, ^, ~
+							(Bit-Negation)</li>
+						<li class="fragment" data-fragment-index="4">+ (Verketten von Zeichenketten)</li>
+					</ul>
+					<p class="fragment" data-fragment-index="5">Automatische Typumwandlung</p>
+					<pre class="language-js fragment" data-fragment-index="5">
+<code class="hljs">console.log("47" + 11); // "4711"
+console.log("47" * 1 + 11); // 58</code></pre>
+					<aside class="notes">
+						% - Remainder
+						& - Bitwise AND
+						^ - Bitwise XOR
+						| - Bitwise OR
+						>> - Bitwise right-shift
+					</aside>
+				</section>
+				<section>
+					<h3>Gleichheit und Typumwandlung</h3>
+					<p>Automatische Typumwandlung für Bestimmung der Gleichheit</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1">console.log("42" == 42); // true</code></pre>
+					<p class="fragment" data-fragment-index="1">Ohne automatische Typumwandlung</p>
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs" data-line-numbers="1-2|4-5'">console.log("42" === "42"); // true
+console.log("42" === 42); // false
+
+console.log("42" !== "42"); // false
+console.log("42" !== 42); // true</code></pre>
+				</section>
+				<section>
+					<h3>Zeichenketten</h3>
+					<p>Verketten mit "+" Operator</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1">console.log("Hello" + " " + "World"); // Hello World</code></pre>
+					<p class="fragment" data-fragment-index="1">Länge einer Zeichenkette</p>
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs" data-line-numbers="1-2">const s = "Hello World";
+console.log(s.length); // 11</code></pre>
+					<p class="fragment" data-fragment-index="2">Zeichen Nummer x aus Zeichenkette s</p>
+					<pre class="language-js fragment" data-fragment-index="2">
+<code class="hljs" data-line-numbers="1-3">const s = "Hello World";
+console.log(s.chart(0)); // H
+console.log(s[1]); // e</code></pre>
+					<p class="fragment" data-fragment-index="2"><a
+							href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">MDN:
+							String</a></p>
+				</section>
+				<section>
+					<h3>Kommentare & Anweisungen</h3>
+					<p>Ein- oder mehrzeilen Kommentare</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-3">// Hello World
+/* Hello
+   World */</code></pre>
+					<p class="fragment" data-fragment-index="1">Anweisungen müssen nicht mit ";" beendet werden</p>
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs" data-line-numbers="1-2">console.log("Hello")
+console.log("World");</code></pre>
+					<p class="fragment" data-fragment-index="1">Anweisungsblöcke werden mit geschweiften Klammern
+						gebildet {}</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Schleifen</h3>
+					<p>for-Schleifen</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-7">for (Initialisierung; Bedingung; Befehlsfolge) {
+    // Anweisungen
+}
+
+for (e in collection) {
+    // Anweisungen
+}</code></pre>
+					<p class="fragment" data-fragment-index="1">do-while-Schleifen</p>
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs" data-line-numbers="1-7">do {
+    // Anweisungen
+} while (Bedingung)
+
+while (Bedingung) {
+    // Anweisungen
+}</code></pre>
+				</section>
+				<section>
+					<h3>Schleifensteuerung</h3>
+					<ul>
+						<li>break<br />Vorzeitiges Verlassen einer Schleife</li>
+						<li class="li-space-above">continue<br />Vorzeitiges Beenden eines Schleifendurchgangs</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Fallunterscheidungen</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-7">if (Bedingung){ 
+	//Anweisungsblock 
+} else if (Bedingung) { 
+	//Anweisungsblock 
+} else { 
+	//Anweisungsblock 
+}</code></pre>
+					<hr class="fragment" data-fragment-index="1" />
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs" data-line-numbers="1-10">switch (Ausdruck){ 
+	case Wert1: 
+		//Programmblock 
+		break 
+	case Wert2: 
+		//Programmblock 
+		break 
+	default: 
+		//Programmblock 
+}</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Arrays</h3>
+					<p>Deklaration (mit Initialisierung)</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-7">let a = new Array();
+let b = new Array(5);
+let c = [];
+
+let d = new Array("eins", "zwei", "drei");
+let e = [1, 2, 3, 4]</code></pre>
+					<p class="fragment" data-fragment-index="1">Länge</p>
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs" data-line-numbers="1-7">console.log(a.length) // 0
+console.log(b.length) // 5</code></pre>
+					<p class="fragment" data-fragment-index="2">Zugriff</p>
+					<pre class="language-js fragment" data-fragment-index="2">
+<code class="hljs" data-line-numbers="1-7">a[4] = "Hello World";
+let s = a[4];</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Funktionen</h3>
+					<p>Deklaration</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-7">function Funktionsname(Parameter1, Parameter2) {
+	// Programmblock;
+	return Wert;
+}</code></pre>
+					<p class="fragment">Anzahl der Parameter beim Aufruf ist beliebig!<br />Ungesetzte Parameter sind
+						"undefined"</p>
+					<p class="fragment">Ohne oder leeres return ergibt implizit "undefined"</p>
+				</section>
+				<section>
+					<h3>Funktionsaufrufe</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-5|6-9|10-13|">function f(Parameter1, Parameter2) {
+	console.log(Parameter1);
+	console.log(Parameter2);
+	return Parameter1;
+}
+f("eins", "zwei");
+// eins
+// zwei
+// return: "eins"
+f("drei");
+// drei
+// undefined
+// return: "drei"
+</code></pre>
+				</section>
+				<section>
+					<h3>Funktionen</h3>
+					<p>Deklaration einer Funktion muss</p>
+					<ul>
+						<li>im gleichen Script-Block</li>
+						<li>in einem textuell vorherigen Script-Block</li>
+					</ul>
+					<p>erfolgen.</p>
+				</section>
+				<section>
+					<h3>Funktionsparameter</h3>
+					<ul>
+						<li>Aufruf mit zu weniger Parametern
+							<ul>
+								<li>Werte werden auf undefined gesetzt</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">Aufruf mit zu vielen Parametern
+							<ul>
+								<li>Funktionen sind Objekte mit Attribut "arguments"</li>
+								<li>Zugriff via &lt;Funktionsname&gt;.arguments</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">Hilfskonstrukt!<br />Geht sehr schnell auf die Les- und
+						Wartbarkeit</p>
+				</section>
+				<section>
+					<h3>Funktion.arguments</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-4|5-7|8-10|">function g() {
+	console.log(g.arguments[0]);
+	console.log(g.arguments[1]);
+}
+g(1, 2);
+// 1
+// 2
+g("drei");
+// drei
+// undefined
+</code></pre>
+				</section>
+				<section>
+					<h3>Funktionen und Variablen</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-2|3-8|9-11|12|">let a = 0;
+let b = 0;
+function test() {
+	a++; // Zugriff auf Variable a
+	console.log(a);
+	let b = 1; // Neue(!) lokale Variable
+	console.log(b);
+}
+test();
+// 1
+// 1
+console.log(b); // 0
+</code></pre>
+					<p>Ohne Schlüsselwort wird eine globale Variable erstellt bzw. überschrieben!</p>
+					<p>"Window trashing" -&gt; schlechter Stil</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Objekte - Konstruktor</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-7|8|9|">function Calculator(x, y) { // Deklaration
+	this.x = x;
+	this.y = y;
+	this.sum = function sum() {
+		return this.x + this.y;
+	}
+}
+const c = new Calculator(4,3); // Instanziierung
+c.sum(); // 7, Methodenaufruf
+</code></pre>
+					<p>Objekte sind zur Laufzeit erweiterbar</p>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1|2-4|5|">const c = new Calculator(4,3); // Instanziierung
+c.diff = function diff() {
+	return this.x - this.y;
+};
+c.diff() // 1, Methodenaufruf
+</code></pre>
+				</section>
+				<section>
+					<h3>Objekte - Zuweisung</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-7|8|">const c = { // Instanziierung
+	x: 4,
+	y: 3,
+	sum: function() {
+		return this.x + this.y;
+	}
+}
+c.sum(); // 7, Methodenaufruf
+</code></pre>
+				</section>
+				<section>
+					<h3>Objekte & Funktionen</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="1-5|7|9|">function Position(x,y) {
+	this.x = x;
+	this.y = y;
+	return "(" + x + "," + y + ")"
+}
+
+a = Position(3,4); // "(3,4)"
+
+a = new Position(3,4); // Objekt mit x=3 und y=4
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>this</h3>
+					<p>Bezugspunkt fuer den Aufrufer/Kontext</p>
+					<p class="fragment">Bisher: die aktuelle Objekt-Instanz</p>
+					<pre class="language-js fragment">
+<code class="hljs" data-line-numbers="1-3|5-7|9|">function whatTheThis() {
+	return this.a;
+}
+
+a = 16;
+console.log(a); // 16
+console.log(window.a); //16
+
+console.log(whatTheThis()); // 16
+</code></pre>
+				</section>
+				<section>
+					<h3>this</h3>
+					<p>Außerhalb aller Anweisungsblöcke (global execution context) zeigt es auf das root-Objekt,<br />im
+						Browser: window</p>
+					<p class="fragment">Modernes JavaScript: "globalThis" verweisst <strong>immer</strong> auf das root-Objekt</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Standardobjekte (Browser-APIs)</h3>
+					<ul>
+						<li>window (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">MDN</a>)
+							<ul>
+								<li>root-Objekt und Browserfenster<br />innerHeight, innerWidth</li>
+							</ul>
+						</li>
+						<li class="fragment">document (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document">MDN</a>)
+							<ul>
+								<li>HTML Dokument: cookie, title</li>
+							</ul>
+						</li>
+						<li class="fragment">Date (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">MDN</a>)
+							<ul>
+								<li>Datumsverarbeitung<br />new Date() -&gt; aktuelles Datum</li>
+							</ul>
+						</li>
+						<li class="fragment">freie Funktionen (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#function_properties">MDN</a>)
+							<ul>
+								<li>kleine Helfer</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						innerHeight: height of the content area of the browser window
+					</aside>
+				</section>
+				<section>
+					<h3>Standardfunktionen (Auswahl)</h3>
+					<ul>
+						<li>alert(message)
+							<ul>
+								<li>Ausgabe einer Nachricht in einem modalen Fenster</li>
+							</ul>
+						</li>
+						<li class="fragment">encode(uri) / decode(uri)
+							<ul>
+								<li>Enkodieren und dekodieren von URIs</li>
+							</ul>
+						</li>
+						<li class="fragment">isFinite(zahl) / isNaN(zahl)
+							<ul>
+								<li>Prüfen auf Wertbereich</li>
+							</ul>
+						</li>
+						<li class="fragment">parseFloat(string) / parseInt(string)
+							<ul>
+								<li>Typwandlung</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Document Object Model (DOM)</h3>
+					<p>Representation des HTML-Dokuments im Speicher</p>
+					<p class="fragment">Datenstruktur: Baum (<a href="https://www.youtube.com/watch?v=IYnsfV5N2n8&t=54s">Tree Powers
+							Activate!</a>)</p>
+					<p class="fragment">Schnittstelle zwischen<br />JavaScript und HTML-Dokument</p>
+					<p class="fragment">Einstiegsschnittstelle: document</p>
+				</section>
+				<section>
+					<h3>Zugriff auf Dokument</h3>
+					<p>Suchen eines Elements</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="1-5|7-14|">// Modern: CSS-Selektor
+// Findet erstes 'h1'-Element, &lt;-Objekt
+document.querySelector("h1");
+// Findet alle 'h1'-Elemente, &lt;-Array
+document.querySelectorAll("h1");
+
+// Klassisch: einzelne Methoden
+// Findet Element mit id='id', &lt;-Objekt
+document.getElementById("id");
+// Findet alle Elemente mit name='name', &lt;-Array
+document.getElementsByName("name");
+// Findet alle 'h1'-Elemente, &lt;-Array
+document.getElementsByTagName("h1");
+// ...
+</code></pre>
+				</section>
+				<section>
+					<h3>Zugriff auf Dokument</h3>
+					<p>Erzeugen eines neuen Elements</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="1-2|3-4|">// Erzeugt neues "div"-Element, &lt;-Objekt
+document.createElement("div");
+// Erzeugt neuen Textinhalt, &lt;-Objekt
+document.createTextNode("Lorem ipsum");
+</code></pre>
+					<p class="fragment">Passiert alles im Speicher! Erst Sichtbar wenn es dem "body" hinzugefügt wird!</p>
+				</section>
+				<section>
+					<h3>Zugriff auf Dokument</h3>
+					<p>Manipulieren des Dokuments</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="1-4|6-8|10-11|13-14|">// Hängt ein Element als Kind eines anderen in den Baum
+element.appendChild(element);
+// !Wirft HierarchyRequestError (DOMException)
+// z.b. wenn ein Zyklus entstehen würde
+
+// Objekte erstellen
+const newDiv = document.createElement("div");
+const newContent = document.createTextNode("text!");
+
+// Füge den Inhalt dem Div hinzu
+newDiv.appendChild(newContent);
+
+// Füge den neuen Div dem Body hinzu
+document.body.appendChild(newDiv);
+</code></pre>
+				</section>
+				<section>
+					<h3>Zugriff auf Dokument</h3>
+					<p>Manipulieren des Dokuments</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="1-4|6-15|">// Ersetzt ein Element durch ein anderes
+element.replaceChild(newElement, oldElement);
+// Entfernt ein Element
+element.replaceChild(oldElement);
+
+// Liest Attribut eines Elements aus
+element.getAttribute("name");
+// Setzt ein Attribut des Elements
+element.setAttribute("name", "value");
+</code></pre>
+				</section>
+				<section>
+					<h3>Zugriff auf Dokument</h3>
+					<p>Navigation durch das Dokument</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="1-2|3-5|">// Zeiger auf Kind-Elemente
+element.firstElementChild; element.lastElementChild;
+// Zeiger auf "Beziehungs"-Elemente
+element.nextElementSibling; element.previousElementSibling;
+node.parentNode;
+</code></pre>
+				</section>
+				<section>
+					<h3>Zugriff auf Dokument</h3>
+					<p>Element/Knoten-Attribute</p>
+					<pre class="language-js" style="min-height: 525px;">
+	<code class="hljs" data-line-numbers="1-2|3-6|8-11|13-18|" style="min-height: 525px;">// Textinhalt - komplett
+node.textContent;
+// Textinhalt:
+//  - human-readable: kein script, style
+//  - style-aware: kein Text von "hidden" Elements
+element.innerText;
+
+// HTML-Inhalt
+element.innerHTML;
+// !Wirft SyntaxError (DOMException)
+// wenn zugewiesener Wert kein gültiges HTML ist
+
+// Style
+element.style;
+// Setze Schriftfarbe
+element.style.color = 'red';
+// Standardfarbe wiederherstellen
+element.style.color = null;
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Event-Handler</h3>
+					<ul>
+						<li>Event-Attribute
+							<ul>
+								<li>onclick, ondblclick</li>
+								<li>onkeydown, onkeyup, onkeypress</li>
+								<li>onmousedown, onmouseup, onmouseover</li>
+								<li>...</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment" onclick="alert('click')">Beispiel: &lt;p onclick="alert('click')"&gt;Hallo!&lt;/p&gt;</p>
+				</section>
+				<section>
+					<h3>Add Event-Handler</h3>
+					<pre class="language-js">
+	<code class="hljs">element.addEventListener(event, listener, options)//new(er)
+element.addEventListener(event, listener, useCapture)//old(er)
+</code></pre>
+					<ul>
+						<li>addEventListener (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">MDN</a>)
+							<ul>
+								<li>event: Name des Events (ohne "on")</li>
+								<li>listener: Aufzurufende Funktion</li>
+								<li class="fragment">options (Optional): Objekt mit Optionen
+									<ul>
+										<li>capture: siehe useCapture (default: false)</li>
+										<li>once: nur einmal Aufrufen (default: false)</li>
+									</ul>
+								</li>
+								<li class="fragment">useCapture (Optional): boolean
+									<ul>
+										<li>true: Aufruf zuerst auf Elternelement</li>
+										<li>false: Event-Bubbles (default)</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Remove Event-Handler</h3>
+					<pre class="language-js">
+	<code class="hljs">element.removeEventListener(event, listener, options)
+element.removeEventListener(event, listener, useCapture)
+</code></pre>
+					<ul>
+						<li>removeEventListener (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener">MDN</a>)
+							<ul>
+								<li>event: Name des Events (ohne "on")</li>
+								<li>listener: Aufzurufende Funktion</li>
+								<li class="fragment">options (Optional): Objekt mit Optionen
+									<ul>
+										<li>capture: siehe useCapture (default: false)</li>
+									</ul>
+								</li>
+								<li class="fragment">useCapture (Optional): boolean
+									<ul>
+										<li>true: Aufruf zuerst auf Elternelement</li>
+										<li>false: Event-Bubbles (default)</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Event-Handler Parameter</h3>
+					<pre class="language-js">
+	<code class="hljs">const listener = function(event /* MouseEvent */) {
+	console.log(event.clientX + " / " + event.clientY);
+};
+element.addEventListener("click", listener);
+</code></pre>
+					<ul>
+						<li>event (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">MDN</a>)
+							<ul>
+								<li>target: Auslösendes Element</li>
+								<li>type: Art des Events</li>
+								<li class="fragment">stopPropagation(): bursts the bubble</li>
+							</ul>
+						</li>
+						<li class="fragment">Unterklassen
+							<ul>
+								<li>Mouse-Event (<a
+										href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">MDN</a>),
+									z.B. ctrlKey, altKey, shiftKey
+								</li>
+								<li>Keyboard-Event (<a
+										href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent">MDN</a>),
+									z.B. key,<br />code (ohne Tastaturlayout)
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Event-Handler Parameter</h3>
+					<p>Übergeben von weiteren Parametern?</p>
+					<pre class="language-js">
+	<code class="hljs">const listener = function(event, p1, p2) {
+	console.log(p1 + "; " + p2);
+};
+element.addEventListener("click", function(event) {
+	listener(event, p1, p2);
+});
+</code></pre>
+					<p class="fragment" data-fragment-index="1">oder via Handlerzuweisung per Attribut</p>
+					<pre class="language-html fragment" data-fragment-index="1">
+	<code class="hljs">&lt;p onclick="listener(event, p1, p2);"&gt;...&lt;/p&gt;
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Zugriff auf Formulardaten</h3>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="1-2|4-5|7-8|">// indiziert
+document.forms[3].elements[4].value
+
+// assoziativ via names
+document.forms.myForm.elements.x.value
+
+// assoziativ verkürzt
+document.myForm.x.value
+</code></pre>
+					<p>Empfehlung: Eindeutige Namen für Formulare (und Eingabeelemente) vergeben!</p>
+					<p>Empfehlung: Zugriffsformen nicht mischen!!<br />(Les- und Wartbarkeit)</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Javascript - Aufgabe 1</h3>
+					<pre class="language-js">
+<code class="hljs" data-line-numbers="|">let a = 1;
+b = 5;
+let c = new Array("eins", "zwei", "drei");
+function test(e, f) {
+	for(g in c) {
+		let b = e + a;
+		a = a + 1;
+	}
+	c = [f];
+}
+console.log("a='" + a + "' b='" + b + "' c='" + c + "'");
+test(4,5);
+console.log("a='" + a + "' b='" + b + "' c='" + c + "'");
+test(6,7);
+console.log("a='" + a + "' b='" + b + "' c='" + c + "'");
+</code></pre>
+					<p>Welchen Wert haben die Variablen a,b,c vor und nach den "test"-Aufrufen? Welche Strings geben
+						die "console.log" aus?</p>
+					<aside class="notes">
+						a='1' b='5' c='eins,zwei,drei'
+						a='4' b='5' c='[5]'
+						a='5' b='5' c='[7]'
+					</aside>
+				</section>
+				<section>
+					<h3>Praxis - JavaScript - Aufgabe 2</h3>
+					<ul>
+						<li>Erstellen Sie ein statisches Adress-Formular:<br />Name, Vorname, Straße,
+							Hausnummer, Plz, Ort</li>
+						<li>Gebt nach jeder Änderung unterhalb des Formulars die eingegebenen Daten in Form eines
+							"Adressaufklebers" aus.</li>
+						<li>Ein Klick auf einen Bereich des Addressaufklebers soll den Eingabe-Fokus auf das zugehörige
+							Eingabefeld setzen.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Praxis - JavaScript - Aufgabe 3</h3>
+					<ul>
+						<li>Erstellen Sie eine Flexbox/Grid, die als erste Spalte eine Auswahlspalte mit Checkboxen
+							enthält, danach eine Spalte mit einem Superhelden.</li>
+						<li>Initial ist der Knopf "Starte Mission" ausgeschaltet.</li>
+						<li>Ist mehr als eine Checkbox gewählt wird der Knopf eingeschaltet.</li>
+						<li>Gebt die Anzahl eingeschalteter Checkboxen neben dem Button aus.</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>JS - Lösungen Aufgabe 1</h3>
+					<pre class="language-js">
+<code class="hljs">a='1' b='5' c='eins,zwei,drei'
+a='4' b='5' c='5'
+a='5' b='5' c='7'
+</code></pre>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</header>
+	</div>
+</body>
+
+</html>

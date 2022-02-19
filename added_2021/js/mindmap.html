@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markmap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mindmap {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="mindmap"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@6.6.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.3"></script>
+  <script>
+    const { Markmap } = window.markmap;
+    Markmap.create("svg#mindmap", null, {
+      "t": "heading", "d": 1, "v": "JS",
+      "c": [
+        {
+          "t": "heading", "d": 2, "v": "History",
+        }, {
+          "t": "heading", "d": 2, "v": "Sprachtutorial",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Variablen"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Arrays"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Schleifen"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Fallunterscheidungen"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Funktionen"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Objekte"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Browser-Schnittstellen",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "window"
+            }, {
+              "t": "list_item", "d": 4, "v": "document",
+            }, {
+              "t": "list_item", "d": 4, "v": "alert",
+            }, {
+              "t": "list_item", "d": 4, "v": "encode/decode",
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Event-Handler"
+        }, {
+          "t": "heading", "d": 2, "v": "AJAX",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "XMLHTTPRequest",
+            }, {
+              "t": "list_item", "d": 4, "v": "fetch",
+            }, {
+              "t": "list_item", "d": 4, "v": "JSON",
+            }
+          ]
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>

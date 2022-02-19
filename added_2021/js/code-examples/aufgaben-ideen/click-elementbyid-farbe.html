@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML mit JS</title>
+    <script>
+        function changeColor(newColor) {
+            var element = document.getElementById('para');
+            element.style.color = newColor;
+        }
+    </script>
+</head>
+
+<body>
+    <p id="para">Ein bisschen Text</p>
+    <button onclick="changeColor('blue');">Blau</button>
+    <button onclick="changeColor('red');">Rot</button>
+</body>
+
+</html>
