@@ -277,6 +277,7 @@
 					<pre class="language-js fragment" data-fragment-index="5">
 <code class="hljs">console.log("47" + 11); // "4711"
 console.log("47" * 1 + 11); // 58</code></pre>
+					<p class="fragment" data-fragment-index="5">Die Typumwandlung kann sehr "unerwartete" Ausmaße annehmen: <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 					<aside class="notes">
 						% - Remainder
 						& - Bitwise AND
@@ -557,7 +558,7 @@ a = new Position(3,4); // Objekt mit x=3 und y=4
 					<p>Bezugspunkt fuer den Aufrufer/Kontext</p>
 					<p class="fragment">Bisher: die aktuelle Objekt-Instanz</p>
 					<pre class="language-js fragment">
-<code class="hljs" data-line-numbers="1-3|5-7|9|">function whatTheThis() {
+<code class="hljs" data-line-numbers="1-3|5-7|9-10|">function whatTheThis() {
 	return this.a;
 }
 
@@ -566,6 +567,7 @@ console.log(a); // 16
 console.log(window.a); //16
 
 console.log(whatTheThis()); // 16
+console.log(window.whatTheThis()); // 16
 </code></pre>
 				</section>
 				<section>
