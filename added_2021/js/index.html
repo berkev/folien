@@ -40,6 +40,12 @@
 			grid-auto-flow: column
 		}
 
+		.two-columns-half-half {
+			display: grid;
+			grid: auto-flow / 1fr 1fr;
+			grid-auto-flow: column
+		}
+
 		.text-column {
 			margin: 5px;
 		}
@@ -68,6 +74,9 @@
 	Tag 1: 1,3-49
 	Tag 1 - Praxis: 50-52
 	Tag 1 - Praxis-Loesungen: 53
+	Tag 2: 1,54-96
+	Tag 2 - Praxis: 97-98
+	Tag 2 - Praxis-Loesungen: 99
 -->
 
 <body>
@@ -259,7 +268,8 @@
 					<pre class="language-js">
 						<code class="hljs" data-code="./code-examples/2_variablen/schluesselwort.js" data-line-numbers="|1|2|4-5|7-8"></code>
 					</pre>
-					<p>Mit <span class="hljs-keyword">let</span>/<span class="hljs-keyword">const</span> Schlüsselwort: Block-Scope Variable</p>
+					<p>Mit <span class="hljs-keyword">let</span>/<span class="hljs-keyword">const</span> Schlüsselwort:
+						Block-Scope Variable</p>
 					<p>Mit <span class="hljs-keyword">var</span> Schlüsselwort: Function-Scope Variable</p>
 				</section>
 				<section>
@@ -277,7 +287,8 @@
 					<pre class="language-js fragment" data-fragment-index="5">
 <code class="hljs">console.log("47" + 11); // "4711"
 console.log("47" * 1 + 11); // 58</code></pre>
-					<p class="fragment" data-fragment-index="5">Die Typumwandlung kann sehr "unerwartete" Ausmaße annehmen: <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
+					<p class="fragment" data-fragment-index="5">Die Typumwandlung kann sehr "unerwartete" Ausmaße
+						annehmen: <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 					<aside class="notes">
 						% - Remainder
 						& - Bitwise AND
@@ -574,7 +585,8 @@ console.log(window.whatTheThis()); // 16
 					<h3>this</h3>
 					<p>Außerhalb aller Anweisungsblöcke (global execution context) zeigt es auf das root-Objekt,<br />im
 						Browser: window</p>
-					<p class="fragment">Modernes JavaScript: "globalThis" verweisst <strong>immer</strong> auf das root-Objekt</p>
+					<p class="fragment">Modernes JavaScript: "globalThis" verweisst <strong>immer</strong> auf das
+						root-Objekt</p>
 				</section>
 			</section>
 			<section>
@@ -586,7 +598,8 @@ console.log(window.whatTheThis()); // 16
 								<li>root-Objekt und Browserfenster<br />innerHeight, innerWidth</li>
 							</ul>
 						</li>
-						<li class="fragment">document (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document">MDN</a>)
+						<li class="fragment">document (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/Document">MDN</a>)
 							<ul>
 								<li>HTML Dokument: cookie, title</li>
 							</ul>
@@ -638,7 +651,8 @@ console.log(window.whatTheThis()); // 16
 				<section>
 					<h3>Document Object Model (DOM)</h3>
 					<p>Representation des HTML-Dokuments im Speicher</p>
-					<p class="fragment">Datenstruktur: Baum (<a href="https://www.youtube.com/watch?v=IYnsfV5N2n8&t=54s">Tree Powers
+					<p class="fragment">Datenstruktur: Baum (<a
+							href="https://www.youtube.com/watch?v=IYnsfV5N2n8&t=54s">Tree Powers
 							Activate!</a>)</p>
 					<p class="fragment">Schnittstelle zwischen<br />JavaScript und HTML-Dokument</p>
 					<p class="fragment">Einstiegsschnittstelle: document</p>
@@ -672,7 +686,8 @@ document.createElement("div");
 // Erzeugt neuen Textinhalt, &lt;-Objekt
 document.createTextNode("Lorem ipsum");
 </code></pre>
-					<p class="fragment">Passiert alles im Speicher! Erst Sichtbar wenn es dem "body" hinzugefügt wird!</p>
+					<p class="fragment">Passiert alles im Speicher! Erst Sichtbar wenn es dem "body" hinzugefügt wird!
+					</p>
 				</section>
 				<section>
 					<h3>Zugriff auf Dokument</h3>
@@ -758,7 +773,8 @@ element.style.color = null;
 							</ul>
 						</li>
 					</ul>
-					<p class="fragment" onclick="alert('click')">Beispiel: &lt;p onclick="alert('click')"&gt;Hallo!&lt;/p&gt;</p>
+					<p class="fragment" onclick="alert('click')">Beispiel: &lt;p
+						onclick="alert('click')"&gt;Hallo!&lt;/p&gt;</p>
 				</section>
 				<section>
 					<h3>Add Event-Handler</h3>
@@ -937,6 +953,734 @@ console.log("a='" + a + "' b='" + b + "' c='" + c + "'");
 a='4' b='5' c='5'
 a='5' b='5' c='7'
 </code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>AJAX - Asynchronous JavaScript and XML</h3>
+					<p class="fragment">Asynchrone Datenübertragung zwischen<br />Browser und Server</p>
+					<p class="fragment">Daten zum Browser übertragen außerhalb von Seiten-Navigationen</p>
+					<p class="fragment">Aufruf des Servers, Empfangen und Verarbeiten der Antwort durch JavaScript</p>
+					<p class="fragment">Daten müssen nicht(!) im XML-Format sein</p>
+				</section>
+				<section>
+					<h3>AJAX vs. Seitenabruf</h3>
+					<div class="two-columns">
+						<div class="text-column">
+							<p>Seitenabruf</p>
+							<ol>
+								<li value="1">Browser stellt Seite1.html dar</li>
+								<li class="fragment" value="1">Browser sendet Request</li>
+								<li class="fragment">Server schickt HTML-Seite<br />an Browser</li>
+								<li class="fragment">Browser stellt neue<br />HTML-Seite dar</li>
+							</ol>
+						</div>
+						<img src="./images/html-seitenaufruf.jpg">
+					</div>
+				</section>
+				<section>
+					<h3>AJAX vs. Seitenabruf</h3>
+					<div class="two-columns">
+						<div class="text-column">
+							<p>AJAX</p>
+							<ol>
+								<li value="1">Browser stellt Seite1.html dar</li>
+								<li class="fragment" value="1">Browser sendet AJAX-Request</li>
+								<li class="fragment">Server schickt JSON-Daten<br />an Browser</li>
+								<li class="fragment">JavaScript verarbeitet Daten und stellt sie auf Seite1.html dar
+								</li>
+							</ol>
+						</div>
+						<img src="./images/js-ajax.jpg">
+					</div>
+				</section>
+				<section>
+					<h3>Einsatzszenarien</h3>
+					<ul>
+						<li>Eingabehilfen
+							<ul>
+								<li>Vorschlagen während des Tippens</li>
+								<li>Autovervollständigung (z.B. PLZ -> Ort)</li>
+							</ul>
+						</li>
+						<li class="fragment">Nachladen von Daten
+							<ul>
+								<li>Indikatoren das neue Daten verfügbar sind</li>
+								<li>Scrollen durch endlose Listen</li>
+							</ul>
+						</li>
+						<li class="fragment">Neue Bedienkonzepte
+							<ul>
+								<li>Browserspiele</li>
+							</ul>
+						</li>
+						<li class="fragment">Reine JavaScript-Clients
+							<ul>
+								<li>Office 360</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Vor- und Nachteile</h3>
+					<p>Vorteile</p>
+					<ul>
+						<li class="fragment">schneller: nur Daten übertragen</li>
+						<li class="fragment">sanfter: Bildschirm aktualisiert weicher</li>
+						<li class="fragment">dynamischer: ermöglicht weitere Interaktionskonzepte</li>
+					</ul>
+					<p class="fragment">Nachteile</p>
+					<ul>
+						<li class="fragment">Im Allgemeinen nicht Barrierefrei</li>
+						<li class="fragment">Widerspruch zur Browsernavigation(Vor-/Zurück-Button, Bookmarks, ...)</li>
+						<li class="fragment">Schwierig für Suchmaschinen</li>
+					</ul>
+				</section>
+				<section>
+					<h3>APIs</h3>
+					<p>API-Stile, Protokolle</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">SOAP - Simple Object Access Protocol
+							<ul>
+								<li>XML-basiertes Protokoll für Webservices</li>
+								<li>Transport über HTTP POST</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="2">REST - Representational State Transfer
+							<ul>
+								<li class="fragment" data-fragment-index="2">Architektur-Stil um "internet-scale" zu
+									erreichen</li>
+								<li class="fragment">Nutzt standard HTTP-Methoden (GET, POST, PUT, DELETE) mit
+									Parametern</li>
+								<li class="fragment">Oftmals JSON als Datenformat</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JSON vs. XML</h3>
+					<p><a href="https://api.github.com/users/chr1shaefn3r">https://api.github.com/users/chr1shaefn3r</a>
+					</p>
+					<pre class="language-json">
+<code class="hljs">{
+	"login": "chr1shaefn3r",
+	"id": 11996484,
+	"node_id": "MDQ6VXNlcjExOTk2NDg0",
+	"avatar_url": "https://avatars.githubusercontent.com/u/11996484?v=4",
+	"type": "User",
+	"name": "Christoph Häfner"
+}
+</code></pre>
+					<pre class="language-xml fragment">
+<code class="hljs"><user id="11996484" nodeId="MDQ6VXNlcjExOTk2NDg0">
+	<Login>chr1shaefn3r</Login>
+	<AvatarUrl>https://avatars.githubusercontent.com/u/11996484?v=4</AvatarUrl>
+	<name>Christoph Häfner</name>
+</user>
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>XMLHTTPRequest</h3>
+					<ul>
+						<li>API zum Transfer von beliebigen Daten über HTTP</li>
+						<li class="fragment" data-fragment-index="1">Old-school JavaScript API (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">MDN</a>)</li>
+						<li class="fragment" data-fragment-index="2">Event-basierte API</li>
+						<li class="fragment" data-fragment-index="3">Unterschiede zwischen den Browsern vorhanden
+							(versionsabhängig!)</li>
+						<li class="fragment" data-fragment-index="3">Spec: <a
+								href="https://xhr.spec.whatwg.org/">https://xhr.spec.whatwg.org/</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>XMLHTTPRequest - Methoden</h3>
+					<p>Herstellen einer Verbindung (<a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open">MDN</a>)</p>
+					<pre class="language-js">
+	<code class="hljs">const request = new XMLHttpRequest();
+request.open(method, url[, async=true[, user=null[, password=null]]])
+</code></pre>
+					<p class="fragment" data-fragment-index="1">Anfrage senden (<a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send">MDN</a>)</p>
+					<pre class="language-js fragment" data-fragment-index="1">
+<code class="hljs">request.send([body=null])
+</code></pre>
+					<ul>
+						<li class="fragment" data-fragment-index="2">Verbindung muss geöffnet sein!</li>
+						<li class="fragment" data-fragment-index="3">Verschiedene Datentypen möglich, z.B. String,
+							Array, Blob (Binärdaten)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>XMLHTTPRequest - Events</h3>
+					<ul>
+						<li>Event-Handler
+							<ul>
+								<li>readystatechange</li>
+								<li>load, error, progress</li>
+							</ul>
+						</li>
+						<li class="fragment">Status für Anfragen: readyState
+							<ul>
+								<li>0: Objekt wurde erzeugt</li>
+								<li>1: Open() wurde aufgerufen</li>
+								<li>2: HTTP-Header empfangen</li>
+								<li>3: Empfangen</li>
+								<li>4: Anfrage abgeschlossen</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment">Daten der Antwort: responseText, responseXML</p>
+				</section>
+				<section>
+					<h3>XMLHTTPRequest - Beispiel</h3>
+					<pre class="language-js full-width">
+						<code class="hljs"  data-line-numbers="|1-2|4-10|12-13|15-16|6|" style="min-height: 500px">// XMLHTTPRequest erzeugen
+const request = new XMLHttpRequest();
+
+// Event-Handler um Antwort auszugeben
+function reqListener () {
+	console.log(this.responseText);
+}
+
+// Event-Handler für Antwort setzen
+request.addEventListener("load", reqListener);
+
+// Verbindung öffnen
+request.open("GET", "https://api.github.com/users/chr1shaefn3r");
+
+// Anfrage abschicken
+request.send();
+</code></pre>
+				</section>
+				<section>
+					<h3>XMLHTTPRequest - Beispiel2</h3>
+					<pre class="language-js full-width">
+						<code class="hljs" data-line-numbers="|1-2|4-7|9-13|6|">// XMLHTTPRequest erzeugen
+const request = new XMLHttpRequest();
+
+// Event-Handler für Antwort setzen
+request.onreadystatechange = function receive() {
+	if(req.readyState==4) console.log(request.responseText);
+}
+
+// Verbindung öffnen
+request.open("GET", "https://api.github.com/users/chr1shaefn3r");
+
+// Anfrage abschicken
+request.send();
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>fetch</h3>
+					<ul>
+						<li>alternative zu XMLHTTPRequest</li>
+						<li>Moderne JavaScript API (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">MDN</a>)</li>
+						<li class="li-space-above fragment" data-fragment-index="1">Ist auch in einem "WebWorker"
+							verfügbar</li>
+						<li class="fragment" data-fragment-index="2">Ist nicht im "Internet Explorer" verfügbar</li>
+						<li class="li-space-above fragment" data-fragment-index="3">Promise-basierte API</li>
+						<li class="fragment" data-fragment-index="3">Spec: <a
+								href="https://fetch.spec.whatwg.org/">https://fetch.spec.whatwg.org/</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>fetch - Aufruf</h3>
+					<pre class="language-js">
+						<code class="hljs">const responsePromise = fetch(resource, [, init])
+</code></pre>
+					<ul>
+						<li>resource: Aufzurufende URL</li>
+						<li class="fragment">init: Objekt mit optionalen Parametern (headers, credentials, redirect,
+							...)</li>
+						<li class="fragment">return: Promise (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN</a>),
+							das auf die Antwort wartet
+							<ul>
+								<li class="fragment">then(handleResolve, handleReject)</li>
+								<li class="fragment">catch(handleCatch)</li>
+								<li class="fragment">finally(handleFinally)</li>
+								<li class="fragment">Handler bekommen ein Response-Objekt übergeben</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>fetch - Response Objekt</h3>
+					<p>Rückgabewert der Fetch-API (<a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/Response">MDN</a>)</p>
+					<ul>
+						<li>status: Status Code des Aufrufs</li>
+						<li>statusText: Text des Status</li>
+						<li class="fragment">ok: Anfrage war Erfolgreich (status 200-299)</li>
+						<li class="fragment">text(), json(), formData(), blob():<br />Inhalt der Antwort in Form eines
+							Promise</li>
+					</ul>
+				</section>
+				<section>
+					<h3>fetch - Beispiel</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-3|4|5|6-8|">fetch(
+	"https://api.github.com/users/chr1shaefn3r"
+).then(
+	function(response) {
+		response.json().then(
+			function(githubUser) {
+				console.log(githubUser);
+			}
+		);
+	}
+);
+</code></pre>
+					<pre class="language-js fragment">
+	<code class="hljs">fetch("https://api.github.com/users/chr1shaefn3r")
+.then((response) => response.json())
+.then((githubUser) => console.log(githubUser));
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>JSON - Javascript Object Notation</h3>
+					<ul>
+						<li>Datenaustauschformat
+							<ul>
+								<li>Kommunikation eines Servers mit einem JavaScript-Client</li>
+							</ul>
+						</li>
+						<li class="fragment">Kompaktere Darstellung als XML</li>
+						<li class="fragment">Native Unterstützung in JavaScript
+							<ul>
+								<li class="fragment">JSON.parse: String zu JavaScript-Objekt</li>
+								<li class="fragment">JSON.stringify: JavaScript-Objekt zu String</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JSON - Beispiel</h3>
+					<p><a href="https://api.github.com/users/chr1shaefn3r">https://api.github.com/users/chr1shaefn3r</a>
+					</p>
+					<pre class="language-json">
+<code class="hljs">{
+	"login": "chr1shaefn3r",
+	"id": 11996484,
+	"node_id": "MDQ6VXNlcjExOTk2NDg0",
+	"avatar_url": "https://avatars.githubusercontent.com/u/11996484?v=4",
+	"type": "User",
+	"site_admin": false,
+	"name": "Christoph Häfner",
+	"hireable": null,
+	"bio": null,
+	"public_repos": 5,
+}
+</code></pre>
+				</section>
+				<section>
+					<h3>JSON - Datentypen</h3>
+					<ul>
+						<li>Objekte - {"Schüssel1": wert, "Schlüssel": wert2, ...}</li>
+						<li class="fragment" data-fragment-index="1">Nullwert - null</li>
+						<li class="fragment" data-fragment-index="1">Boolesche Werte - true, false</li>
+						<li class="fragment" data-fragment-index="1">Zahlen</li>
+						<li class="fragment" data-fragment-index="1">Zeichenkette - begrenzt durch ""</li>
+						<li class="fragment" data-fragment-index="1">Array - [wert1, wert2, ...]</li>
+						<li class="fragment" data-fragment-index="1">Leerzeichen/Neuzeilen sind erlaubt</li>
+						<li class="li-space-above fragment" data-fragment-index="2">KEINE: Funktionen,
+							Prototypen,<br />zirkuläre Referenzen</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JSON - Einlesen</h3>
+					<p>JSON.parse</p>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-2|4-7|">const myObject = JSON.parse('{"label": "Hello World"');
+console.log(myObject.label); // "Hello World"
+
+const myObject = JSON.parse(
+	'{"label": function() { return "Hello World" }'
+);
+// Uncaught SyntaxError: Unexpected token [...]</code></pre>
+				</section>
+				<section>
+					<h3>JSON - Auslesen</h3>
+					<p>JSON.stringify</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="|1-3|5-6|">const myObject = {"label": "Hello World"};
+console.log(JSON.stringify(myObject));
+// '{"label":"Hello World"}'
+
+JSON.stringify(objectWithCircularReference);
+//Uncaught TypeError: Converting circular structure to JSON</code></pre>
+				</section>
+				<section>
+					<h3>JSON - (Anti)Pattern</h3>
+					<p>Tiefes Klonen eines JavaScript-Objekts</p>
+					<pre class="language-js fragment">
+						<code class="hljs" data-line-numbers="|1-3|5-7|9-11|">const mutate = function(o) {
+	o.a = 4;
+}
+
+const myObject = { a: 2 };
+mutate(myObject);
+console.log(myObject.a); // 4
+
+const myObject = { a: 2 };
+mutate(JSON.parse(JSON.stringify(myObject)));
+console.log(myObject.a); // 2</code></pre>
+					<p class="fragment">Moderne alternative: structuredClone() (<a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/structuredClone">MDN</a>)<br />Kann
+						auch mit zyklischen Abhängigkeiten umgehen</p>
+				</section>
+				<section>
+					<h3>fetch()+JSON - Beispiel</h3>
+					<p>Website/HTML:</p>
+					<pre class="language-html">
+						<code class="hljs">&lt;body&gt;
+	&lt;h1&gt;Fetch Beispiel&lt;/h1&gt;
+	&lt;p&gt;x = &lt;span id="x"&gt;&lt;/span&gt;&lt;/p&gt;
+	&lt;p&gt;t = &lt;span id="t"&gt;&lt;/span&gt;&lt;/p&gt;
+	&lt;p&gt;
+		&lt;input type="button" value="load" onclick="loadData()"&gt;
+	&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+					<p class="fragment" data-fragment-index="1">JSON API-Antwort:</p>
+					<pre class="language-json fragment" data-fragment-index="1">
+	<code class="hljs">{ "x": 5, "t": "hello World" }
+</code></pre>
+				</section>
+				<section>
+					<h3>fetch()+JSON - Beispiel</h3>
+					<p>JS-Script:</p>
+					<pre class="language-js">
+						<code class="hljs">function loadData () {
+	fetch(url)
+	.then(response => response.json())
+	.then(function(data) {
+		document.getElementById("x").innerText = data.x;
+		document.getElementById("t").innerText = data.t;
+	});
+}
+</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Arrow-Functions</h3>
+					<p>Old-School JavaScript:<br /> <span class="hljs-keyword">function</span> und
+						<span class="hljs-built_in">this</span>-Kontext wird vom Aufrufer gesetzt<br /><span
+							class="fragment">Überraschender
+							this-Kontext, verkompliziert Einstieg
+							in JavaScript</span>
+					</p>
+					<p class="fragment">Modernes JavaScript:<br /><span
+							class="fragment highlight-current-red">=&gt;</span> und
+						<span class="hljs-built_in">this</span>-Kontext des Scopes<br />Leichter verständlich, weniger
+						Workarounds
+					</p>
+				</section>
+				<section>
+					<h3>Functions and this (again)</h3>
+					<p><span class="hljs-built_in">this</span> ist nicht was man erwarten würde</p>
+					<pre class="language-js">
+						<code class="hljs" style="min-height:420px" data-line-numbers="|1-3|5-11|6|7|8-10|13|6,9,14-15|">function GithubUser(name) {
+	this.name = name
+};
+
+GithubUser.prototype.download = function() {
+	console.log(this.name);
+	fetch("https://api.github.com/users/" + this.name)
+	.then(function(data) {
+		console.log(this.name);
+	});
+}
+
+new GithubUser("chr1shaefn3r").download();
+// "chr1shaefn3r" (Zeile 6)
+// undefined (Zeile 9)</code></pre>
+					<p class="fragment">Warum ist "this.name" in Zeile 6 + 9 nicht das gleiche? <span
+							class="fragment">WTF?!?</span></p>
+				</section>
+				<section>
+					<h3>Functions and this (again)</h3>
+					<p>Workaround um an <span class="hljs-built_in">this</span> ranzukommen</p>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|5-11|6|7|8-10|13|9,14|">function GithubUser(name) {
+	this.name = name
+};
+
+GithubUser.prototype.download = function() {
+	var that = this;
+	fetch("https://api.github.com/users/" + that.name)
+	.then(function(data) {
+		console.log(that.name);
+	});
+}
+
+new GithubUser("chr1shaefn3r").download();
+// "chr1shaefn3r" (Zeile 9)</code></pre>
+				</section>
+				<section>
+					<h3>Arrow-Functions and this (again)</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|5-10|6|7-9|12|8,13|">function GithubUser(name) {
+	this.name = name
+};
+
+GithubUser.prototype.download = function() {
+	fetch("https://api.github.com/users/" + this.name)
+	.then((data) => {
+		console.log(this.name);
+	});
+}
+
+new GithubUser("chr1shaefn3r").download();
+// "chr1shaefn3r" (Zeile 8)</code></pre>
+					<p class="fragment">weniger Syntax zu tippen, richtiges Ergebnis, ganz ohne Workaround: <a
+							href="https://youtu.be/QTmkibc3WcI?t=83">great success!</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Function vs. Block-Scope</h3>
+					<p>Old-School JavaScript:<br /> <span class="hljs-keyword">var</span> und
+						Function-Scope<br /><span class="fragment">Überraschende Variablengültigkeiten, verkompliziert
+							Einstieg in JavaScript</span>
+					</p>
+					<p class="fragment">Modernes JavaScript:<br /><span class="hljs-keyword">let</span>/<span
+							class="hljs-keyword">const</span> und Block-Scope<br />Vergleichbarer mit bestehenden
+						Konzepten aus anderen Programmiersprachen (Java, C++, Rust, etc.)</p>
+				</section>
+				<section>
+					<h3>Function-Scope</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-6|2-4|5|7|">function whatTheFunctionScope(data) {
+	for(var index = 0; index &lt; data.length; index++) {
+		/* do something with data[index] */
+	}
+	console.log(index);
+};
+whatTheFunctionScope(["wert"]); // 1</code></pre>
+					<p class="fragment">Warum ist die Variable "index" in Zeile 5 noch gültig?!? <span
+							class="fragment">WTF?!?!</span></p>
+					<img class="fragment" src="./images/what-the-fuck-per-minute.png" alt="What the fuck per minute"
+						style="max-height:220px" />
+				</section>
+				<section>
+					<h3>Function-Scope (hoisting)</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-5|2|3-4|6-8|">function whatTheFunctionScope() {
+	console.log(index);
+	var index = 1;
+	console.log(index);
+};
+whatTheFunctionScope();
+// undefined
+// 1</code></pre>
+					<p class="fragment">Warum ist die Variable "index" in Zeile 2 schon verfügbar?!? <span
+							class="fragment">WTF?!?!</span></p>
+					<img class="fragment" src="./images/what-the-fuck-per-minute.png" alt="What the fuck per minute"
+						style="max-height:220px" />
+				</section>
+				<section>
+					<h3>Block-Scope</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-6|2|7-8|">function theBlockScope(data) {
+	for(let index = 0; index &lt; data.length; index++) {
+		/* do something with data[index] */
+	}
+	console.log(index);
+};
+theBlockScope(["wert"]);
+// Uncaught ReferenceError: index is not defined</code></pre>
+					<p class="fragment">Die Variable "index" ist auf den Block der for-Schleife beschränkt. <span
+							class="fragment">So wie man es erwarten würde.</span></p>
+					<p class="fragment">KEIN hoisting!</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>JavaScript Objektorientierung</h3>
+					<p>Was bisher geschah:</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">new: "normale" Funktion als Konstruktor</li>
+						<li class="fragment" data-fragment-index="2">Objektattribute (z.B. Position mit x und y)</li>
+						<li class="fragment" data-fragment-index="3">Methoden (z.B. Calculator mit sum und diff)</li>
+					</ul>
+					<p class="fragment" data-fragment-index="4">Was noch fehlt:</p>
+					<ul>
+						<li class="fragment" data-fragment-index="4">Vererbung</li>
+						<li class="fragment" data-fragment-index="5">Polymorphismus</li>
+					</ul>
+					<p class="fragment" data-fragment-index="6">Und woher kommt eigentlich dieses "toString"?:</p>
+					<pre class="language-js fragment" data-fragment-index="6">
+						<code class="hljs">const myObject = { x: 4, y: 2};
+console.log(myObject.toString()); // "[object Object]"</code></pre>
+				</section>
+				<section>
+					<h3>JavaScript Prototypes</h3>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Eingebautes Objektattribut genannt "prototype"</li>
+						<li class="fragment" data-fragment-index="2">"prototype" ist selbst ein Objekt (<a
+								href="https://www.azquotes.com/quote/585961">rekursion!</a>)</li>
+						<li class="li-space-above fragment" data-fragment-index="3">Lesende Objektzugriffe werden bei
+							Bedarf an den Prototype
+							weitergeleitet (<a href="https://www.getdigital.de/rekursion.html">rekursion!!</a>) </li>
+						<li class="fragment">Ende der Kette: Objekt mit "null" als Prototype (<a
+								href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Rekursions-Ende</a>)</li>
+						<li class="li-space-above fragment">Konzept: "Prototype chain" (<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#inheritance_with_the_prototype_chain">MDN</a>)<br />Grundlage
+							für Vererbung
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JavaScript Prototypes</h3>
+					<p>Prototyp erweitern</p>
+					<pre class="language-js">
+						<code class="hljs">const obj = { x: 4, y: 2};
+obj.__proto__.d = 5; // __proto__ ist Implementierungsdetail
+Object.getPrototypeOf(obj).d = 5; // ES5 Standard
+console.log(obj.d); // 5</code></pre>
+				</section>
+				<section>
+					<h3>JavaScript Prototypes</h3>
+					<p>Klassen-Prototype erweitern</p>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="|1-4|6-8|10-11|">function Calculator(x, y) {
+	this.x = x;
+	this.y = y;
+}
+
+Calculator.prototype.sum = function() {
+	return this.x + this.y;
+}
+
+const c = new Calculator(4, 2);
+console.log(c.sum()); // 6</code></pre>
+				</section>
+				<section>
+					<h3>JavaScript Prototypes/Vererbung</h3>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="|1-6|8-11|13-14|16-18|20-21|" style="min-height: 600px">function Person(name) {
+	this.name = name;
+}
+Person.prototype.vorstellen = function() {
+	console.log("Hallo, mein Name ist " + this.name)
+}
+
+function Dozent(name, fach) {
+	Person.call(this, name);
+	this.fach = fach;
+}
+
+// Prototypen-Kette setzen "Vererbung"
+Dozent.prototype = Person.prototype;
+
+Dozent.prototype.bewerten = function (klausur) {
+	if(klausur.fach === this.fach) { /* Impl */ }
+}
+
+new Dozent("Christoph", "WebEngineering1").vorstellen();
+// "Hallo, mein Name ist Christoph"</code></pre>
+				</section>
+				<section>
+					<h3>Prototypes vs. classes</h3>
+					<div class="two-columns-half-half">
+						<div>
+							<p>Prototypes</p>
+							<img src="./images/iron-man-mark-1.png" alt="Iron Man Mark 1 - The Prototype" />
+						</div>
+						<div class="fragment">
+							<p>ES6: classes</p>
+							<img src="./images/iron-man-mark-3.png" alt="Iron Man Mark 3 - Polished" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>ES6: Classes</h3>
+					<pre class="language-js">
+	<code class="hljs" data-line-numbers="|1-9|2-5|6-8|10-19|10|11-14|13|16-18|20-21|" style="min-height: 600px">class Person {
+	name;
+	constructor(name) {
+		this.name = name;
+	}
+	vorstellen() {
+		console.log("Hallo, mein Name ist " + this.name)
+	}
+}
+class Dozent extends Person {
+	fach;
+	constructor(name, fach) {
+		super(name);
+		this.fach = fach;
+	}
+	bewerten(klausur) {
+		if(klausur.fach === this.fach) { /* Impl */ }
+	}
+}
+new Dozent("Christoph", "WebEngineering1").vorstellen();
+// "Hallo, mein Name ist Christoph"</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Sonst noch so...</h3>
+					<p class="fragment">Typescript: Verbreitetste JS-Variation [<a
+							href="https://2021.stateofjs.com/en-US/other-tools/#javascript_flavors">0</a>]<br />Erweitert
+						JS-Syntax um Typsystem (Superset), kompiliert nach JavaScript</p>
+					<p class="fragment">ASM.js -> WASM (WebAssembly)<br />Anstatt JS programmieren, Web-Plattform als
+						"compile target",
+						z.B. LibreOffice im Browser [<a
+							href="https://www.golem.de/news/wasm-libreoffice-laeuft-mit-webassembly-im-browser-2202-163318.html">1</a>],
+						[<a
+							href="https://www.computerbase.de/2022-02/libreoffice-7.4-freie-office-suite-laeuft-dank-webassembly-im-browser/">2</a>]
+					</p>
+					<p class="fragment">Nach REST: GraphQL<br />Abfragesprache, mit einem Request aus vielen
+						verschiedenen Resourcen
+						genau die Attribute abfragen die im UI benötigt werden, z.B. <a
+							href="https://docs.github.com/en/graphql">Github-API v4</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - JavaScript - Aufgabe 3</h3>
+					<ul>
+						<li>Erstellt eine Website mit einem kurzen Textabsatz eurer Wahl, einem Button mit Text "Rot",
+							und einem Button mit Text "Blau"</li>
+						<li>Ein Klick auf den Button "Rot" soll die Schriftfarbe des Textabsatz auf "Rot" ändern</li>
+						<li>Ein Klick auf den Button "Blau" soll die Schriftfarbe des Textabsatz auf "Blau" ändern</li>
+					</ul>
+					<p>HTML-Vorlage: <a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/js/code-examples/3_aufgabe3/website-aufgabe3.html">website-aufgabe3.html</a>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - fetch - Aufgabe 4</h3>
+					<p>Github Profil Seite</p>
+					<ul>
+						<li>Erstellt eine Website mit Textfeld und Button</li>
+						<li>Beim Klick des Buttons soll der Text aus dem Eingabefeld als Username interpretiert und an
+							Github geschickt werden</li>
+						<li>Stellt das Ergebnis grafisch dar (samt Bild)</li>
+						<li>Optional: Fehlerseite wenn Username nicht existiert</li>
+						<li>Optional: Lade-Indikator</li>
+					</ul>
+					<p>Github User REST-Api: "https://api.github.com/users/{username}"</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Lösung - JavaScript - Aufgabe 3</h3>
+					<p><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/js/code-examples/3_aufgabe3/loesung-aufgabe3.html">loesung-aufgabe3.html</a>
+					</p>
 				</section>
 			</section>
 		</div>
