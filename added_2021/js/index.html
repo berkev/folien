@@ -1158,12 +1158,14 @@ request.send();
 				<section>
 					<h3>XMLHTTPRequest - Beispiel2</h3>
 					<pre class="language-js full-width">
-						<code class="hljs" data-line-numbers="|1-2|4-7|9-13|6|">// XMLHTTPRequest erzeugen
+						<code class="hljs" data-line-numbers="|1-2|4-10|11-15|7|">// XMLHTTPRequest erzeugen
 const request = new XMLHttpRequest();
 
 // Event-Handler für Antwort setzen
 request.onreadystatechange = function receive() {
-	if(req.readyState==4) console.log(request.responseText);
+	if(request.readyState==4) {
+		console.log(request.responseText);
+	}
 }
 
 // Verbindung öffnen
