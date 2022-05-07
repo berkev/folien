@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: WebServer</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.two-columns-half-half {
+			display: grid;
+			grid: auto-flow / 1fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+
+		.js-output {
+			border: 2px solid grey;
+			text-align: left;
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+		.min-height-200 {
+			min-height: 400px;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?print-pdf)
+	all pages
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Projekte</h1>
+				<p>Klausur 75%</p>
+				<p>Projekt 25%</p>
+			</section>
+			<section>
+				<section>
+					<h3>Prüfungsleistung</h3>
+					<ul>
+						<li>Klausur (75%)
+							<ul>
+								<li>Termin: <b>30.06.2022 (Donnerstag)</b></li>
+								<li>Inhalte: Stoff aus 1. und 2. Semester</li>
+								<li>Übungsaufgaben helfen beim Lernen</li>
+							</ul>
+						</li>
+						<li>Projekt (Programmentwurf) (25%)
+							<ul>
+								<li>Kleines Webprojekt in Zusammenarbeit mit Vorlesung Projektmanagement (Hr. Milke)
+								</li>
+								<li>Bearbeitung in "Heimarbeit"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projektgruppen</h3>
+					<ul>
+						<li>Bearbeitung in 4er Gruppen<br />in Ausnahmefällen 3-5er Gruppen, max. 8 Gruppen</li>
+						<li>Bildung Gruppen bis spätestens <b>KW 21</b></li>
+						<li>Themenausgabe (Vorschläge von mir)</li>
+						<li>Gruppeneinteilung ab sofort (selbstorganisiert)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt / Programmentwurf</h3>
+					<ul>
+						<li>Quellcode (zip-Epxort, Git-Repo-Url)</li>
+						<li>Technische Dokumentation: 2-4 Seiten (A4)<br />Wie ist das Projekt aufgebaut?
+							<ul>
+								<li>Struktur der Websites<br />Welche Seiten, wie verbunden?</li>
+								<li>Struktur der Seiten/Layout<br />Wie sind die Seiten aufgebaut?</li>
+								<li>Umsetzung - technischer Aufbau der Seiten</li>
+							</ul>
+						</li>
+						<li>Projektmanagement-Artefakte (Meilenstein Plan, Risikobetrachtung, PSP, etc.)</li>
+						<li>Abgabe via Moodle im Projektmanagement-Raum</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Allgemeine Anforderungen</h3>
+					<ul>
+						<li>Inhalt
+							<ul>
+								<li>Startseite mit Kurzerklärung</li>
+								<li>eigentliche Projektseiten</li>
+								<li>Impressum</li>
+							</ul>
+						</li>
+						<li>Einsatz von
+							<ul>
+								<li>HTML/Template</li>
+								<li>CSS
+									<ul>
+										<li>durchdachtes Layout</li>
+										<li>dynamische Effekte (e.g. Mouse-Over)</li>
+									</ul>
+								</li>
+								<li>JavaScript (z.B. Eingabeüberprüfung, -hilfe, ...)
+								</li>
+								<li>Serverseitige Logik</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Projekt - Spiele</h3>
+					<ul>
+						<li>Beispiele: Schach, Dame, Vier Gewinnt, Mühle, Wordle(!?!?), ...</li>
+						<li>Spielgegner: Ein anderer Spieler/Computer</li>
+						<li>JavaScript
+							<ul>
+								<li>Eingabeüberprüfung (Feld schon belegt)</li>
+								<li>Zugmöglichkeiten anzeigen</li>
+							</ul>
+						</li>
+						<li>Serverseitige Logik
+							<ul>
+								<li>Computer-Gegner (zufälliger Zug)</li>
+								<li>Vordefinierte Spiel-Stellungen (Matt in 2 Zügen)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Buchungsservice</h3>
+					<ul>
+						<li>Vereinfachtes Belegungssystem</li>
+						<li>Gegeben sei eine endliche Menge von Gegenständen</li>
+						<li>Belegen eines Gegenstands</li>
+						<li>Freigabe durch Austragen der Belegung</li>
+						<li>Übersicht aller belegten Gegenstände, zeitlich nach geplanter Rückgabe</li>
+						<li>JavaScript
+							<ul>
+								<li>Eingabeüberprüfung</li>
+								<li>Warnung vor Beschränkungen</li>
+							</ul>
+						</li>
+						<li>Serverseitige Logik
+							<ul>
+								<li>Datenhaltung und Validierung der Anfragen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Bestellbearbeitung</h3>
+					<ul>
+						<li>Bestellen (Kunde)
+							<ul>
+								<li>Auswählen eines Gegenstandes (z.B. Pizza)</li>
+								<li>Auswählen von Extras (z.b. extra Käse)</li>
+								<li>Angabe von Name und Lieferanschrift</li>
+							</ul>
+						</li>
+						<li>Fertigen (Produzent)
+							<ul>
+								<li>Liste der bestellten Gegenstände</li>
+							</ul>
+						</li>
+						<li>Liefern (Lieferant)
+							<ul>
+								<li>Liste der gefertigten Gegenstände</li>
+							</ul>
+						</li>
+						<li>JavaScript
+							<ul>
+								<li>Berechnung/Aktualisierung des Preises</li>
+								<li>Aktualisieren einer Karte</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Komfortrechner</h3>
+					<ul>
+						<li>"Taschenrechner" mit den gängigen Funktionen</li>
+						<li>Anzeigen der bisherigen Rechenschritte</li>
+						<li>Zurückbutton</li>
+						<li>JavaScript
+							<ul>
+								<li>Vorberechnung über Mouse-Over auf Rechenoperation</li>
+							</ul>
+						</li>
+						<li>Serverseitige Logik: Speicherfunktion
+							<ul>
+								<li>Ablegen einer Berechnung(!) unter freiem Namen</li>
+								<li>Wiederaufrufen einer Berechnung</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Chat</h3>
+					<ul>
+						<li>"Anmelden" mit Benutzername</li>
+						<li>Auswahl eines Themas</li>
+						<li>Auswahl der Benutzer, die die eigenen Beiträge sehen/nicht sehen dürfen</li>
+						<li>Liste der Beiträge</li>
+						<li>Anhängen eines neuen Beitrages</li>
+						<li>JavaScript
+							<ul>
+								<li>Abkürzungen auflösen</li>
+							</ul>
+						</li>
+						<li>Serverseitige Logik: WebSocket
+							<ul>
+								<li>Beiträge Live verteilen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Abstimmung</h3>
+					<ul>
+						<li>Mehrere Optionen zur Auswahl (Ausflugziele, Parteien, etc.)</li>
+						<li>Optionen werden vom Ersteller der Abstimmung ausgewählt</li>
+						<li>Jeder Wähler kann seine Stimme prozentual abgeben</li>
+						<li>Bisher erreichtes Ergebnis grafisch darstellen</li>
+						<li>JavaScript
+							<ul>
+								<li>Sicherstellen dass die Summe aller Stimmen 100% ergibt</li>
+							</ul>
+						</li>
+						<li>Serverseitige Logik: Datenhaltung</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Ahnentafel</h3>
+					<ul>
+						<li>Registrierung mit Name, Geburtsort, Geburtsdatum</li>
+						<li>Eingabe eines Stammbaums</li>
+						<li>Prüfen ob Person(en) schon vorhanden</li>
+						<li>Zusammenziehen von Bäumen</li>
+						<li>JavaScript
+							<ul>
+								<li>Eingabehilfe</li>
+								<li>Verbindung zwischen Personen (Drag&Drop)</li>
+							</ul>
+						</li>
+						<li>Serverseitige Logik: Datenhaltung</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Projekt - Eigene Ideen?</h3>
+					<p>Denkt euch was aus</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</header>
+	</div>
+</body>
+
+</html>
