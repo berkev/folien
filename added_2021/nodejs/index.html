@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: NodeJS</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.two-columns-half-half {
+			display: grid;
+			grid: auto-flow / 1fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+
+		.js-output {
+			border: 2px solid grey;
+			text-align: left;
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+		.min-height-200 {
+			min-height: 400px;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?print-pdf)
+	Tag 1: 1,3-23
+	Tag 1 - Praxis: 13-14,21-23
+	Tag 1 - Praxis-Loesungen: 15
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>NodeJS</h1>
+
+				<p>
+					JavaScript Laufzeitumgebung basierend auf der<br />V8 JavaScript Engine
+				</p>
+				<img style="background-color: grey; padding: 8px;" src="./images/nodejs.svg" alt="NodeJS Logo"
+					width="589" height="361" />
+			</section>
+			<section>
+				<h3>NodeJS - Mindmap</h3>
+				<iframe class="mindmap" data-src="./mindmap.html"></iframe>
+			</section>
+			<section>
+				<section>
+					<h3>NodeJS - Server</h3>
+					<img src="./images/nodejs-server.svg" alt="NodeJS Server" />
+				</section>
+				<section>
+					<h3>NodeJS - Beispiel</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/01-nodejs-http/http-response.js" data-line-numbers="|1|2|2-13|14|"></code>
+					</pre>
+					<p>Im Browser öffnen: "<a href="http://localhost:8000/">http://localhost:8000/</a>"</p>
+					<p>alternativ: "http://localhost:8000/<a href="https://youtu.be/KaqC5FnvAEc?t=14">trololol</a>"</p>
+				</section>
+				<section>
+					<h3>NodeJS - Dokumentation</h3>
+					<ul>
+						<li><a href="https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener">http.createServer([options][,
+								requestListener])</a></li>
+						<li>req: <a
+								href="https://nodejs.org/api/http.html#class-httpincomingmessage">http.IncomingMessage</a>
+						</li>
+						<li>res: <a
+								href="https://nodejs.org/api/http.html#class-httpserverresponse">http.ServerResponse</a>
+						</li>
+						<li>server: <a href="https://nodejs.org/api/http.html#class-httpserver">http.Server</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>NodeJS</h3>
+					<p>Vorteile:
+					<ul>
+						<li class="fragment">Asynchrone Performanz</li>
+						<li class="fragment">Mächtige Programmiersprache und Programmierumgebung: JavaScript +
+							Npm-Module</li>
+						<li class="fragment">Plattformunabhängig</li>
+					</ul>
+					</p>
+					<p class="fragment">Nachteile:
+					<ul>
+						<li class="fragment">Code kann Server zum Absturz bringen</li>
+						<li class="fragment">Bindung an Programmiersprache JavaScript (<a
+								href="https://giphy.com/gifs/gene-wilder-8OlT82jKm6Ugg">yikes</a>)</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>NodeJS http - ganz kurz</h3>
+					<p>API für Client als auch Server Funktionalität: <a
+							href="https://nodejs.org/api/http.html">Docs</a></p>
+					<p>Server 'request' Event bei jeder Client Anfrage</p>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/01-nodejs-http/http-request-event.js" data-line-numbers="|1-3|4|4-11|13|"></code>
+					</pre>
+					<p>'res.end' MUSS immer aufgerufen werden</p>
+				</section>
+				<section>
+					<h3>NodeJS http - ganz kurz</h3>
+					<p>Request-Listener <span class="fragment highlight-current-red" data-fragment-index="0">'(req, res)
+							=> {}'</span> einzigste Server-API</p>
+					<p class="fragment" data-fragment-index="1">Zuordnung zu einer URL muss programmiert werden</p>
+					<p class="fragment" data-fragment-index="2">Zuordnung zu einer HTTP-Methode muss programmiert werden
+					</p>
+					<p class="fragment" data-fragment-index="3">Low-Level Schnittstelle</p>
+				</section>
+				<section>
+					<h3>Einschub: HTTP-Refresh</h3>
+
+					<h4>HTTP/1.1 - Anfrage/<span class="fragment highlight-current-red">Req</span>uest</h4>
+					<pre><code class="language-http hljs" data-line-numbers="1-2">GET /index.html HTTP/1.1
+Host: example.com
+</code></pre>
+					<h4>HTTP/1.1 - Antwort/<span class="fragment highlight-current-red">Res</span>ponse</h4>
+					<pre><code class="language-http hljs" data-line-numbers="1-6">HTTP/1.1 200 OK
+Server: Apache/1.3.29 (Unix) PHP/4.3.4
+Content-Length: 123456
+Content-Type: text/html; charset=utf-8
+
+&lt;!DOCTYPE ...</code></pre>
+				</section>
+				<section>
+					<h3>NodeJS http.IncomingMessage</h3>
+					<p>Dokumentation: <a
+							href="https://nodejs.org/api/http.html#class-httpincomingmessage">http.IncomingMessage</a>
+						(req)
+					</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">httpVersion (String)</li>
+						<li class="fragment" data-fragment-index="1">method (String)</li>
+						<li class="fragment" data-fragment-index="1">url (String)</li>
+						<li class="fragment" data-fragment-index="2">headers (Object)
+							<ul>
+								<li>'user-agent'</li>
+								<li>'host'</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="3">Event 'data' (chunk, String)</li>
+						<li class="fragment" data-fragment-index="3">Event 'end'</li>
+					</ul>
+				</section>
+				<section>
+					<h3>NodeJS http.OutgoingMessage</h3>
+					<p>Dokumentation: <a
+							href="https://nodejs.org/api/http.html#class-httpoutgoingmessage">http.OutgoingMessage</a>
+						(res)
+					</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">setHeader(name, value)</li>
+						<li class="fragment" data-fragment-index="1">getHeader(name)</li>
+						<li class="fragment" data-fragment-index="1">removeHeader(name)</li>
+						<li class="fragment" data-fragment-index="2">writeHead(statusCode[, statusMessage][, headers])
+							<ul>
+								<li>statusCode (number)</li>
+								<li>statusMEssage (String)</li>
+								<li>headers (Object|Array)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>NodeJS http.OutgoingMessage</h3>
+					<p>Dokumentation: <a
+							href="https://nodejs.org/api/http.html#class-httpoutgoingmessage">http.OutgoingMessage</a> (res)
+					</p>
+					<ul>
+						<li>write(chunk[, encoding][, callback])
+							<ul>
+								<li>chunk (String|Buffer)</li>
+								<li>encoding (String, "utf8")</li>
+								<li>callback (Function, chunk flushed)</li>
+							</ul>
+						</li>
+						<li class="fragment">end(chunk[, encoding][, callback])
+							<ul>
+								<li>chunk (String|Buffer)</li>
+								<li>encoding (String, "utf8")</li>
+								<li>callback (Function, "finish" event)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 0</h3>
+					<p>Node.js v18 installieren: <a href="https://nodejs.org/en/download/current/">Downloads</a></p>
+					<h4>Zusatz</h4>
+					<p>IDE installieren, z.B. <a href="https://code.visualstudio.com/">VSCode</a> oder <a
+							href="https://www.jetbrains.com/webstorm/">WebStorm</a></p>
+				</section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 1</h3>
+					<p>Implementiere einen Echo-Server.<br />Bei einem GET-Request soll die URL (als plain text)
+						zurückgegeben werden.<br />Bei einem POST-Request soll der Inhalt zurückgegeben werden.</p>
+					<h4>Zusatz</h4>
+					<p>Start des Servers (bereit Anfragen entgegenzunehmen) wird auf der Konsole ausgeben</p>
+					<p>Herunterfahren des Servers wird auf der Konsole ausgeben (Tip: Strg+C -> 'SIGINT', process.on)
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>NodeJS - Lösung - Aufgabe 1</h3>
+					<a href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/added_2021/nodejs/code-examples/01_nodejs-http/http-echo-server.js">Lösung</a>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Npm-Module: Express</h3>
+					<p>High-Level HTTP-Server API</p>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/02-nodejs-express/express-hello-world.js" data-line-numbers="|1-3|5|5-7|9-11|"></code>
+					</pre>
+					<p class="fragment">'res.end' MUSS weiterhin immer aufgerufen werden</p>
+				</section>
+				<section>
+					<h3>Express</h3>
+					<p>Open-Source Npm-Module '<a href="https://www.npmjs.com/package/express">express</a>' (<a
+							href="https://expressjs.com/">expressjs.com</a>)</p>
+					<p>Defakto-Standard im Node.JS Universum<br />für Http-Server</p>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/02-nodejs-express/express-methods.js" data-line-numbers="|1|3-5|7-9|"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Express - HTML Antwort</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/02-nodejs-express/express-html-response.js" data-line-numbers="|3|4|5-14|16-19|"></code>
+					</pre>
+					<p class="fragment">Sinnvoller default: mit type('html') wird auch charset=utf-8 verwendet!</p>
+				</section>
+				<section>
+					<h3>Express - JSON Antwort</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/02-nodejs-express/express-json-response.js" data-line-numbers="|4|5|6-8|11-14|"></code>
+					</pre>
+					<p class="fragment">Egal welcher "type()" der Inhalt einer Http-Response ist immer ein string!</p>
+				</section>
+				<section>
+					<h3>Express - Anfrage-Inhalt</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/02-nodejs-express/express-anfrage-inhalt.js" data-line-numbers="|12-14|8-9|5-7|16-18|"></code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 2</h3>
+					<p>Erstellt eine HTML-Seite über die ein Node.JS Server per GET- und POST-Methode aufgerufen werden
+						kann (z.B. via zwei Buttons in zwei Formularen)</p>
+					<p>Programmiert den Node.JS Server, sodass:
+					<ul>
+						<li>ein HTML-Dokument "Hello World from GET" bei einer get-Anfrage zurückgeliefert wird (mit url)</li>
+						<li>ein HTML-Dokument "Hello World from POST" bei einer post-Anfrage zurückgeliefert wird (mit body)</li>
+					</ul>
+					</p>
+					<h4>Zusatz</h4>
+					<p>Gebt im HTML-Dokument die aktuelle Uhrzeit aus</p>
+				</section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 3</h3>
+					<p>Erstellt einen Node.JS-Server der eine Seite mit einer Überschrift und einem Formular mit einem
+						Eingabefeld generiert.
+					<ul>
+						<li>Im Eingabefeld wird nach dem Namen gefragt:<br />"Wie ist dein Name?"</li>
+						<li>Falls noch kein Name angegeben wurde lautet die Überschrift "Hallo Du Da".</li>
+						<li>Falls ein Name angegeben wurde lautet die Überschrift "Hallo &lt;name&gt;".</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 4</h3>
+					<p>Programmiert einen kleinen Rechner
+					<ul>
+						<li>Formular für zwei Operanden als auch die Rechenoperation</li>
+						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
+							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
+					</ul>
+					</p>
+					<h4>Zusatz</h4>
+					<p>Bei Eingabe nicht-nummerischer Werte: Passende Fehlermeldung an passender Stelle</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</header>
+	</div>
+</body>
+
+</html>
