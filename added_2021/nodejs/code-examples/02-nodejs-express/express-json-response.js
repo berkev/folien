@@ -3,9 +3,9 @@ const app = express();
 
 app.get('/', (_req, res) => {
     res.type('json'); // application/json
-    res.end(JSON.stringify({
+    res.send({
         data: 'Hello World!'
-    }));
+    });
 });
 
 const port = 8000;

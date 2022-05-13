@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     response += "<p>Requested via " + req.method + "</p>";
     response += "<p>Request-URL: " + req.url + "</p>";
     response += "</body></html>";
-    res.end(response);
+    res.send(response);
 });
 const port = 8000;
 app.listen(port, () => {
