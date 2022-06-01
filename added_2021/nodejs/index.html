@@ -76,6 +76,8 @@
 	Tag 1 - Praxis-Loesungen: 15
 	Tag 2: 1,24-42
 	Tag 2 - Praxis: 43-45
+	Tag 3: 1,46-54,57-64
+	Tag 3 - Praxis: 55-56,66
 -->
 
 <body>
@@ -701,6 +703,297 @@ Content-Type: text/html; charset=utf-8
 					<h4>Zusatz</h4>
 					<p>Unterscheidet verschiedene Nutzer und gebt spezifische Anzahl an Seitenaufrufen aus (Tipp:
 						HTTP-Header, User-Agent)</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Redirects/Weiterleitungen</h3>
+					<img style="width: 75%" class="fragment" data-fragment-index="1"
+						src="./images/mario-princess-in-another-castle.png"
+						alt="Super Mario Princess is in another castle Joke" />
+				</section>
+				<section>
+					<h3>HTTP - Redirect</h3>
+					<p>HTTP-Status Codes 3xx, Server-Antwort beinhaltet Header "Location" mit neuer URI</p>
+					<ul>
+						<li>301 Moved Permanently
+							<ul>
+								<li>diese und alle zukünftigen Anfragen sollen an neue URI gehen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP - Redirect</h3>
+					<p>HTTP-Status Codes 3xx, Server-Antwort beinhaltet Header "Location" mit neuer URI</p>
+					<ul>
+						<li>302 Found
+							<ul>
+								<li>Browser soll sich neue URI anschauen, in Zukunft aber wieder Original-URI</li>
+							</ul>
+						</li>
+						<li>307 Temporary Redirect
+							<ul>
+								<li>siehe 307, plus HTTP-Methode <emph>muss</emph> gleich bleiben</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Express - Redirect</h3>
+					<ul>
+						<li><a href="https://expressjs.com/en/4x/api.html#res.redirect">res.redirect([status,] path)</a>
+							<ul>
+								<li>status: HTTP-Status Code (Default: 302), Number</li>
+								<li>path: Neue URL, String
+									<ul>
+										<li class="fragment">Absolute URL: "https://example.com"</li>
+										<li class="fragment">Host-relative URL: "/login"<br />
+											"https://localhost:8000/" -> "https://localhost:8000/login"</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Gültigkeitsbereiche</h3>
+					<p>Wie lange sind Variablen gültig?</p>
+					<ol>
+						<li class="fragment">Template
+							<ul>
+								<li>Leben nur innerhalb eines Rendervorgangs</li>
+							</ul>
+						</li>
+						<li class="fragment">Request
+							<ul>
+								<li>Leben so lange Anfrage bearbeitet wird</li>
+							</ul>
+						</li>
+						<li class="fragment">Session
+							<ul>
+								<li>Leben so lange bis Session beendet wird</li>
+							</ul>
+						</li>
+						<li class="fragment">Server
+							<ul>
+								<li>Leben so lange wie der Server läuft</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Template</h3>
+					<p>Variablen nur als Teil eines Rendervorgangs gültig</p>
+					<pre class="language-html">
+						<code class="hljs" data-line-numbers=""><ul>
+&lt;% it.users.forEach(function(user){ %>
+	<li><%= user.name %></li>
+<% }) %>
+</ul></code></pre>
+					<ul>
+						<li class="fragment">"it": Gültig über den gesamten Rendervorgang</li>
+						<li class="fragment">"user": Gültig innerhalb der Schleife</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Request</h3>
+					<p>Variablen nur als Teil eines Requests gültig</p>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="">app.get("/result", (req, res) => {
+	const result = superComplicatedCalculation(req);
+	res.render("result.eta", { result, method: req.method });
+});</code></pre>
+					<p class="fragment">Variablen gültigkeit basierend auf dem<br />Javascript-Blockscope, hier:
+					<ul>
+						<li class="fragment">"req, res": Immer vorhanden, von Express</li>
+						<li class="fragment">"result": Selbst erstellte Variable</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Session</h3>
+					<p>Variablen nur als Teil einer Session gültig</p>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="">app.get("/", (req, res) => {
+	const session = getSession(req);
+	console.log(session);
+	// { id: "a1b2c3d4f5", name: "Max Müller" }
+});</code></pre>
+					<p class="fragment" data-fragment-index="1">Sessions müssen selbst implementiert werden,<br />z.B. mit Cookies</p>
+					<p class="fragment" data-fragment-index="1">Solange Session aktiv ist, können darin Variablen gespeichert werden</p>
+					<ul>
+						<li class="fragment" data-fragment-index="2">"id": ID der Session</li>
+						<li class="fragment" data-fragment-index="2">"name": Variable Teil der Session</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Server</h3>
+					<p>Variablen nur als Teil der Server-Instanz gültig</p>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="">const app = require("express")();
+const port = 8000;
+
+app.get("/", (_req, res) => {
+	res.send(`Server listens on ${port}`);
+});
+
+app.listen(port);</code></pre>
+					<p class="fragment">Typischerweise genutzt für z.B. Konfiguration, Cache, Startparameter</p>
+					<ul>
+						<li class="fragment">"port": Selbst angelegte Variable</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 6</h3>
+					<p>Programmiert einen kleinen Rechner
+					<ul>
+						<li>Formular für zwei Operanden und Rechenoperation</li>
+						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
+							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
+						<li>Im Falle eines Fehlers leitet zu Fehlerseite</li>
+					</ul>
+					</p>
+					<h4>Easter-Egg</h4>
+					<p>Falls einer der Operanden '42' leitet auf eine Easter-Egg-Seite weiter.</p>
+				</section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 7</h3>
+					<p>Programmiert einen kleinen Rechner
+					<ul>
+						<li>Formular für zwei Operanden und Rechenoperation</li>
+						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
+							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
+						<li>Zeigt auf der Ergebnisseite die letzten fünf Berechnungen und ihr Ergebnis an.</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Model-1-Entwurfsmuster</h3>
+					<img src="./images/model-1-entwurfsmuster.svg" alt="Model-1-Entwurfsmuster" width="589"
+						height="361" />
+				</section>
+				<section>
+					<h3>Ähnliche Problemstellungen</h3>
+					<p>Aufgaben die sich in den Request-Handlern wiederholen:</p>
+					<ul>
+						<li class="fragment">Speichern eines Datensatzes
+							<ul>
+								<li>Falls alle Daten korrekt: Detailansicht</li>
+								<li>Falls Fehler vorhanden: Formular mit Fehlermeldung</li>
+							</ul>
+						</li>
+						<li class="fragment">Löschen eines Datensatzes
+							<ul>
+								<li>Falls erlaubt: Listenansicht</li>
+								<li>Falls nicht erlaubt: Detailansicht mit Fehlermeldung</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Model-1-Entwurfsmuster</h3>
+					<ul>
+						<li>Wohin mit den Aktionen?
+							<ul>
+								<li class="fragment">gleiche Aktion kann zu unterschiedlichen Folgeseiten führen</li>
+								<li class="fragment">Bei Aktionen überwiegt der Programmcode für die Logik, dem für die Darstellung.</li>
+							</ul>
+						</li>
+						<li class="fragment">Trennung von Aktionen und Ergebnisdarstellung!
+							<ul>
+								<li class="fragment">Aktionen in getrennte Module verlagern!</li>
+								<li class="fragment">Je nach Ergebnis der Aktion wird die richtige Folgeseite angesprungen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Model-2-Entwurfsmuster</h3>
+					<img src="./images/model-2-entwurfsmuster.svg" alt="Model-2-Entwurfsmuster" width="589"
+						height="361" />
+				</section>
+				<section>
+					<h3>Model-2-Entwurfsmuster</h3>
+					<ol>
+						<li>Browser empfängt Formular</li>
+						<li class="fragment">Browser sendet Formular an Controller</li>
+						<li class="fragment">Controller verarbeitet Aktion</li>
+						<li class="fragment">Controller übergibt an View</li>
+						<li class="fragment">View generiert Antwort</li>
+						<li class="fragment">Browser empfängt Antwort</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Redirect</h3>
+					<div class="two-columns-half-half">
+						<ul>
+							<li>Indirektion über den Client (Redirect)
+								<ul>
+									<li class="fragment">res.redirect(...)</li>
+									<li class="fragment">Browser erhält die Aufforderung, die Folgeseite zu laden</li>
+									<li class="fragment">URL im Browser wechselt!</li>
+								</ul>
+							</li>
+						</ul>
+						<img src="./images/model-2-entwurfsmuster_redirect.svg" alt="Redirect" />
+					</div>
+				</section>
+				<section>
+					<h3>Forward</h3>
+					<div class="two-columns-half-half">
+						<ul>
+							<li>Serverinterne weitergabe (Forward)
+								<ul>
+									<li class="fragment">res.render(...)</li>
+									<li class="fragment">Server antwortet mit Inhalt auf der Folgeseite</li>
+									<li class="fragment">URL im Browser bleibt stehen!</li>
+								</ul>
+							</li>
+						</ul>
+						<img src="./images/model-2-entwurfsmuster_forward.svg" alt="Forward" />
+					</div>
+				</section>
+				<section>
+					<h3>Express: Middlewares</h3>
+					<p>Funktionen die Zugriff auf das request-, response-Objekt und die next Funktion haben:<br />(req, res, next) => void</p>
+					<p class="fragment">Mit einem Aufruf von "next" wird der nächste in der Kette aufgerufen</p>
+					<ul class="fragment">
+						<li><a href="https://expressjs.com/en/4x/api.html#app.use">app.use([path,] callback [, callback...])</a>
+							<ul>
+								<li>path: URL-Path (Default: '/'), String</li>
+								<li>callback: Middleware, Funktion</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Express: Middlewares Beispiel</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/05-nodejs-express-middlewares/express-middlewares.js" data-line-numbers="|3-11|12-14|16-18|"></code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - NodeJS - Aufgabe 8</h3>
+					<p>Programmiert einen kleinen Rechner
+					<ul>
+						<li>Formular für zwei Operanden und Rechenoperation</li>
+						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
+							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
+						<li>Nutzt das Model-2-Entwurfsmuster.</li>
+						<li>Implementiert das 42-Easter-Egg mit einer Middleware</li>
+					</ul>
+					</p>
 				</section>
 			</section>
 		</div>
