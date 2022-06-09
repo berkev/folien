@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Eilmeldungen</title>
+</head>
+
+<body>
+    <h1>Eilmeldungen</h1>
+    <ul id="eilmeldungen"></ul>
+    <script>
+        const meldungsListe = document.getElementById("eilmeldungen");
+        const socket = new WebSocket('ws://localhost:8000/');
+
+        socket.onopen = function () {
+            console.log("Verbindung aufgebaut")
+        };
+
+        socket.onmessage = function (event) {
+            const message = event.data;
+            console.log("Neue Nachricht empfangen: ", message);
+            const li = document.createElement("li");
+            li.innerText = message;
+            meldungsListe.append(li);
+        };
+    </script>
+</body>
+
+</html>
