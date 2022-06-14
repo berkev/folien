@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: Performance</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?print-pdf)
+	Tag 1: 1-6
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Performance</h1>
+
+				<p>
+					Nicht(!) klausurrelevant
+				</p>
+			</section>
+			<section>
+				<h3>Performance</h3>
+				<p>
+					Performance ist oft relativ (Works on my machine!):
+				<ul>
+					<li>Eine Website kann schnell für deinen einen User (in einem schnellen Netzwerk, mit einem
+						schnellen Gerät) aber langsam für einen anderen sein</li>
+					<li>Zwei Seiten können gleich schnell fertig geladen sein, aber eine kann sich schneller anfühlen
+						(z.B. durch progressives aufbauen)</li>
+					<li>Eine Seite könnte aussehen als sei sie schnell geladen, aber dann langsam reagieren bei
+						Interaktionen.</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h3>Performance</h3>
+				<p>
+					Warum ist Performance wichtig?
+				</p>
+				<p>
+					Zum Beispiel weil zufriedene Kunden mehr kaufen:<br /><a href="https://web.dev/vodafone/">Vodafone:
+						A 31% improvement in LCP<br />increased sales by 8%</a><br /><a
+						href="https://web.dev/tokopedia/">How focusing on web performance improved Tokopedia's
+						click-through rate by 35%</a>
+				</p>
+			</section>
+			<section>
+				<h3>Kennzahlen</h3>
+				<p>
+					Welche Kennzahlen heranziehen um die Performance von Websiten zu messen, zu vergleichen?
+				</p>
+				<ul>
+					<li>Time to first byte (TTFB)<br />...measures the time between the request for a resource and when
+						the first byte of a response begins to arrive (<a
+							href="https://web.dev/ttfb/">web.dev/ttfb/</a>)</li>
+					<li>DOMContentLoaded<br /><a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event">Window:
+							DOMContentLoaded event</a></li>
+				</ul>
+				<aside class="notes">
+					TTFB: Redirect, DNS, TCP (Secure), Request-Start, Request-End
+					DOMContentLoaded: Scripts, Fonts, Bilder
+				</aside>
+			</section>
+			<section>
+				<h3>Kennzahlen (User-Centric)</h3>
+				<ul>
+					<li>First Contentful Paint (FCP)<br />[Good: 1.8s, Poor: 3.0s]<br />...measures the time from when
+						the
+						page starts loading to when
+						any part of the page's content is rendered on the screen (<a
+							href="https://web.dev/fcp/">web.dev/fcp/</a>)</li>
+					<li>Largest Contentful Paint (LCP)<br />[Good: 2.5s, Poor: 4.0s]<br />...reports the render time of
+						the largest image or text block visible within the viewport, relative to when the page first
+						started loading (<a href="https://web.dev/lcp/">web.dev/lcp/</a>)</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Kennzahlen (User-Centric)</h3>
+				<ul>
+					<li>Time to Interactive (TTI)<br />...measures the time from when the page starts loading to when
+						its main sub-resources have loaded and it is capable of reliably responding to user input
+						quickly (<a href="https://web.dev/tti/">web.dev/tti/</a>)</li>
+					<li>Cumulative Layout Shift (CLS)<br />[Good: 0.1s, Poor: 0.25s]<br />...measure of the largest
+						burst of layout shift scores for every unexpected layout shift that occurs during the entire
+						lifespan of a page (<a href="https://web.dev/cls/">web.dev/cls/</a>)</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</header>
+	</div>
+</body>
+
+</html>
