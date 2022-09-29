@@ -28,3 +28,11 @@ Additionally the pages are hosted on GitLab Pages:
 
 [https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/added_2021/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/added_2021/)
 
+## Update reveal.js
+
+ * Download latest Reavel.js version from [Github](https://github.com/hakimel/reveal.js/releases)
+ * Copy over dist and plugin folder
+
+```bash
+cp -rv ~/Downloads/reveal.js-*/{dist,plugin} ./
+```
