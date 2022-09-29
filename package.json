@@ -10,6 +10,6 @@
   "author": "Christoph Häfner",
   "license": "MIT",
   "dependencies": {
-    "serve": "^13.0.2"
+    "serve": "^14.0.1"
   }
 }
