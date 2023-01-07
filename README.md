@@ -20,13 +20,13 @@ $ npm start
 ```
 
 Damit sind die Folien unter [localhost:3000](http://localhost:3000) aufrufbar.
-Wichtig ist der abschließende "/" am Ende der Url: `http://localhost:3000/added_2021/html/`.
+Wichtig ist der abschließende "/" am Ende der Url: `http://localhost:3000/TINF22B2/html/`.
 
 ## Gitlab Pages
 
 Additionally the pages are hosted on GitLab Pages:
 
-[https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/added_2021/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/added_2021/)
+[https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF22B2/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF22B2/)
 
 ## Update reveal.js
 
