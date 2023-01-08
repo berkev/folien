@@ -1,3 +1,5 @@
 node_modules
 # gitlab pages deployment folder
 public
+# MacOS
+.DS_Store
