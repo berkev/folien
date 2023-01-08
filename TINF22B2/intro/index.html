@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: Intro</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		footer {
+			position: absolute;
+			bottom: 10px;
+			left: 40px;
+			right: 40px;
+			height: 44px;
+			text-align: center;
+			border-top: 2px solid #99162e;
+			border-bottom: 2px solid #99162e;
+		}
+
+		footer img {
+			margin: 2px !important;
+			padding: 0 !important;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+		
+		.smaller-font {
+			font-size: smaller;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?print-pdf, https://revealjs.com/pdf-export/)
+	Tag 1: 1-11,13
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Webengineering 1 <br\> TINF22B2</h1>
+				<p>
+					Christoph Häfner
+				</p>
+			</section>
+			<section>
+				<h2>Folien</h2>
+				<p>
+					Slides sind gehostet bei Gitlab.io:<br /><a
+						href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF22B2/">chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF22B2/1</a>
+				</p>
+				<p>
+					PDFs für alle die Mitschreiben wollen in<br /><a class="fragment highlight-red"
+						href="https://moodle.dhbw.de/course/view.php?id=7463">Moodle KA-TINF22B2 WebEng I</a>
+				</p>
+				<p>
+					Slide Sourcecode ist auf Gitlab:<br /><a
+						href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1">dhbw/vorlesung-webeng1</a>
+				</p>
+			</section>
+			<section>
+				<h2>Struktur</h2>
+				<p>
+					Aufteilung auf 1. + 2. Semester
+				<ul>
+					<li>24 Vorlesungsstunden im 1. Semester (8 Termine)</li>
+					<li>18 Vorlesungsstunden im 2. Semester (6 Termine)</li>
+				</ul>
+				</p>
+				<p class="fragment" data-fragment-index="1">
+					Kombination aus Vorlesung und Übung/Labor (2 zu 1)
+				</p>
+				<p class="fragment" data-fragment-index="2">
+					Benötigt für die Übungen werden:
+					<ul class="fragment" data-fragment-index="2">
+						<li>Webbrowser (gern verschiedene)</li>
+						<li>Texteditor, IDE</li>
+						<li>NodeJS (2. Semester)</li>
+					</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Termine: 1. Semester</h2>
+				<p>
+				<ul>
+					<li>09.01.22 Präsenz (A267)</li>
+					<li>16.01.22 Präsenz (A267)</li>
+					<li>23.01.22 Präsenz (A267)</li>
+					<li>30.01.22 Präsenz (A267)</li>
+					<li>06.02.22 Präsenz (A267)</li>
+					<li>13.02.22 Präsenz (A267)</li>
+					<li>20.02.22 Präsenz (A267)</li>
+					<li>27.02.22 Präsenz (A267)</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Prüfung</h2>
+				<p>
+					Prüfungsleistung: Kombinierte Prüfung (KP)
+				<ul>
+					<li>Klausurarbeit: 90 Minuten, 3 ECTS<br />(Termin am Ende des 2. Semesters)</li>
+					<li>Programmentwurf: Praktische Arbeit<br />(in Zusammenarbeit mit Projektmanagement)</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Allgemeine Informationen</h2>
+				<p>
+				<ul>
+					<li>Vorstellungsrunde</li>
+					<li class="fragment">Kurssprecher</li>
+					<li class="fragment">Slide-Handout vs. <s>Script</s></li>
+					<li class="fragment">Übungseinheiten & Lösungen</li>
+					<li class="fragment">Gruppenarbeiten</li>
+					<li class="fragment">Keine Videoaufzeichnungen</li>
+					<li class="fragment">Chatfragen: No, Direktfragen: Yes</li>
+					<li class="fragment">Verantwortung der Teilnahme an der (virtuellen) Vorlesung obliegt euch</li>
+					<li class="fragment">Pünktlichkeit</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Allgemeine Informationen (Präsenz)</h2>
+				<p>
+				<ul>
+					<li>Pause mit Lüften</li>
+					<li class="fragment">Masken</li>
+					<li class="fragment">(Kein) Melden</li>
+					<li class="fragment">Pinkelpause</li>
+					<li class="fragment">Handys</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Vorstellung Dozent</h2>
+				<p>
+					Dozent: Christoph (per du)<br />
+					<a href="mailto:haefner.christoph@edu.dhbw-karlsruhe.de">haefner.christoph@edu.dhbw-karlsruhe.de</a>
+				</p>
+				<p class="fragment" data-fragment-index="1">
+					Softwareentwickler @ SAP SE
+				<ul class="fragment smaller-font" data-fragment-index="1">
+					<li>HANA: Full-Stack, Internal-Tooling</li>
+					<li>SAC: Frontend, Tabellen-Widget</li>
+					<li>CBC: Frontend, Go-Microservice(s)</li>
+				</ul>
+				</p>
+				<p class="fragment" data-fragment-index="2">
+					Akademischer Werdegang
+				<ul class="fragment smaller-font" data-fragment-index="2">
+					<li>Bachelor: DHBW (TINF11B1)</li>
+					<li>Master: KIT</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Vorlesungsinhalte</h2>
+				<p>
+				<ul class="fragment">
+					<li>Grundlagen</li>
+					<li>Grundlagen</li>
+					<li>Grundlagen</li>
+					<li>Grundlagen</li>
+					<li>Grundlagen</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Vorlesungsinhalte</h2>
+				<p>
+				<ul>
+					<li><b>HTML</b> - Dokument/Struktur</li>
+					<li><b>CSS</b> - Darstellung</li>
+					<li><b>JavaScript</b> - Browser-Logik</li>
+					<li><b>HTTP</b> - Übertragung</li>
+					<li><b>NodeJS</b> - Server-Logik</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h3>Website - Beispiel</h3>
+				<ul>
+					<li>Aufrufen der Website
+						<ul>
+							<li><b>URL</b> <b>http</b>://de.wikipedia.org/</li>
+						</ul>
+					</li>
+					<li>Antwort des Servers
+						<ul>
+							<li><b>HTML</b>/<b>CSS</b>-Dateien</li>
+						</ul>
+					</li>
+					<li>Eingabe eines Suchbegriffs
+						<ul>
+							<li>Eingabehilfen via Browser (<b>JS</b>) und Server (<b>NodeJS</b>)</li>
+							<li><b>URL</b> <a
+									href="http://de.wikipedia.org/wiki/Duale_Hochschule_Baden-W%C3%BCrttemberg"><b>http</b>://de.wikipedia.org/wiki/Duale_Hochschule_Baden-W%C3%BCrttemberg</a>
+							</li>
+						</ul>
+					</li>
+					<li>Antwort des Servers ...
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Vorlesungsinhalte</h3>
+				<iframe class="mindmap" data-src="./mindmap.html"></iframe>
+			</section>
+			<section>
+				<h2>Vorstellungsrunde</h2>
+				<p>
+				<ul>
+					<li>Name</li>
+					<li>Vorerfahrung
+						<ul>
+							<li>Daumen hoch: alles bekannt</li>
+							<li>Daumen quer: so lala</li>
+							<li>Daumen runter: alles Neuland</li>
+						</ul>
+					</li>
+					<li>Welches Betriebssystem nutzt ihr während der Vorlesung?</li>
+					<li>Warum habt ihr euch für Informatik entschieden?</li>
+				</ul>
+				</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: true,
+			hash: true,
+			pdfSeparateFragments: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var footer = $('#hidden').html();
+			console.log("Ready!");
+			console.log("footer: ", footer);
+			$('.slide-background').append(footer);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<footer>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</footer>
+	</div>
+</body>
+
+</html>

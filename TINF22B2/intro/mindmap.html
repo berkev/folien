@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markmap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mindmap {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="mindmap"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@6.6.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.3"></script>
+  <script>
+    const { Markmap } = window.markmap;
+    Markmap.create("svg#mindmap", null, {
+      "t": "heading", "d": 1, "v": "Web-Eng. 1",
+      "c": [
+        {
+          "t": "heading", "d": 2, "v": "HTML (Dokumente)",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Aufbau"
+            }, {
+              "t": "list_item", "d": 4, "v": "Block- vs Inline-Elemente"
+            }, {
+              "t": "list_item", "d": 4, "v": "Tag-Attribute"
+            }, {
+              "t": "list_item", "d": 4, "v": "Tag-Beispiele"
+            }, {
+              "t": "list_item", "d": 4, "v": "Verweise"
+            }, {
+              "t": "list_item", "d": 4, "v": "Formulare"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "CSS (Darstellung)",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Syntax"
+            }, {
+              "t": "list_item", "d": 4, "v": "Selektoren"
+            }, {
+              "t": "list_item", "d": 4, "v": "Box-Modell"
+            }, {
+              "t": "list_item", "d": 4, "v": "Prioritäten"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "HTTP (Übertragung)",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Ablauf"
+            }, {
+              "t": "list_item", "d": 4, "v": "URL/URI"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "JavaScript (Browser-Logik)",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Language Tutorial"
+            }, {
+              "t": "list_item", "d": 4, "v": "AJAX"
+            }, {
+              "t": "list_item", "d": 4, "v": "DOM-Manipulation"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "NodeJS (Server-Logik)",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Web-Server"
+            }, {
+              "t": "list_item", "d": 4, "v": "HTML-Seiten dynamisch erzeugen"
+            }, {
+              "t": "list_item", "d": 4, "v": "Trennung von Darstellung und Logik"
+            }
+          ]
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
