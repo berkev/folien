@@ -47,6 +47,10 @@
 		.li-space-above {
 			margin-top: 55px;
 		}
+		
+		.smaller-font {
+			font-size: smaller;
+		}
 	</style>
 </head>
 
@@ -54,8 +58,8 @@
 	PDF-Export (/?print-pdf)
 	Tag 1: 1,3-25
 	Tag 1 - Praxis: 26-27
-	Tag 2: 1,29-49,51-66
-	Tag 2 - Praxis: 50,67-69
+	Tag 2: 1,29-49,51-67
+	Tag 2 - Praxis: 50,68-70
 -->
 
 <body>
@@ -203,7 +207,8 @@
 						</li>
 						<li class="fragment" data-fragment-index="1">&lt;img&gt; oder &lt;img/&gt; (Bild)</li>
 					</ul>
-					<p>Englisch: "void elements" <a href="https://developer.mozilla.org/en-US/docs/Glossary/Void_element">MDN</a></p>
+					<p>Englisch: "void elements" <a
+							href="https://developer.mozilla.org/en-US/docs/Glossary/Void_element">MDN</a></p>
 					<p class="fragment" data-fragment-index="2">NICHT</p>
 					<ul>
 						<li class="fragment" data-fragment-index="3">&lt;hr&gt;&lt;/hr&gt;</li>
@@ -586,17 +591,20 @@
 					<h3>Semantische Textauszeichnung</h3>
 					<ul>
 						<li class="fragment" data-fragment-index="1">em &ndash; emphasis (Betonung)</li>
-						<li class="fragment" data-fragment-index="1">i &ndash; italics (kursive Schrift)</li>
 						<li class="fragment" data-fragment-index="2">strong &ndash; "strong importance" (hohe
 							Wichtigkeit)</li>
-						<li class="fragment" data-fragment-index="2">b &ndash; bold (Fettdruck)</li>
 						<li class="fragment" data-fragment-index="3">mark &ndash; marked (Markiert)</li>
+					</ul>
+					<p class="smaller-font">Optische Textauszeichnung</p>
+					<ul class="smaller-font">
+						<li class="fragment" data-fragment-index="1">i &ndash; italics (kursive Schrift)</li>
+						<li class="fragment" data-fragment-index="2">b &ndash; bold (Fettdruck)</li>
 						<li class="fragment" data-fragment-index="3">u &ndash; underline (Unterstrichen)</li>
 					</ul>
-					<p class="fragment" data-fragment-index="4">Betonung, hohe Wichtigkeit,
+					<p class="fragment smaller-font" data-fragment-index="4">Betonung, hohe Wichtigkeit,
 						Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
 						Auszeichnung</p>
-					<p class="fragment" data-fragment-index="4">kursive Schrift,
+					<p class="fragment smaller-font" data-fragment-index="4">kursive Schrift,
 						Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
 				</section>
 				<section>
@@ -704,10 +712,10 @@
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="1">Verpflichtende vordefinierte Entitäten<ul>
-								<li>Anführungszeichen&emsp;&quot;&emsp;&amp;quot;&amp;#34;</li>
-								<li>Kaufmanns-Und&emsp;&amp;&emsp;&amp;amp;&amp;#38;</li>
-								<li>Kleiner&emsp;&lt;&emsp;&amp;lt;&amp;#60;</li>
-								<li>Größer&emsp;&gt;&emsp;&amp;gt;&amp;#62;</li>
+								<li>Anführungszeichen&emsp;&quot;&emsp;&amp;quot; oder &amp;#34;</li>
+								<li>Kaufmanns-Und&emsp;&amp;&emsp;&amp;amp; oder &amp;#38;</li>
+								<li>Kleiner&emsp;&lt;&emsp;&amp;lt; oder &amp;#60;</li>
+								<li>Größer&emsp;&gt;&emsp;&amp;gt; oder &amp;#62;</li>
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="2">Viele weitere Entitäten:<br /><a
@@ -858,6 +866,7 @@
 				</section>
 				<section>
 					<h3>HTML Tabellen</h3>
+					<p>Mehr Tags innerhalb des table-Element:</p>
 					<ul>
 						<li>caption &ndash; Überschrift (Legende)<ul>
 								<li>Üblicherweise über der Tabelle dargestellt</li>
@@ -869,10 +878,10 @@
 						</li>
 						<li class="fragment">colgroup &ndash; Spaltenanzahl festlegen (columns)<ul>
 								<li>Definiert die Anzahl vorhandener Spalten</li>
-							</ul>
-						</li>
-						<li class="fragment">col &ndash; Spalte (column)<ul>
-								<li>"span" Attribut mit Wert ganze Zahl größer 0</li>
+								<li>col &ndash; Spalte (column), empty tag<ul>
+										<li>"span" Attribut mit Wert ganze Zahl größer 0</li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -889,7 +898,14 @@
 				</pre>
 				</section>
 				<section>
+					<h3>Spalten, Unter- und Überschrift - Code</h3>
+					<pre class="language-html">
+					<code class="hljs" data-code="./code-examples/12_tabellen/superhelden_table_focused.html"></code>
+				</pre>
+				</section>
+				<section>
 					<h3>Zellen zusammenfassen</h3>
+					<p>Attribute für td-Elemente:</p>
 					<ul>
 						<li>colspan &ndash; Spalten zusammenfassen<ul>
 								<li>Wert: ganze Zahl größer 0</li>
