@@ -1031,7 +1031,7 @@
 					<p><span class="fragment highlight-current-red" data-fragment-index="1">http</span>:<span
 							class="fragment highlight-current-red" data-fragment-index="1">//</span><span
 							class="fragment highlight-current-red"
-							data-fragment-index="2">&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;?<br />&lt;Anfrage&gt;#&lt;Fragment&gt;
+							data-fragment-index="2">&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br />?&lt;Anfrage&gt;#&lt;Fragment&gt;
 					</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Schema (hier http oder https)
@@ -1054,11 +1054,11 @@
 					<h3>URL Schema: http/https</h3>
 					<p>http://&lt;Server&gt;<span class="fragment highlight-current-red"
 							data-fragment-index="1">:&lt;Port&gt;</span><span class="fragment highlight-current-red"
-							data-fragment-index="2">/&lt;Pfad&gt;</span>?<br />&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+							data-fragment-index="2">/&lt;Pfad&gt;</span><br />?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Port<ul>
 								<li>Positive, ganze Zahl &lt;= 65535</li>
-								<li>Falls nicht vorhanden wird der Standard-Port des Schemas verwendet, Z.B. http: 80,
+								<li>Falls nicht vorhanden wird der Standard-Port des Schemas verwendet, z.B. http: 80,
 									https: 443</li>
 							</ul>
 						</li>
@@ -1073,7 +1073,7 @@
 					<h3>URL Schema: http/https</h3>
 					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<span
 							class="fragment highlight-current-red"
-							data-fragment-index="1">?<br />&lt;Anfrage&gt;</span>#&lt;Fragment&gt;</p>
+							data-fragment-index="1"><br />?&lt;Anfrage&gt;</span>#&lt;Fragment&gt;</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Anfrage (Query)<ul>
 								<li>Keine verbindliche Spezifikation</li>
@@ -1088,7 +1088,7 @@
 				</section>
 				<section>
 					<h3>URL Schema: http/https</h3>
-					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;?<br />&lt;Anfrage&gt;<span
+					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<br />?&lt;Anfrage&gt;<span
 							class="fragment highlight-current-red" data-fragment-index="1">#&lt;Fragment&gt;</span></p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Fragment<ul>
@@ -1109,6 +1109,7 @@
 						<li>Browser reagieren unterschiedlich (Rückfrage, Verweigerung, ...)</li>
 						<li>Für andere Schemata (z.B. FTP) wird es weiterhin genutzt</li>
 					</ul>
+					<p class="fragment" data-fragment-index="2">Beispiel: "private" Websiten, z.B. Urlaubsblogs, Hochzeitswebsiten, etc.</p>
 				</section>
 				<section>
 					<h3>URL Kodierung</h3>
@@ -1155,6 +1156,7 @@
 						<li class="fragment" data-fragment-index="3">./datei2.html</li>
 					</ul>
 					</p>
+					<p class="fragment" data-fragment-index="4">"../" kann beliebig oft wiederholt werden</p>
 				</section>
 			</section>
 			<section>
@@ -1162,7 +1164,7 @@
 					<h3>Verweis - Fragment + Anker</h3>
 					<p>Zweck: An bestimmte Stelle auf einem (sehr) langen Dokument springen.</p>
 					<p class="fragment" data-fragment-index="1">Fragment: anhängen von #&lt;Fragment&gt; an die URL</p>
-					<p class="fragment" data-fragment-index="1">Anker: id-Attribut des a-Tags</p>
+					<p class="fragment" data-fragment-index="1">Anker: id-Attribut des Tags/Elements</p>
 					<p class="fragment" data-fragment-index="2">Beispiele:
 						<br /><a target="_blank"
 							href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element</a>
@@ -1197,7 +1199,7 @@
 				</section>
 				<section>
 					<h3>Verweis - rel</h3>
-					<p>Definiert die Verweisart (relationship)</p>
+					<p>Verweisart (relationship) - Leerzeichen getrennte Liste</p>
 					<ul class="fragment" data-fragment-index="1">
 						<li>Liste von Werten:
 							<ul>
@@ -1408,8 +1410,8 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>HTTP Status codes</h3>
 					<ul>
-						<li>1xx &ndash; Information</li>
-						<li>2xx &ndash; Erfolg</li>
+						<li>100 &ndash; Information</li>
+						<li>200 &ndash; Erfolg</li>
 						<li class="fragment">3xx &ndash; Umleitung
 							<ul>
 								<li>301 Moved Permanently<br>Dauerhaft unter neuer URL zu finden</li>
@@ -1421,7 +1423,7 @@ Content-Type: text/html; charset=utf-8
 								<li>401/403 Unauthorized/Forbidden</li>
 								<li>404 Not Found</li>
 							</ul></li>
-						<li>5xx &ndash; Server Fehler</li>
+						<li>500 &ndash; Server Fehler</li>
 					</ul>
 				</section>
 				<section>
