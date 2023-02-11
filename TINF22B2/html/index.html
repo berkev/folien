@@ -62,6 +62,8 @@
 	Tag 2 - Praxis: 50,68-70
 	Tag 3: 1,71-86,89-112
 	Tag 3 - Praxis: 87-88,113-114
+	Tag 4: 1,107-125,148-166
+	Tag 4 - Praxis: 167-169
 -->
 
 <body>
@@ -1592,9 +1594,6 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 							</ul>
 						</li>
 					</ul>
-					<aside class="notes">
-						action="GET" macht URL-Kodierung automatisch
-					</aside>
 				</section>
 				<section>
 					<h3>Eingabefelder - Input - Named</h3>
@@ -1627,6 +1626,825 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 					<aside class="notes">
 						Wolframalpha: https://www.wolframalpha.com/input/?i=Suche
 					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-named.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-named.html" data-line-numbers="|11,13|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>name &ndash; eindeutiger Names des Eingabefeldes
+							<ul>
+								<li>Wert: eindeutiger Bezeichner</li>
+								<li>Wird als Parametername verwendet</li>
+								<li>Dient der Auswahl eines Parameters (JavaScript/CSS)</li>
+							</ul>
+						</li>
+						<li class="fragment">autocomplete &ndash; Autovervollständigung (siehe form)
+							<ul>
+								<li>Mögliche Werte: "street-address", "cc-name"</li>
+							</ul>
+						</li>
+						<li class="fragment">autofocus &ndash; Fokus automatisch zuweisen
+							<ul>
+								<li>Wert: "autofocus", leer</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>disabled &ndash; Eingabemöglichkeit ausschalten
+							<ul>
+								<li>Wert: "disabled", leer</li>
+								<li>Keine Änderung der Eingabe möglich</li>
+							</ul>
+						</li>
+						<li class="fragment">readonly &ndash; Eingabemöglichkeit ausschalten, aber nachwievor
+							fokussierbar
+							<ul>
+								<li>Wert: "readonly", leer</li>
+								<li>Keine Änderung der Eingabe möglich, Feld aber fokussierbar</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>required &ndash; Pflichtfeld
+							<ul>
+								<li>Wert: "required", leer</li>
+								<li>Leere Eingabe wird bei Eingabeüberprüfung nicht akzeptiert</li>
+							</ul>
+						</li>
+						<li class="fragment">pattern &ndash; Eingabeformat
+							<ul>
+								<li>Wert: JavaScript Pattern (regular expression)</li>
+								<li>Formatangabe für die Eingabeüberprüfung</li>
+								<li>Tipp: mit <a href="https://regex101.com/">regex101.com</a> reguläre Ausdrücke testen
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Advanced</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-advanced.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-advanced.html" data-line-numbers="|12-15"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>maxlength &ndash; Maximale Eingabelänge
+							<ul>
+								<li>Wert: positive, ganze Zahl</li>
+							</ul>
+						</li>
+						<li class="fragment">minlength &ndash; Minimale Eingabelänge
+							<ul>
+								<li>Wert: positive, ganze Zahl, klein oder gleich "maxlength"</li>
+							</ul>
+						</li>
+						<li class="fragment">size &ndash; Sichtbare Eingabegröße
+							<ul>
+								<li>Wert: positive, ganze Zahl</li>
+								<li>Anzahl der gleichzeitig sichtbaren Zeichen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Size</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-size.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-size.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>placeholder &ndash; Eingabehinweis
+							<ul>
+								<li>Wert: Einzeiliger Text</li>
+								<li>Wird angezeigt, solange keine Eingabe erfolgt ist.</li>
+							</ul>
+						</li>
+						<li class="fragment">value &ndash; Startwert
+							<ul>
+								<li>Wert: Text (je nach Input-Typ!)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Value</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-value.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-value.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<ul>
+						<li>list &ndash; Vorgabeliste
+							<ul>
+								<li>Wert: ID einer Vorgabeliste</li>
+								<li>Erlaubt die Auswahl aus vorgegebenen Werten</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">Vorgabeliste: datalist
+							<ul>
+								<li>id: zusammengehöriges Input-Feld</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">Vorgabewert: option</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - List</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-list.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-list.html" data-line-numbers="|12|13-20"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Type</h3>
+					<ul>
+						<li>type &ndash; Eingabefeldtyp
+							<ul>
+								<li>Default: "text"</li>
+								<li class="fragment">Wert: "hidden", "text", "search", "tel", "url", "email",
+									"password", "date",
+									"datetime-local", "month", "week", "time", "number", "range", "color", "checkbox",
+									"radio", "file", "submit", "image", "reset", "button"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Hidden, Password</h3>
+					<ul>
+						<li>"hidden"
+							<ul>
+								<li>Wird nicht angezeigt</li>
+								<li>Dient dem "Durchreichen" von Parametern durch Formulare.</li>
+							</ul>
+						</li>
+						<li class="fragment">"password"
+							<ul>
+								<li>Keine Anzeiger der eingegebenen Zeichen</li>
+								<li>Dient der Eingabe von Passwörtern</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Tel, Email, Url</h3>
+					<ul>
+						<li>"tel"
+							<ul>
+								<li>Gedacht für Telefonnummern, zeigt je nach Gerät und Browser einen Nummernblock an.
+								</li>
+								<li>Keine Eingabeüberprüfung! (-> Pattern)</li>
+							</ul>
+						</li>
+						<li class="fragment">"email"
+							<ul>
+								<li>Eingabeüberprüfung auf gültige Email-Adresse</li>
+							</ul>
+						</li>
+						<li class="fragment">"url"
+							<ul>
+								<li>Eingabeüberprüfung auf gültige absolute URL</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Submit</h3>
+					<ul>
+						<li>"submit" &ndash; Senden-Knopf
+							<ul>
+								<li>Abschicken eines Formulars</li>
+								<li class="fragment" data-fragment-index="1">"value" bestimmt den sichtbaren Text des
+									Knopfs</li>
+								<li class="fragment" data-fragment-index="1">ohne "value" wird ein lokalisierter
+									"Senden"-Text angezeigt</li>
+								<li class="fragment" data-fragment-index="2">mit "name" wird ein Parameter mit name und
+									Wert "value" mitgeschickt</li>
+								<li class="li-space-above fragment" data-fragment-index="3">formaction, formenctype,
+									formmethod, formtarget &ndash;
+									Überschreibt Werte im form-Element</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Beschriftung</h3>
+					<ul>
+						<li>label &ndash; Beschriftung
+							<ul>
+								<li>for &ndash; zu beschriftendes Element (Wert: id)</li>
+								<li class="li-space-above">Das erste Element mit "id" wird genutzt, alle weiteren
+									ignoriert.</li>
+								<li>Das Element mit "id" muss <a
+										href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#form_labelable">"labelable"</a>
+									sein, bisher: button, input, select, textarea</li>
+								<li>Ein Element mit "id" kann mit mehreren labeln versehen werden.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabegruppe</h3>
+					<ul>
+						<li>fieldset &ndash; Eingabegruppe
+							<ul>
+								<li>name &ndash; Name der Gruppe</li>
+								<li>disabled &ndash; Alle Eingaben der Gruppe deaktivieren</li>
+							</ul>
+						</li>
+						<li>legend &ndash; Beschriftung einer Eingabegruppe
+							<ul>
+								<li>keine zusätzlichen Attribute</li>
+								<li>Tag-Wert wird angezeigt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabegruppe</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-fieldset.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-fieldset.html" data-line-numbers="|12-20|13|14-15"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Reset, Button</h3>
+					<ul>
+						<li>type="reset" &ndash; Zurücksetzen-Knopf
+							<ul>
+								<li>Zurücksetzen der Eingaben eines Formulars</li>
+								<li>value &ndash; Text für den Knopf (siehe Submit)</li>
+							</ul>
+						</li>
+						<li class="fragment">type="button" &ndash; Generischer Knopf
+							<ul>
+								<li>Knopf "ohne" Funktion, gedacht für Scripting</li>
+								<li>value &ndash; Text für den Knopf</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						AB HIER NUR NOCH ZUM SELBSTSTUDIUM
+					</aside>
+				</section>
+				<!-- Ab hier nur noch zum Selbststudium -->
+				<section>
+					<h3>Eingabefelder - Search</h3>
+					<ul>
+						<li>"search"
+							<ul>
+								<li>Keine Zeilenumbrüche</li>
+								<li>Löschen Symbol, falls Browser es unterstützt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Search</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-search.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-search.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Uhrzeit, Tag</h3>
+					<ul>
+						<li>"time", "date", "week", "month", "datetime-local"
+							<ul>
+								<li>Eingabe von Datum und/oder Uhrzeit bzw. Woche</li>
+								<li>Eingabehilfe mit "date picker"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Uhrzeit, Tag</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-date-time.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-date-time.html" data-line-numbers="|12-16|17"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Zahlen</h3>
+					<ul>
+						<li>type="number"
+							<ul>
+								<li>Direkte Eingabe, evtl. hoch-runter Knöpfe</li>
+							</ul>
+						</li>
+						<li>type="range"
+							<ul>
+								<li>Eingabe via Schieberegler</li>
+							</ul>
+						</li>
+						<li>Attribute
+							<ul>
+								<li>min &ndash; Minimum</li>
+								<li>max &ndash; Maximum</li>
+								<li>step &ndash; Schrittweite</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Color</h3>
+					<ul>
+						<li>type="color"
+							<ul>
+								<li>Farbauswahlfeld</li>
+								<li>Ergibt 8-Bit RGB-Wert</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Color</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-color.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-color.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Checkbox, Radio</h3>
+					<ul>
+						<li>type="checkbox"
+							<ul>
+								<li>Nicht ausgewählt, kein Parameter wird übergeben</li>
+								<li>Ausgewählt, value oder "on" wird übergeben</li>
+							</ul>
+						</li>
+						<li>type="radio"
+							<ul>
+								<li>alle mit gleichem Namen werden zu einer Gruppe zusammengefasst</li>
+							</ul>
+						</li>
+						<li>Attribute
+							<ul>
+								<li>checked &ndash; Zustand auf "ausgewählt" setzen<br />Wert: "checked", leer</li>
+								<li>value &ndash; Wert des Eingabefelds<br />Wert: Text</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Checkbox, Radio</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-checkbox-radio.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-checkbox-radio.html" data-line-numbers="|12|13-14"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - File</h3>
+					<ul>
+						<li>type="file" &ndash; Datei hochladen
+							<ul>
+								<li>accept &ndash; Einschränkung auf Dateitypen<br />Werte: komma-getrennte Liste von
+									Endungen (.xml) oder Mime-Types (application/msword)</li>
+								<li>multiple &ndash; mehrere Dateien hochladen</li>
+							</ul>
+						</li>
+						<p>Pflicht: formenctype="multipart/form-data" und method="post", ansonsten nur Dateiname</p>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Bild</h3>
+					<ul>
+						<li>type="image" &ndash; Bild-Knopf
+							<ul>
+								<li>src &ndash; relative oder absolute URL zu einem Bild</li>
+								<li>width, height &ndash; siehe Bilder</li>
+								<li class="li-space-above">Abschicken eines Formulars über ein Bild.</li>
+								<li>Schickt das Formular bei Klick auf das Bild ab.</li>
+								<li>zusätzlich wird die geklickte Koordinate relativ zur oberen linken Ecke übertragen.
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Bild</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-image.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-image.html" data-line-numbers="|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Button</h3>
+					<ul>
+						<li>button &ndash; Knopf
+							<ul>
+								<li>type &ndash; Werte: "submit", "reset", "button"</li>
+								<li>Siehe input type="submit", "reset", "button"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Auswahl</h3>
+					<ul>
+						<li>select &ndash; Auswahl
+							<ul>
+								<li>Attribute wie input (z.B. disabled, name, required, etc.)</li>
+							</ul>
+						</li>
+						<li>option &ndash; Auswahl-Option
+							<ul>
+								<li>value &ndash; Wert des Parameters</li>
+								<li>disabled &ndash; Nicht auswählbare Option</li>
+								<li>selected &ndash; vorgewählte Option</li>
+								<li class="li-space-above">Ist value nicht gesetzt, wird der Tag-Inhalt verwendet</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Auswahl - Gruppiert</h3>
+					<ul>
+						<li>optgroup &ndash; Gruppierung von "option"
+							<ul>
+								<li>disabled &ndash; nicht wählbare Gruppe</li>
+								<li>label &ndash; angezeigter Text</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Auswahl</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-select.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-select.html" data-line-numbers="|12-23|13-16|17-22"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabebereich</h3>
+					<ul>
+						<li>textarea &ndash; Eingabebereich
+							<ul>
+								<li>cols &ndash; Spalten (Wert: ganze positive Zahl)</li>
+								<li>rows &ndash; Zeilen (Wert: ganze positive Zahl)</li>
+								<li>wrap &ndash; Zeilenumbruch (Wert: "soft", "hard")</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefeld - Eingabebereich</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/13_eingabefelder/input-textarea-label.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/13_eingabefelder/input-textarea-label.html" data-line-numbers="|12-13|14"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Formularattribute</h3>
+					<ul>
+						<li>Alle Eingabe-Elemente:
+							<ul>
+								<li>form &ndash; Zuordnung zu einem anderen Formular (Wert: ID eines form-Elements)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - HTML-Formulare</h3>
+					<ol start="20">
+						<li>Bei welchen Browsern wirken für welche Input-Typen die Autovervollständigung und die
+							Validierung?</li>
+						<li>Wie verhält sich ein Label-Element bei Checkboxen und Radio-Buttons?</li>
+						<li>Erstellen Sie ein Eingabefeld, das nur Hexadezimalzahlen akzeptiert.</li>
+					</ol>
+					<p>Tipp: mit <a href="https://regex101.com/">regex101.com</a> reguläre Ausdrücke testen</p>
+				</section>
+				<section>
+					<h3>Praxis - HTML-Formulare</h3>
+					<ol start="23">
+						<li>Erstellen Sie eine Eingabeseite für Personendaten mit Angaben zu Anrede, Titel, Vorname,
+							Nachname, Straße, Hausnummer, PLZ, Ort, Bundesland, Geburtsdatum und -uhrzeit, Sternzeichen,
+							Bild (upload), Familienstand, Anzahl Kinder, Kommentar, ...<br />Verwenden Sie passende
+							Gruppierungen und Beschriftungen und Validierungen!</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - HTML Formulare</h3>
+					<ol start="24">
+						<li>Überprüfen Sie die Wirkung der Attribute disabled, readonly, autocomplete, required,
+							pattern, maxlength, size, placeholder, und value. Werden die Attribute in verschiedenen
+							Browsern gleich dargestellt?</li>
+						<li>Schlagen Sie mit Hilfe einer Vorgabeliste Werte vor.</li>
+					</ol>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Aufbau eines HTML-Dokuments</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/1_hello-world/hello-world.html" data-line-numbers="|1|2,10|3-6|7-9|"></code>
+					</pre>
+					<p class="fragment">
+						HTML4 transitional doctype:<br />
+						&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"<br />
+						"http://www.w3.org/TR/html4/transitional.dtd"&gt;
+					</p>
+					<aside class="notes">
+						Kurzer refresh: Wofuer steht doctype?
+					</aside>
+				</section>
+				<section>
+					<h3>HTML - head</h3>
+					<p class="fragment">Muss mindestens einen Titel beinhalten:<br />
+						&lt;title&gt;Titel des Dokuments&lt;/title&gt;
+					</p>
+					<p class="fragment">Charset muss definiert werden, z.B.:<br />
+						&lt;meta charset="UTF-8"&gt;<br />
+						(Kann auch per HTTP-Header gesetzt werden)
+					</p>
+					<p class="fragment">Mobile Websiten setzen den viewport via:<br />
+						&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+					</p>
+				</section>
+				<section>
+					<h3>Head - Default Viewport</h3>
+					<p>Gerät (Moto G4) - Breite: 360px - Paragraph: 380px</p>
+					<img height="500"
+						src="./code-examples/2_mobile-non-mobile/non-mobile-hello-world.html(Moto G4).png">
+					<aside class="notes">
+						Old school youtube:
+						https://web.archive.org/web/20060529054400/http://www.youtube.com/
+					</aside>
+				</section>
+				<section>
+					<h3>Head - Mobile Viewport</h3>
+					<p>Gerät (Moto G4) - Breite: 360px - Paragraph: 380px</p>
+					<img height="500" src="./code-examples/2_mobile-non-mobile/mobile-hello-world.html(Moto G4).png">
+				</section>
+				<section>
+					<h3>HTML - head</h3>
+					<p>Weitere Elemente:
+					<ul>
+						<li>base &ndash; Basis für relative URLs</li>
+						<li>link &ndash; Logische Beziehungen</li>
+						<li>meta &ndash; Metadaten</li>
+						<li>script &ndash; JavaScript einbinden</li>
+						<li>style &ndash; CSS einbinden</li>
+					</ul>
+					</p>
+					<aside class="notes">
+						Good list:
+						https://www.computerbase.de/
+					</aside>
+				</section>
+				<section>
+					<h3>Head - base, link</h3>
+					<ul>
+						<li>base &ndash; URL-Basis
+							<ul>
+								<li>Basis für alle relativen URLs eines HTML-Dokuments</li>
+							</ul>
+						</li>
+						<li class="fragment">link &ndash; Logische Beziehung
+							<ul>
+								<li>rel &ndash; Art der Beziehung (z.B. author, stylesheet, icon, manifest)</li>
+								<li>href &ndash; Referenz (absolute oder relative URL)</li>
+								<li>type &ndash; MIME-Type (z.B. text/css, text/html, image/png)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Head - meta</h3>
+					<ul>
+						<li>meta &ndash; Metadaten
+							<ul>
+								<li>Genau eines der Attribute "name", "charset" und "http-equiv" setzen.</li>
+								<li class="li-space-above fragment">name &ndash; Zusatzinformation<br />Werte: "author",
+									"description", "keywords"</li>
+								<li class="fragment">charset &ndash; Zeichensatz<br />(muss ASCII-Kompatibel und sollte
+									UTF-8 sein)</li>
+								<li class="fragment">http-equiv &ndash; Werte aus HTTP-Header ändern<br />Werte:
+									"content-language",
+									"content-type"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML Progressive Rendering</h3>
+					<p>Browser können HTML-Dokumente schon rendern bevor sie vollständig heruntergeladen sind<br />(seit
+						<a
+							href="https://web.archive.org/web/20040617070232/http://www.boutell.com/newfaq/history/fbrowser.html">Netscape
+							1.0 Beta</a>!)</p>
+					<p>Beschleunigt das Anzeigen von sehr langen HTML-Dokumenten, z.B.: <a
+							href="https://datatracker.ietf.org/doc/html/rfc7540">die HTTP2-Spec, aka RFC 7540</a></p>
+					<p>Performance-Optimierung der Browser, Transparent für uns Web-Entwickler</p>
+				</section>
+				<section>
+					<h3>Streamed HTML</h3>
+					<p>Browser beginnt rendern sobald erster "Chunk" empfangen wird</p>
+					<p>Web-Entwickler können Teile des HTML-Dokuments priorisieren und zuerst an Client schicken</p>
+					<p>Performance-Optimierung des Servers, muss von Web-Entwicklern implementiert werden</p>
+					<p>Beispiel: Google Sucherergebniss-Seite</p>
+					<aside class="notes">
+						https://dev.to/tigt/the-weirdly-obscure-art-of-streamed-html-4gc2
+					</aside>
+				</section>
+				<section>
+					<h3>Streamed HTML</h3>
+					<p>Beispiel: Google Suchergebniss-Seite</p>
+					<div class="r-stack">
+						<img class="fragment current-visible" src="./images/google-search-result-page_1.png"
+							width="150%">
+						<img class="fragment current-visible" src="./images/google-search-result-page_2.png"
+							width="150%">
+						<img class="fragment current-visible" src="./images/google-search-result-page_3.png"
+							width="150%">
+						<img class="fragment current-visible" src="./images/google-search-result-page_4.png"
+							width="150%">
+						<img class="fragment current-visible" src="./images/google-search-result-page_5.png"
+							width="150%">
+						<img class="fragment current-visible" src="./images/google-search-result-page_6.png"
+							width="150%">
+						<img class="fragment current-visible" src="./images/google-search-result-page_7.png"
+							width="150%">
+					</div>
+				</section>
+				<section>
+					<h3>Streamed HTML</h3>
+					<p>Beispiel: Kroger Suchergebniss-Seite</p>
+					<video controls src="https://assets.codepen.io/183091/HTML+streaming+vs.+non.mp4"></video>
+				</section>
+				<section>
+					<h3>Streamed HTML - Vorteile</h3>
+					<p>Nicht nur nützlich für Suchergebnisse, man kann auch:</p>
+					<ul>
+						<li>Header vor evtl. langsamen Hauptinhalt anzeigen</li>
+						<li>kritischen Hauptinhalt vor zusätzlichen Sidebars, Kommentaren, "related posts", etc.
+							anzeigen</li>
+					</ul>
+					<p>Bietet zusätzliche Vorteil für Nutzer</p>
+					<ul>
+						<li>Schnell interaktiv: Nutzer können ihre Suchanfrage direkt im Header absetzen</li>
+						<li>Selbst wenn noch kein &lt;body&gt; gesendet wurde,<br>wenn der &lt;head&gt; übertragen ist
+							fängt der Client an z.B. CSS-Dateien herunterzuladen!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Protokoll-Feature</h3>
+					<p>Streamed HTML wird von HTTP in unterschiedlichen Versionen unterschiedlich umgesetzt:</p>
+					<ul>
+						<li>HTTP 1.1: <a
+								href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding">Transfer-Encoding:
+								chunked</a><br>(<a
+								href="https://en.wikipedia.org/wiki/Chunked_transfer_encoding">Wikipedia: Chunked
+								transfer encoding</a>)</li>
+						<li>HTTP/2+: <a href="https://tools.ietf.org/html/rfc7540#section-6.1">DATA frames</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Naming is hard</h3>
+					<p>
+					<ul>
+						<li>"Chunked Transfer-Encoding" ist ein eindeutiger Name, ABER nur für HTTP/1.1 gültig, ab
+							HTTP/2 neues verfahren ohne eindeutigen Namen</li>
+						<li>Steve Sounders nennt es <a
+								href="https://www.stevesouders.com/blog/2009/05/18/flushing-the-document-early/">"flushing"</a>
+						</li>
+						<li>wurde auch "HTTP Streaming" genannt, aber seit Multimedia ist das von Techniken für Video
+							belegt</li>
+						<li>wurde auch "progressive rendering" genannt, doch dieses Prinzip wird technisch an sehr
+							vielen Stellen genutzt</li>
+					</ul>
+					</p>
+					<aside class="notes">
+						Steve Sounders: Autor mehrer O'Reilly Bücher zum Thema "Web-Performance"
+					</aside>
+				</section>
+				<section>
+					<h3>Streamed HTML - Nachteile</h3>
+					<ul>
+						<li>Keiner kennt das Feature<span class="fragment"> (ihr jetzt schon!)</span></li>
+					</ul>
+					<!-- <img src="https://media.giphy.com/media/l0IycI0rreFNQwmSQ/giphy.gif?cid=ecf05e47z92d4itdjywxtq0bmdixj34emk4dm04a7ehv7a51&rid=giphy.gif&ct=g" alt="Racoon Wink" /> -->
+					<img src="https://media.giphy.com/media/55SfA4BxofRBe/giphy.gif?cid=ecf05e47ymiciept7j2h4shzxsy3yu4zk8eg7xlcu74odwt0&rid=giphy.gif&ct=g"
+					     class="fragment" alt="the office steve finger guns" width="80%" />
+				</section>
+				<section>
+					<h3>Streamed HTML - Nachteile</h3>
+					<ul>
+						<li>Keiner kennt das Feature (ihr jetzt schon!)</li>
+						<li>Schlecht Dokumentiert</li>
+						<li>Dokumentation quasi nicht zu finden</li>
+						<li>Kaum Backend-Unterstützung
+							<ul>
+								<li>PHP: <a href="https://www.php.net/manual/en/book.outcontrol.php">undurchschaubares "Output Buffering"</a></li>
+								<li>Ruby on Rails: <a href="https://api.rubyonrails.org/classes/ActionController/Streaming.html">ActionController::Streaming</a><br />"[...] you need to be careful when streaming."</li>
+								<li>Django: <a href="https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.StreamingHttpResponse">StreamingHttpResponse</a><br />"[...] should only be used in situations where it is absolutely required [...]"</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						React versucht es nochmal von vorne: https://github.com/reactwg/react-18/discussions/37
+					</aside>
+				</section>
+				<section>
+					<h3>Streamed HTML - Nachteile 2</h3>
+					<ul>
+						<li>Schlechte Frontend-Unterstützung
+							<ul>
+								<li>React: hatte <a href="https://reactjs.org/docs/react-dom-server.html#rendertonodestream">"renderToNodeStream"</a></li>
+								<li>Vue: kann Streamen, ist aber nicht <a href="https://vuejs.org/api/ssr.html">Default</a></li>
+								<li>Ember's Glimmer: kann Streamen, ist aber nicht <a href="https://blog.emberjs.com/glimmer-progress-report/#toc_server-side-rendering">Default</a></li>
+							</ul></li>
+					</ul>
+					<aside class="notes">
+						React versucht es nochmal von vorne: https://github.com/reactwg/react-18/discussions/37
+					</aside>
+				</section>
+				<section>
+					<h3>Streamed HTML - Nodejs</h3>
+					<p>NodeJs <a href="https://nodejs.org/en/about/">About</a>-Seite:<br />"HTTP is a first-class citizen in Node.js, designed with streaming and low latency in mind."</p>
+					<p>Beispiel dazu folgt im 2. Semester</p>
+				</section>
+				<section>
+					<h3>Streamed HTML</h3>
+					<p>Weitereführende Blogposts</p>
+					<ul>
+						<li><a href="https://www.phpied.com/progressive-rendering-via-multiple-flushes/">Progressive
+								rendering via multiple flushes · Stoyan Stefanov</a></li>
+						<li><a href="https://jakearchibald.com/2016/fun-hacks-faster-content/">Fun hacks for faster
+								content · Jake Archibald</a></li>
+						<li><a href="https://jakearchibald.com/2016/streams-ftw/">Streams FTW · Jake Archibald</a></li>
+						<li><a
+								href="https://medium.com/the-thinkmill/progressive-rendering-the-key-to-faster-web-ebfbbece41a4">Progressive
+								Rendering — The Key to Faster Web · Dinesh Pandiyan</a></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - HTML-Formulare</h3>
+					<ol start="20">
+						<li>Bei welchen Browsern wirken für welche Input-Typen die Autovervollständigung und die
+							Validierung?</li>
+						<li>Wie verhält sich ein Label-Element bei Checkboxen und Radio-Buttons?</li>
+						<li>Erstellen Sie ein Eingabefeld, das nur Hexadezimalzahlen akzeptiert.</li>
+					</ol>
+					<p>Tipp: mit <a href="https://regex101.com/">regex101.com</a> reguläre Ausdrücke testen</p>
+				</section>
+				<section>
+					<h3>Praxis - HTML-Formulare</h3>
+					<ol start="23">
+						<li>Erstellen Sie eine Eingabeseite für Personendaten mit Angaben zu Anrede, Titel, Vorname,
+							Nachname, Straße, Hausnummer, PLZ, Ort, Bundesland, Geburtsdatum und -uhrzeit, Sternzeichen,
+							Bild (upload), Familienstand, Anzahl Kinder, Kommentar, ...<br />Verwenden Sie passende
+							Gruppierungen und Beschriftungen und Validierungen!</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Praxis - HTML Formulare</h3>
+					<ol start="24">
+						<li>Überprüfen Sie die Wirkung der Attribute disabled, readonly, autocomplete, required,
+							pattern, maxlength, size, placeholder, und value. Werden die Attribute in verschiedenen
+							Browsern gleich dargestellt?</li>
+						<li>Schlagen Sie mit Hilfe einer Vorgabeliste Werte vor.</li>
+					</ol>
 				</section>
 			</section>
 		</div>
