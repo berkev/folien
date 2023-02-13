@@ -1,0 +1,15 @@
+h1 {
+    font-family: sans-serif;
+    font-size  : large;
+    color      : olive;
+}
+
+.o {
+    background-color: silver;
+}
+
+#Peter {
+    font-family: fantasy;
+    font-size  : medium;
+    color      : red;
+}

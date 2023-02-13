@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <title>
+        CSS - Aufgabe 4
+    </title>
+    <style>
+        h1 {
+            color: blue;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        p {
+            color: blueviolet;
+        }
+
+        li {
+            color: darkolivegreen;
+            word-spacing: 40px;
+        }
+
+        li::marker {
+            letter-spacing: normal;
+            word-spacing: normal;
+        }
+
+        ol:first-of-type {
+            /* list-style-type: trad-chinese-informal; */
+            list-style-type: georgian;
+        }
+
+        ol:last-of-type li:last-of-type {
+            color: red;
+            letter-spacing: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dies ist der Titel</h1>
+    <p>Iste quidem veteres
+        inter ponetur honeste, qui
+        vel mense brevi vel toto est
+        iunior anno. Utor permisso,
+        caudaeque pilos ut equinae
+        paulatim vello unum, demo
+        etiam unum, dum cadat elusus
+        ratione ruentis acervi, qui
+        redit in fastos et annis
+        miraturque.</p>
+    <ol>
+        <li>Iste quidem</li>
+        <li>inter ponetur</li>
+    </ol>
+    <p>Indignor quicquam
+        reprehendi, non quia
+        crasse compositum illepedeve
+        putetur, sed quia nuper,
+        nec veniam antiquis, sed
+        honorem Brevi vel toto
+        est iunior anno.</p>
+    <ol>
+        <li>Iste quidem</li>
+        <li>inter ponetur</li>
+    </ol>
+    <p>Utor permisso, caudaeque
+        pilos ut equinae paulatim
+        vello unum, demo etiam unum.
+        Si meliora dies, ut vina,
+        poemata reddit, scire velim,
+        chartis perficit quotus
+        pretium quotus arroget
+        annus.</p>
+</body>
+
+</html>

@@ -36,3 +36,12 @@ Additionally the pages are hosted on GitLab Pages:
 ```bash
 cp -rv ~/Downloads/reveal.js-*/{dist,plugin} ./
 ```
+
+### Copy reveal.js between topic folders
+
+After updating at the beginning of a semester, it can be copied over from the html topic folder
+
+```bash
+cp -rv ../html/{dist,plugin} ./
+```
+
