@@ -435,6 +435,7 @@
 							<li>Nachfahren: p <span class="hljs-selector-tag">em</span></li>
 						</ul>
 					</div>
+					<p>"Descendant combinator" <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator">MDN</a></p>
 				</section>
 				<section>
 					<h3>CSS - Beispiel Kind</h3>
@@ -455,6 +456,7 @@
 							<li>Kinder: p > <span class="hljs-selector-tag">em</span></li>
 						</ul>
 					</div>
+					<p>"Child combinator" <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator">MDN</a></p>
 				</section>
 				<section>
 					<h3>CSS - Beispiel Geschwister</h3>
@@ -475,6 +477,7 @@
 							<li>Geschwister: h1 ~ <span class="hljs-selector-tag">p</span></li>
 						</ul>
 					</div>
+					<p>"General sibling combinator" <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator">MDN</a></p>
 				</section>
 				<section>
 					<h3>CSS - Beispiel Nachbarn</h3>
@@ -495,6 +498,7 @@
 							<li>Nachbarn: h1 + <span class="hljs-selector-tag">p</span></li>
 						</ul>
 					</div>
+					<p>"Adjacent sibling combinator" <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator">MDN</a></p>
 				</section>
 			</section>
 			<section>
@@ -682,8 +686,14 @@
 						<li>:last-child&emsp;- letztes Kind Element</li>
 						<li>:nth-child(n)&ensp;- n-tes Kind Element</li>
 						<li>:only-child&emsp;- einziges Kind Element</li>
-						<li class="fragment li-space-above" data-fragment-index="1">:first-of-type&emsp;- erstes Element
+						<li class="fragment smaller-font" data-fragment-index="1">:first-of-type&emsp;- erstes Element
 							dieses Typs<br />:last-of-type, :nth-of-type, :nth-last-of-type, :only-of-type</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">Mögliche Werte für "n" (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">MDN</a>)</p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>Zahl, z.B :nth-child(3)</li>
+						<li>odd (1, 3, 5, etc.) oder even (2, 4, 6, etc.)</li>
+						<li>Formel (&lt;An+B&gt;), z.B :nth-child(4n+4)</li>
 					</ul>
 				</section>
 				<section>
@@ -701,6 +711,7 @@
 &lt;/body&gt;</pre>
 						<ul>
 							<li><span class="hljs-selector-pseudo">:first-child</span></li>
+							<li class="fragment">*<span class="hljs-selector-pseudo">:first-child</span></li>
 						</ul>
 					</div>
 				</section>
