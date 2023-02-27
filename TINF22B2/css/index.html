@@ -79,7 +79,7 @@
 	PDF-Export (/?print-pdf)
 	Tag 1: 1,3-24,34-47
 	Tag 1 - Praxis (mit Loesungen): 25-33,48-52
-	Tag 2: 1,53-72,79-97
+	Tag 2: 1,53-72,79-97 (!! Slide order changed !!)
 	Tag 2 - Praxis (mit Loesungen): 73-78,98-101
 -->
 
@@ -1291,13 +1291,108 @@
 								<li class="fragment">inline: erzwingt Inline-Element</li>
 								<li class="fragment">none: Element ist nicht sichtbar</li>
 								<li class="fragment li-space-above">inline-block: Block-Element das umflossen wird wie
-									ein
-									Inline-Element</li>
+									ein Inline-Element</li>
 								<li class="fragment li-space-above">list-item: wie block, aber mit Aufzählungszeichen
 								</li>
 							</ul>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 7</h3>
+					<p>Gegeben: <a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/TINF22B2/css/code-examples/17_aufgabe7/aufgabe7.html?inline=false">aufgabe7.html</a>
+					</p>
+					<ul class="smaller-font">
+						<li>Färbt den Hintergrund alle geraden Tabellenzeilen grau</li>
+						<li>Gebt allen Tabellenzeilen mit nur einer Zelle einen roten Rahmen</li>
+						<li>Gebt der Tabelle ein Gitternetz in blau</li>
+						<li>Gebt der ersten Überschrift einen serifenlosen Zeichensatz in der Größe 16pt und Fettdruck
+						</li>
+						<li>Absatz 1 soll linksbündig angeordnet werden, der Absatz 4 rechtsbündig</li>
+						<li>Zweite Spalte der Tabelle soll zentriert erscheinen</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 8</h3>
+					<p>Nach dem CSS-Box-Modell, welche "bottom" und "right" Werte haben das rote, grüne, blaue und
+						orangene Rechteck?</p>
+					<p class="smaller-font">Gegeben sind folgende zwei Dateien aus dem Folien-Repo:
+					</p>
+					<ul>
+						<li><a
+								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF22B2/css/code-examples/18_aufgabe8/aufgabe8.html">aufgabe8.html</a>
+						</li>
+						<li><a
+								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/added_2021/css/code-examples/18_aufgabe8/aufgabe8.css">aufgabe8.css</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 9</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;<span class="hljs-name">body</span>&gt;
+  &lt;div class="box"&gt;
+    &lt;<span class="hljs-name">h1</span>&gt;Meine Überschrift&lt;/<span class="hljs-name">h1</span>&gt;
+    &lt;p&gt;&lt;span
+      class="firstletter"&gt;I
+      &lt;/span&gt;ste quidem veteres
+      inter ponetur honeste,
+      qui vel mense brevi vel
+      toto est iunior anno.
+    &lt;/p&gt;
+    &lt;p&gt;Utor permisso, caudaeque
+      pilos ut equinae paulatim
+      vello unum, demo etiam
+      unum, dum cadat elusus
+      ratione ruentis acervi,
+      qui redit in fastos
+      et annis miraturque.
+    &lt;/p&gt;
+</pre>
+						<pre>
+    &lt;table&gt;
+      &lt;tr class="odd row"&gt;
+        &lt;td&gt;Jakobus&lt;/td&gt;
+        &lt;td&gt;Müller&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class="even odd"&gt;
+        &lt;td&gt;Petra&lt;/td&gt;
+        &lt;td&gt;Maier&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class="row odd"&gt;
+        &lt;td colspan="2"&gt;
+        Georg IV&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;div class="important"&gt;
+    Wichtig!!&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/<span class="hljs-name">body</span>&gt;</pre>
+					</div>
+				</section>
+				<section>
+					<h3>Praxis - CSS - Aufgabe 9</h3>
+					<img src="./images/css-praxis-aufgabe9.jpg" alt="Praxis CSS Aufgabe 9" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 8</h3>
+					<ul>
+						<li>rot: bottom=262,right:262</li>
+						<li>grün: bottom=123,right:223</li>
+						<li>blau: bottom=215,right:223</li>
+						<li>orange: bottom=167,right:282</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 9</h3>
+					<a
+						href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF22B2/css/code-examples/19_aufgabe9/aufgabe9.html">Lösung</a>
 				</section>
 			</section>
 			<section>
@@ -1403,102 +1498,6 @@
   }
 }</pre>
 					</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h3>Praxis - CSS - Aufgabe 7</h3>
-					<p>Gegeben: <a
-							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/TINF22B2/css/code-examples/17_aufgabe7/aufgabe7.html?inline=false">aufgabe7.html</a>
-					</p>
-					<ul class="smaller-font">
-						<li>Färbt den Hintergrund alle geraden Tabellenzeilen grau</li>
-						<li>Gebt allen Tabellenzeilen mit nur einer Zelle einen roten Rahmen</li>
-						<li>Gebt der Tabelle ein Gitternetz in blau</li>
-						<li>Gebt der ersten Überschrift einen serifenlosen Zeichensatz in der Größe 16pt und Fettdruck
-						</li>
-						<li>Absatz 1 soll linksbündig angeordnet werden, der Absatz 4 rechtsbündig</li>
-						<li>Zweite Spalte der Tabelle soll zentriert erscheinen</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Praxis - CSS - Aufgabe 8</h3>
-					<p>Nach dem CSS-Box-Modell, welche "bottom" und "right" Werte haben das rote, grüne, blaue und
-						orangene Rechteck?</p>
-					<p class="smaller-font">Gegeben sind folgende zwei Dateien aus dem Folien-Repo:
-					</p>
-					<ul>
-						<li><a
-								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF22B2/css/code-examples/18_aufgabe8/aufgabe8.html">aufgabe8.html</a>
-						</li>
-						<li><a
-								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/added_2021/css/code-examples/18_aufgabe8/aufgabe8.css">aufgabe8.css</a>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Praxis - CSS - Aufgabe 9</h3>
-					<div class="two-columns-half-half">
-						<pre>
-&lt;<span class="hljs-name">body</span>&gt;
-  &lt;div class="box"&gt;
-    &lt;<span class="hljs-name">h1</span>&gt;Meine Überschrift&lt;/<span class="hljs-name">h1</span>&gt;
-    &lt;p&gt;&lt;span
-      class="firstletter"&gt;I
-      &lt;/span&gt;ste quidem veteres
-      inter ponetur honeste,
-      qui vel mense brevi vel
-      toto est iunior anno.
-    &lt;/p&gt;
-    &lt;p&gt;Utor permisso, caudaeque
-      pilos ut equinae paulatim
-      vello unum, demo etiam
-      unum, dum cadat elusus
-      ratione ruentis acervi,
-      qui redit in fastos
-      et annis miraturque.
-    &lt;/p&gt;
-</pre>
-						<pre>
-    &lt;table&gt;
-      &lt;tr class="odd row"&gt;
-        &lt;td&gt;Jakobus&lt;/td&gt;
-        &lt;td&gt;Müller&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr class="even odd"&gt;
-        &lt;td&gt;Petra&lt;/td&gt;
-        &lt;td&gt;Maier&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr class="row odd"&gt;
-        &lt;td colspan="2"&gt;
-        Georg IV&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-    &lt;div class="important"&gt;
-    Wichtig!!&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/<span class="hljs-name">body</span>&gt;</pre>
-					</div>
-				</section>
-				<section>
-					<h3>Praxis - CSS - Aufgabe 9</h3>
-					<img src="./images/css-praxis-aufgabe9.jpg" alt="Praxis CSS Aufgabe 9" />
-				</section>
-			</section>
-			<section>
-				<section>
-					<h3>CSS - Lösung Aufgabe 8</h3>
-					<ul>
-						<li>rot: bottom=262,right:262</li>
-						<li>grün: bottom=123,right:223</li>
-						<li>blau: bottom=215,right:223</li>
-						<li>orange: bottom=167,right:282</li>
-					</ul>
-				</section>
-				<section>
-					<h3>CSS - Lösung Aufgabe 9</h3>
-					<a
-						href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF22B2/css/code-examples/19_aufgabe9/aufgabe9.html">Lösung</a>
 				</section>
 			</section>
 			<section>
