@@ -1190,7 +1190,8 @@ request.send();
 						<li class="li-space-above fragment" data-fragment-index="1">Ist auch in einem "WebWorker"
 							verfügbar</li>
 						<li class="fragment" data-fragment-index="2">Ist nicht im "Internet Explorer" verfügbar</li>
-						<li class="li-space-above fragment" data-fragment-index="3">Promise-basierte API</li>
+						<li class="li-space-above fragment" data-fragment-index="3">Promise-basierte API (<a
+							href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN-Promises</a>)</li>
 						<li class="fragment" data-fragment-index="3">Spec: <a
 								href="https://fetch.spec.whatwg.org/">https://fetch.spec.whatwg.org/</a></li>
 					</ul>
@@ -1198,7 +1199,7 @@ request.send();
 				<section>
 					<h3>fetch - Aufruf</h3>
 					<pre class="language-js">
-						<code class="hljs">const responsePromise = fetch(resource, [, init])
+						<code class="hljs">const responsePromise = fetch(resource[, init])
 </code></pre>
 					<ul>
 						<li>resource: Aufzurufende URL</li>
@@ -1317,7 +1318,7 @@ const myObject = JSON.parse(
 					<h3>JSON - Einlesen</h3>
 					<p>JSON.stringify</p>
 					<pre class="language-js">
-	<code class="hljs" data-line-numbers="|1-3|5-6|">const myObject = {"label": "Hello World"};
+	<code class="hljs" data-line-numbers="|1-3|5-6|">const myObject = {label: "Hello World"};
 console.log(JSON.stringify(myObject));
 // '{"label":"Hello World"}'
 
@@ -1426,7 +1427,7 @@ console.log(myObject.a); // 2</code></pre>
 new GithubUser("chr1shaefn3r").download();
 // "chr1shaefn3r" (Zeile 4)
 // undefined (Zeile 7)</code></pre>
-					<p class="fragment">Warum ist "this.name" in Zeile 6 + 9 nicht das gleiche? <span
+					<p class="fragment">Warum ist "this.name" in Zeile 4 + 7 nicht das gleiche? <span
 							class="fragment">WTF?!?</span></p>
 				</section>
 				<section>
@@ -1495,12 +1496,12 @@ whatTheFunctionScope(["wert"]); // 1</code></pre>
 				<section>
 					<h3>Function-Scope (hoisting)</h3>
 					<pre class="language-js">
-						<code class="hljs" data-line-numbers="|1-5|2|3-4|6-8|">function whatTheFunctionScope() {
+						<code class="hljs" data-line-numbers="|1-5|2|3-4|6-8|">function whatTheHoisting() {
 	console.log(index);
 	var index = 1;
 	console.log(index);
 };
-whatTheFunctionScope();
+whatTheHoisting();
 // undefined
 // 1</code></pre>
 					<p class="fragment">Warum ist die Variable "index" in Zeile 2 schon verfügbar?!? <span
