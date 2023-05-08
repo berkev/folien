@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markmap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mindmap {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="mindmap"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.3.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.7"></script>
+  <script>
+    const { Markmap } = window.markmap;
+    Markmap.create("svg#mindmap", null, {
+      "t": "heading", "d": 1, "v": "NodeJS",
+      "c": [
+        {
+          "t": "heading", "d": 2, "v": "http",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Request-Listener"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "express",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Routen"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "HTML dynamisch erzeugen",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Server Side Includes (SSI)"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Hypertext Preprocessor (PHP)"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Active Server Pages (ASP)"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Template Engines"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "HTML-Streaming"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Weiterleitungen/Redirects"
+        }, {
+          "t": "heading", "d": 2, "v": "Gültigkeitsbereiche"
+        }, {
+          "t": "heading", "d": 2, "v": "Model-Entwurfsmuster",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Model-1-Entwurfsmuster"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Model-2-Entwurfsmuster"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Middleware"
+            },
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Cookies"
+        }, {
+          "t": "heading", "d": 2, "v": "WebSocket",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Protokoll-Overhead"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Persistenz",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "JSON-Dateien"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "SQLite"
+            }
+          ]
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
