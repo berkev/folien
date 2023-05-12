@@ -1,0 +1,472 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: WebServer</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.two-columns-half-half {
+			display: grid;
+			grid: auto-flow / 1fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+
+		.js-output {
+			border: 2px solid grey;
+			text-align: left;
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+		.min-height-200 {
+			min-height: 400px;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?print-pdf)
+	WebServer: 1,3-25
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Webserver</h1>
+
+				<p>
+					Einstieg ins Backend<span class="fragment" data-fragment-index="1"> / Rechenzentrum</span>
+				</p>
+				<div class="r-stack">
+					<img class="fragment" data-fragment-index="1" src="./images/rechenzentrum.jpg"
+						alt="Rechenzentrum Witz" width="361" height="275" />
+					<img class="fragment" data-fragment-index="2" src="./images/rechenzentrum2.jpg"
+						alt="Rechenzentrum Echt" width="920" height="394" />
+				</div>
+			</section>
+			<section>
+				<h3>Webserver - Mindmap</h3>
+				<iframe class="mindmap" data-src="./mindmap.html"></iframe>
+			</section>
+			<section>
+				<section>
+					<h3>Bisher: lokale Datei-Ablage</h3>
+					<p>
+						Browser greift direkt auf lokale Dateien zu<br />"file"-Protokoll
+					</p>
+					<img src="./images/Webserver_lokale-datei-ablage.svg" alt="Webserver: Lokale Datei-Ablage" />
+				</section>
+				<section>
+					<h3>Jetzt: mit Web-Server</h3>
+					<p>
+						Browser ruft Website von einem Web-Server ab<br />"http"-Protokoll
+					</p>
+					<img src="./images/Webserver_http-abfrage.svg" alt="Webserver: HTTP-basierte Abfrage" />
+				</section>
+				<section>
+					<h3>Lokal vs. Web-Server</h3>
+					<div class="two-columns-half-half">
+						<div>
+							<h4>Lokal</h4>
+							<ul>
+								<li class="fragment" data-fragment-index="1">Schema "file"</li>
+								<li class="fragment" data-fragment-index="2">Rechte des Benutzers der Browser
+									öffnet<br />.
+								</li>
+								<li class="fragment" data-fragment-index="3">Nur "lokaler" Zugriff</li>
+							</ul>
+						</div>
+						<div>
+							<h4>Web-Server</h4>
+							<ul>
+								<li class="fragment" data-fragment-index="1">Schema "http(s)"</li>
+								<li class="fragment" data-fragment-index="2">Rechte des Benutzers der Web-Server
+									startet<br />(&plusmn; Server-Einstellungen)</li>
+								<li class="fragment" data-fragment-index="3">Zugriff von "überall"</li>
+								<li class="fragment" data-fragment-index="4">Möglichkeit zur dynamischen Erzeugung der
+									HTML-Seite</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTTP - ganz kurz</h3>
+					<p><b class="fragment highlight-current-red" data-fragment-index="1">H</b>yper<b
+							class="fragment highlight-current-red" data-fragment-index="1">t</b>ext <b
+							class="fragment highlight-current-red" data-fragment-index="1">T</b>ransport <b
+							class="fragment highlight-current-red" data-fragment-index="1">P</b>rotocol</p>
+					<ul>
+						<li>Protokoll: Übertragen von Daten übers Netzwerk
+							<ul>
+								<li>Anfrage (Request): vom Client an den Server</li>
+								<li>Antwort (Response): vom Server an den Client</li>
+								<li>Anfragen/Antworten bestehen aus Metadaten (header) und Inhalt (content)</li>
+							</ul>
+						</li>
+						<li>Request-Response-Prinzip
+							<ul>
+								<li>Keine Antwort ohne vorherige Frage!</li>
+							</ul>
+						</li>
+						<li>Anfragen Parameter
+							<ul>
+								<li>Entweder via URL oder über Anfrage-Inhalt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Aufgaben eines Web-Servers</h3>
+					<p>Verarbeiten von HTTP-Anfragen</p>
+					<ol>
+						<li class="fragment">Auf Verbindung warten</li>
+						<li class="fragment">Anfrage entgegennehmen
+							<ul>
+								<li>Anfrage validieren</li>
+								<li>URL normalisieren</li>
+							</ul>
+						</li>
+						<li class="fragment">Anfrage interpretieren
+							<ul>
+								<li>Parameter auslesen</li>
+								<li>Inhalt der Antwort erzeugen<br />statisch oder dynamisch</li>
+							</ul>
+						</li>
+						<li class="fragment">Antwort senden</li>
+						<li class="fragment">Verbindung abbauen</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Aufgaben eines Web-Servers 2</h3>
+					<ul>
+						<li>Verarbeiten von HTTP-Anfragen</li>
+						<li class="fragment" data-fragment-index="1">Abarbeiten mehrer Anfragen gleichzeitig
+							(Multithreading)</li>
+						<li class="fragment" data-fragment-index="2">Zuordnung von Anfragen anhand der URI</li>
+						<li class="fragment li-space-above" data-fragment-index="3">Zugriffskontrolle</li>
+						<li class="fragment" data-fragment-index="3">Caching</li>
+						<li class="fragment" data-fragment-index="3">Komprimierung</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Grundidee: Dynamisches erzeugen</h3>
+					<p>
+						nur Individualanteil selbst machen
+					</p>
+					<img class="fragment" src="./images/grundidee-dynamisches-erzeugen.svg"
+						alt="Grundidee: Dynamisches erzeugen" />
+				</section>
+				<section>
+					<h3>Erste Idee: Getrennte Prozesse</h3>
+					<img style="width: 90%" src="./images/getrennte_prozesse.svg" alt="Getrennte Prozesse" />
+				</section>
+				<section>
+					<h3>Alternativ: Eingebetteter Prozess</h3>
+					<img style="width: 90%" src="./images/eingebetteter_prozess.svg" alt="Eingebetteter Prozess" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>SSI - Server Side Includes</h3>
+					<p>Template-Ansatz: Tags innerhalb der HTML-Datei (.shtlm, .shtm, .sht)</p>
+					<p class="fragment" data-fragment-index="1">&lt;!--#SSI-Befehl parametername="parameterwert" --&gt;
+					</p>
+					<p class="fragment" data-fragment-index="2">Ausführen einfacher Anweisungen, z.B.:
+					<ul class="smaller-font">
+						<li class="fragment" data-fragment-index="2">#include &ndash; andere Dateien einfügen
+							(file/virtual)</li>
+						<li class="fragment" data-fragment-index="3">#set &ndash; Variablen setzen</li>
+						<li class="fragment" data-fragment-index="3">#echo &ndash; Ausgabe von Variablen (var)</li>
+						<li class="fragment" data-fragment-index="4">#if, #else, #endif &ndash; Bedingungen</li>
+						<li class="fragment" data-fragment-index="4">#exec &ndash; Ausführen von Programmen (cgi/cmd)
+						</li>
+						<li class="fragment" data-fragment-index="5">Globale Variable: DATE_LOCAL, DOCUMENT_NAME,
+							DOCUMENT_URI, LAST_MODIFIED</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>SSI - Beispiel</h3>
+					<pre class="language-html">
+						<code class="hljs" data-line-numbers="|4-8|6-7|11">&lt;body&gt;
+	<h1>Dynamisches HTML mit Server Side Includes</h1>
+	<dl>
+		<dt>Datum/Uhrzeit auf dem Server-Rechner:</dt>
+		<dd>
+			<!--#config timefmt="%d.%m.%Y, %H.%M" -->
+			<!--#echo var="DATE_LOCAL" --> Uhr
+		</dd>
+		<dt>Name dieser HTML-Datei:</dt>
+		<dd>
+			<!--#echo var="DOCUMENT_NAME" -->
+		</dd>
+		<dt>Installierte Server-Software:</dt>
+		<dd>
+			<!--#echo var="SERVER_SOFTWARE" -->
+		</dd>
+		<dt>Ihr Web-Browser:</dt>
+		<dd>
+			<!--#echo var="HTTP_USER_AGENT" -->
+		</dd>
+	</dl>
+&lt;/body&gt;</code>
+					</pre>
+					<p>Quelle: <a href="https://wiki.selfhtml.org/wiki/Webserver/SSI">SelfHTML</a></p>
+				</section>
+				<section>
+					<h3>SSI - Server Side Includes</h3>
+					<p>Vorteile:
+					<ul class="fragment">
+						<li>Einfach</li>
+						<li>Für alle gängigen Webserver verfügbar</li>
+					</ul>
+					</p>
+					<p>Nachteile:
+					<ul class="fragment">
+						<li>Wenige Möglichkeiten</li>
+						<li>Langsam - üblicherweise getrennte Prozesse</li>
+						<li>Sehr wenig Infrastruktur für komplexe Anwendungen</li>
+						<li>Obsolete technik, schwindende Unterstützung</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>CGI - Common Gateway Interface</h3>
+					<p>Schnittstelle um getrennte Prozesse zu vereinheitlichen</p>
+				</section>
+				<section>
+					<h3>Erste Idee: Getrennte Prozesse</h3>
+					<img style="width: 90%"  src="./images/getrennte_prozesse_cgi.svg" alt="Getrennte Prozesse mit CGI" />
+				</section>
+				<section>
+					<h3>CGI - Common Gateway Interface</h3>
+					<p>Standardisiert als <a href="https://tools.ietf.org/html/rfc3875">RFC3875</a></p>
+					<p>HTTP &ndash; Aufruf wird an Prozess weitergereicht
+					<ul>
+						<li class="fragment">Üblicherweise Aufruf von Skripten<br />(z.B. PERL, PHP, Python)</li>
+						<li class="fragment">Übergabe von URI und POST-Daten<br />mittels stdin und Umgebungsvariablen
+						</li>
+						<li class="fragment">Starten eines Prozesses bei jedem Aufruf<br />(Ausnahmen, z.B. spezielles
+							Apache-Modul)</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>CGI - Beispiel</h3>
+					<pre class="language-perl">
+						<code class="hljs" data-line-numbers="|1|2-9|10-16|">#!/usr/bin/perl -w
+read(STDIN, my $Daten, $ENV{'CONTENT_LENGTH'});
+my @Formularfelder = split(/&/, $Daten);
+my ($Feld, $Name, $Wert);
+my %Formular; 
+foreach $Feld (@Formularfelder) {
+	(my $Name, my $Wert) = split(/=/, $Feld);
+	$Formular{$Name} = $Wert;
+} 
+print "Content-type: text/html\n\n"; 
+print '&lt;!doctype html&gt;', "\n"; 
+print "&lt;html&gt;&lt;head&gt;title&gt;CGI-Feedback&lt;/title&gt;&lt;/head&gt;\n"; 
+print "<body><h1>CGI-Feedback vom Programm <i>comments.pl</i></h1>\n"; 
+print "<p><b>Name:</b> $Formular{AnwenderName}</p>\n"; 
+print "<p><b>Kommentartext:</b> $Formular{Kommentartext}</p>\n"; 
+print "&lt;/body&gt;&lt;/html&gt;\n";</code>
+					</pre>
+					<p><a href="https://wiki.selfhtml.org/wiki/CGI">SelfHTML CGI</a></p>
+				</section>
+				<section>
+					<h3>CGI - Common Gateway Interface</h3>
+					<p>Vorteile:
+					<ul class="fragment">
+						<li>Für alle gängigen Webserver verfügbar</li>
+						<li>Für viele (Skript-)Sprachen verfügbar</li>
+					</ul>
+					</p>
+					<p>Nachteile:
+					<ul class="fragment">
+						<li>Langsam - üblicherweise getrennte Prozesse</li>
+						<li>Wenig Infrastruktur für komplexe Anwendungen</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Apache Module</h3>
+					<p>Schnittstelle zur Erweitung des Apache Webservers</p>
+					<p>Viele Module frei verfügbar: PHP, Perl, Python, ...</p>
+					<p>Vorteile:
+					<ul class="fragment">
+						<li>Performanz</li>
+						<li>Mächtige Programmiersprachen nutzbar</li>
+						<li>Plattformunabhängig</li>
+					</ul>
+					</p>
+					<p>Nachteile:
+					<ul class="fragment">
+						<li>Code kann Server zum Absturz bringen</li>
+						<li>Mehr Sicherheitsherausforderungen</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>ISAPI - Information Server API</h3>
+					<p>Proprietäre Schnittstelle von Microsoft für
+					<ul>
+						<li>Internet Information Server (IIS)</li>
+						<li>Microsoft Exchange Server</li>
+					</ul>
+					</p>
+					<p class="fragment">Aufgerufene Prozesse laufen als dll (Dynamic Link Library) im Prozess des Servers</p>
+					<p class="fragment">Diverse Call-Backs an Server (z.B. CHttpServerContext)</p>
+					<p class="fragment">DLL für diverse Programmiersprachen verfügbar<br />(ASP, ASP.NET, PERL, PHP)</p>
+				</section>
+				<section>
+					<h3>ISAPI - Information Server API</h3>
+					<p>Vorteile:
+					<ul class="fragment">
+						<li>Performanz</li>
+						<li>Mächtige Programmiersprachen nutzbar</li>
+					</ul>
+					</p>
+					<p>Nachteile:
+					<ul class="fragment">
+						<li>Code kann Server zum Absturz bringen</li>
+						<li>Mehr Sicherheitsherausforderungen</li>
+						<li>Plattformabhängig</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Sprachunabhängigkeit</h3>
+					<p>Alle bisher vorgestellten Systeme machen ~kaum Einschränkungen. "Mein Code" kann in ~allen
+						Sprachen geschrieben werden.
+					<ul>
+						<li>Ausnahme: SSI, eigene Mini-Skriptsprache</li>
+					</ul>
+					</p>
+					<p class="fragment">Skriptsprache auswählen (z.B. PERL), Skript kann über verschiedene Schnittstellen angesprochen
+						werden
+					<ul class="fragment">
+						<li>Evtl. Anpassung an Schnittstelle notwendig</li>
+						<li>Beispiel: CGI/PERL, ISAPI/PERL, Apache (mod_perl)</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Sprachabhängigkeit</h3>
+					<p>Web-Server Funktionalität/Kommunikation via HTTP wurde immer normaler</p>
+					<p>Kano-Model</p>
+					<div class="r-stack">
+						<img class="fragment" data-fragment-index="1" src="./images/KanoMK.png" alt="Rechenzentrum Witz"
+							width="299" height="334" />
+						<img class="fragment" data-fragment-index="2" src="./images/Kano_Modell_allgemein.svg"
+							alt="Rechenzentrum Echt" width="480" height="360" />
+					</div>
+				</section>
+				<section>
+					<h3>Sprachabhängigkeit</h3>
+					<p>Web-Server geschrieben in der gleichen Programmiersprache wie "Mein Code"</p>
+					<ul>
+						<li class="fragment">Java/<a href="https://en.wikipedia.org/wiki/Java_virtual_machine">JVM</a>
+							<ul>
+								<li><a href="https://tomcat.apache.org/">Apache Tomcat (Catalina)</a></li>
+								<li><a href="https://www.wildfly.org/">WildFly (JBoss)</a></li>
+							</ul>
+						</li>
+						<li class="fragment">JavaScript/<a href="https://en.wikipedia.org/wiki/Node.js">NodeJS</a>
+							<ul>
+								<li><a href="https://expressjs.com/">expressJS</a></li>
+								<li><a href="https://hapi.dev/">HAPI</a></li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</header>
+	</div>
+</body>
+
+</html>
