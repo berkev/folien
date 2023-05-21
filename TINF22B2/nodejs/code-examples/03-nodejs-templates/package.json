@@ -1,0 +1,12 @@
+{
+  "name": "03-nodejs-templates",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Code examples for WebEng1 about express and eta templates",
+  "author": "Christoph Häfner <haefner.christoph@edu.dhbw-karlsruhe.de>",
+  "license": "MIT",
+  "dependencies": {
+    "eta": "^1.12.3",
+    "express": "^4.18.1"
+  }
+}
