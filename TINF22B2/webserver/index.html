@@ -433,6 +433,39 @@ print "&lt;/body&gt;&lt;/html&gt;\n";</code>
 						</li>
 					</ul>
 				</section>
+				<section>
+					<h3>The future is now</h3>
+					<ul>
+						<li class="fragment">Prolog/<a href="https://www.swi-prolog.org">SWI</a>
+							<ul>
+								<li><a href="https://www.swi-prolog.org/pldoc/doc/_SWI_/library/http/http_server.pl">library(http/http_server)</a></li>
+							</ul>
+						</li>
+					</ul>
+					<pre class="fragment language-prolog">
+						<code class="hljs" data-line-numbers="">:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_dispatch)).
+:- use_module(library(http/html_write)).
+
+:- http_handler('/', say_hi, []).
+
+server(Port) :-
+	http_server(http_dispatch, [port(Port)]).
+
+file_reply(Request) :-
+	http_reply_file('index.html', [], Request).
+
+say_hi(_Request) :-
+	reply_html_page(title('Hello World'),
+		[ h1('Hello World'),
+			p(['This example demonstrates generating HTML ',
+				'messages from Prolog'
+			])
+		]).
+
+?- server(8080).</code>
+					</pre>
+				</section>
 			</section>
 		</div>
 	</div>
