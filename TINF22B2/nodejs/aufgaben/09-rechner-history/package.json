@@ -1,5 +1,5 @@
 {
-  "name": "06-rechner-eta",
+  "name": "09-rechner-history",
   "private": true,
   "version": "1.0.0",
   "description": "Exercises/Solutions for WebEng1 about express",
@@ -10,6 +10,6 @@
     "express": "^4.18.2"
   },
   "scripts": {
-    "start": "node loesung-http-rechner-server-eta.js"
+    "start": "node loesung-http-rechner-server-history.js"
   }
 }
