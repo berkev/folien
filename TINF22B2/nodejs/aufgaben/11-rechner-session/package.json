@@ -1,0 +1,16 @@
+{
+  "name": "11-rechner-session",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Exercises/Solutions for WebEng1 about express",
+  "author": "Christoph Häfner <haefner.christoph@edu.dhbw-karlsruhe.de>",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "eta": "^1.14.2",
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "start": "node loesung-http-rechner-session.js"
+  }
+}

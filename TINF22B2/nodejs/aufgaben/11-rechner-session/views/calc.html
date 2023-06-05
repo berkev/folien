@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lösung Aufgabe 11 - Rechner - Session</title>
+</head>
+
+<body>
+
+    <h1>Rechner</h1>
+    <form action="http://localhost:8080/" method="post">
+        <input type="number" name="operand1" id="operand1" placeholder="25" value="<%=it.operand1 %>">
+        <input type="text" name="operator" id="operator" placeholder="*" value="<%=it.operator %>">
+        <input type="number" name="operand2" id="operand2" placeholder="150" value="<%=it.operand2 %>">
+        <input type="submit" value="=">
+        <b>
+            <%=it.result %>
+        </b>
+    </form>
+
+    <h2>History</h2>
+    <ul>
+        <% it.history.forEach(function(calc){ %>
+            <li><%= calc %></li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>

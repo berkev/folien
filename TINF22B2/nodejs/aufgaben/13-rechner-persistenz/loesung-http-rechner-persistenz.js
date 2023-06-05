@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const config = require("./config.json");
+
 // Read form data form body
 app.use(express.urlencoded({ extended: true }))
 
@@ -44,7 +46,7 @@ app.post("/", (req, res) => {
     // Insert into the front
     history.splice(0, 0, `${o1} ${operator} ${o2} = ${result}`);
     // Limit to five
-    history.splice(5);
+    history.splice(config.historyLength);
 
     return res.render("calc.html", {
         result: result,
@@ -55,7 +57,6 @@ app.post("/", (req, res) => {
     })
 })
 
-const port = 8080;
-app.listen(port, () => {
-    console.log(`Server started on ${port}`);
+app.listen(config.port, () => {
+    console.log(`Server started on ${config.port}`);
 });
