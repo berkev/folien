@@ -20,13 +20,13 @@ $ npm start
 ```
 
 Damit sind die Folien unter [localhost:3000](http://localhost:3000) aufrufbar.
-Wichtig ist der abschließende "/" am Ende der Url: `http://localhost:3000/TINF22B2/html/`.
+Wichtig ist der abschließende "/" am Ende der Url: `http://localhost:3000/TINF23B2/html/`.
 
 ## Gitlab Pages
 
 Additionally the pages are hosted on GitLab Pages:
 
-[https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF22B2/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF22B2/)
+[https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/)
 
 ## Update reveal.js
 
@@ -39,9 +39,9 @@ cp -rv ~/Downloads/reveal.js-*/{dist,plugin} ./
 
 ### Copy reveal.js between topic folders
 
-After updating at the beginning of a semester, it can be copied over from the html topic folder
+After updating at the beginning of a semester, it can be copied over from the intro topic folder
 
 ```bash
-cp -rv ../html/{dist,plugin} ./
+cp -rv ../intro/{dist,plugin} ./
 ```
 
