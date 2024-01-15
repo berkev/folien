@@ -534,7 +534,7 @@
 						<li class="fragment">spellcheck - Rechtschreibprüfung
 							<ul>
 								<li>Wert: "true" or "false"</li>
-								<li>Browser entscheidet ob er es anwendet<br />(z.B. typischerweise nur editierbare
+								<li>Browser entscheidet ob er es anwendet<br>(z.B. typischerweise nur editierbare
 									Elemente)</li>
 							</ul>
 						</li>
@@ -620,10 +620,10 @@
 						<li class="fragment" data-fragment-index="3">u &ndash; underline (Unterstrichen)</li>
 					</ul>
 					<p class="fragment smaller-font" data-fragment-index="4">Betonung, hohe Wichtigkeit,
-						Markierung:<br />&lt;em&gt;<em>semantische</em>&lt;/em&gt;
+						Markierung:<br>&lt;em&gt;<em>semantische</em>&lt;/em&gt;
 						Auszeichnung</p>
 					<p class="fragment smaller-font" data-fragment-index="4">kursive Schrift,
-						Fettdruck:<br />&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
+						Fettdruck:<br>&lt;b&gt;<b>optische</b>&lt;/b&gt; Auszeichnung</p>
 				</section>
 				<section>
 					<h3>Semantische Textauszeichnung</h3>
@@ -634,7 +634,7 @@
 					</pre>
 				</section>
 				<section>
-					<h3>Semantische Textauszeichnung<br />Inline-Beispiele</h3>
+					<h3>Semantische Textauszeichnung<br>Inline-Beispiele</h3>
 					<ul>
 						<li>dfn &ndash; Begriffsdefinition<ul>
 								<li>Üblicherweise kursiv</li>
@@ -660,7 +660,7 @@
 					</ul>
 				</section>
 				<section>
-					<h3>Semantische Textauszeichnung<br />Block-Beispiele</h3>
+					<h3>Semantische Textauszeichnung<br>Block-Beispiele</h3>
 					<ul>
 						<li>hr &ndash; Thematischer Wechsel<ul>
 								<li>Üblicherweise eine horizontale Linie</li>
@@ -683,7 +683,7 @@
 					</ul>
 				</section>
 				<section>
-					<h3>Semantische Textauszeichnung<br />Block-Beispiele</h3>
+					<h3>Semantische Textauszeichnung<br>Block-Beispiele</h3>
 					<ul>
 						<li>article &ndash; Artikel<ul>
 								<li>Abgeschlossener, unabhängiger Inhalt</li>
@@ -714,18 +714,25 @@
 			<section>
 				<section>
 					<h3>Screen Reader</h3>
-					<p>Accessibility (a11n) oft Teil der nicht-funktionalen Anforderungen<br><span class="fragment">und
+					<p>Accessibility (a11y) oft Teil der nicht-funktionalen Anforderungen<br><span class="fragment">und
 							Screen-Reader unterstützung ist ein Teil davon</span></p>
 					<p class="fragment">Essentielles Werkzeug um sehbehinderten Menschen Zugang zu ermöglichen</p>
-					<p class="fragment">Leben von der semantischen Auszeichnung und korrekten Beschreibung von Inhalten</p>
+					<p class="fragment">Leben von der semantischen Auszeichnung und korrekten Beschreibung von Inhalten
+					</p>
 				</section>
 				<section>
 					<h3>Screen Reader</h3>
 					<ul>
-						<li>Android: <a href="https://support.google.com/accessibility/android/answer/6283677?hl=en">TalkBack</a></li>
-						<li>iOS: <a href="https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios">VoiceOver</a></li>
+						<li>Android: <a
+								href="https://support.google.com/accessibility/android/answer/6283677?hl=en">TalkBack</a>
+						</li>
+						<li>iOS: <a
+								href="https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios">VoiceOver</a>
+						</li>
 						<li>MacOS: <a href="https://support.apple.com/guide/voiceover/welcome/mac">VoiceOver</a></li>
-						<li>Windows: <a href="https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1">Narrator</a></li>
+						<li>Windows: <a
+								href="https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1">Narrator</a>
+						</li>
 						<li>Linux/Gnome: <a href="https://help.gnome.org/users/orca/stable/">Orca</a></li>
 					</ul>
 				</section>
@@ -743,26 +750,32 @@
 					<pre class="language-html">
 						<code class="hljs" data-code="./code-examples/13_screen-reader/good-semantics.html" data-line-numbers="11-15"></code>
 					</pre>
-					<p>MacOS-VoiceOver:<br><samp>You are currently on a heading level 1,<br>inside web content [...]</samp></p>
+					<p>MacOS-VoiceOver:<br><samp>You are currently on a heading level 1,<br>inside web content
+							[...]</samp></p>
 				</section>
 				<section>
 					<h3>Bad-Semantics</h3>
 					<pre class="language-html">
 						<code class="hljs" data-code="./code-examples/13_screen-reader/bad-semantics.html" data-line-numbers="11-15"></code>
 					</pre>
-					<p>MacOS-VoiceOver:<br><samp>You are currently on a text element,<br>inside web content [...]</samp></p>
+					<p>MacOS-VoiceOver:<br><samp>You are currently on a text element,<br>inside web content [...]</samp>
+					</p>
+				</section>
+				<section>
+					<h3>a11y gone wrong</h3>
+					<img src="https://i.redd.it/dhq5ari1hoya1.png" alt="Accessibility fail">
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>Sonderzeichen in HTML</h3>
 					<p>Der verwendete Zeichensatz wird durch meta-Tag im Seitenkopf angegeben, z.B.:
-						"utf-8"<br />Ermöglicht: €$§²³
+						"utf-8"<br>Ermöglicht: €$§²³
 						oder Umlaut äöüß</p>
 					<p class="fragment" data-fragment-index="1"><strong>Aber</strong>: Wie stelle ich reservierte
-						Zeichen dar?<br />z.B. &gt; oder &lt;</p>
+						Zeichen dar?<br>z.B. &gt; oder &lt;</p>
 					<p class="fragment" data-fragment-index="1">Oder Zeichen die ich nicht einfach eingeben
-						kann?<br />z.B. &copy;&hearts;&trade;</p>
+						kann?<br>z.B. &copy;&hearts;&trade;</p>
 				</section>
 				<section>
 					<h3>Sonderzeichen in HTML</h3>
@@ -780,7 +793,7 @@
 								<li>Größer&emsp;&gt;&emsp;&amp;gt; oder &amp;#62;</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="2">Viele weitere Entitäten:<br /><a
+						<li class="fragment" data-fragment-index="2">Viele weitere Entitäten:<br><a
 								href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">13.5
 								Named character references</a>, z.B. &amp;copy;&ensp;&copy;</li>
 					</ul>
@@ -826,7 +839,7 @@
 				<section>
 					<h3>Hilbert space</h3>
 					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hilbert.jpg/220px-Hilbert.jpg"
-						alt="David Hilbert" />
+						alt="David Hilbert">
 				</section>
 			</section>
 			<section>
@@ -836,8 +849,8 @@
 					<h3>Praxis - Aufgabe 3 - Tags</h3>
 					<p>Testen Sie die Wirkungen der Auszeichnungen auf den vorangegangenen Folien, z.B.: b, i, sup, sub,
 						br, hr, dfn, abbr, cite, time, samp, pre, blockquote, figure, article, section, aside,
-						header, footer, nav, address<br /><br />
-						Welche haben im Standard eine sichtbare Wirkung?<br />
+						header, footer, nav, address<br><br>
+						Welche haben im Standard eine sichtbare Wirkung?<br>
 						Unterscheidet sich die Darstellung in den Browsern?
 					</p>
 				</section>
@@ -1062,7 +1075,7 @@
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 5 - Listen</h3>
-					<p>Erstellen Sie eine Liste mit 3 Listen-Ebenen
+					<p>Erstellen Sie eine Liste mit 3 Listen-Ebenen</p>
 					<ul>
 						<li>Die erste Ebene hat 3 Einträge und ist ungeordnet.</li>
 						<li>Der erste Eintrag der ersten Ebene ist eine Liste mit 3 Einträgen geordnet nach
@@ -1073,13 +1086,12 @@
 							Kleinbuchstaben, dessen erster Eintrag wiederum eine Definitionsliste mit 3
 							Einträgen enthält.</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 6 - Tabelle</h3>
 					<p>Wie lautet der Code für die unten angezeigte Tabelle? (Tipp: Tabellen lassen sich Schachteln wie
 						Listen)</p>
-					<img src="./images/praxis-tabelle-aufgabe.jpg" alt="Praxis Tabelle Aufgabe" />
+					<img src="./images/praxis-tabelle-aufgabe.jpg" alt="Praxis Tabelle Aufgabe">
 					<p>Zusatzfrage: Was passiert, wenn die Anzahl der Zellen einer Zeile nicht der Anzahl der Spalten
 						der Tabelle entspricht (mehr/weniger)?</p>
 				</section>
@@ -1144,7 +1156,7 @@
 	</script>
 	<div id="hidden" style="display:none;">
 		<header>
-			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
 		</header>
 	</div>
 </body>
