@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personendaten</title>
+</head>
+
+<body>
+    <h1>Personendaten</h1>
+    <form action="#" method="get">
+        <fieldset>
+            <fieldset>
+                <legend>Angaben zur Person</legend>
+                <label for="Anrede">Anrede</label>
+                <select id="Anrede" name="anrede">
+                    <option>Frau</option>
+                    <option>Herr</option>
+                    <option>Benutzerdefiniert</option>
+                </select><br>
+
+                <label>Vorname</label>&ensp;<input type="text" name="forname" autocomplete="name"
+                    placeholder="Vorname"><br>
+                <label>Nachname</label>&ensp;<input type="text" name="lastname" autocomplete="family-name"
+                    placeholder="Nachname"><br>
+                <label>Geburtsdatum</label>&ensp;<input type="date" name="birthdate" autocomplete="bday"><br>
+                <label>Sternzeichen</label>&ensp;<input type="text" name="Sternzeichen" placeholder="Sternzeichen"><br>
+                <label>Familienstand</label>&ensp;<input type="date" name="familiestate" list="familystate"><br>
+                <label>Kinder</label>&ensp;<input type="number" name="birthdate" placeholder="Kinder"><br>
+
+                <datalist id="familystate">
+                    <option>Ledig</option>
+                    <option>Verheiratet</option>
+                    <option>Benutzerdefiniert</option>
+                </datalist>
+            </fieldset>
+            <fieldset>
+                <legend>Anschrift</legend>
+                <label>Straße</label>&ensp;<input type="text" name="street" placeholder="Straße"><br>
+                <label>Hausnummer</label>&ensp;<input type="number" name="streetNr." placeholder="Hausnummer"
+                    min="0"><br>
+                <label>PLZ</label>&ensp;<input type="text" name="plz" autocomplete="postal-code" placeholder="PLZ"><br>
+                <label>Ort</label>&ensp;<input type="text" name="place" autocomplete="address-level4"
+                    placeholder="Ort"><br>
+                <label>Land</label>&ensp;<input type="text" name="country-name" autocomplete="country-name"
+                    placeholder="Bundesland"><br>
+            </fieldset>
+            <fieldset>
+                <input type="button" value="Bild hochladen"><br>
+                <label>Lieblingsfarbe</label>&ensp;<input type="color" name="Lieblingsfarbe">
+            </fieldset>
+            <fieldset>
+                <textarea placeholder="Dein Kommentar" name="comment"></textarea>
+            </fieldset>
+            <input type="submit">
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
