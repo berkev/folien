@@ -1192,16 +1192,16 @@
 					<p><span class="fragment highlight-current-red" data-fragment-index="1">http</span>:<span
 							class="fragment highlight-current-red" data-fragment-index="1">//</span><span
 							class="fragment highlight-current-red"
-							data-fragment-index="2">&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br />?&lt;Anfrage&gt;#&lt;Fragment&gt;
+							data-fragment-index="2">&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;
 					</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Schema (hier http oder https)
 						</li>
 						<li class="fragment" data-fragment-index="2">Server<ul>
-								<li>Voll qualifizierter Domain-Name (FQDN)<br />z.B. "www.dhbw.de" oder "example.com"
+								<li>Voll qualifizierter Domain-Name (FQDN)<br>z.B. "www.dhbw.de" oder "example.com"
 								</li>
-								<li>IPv4-Adresse dezimal, punkt-getreent<br />z.B. 193.99.144.80</li>
-								<li>IPv6-Adresse hexadezimal, doppelpunkt-getreent, in eckigen Klammern<br />z.B.
+								<li>IPv4-Adresse dezimal, punkt-getrennt<br>z.B. 193.99.144.80</li>
+								<li>IPv6-Adresse hexadezimal, doppelpunkt-getreent, in eckigen Klammern<br>z.B.
 									[2a02:2e0:3fe:1001:302::]</li>
 							</ul>
 						</li>
@@ -1215,7 +1215,7 @@
 					<h3>URL Schema: http/https</h3>
 					<p>http://&lt;Server&gt;<span class="fragment highlight-current-red"
 							data-fragment-index="1">:&lt;Port&gt;</span><span class="fragment highlight-current-red"
-							data-fragment-index="2">/&lt;Pfad&gt;</span><br />?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+							data-fragment-index="2">/&lt;Pfad&gt;</span><br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Port<ul>
 								<li>Positive, ganze Zahl &lt;= 65535</li>
@@ -1229,17 +1229,20 @@
 							</ul>
 						</li>
 					</ul>
+					<aside class="notes">
+						2^16 = 65536
+					</aside>
 				</section>
 				<section>
 					<h3>URL Schema: http/https</h3>
 					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<span
 							class="fragment highlight-current-red"
-							data-fragment-index="1"><br />?&lt;Anfrage&gt;</span>#&lt;Fragment&gt;</p>
+							data-fragment-index="1"><br>?&lt;Anfrage&gt;</span>#&lt;Fragment&gt;</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Anfrage (Query)<ul>
 								<li>Keine verbindliche Spezifikation</li>
 								<li>Liste an Name-Wert-Paaren</li>
-								<li>Name und Wert mit '=' trennen, Paare mit '&amp;'<br />z.B.
+								<li>Name und Wert mit '=' trennen, Paare mit '&amp;'<br>z.B.
 									x=6&amp;y=0&amp;q=Suchanfrage</li>
 								<li>Sonder- und Steuerzeichen korrekt codieren!</li>
 								<li>Vorsicht: moderne Browser-UIs verstecken URL-Codierung und Schema</li>
@@ -1249,7 +1252,7 @@
 				</section>
 				<section>
 					<h3>URL Schema: http/https</h3>
-					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<br />?&lt;Anfrage&gt;<span
+					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;<span
 							class="fragment highlight-current-red" data-fragment-index="1">#&lt;Fragment&gt;</span></p>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Fragment<ul>
@@ -1280,14 +1283,15 @@
 						Zeichencodes (hexadezimal, zweistellig)</p>
 					<p class="fragment" data-fragment-index="1">Unicode-Zeichen via '%u' und vierstelliger
 						Hexadezimalzahl</p>
-					<p class="fragment" data-fragment-index="2">Beispiele:
+					<p class="fragment" data-fragment-index="2">Beispiele:</p>
 					<ul class="fragment" data-fragment-index="2">
 						<li>'&amp;' = '%26' (ASCII)</li>
 						<li>'&euro;' = '%E2%82%AC' (Byteweise, UTF-8)</li>
 						<li>'&euro;' = '%u20AC' (Unicode, UTF-16)</li>
 					</ul>
-					</p>
 				</section>
+			</section>
+			<section>
 				<section>
 					<h3>Relative URLs</h3>
 					<p>Präfixe relativ zur aktuellen URL</p>
@@ -1296,29 +1300,56 @@
 						<li>'/' = Gleicher Server (und Port)</li>
 						<li>'#' = Gleiche Ressource (anderes Element)</li>
 					</ul>
-					<p class="fragment" data-fragment-index="2">Beispiele ausgehend von
-						"https://example.com/pfad/datei.html#anfang"
-					<ul class="fragment" data-fragment-index="2">
-						<li class="fragment" data-fragment-index="3">//example.com/pfad/andere/datei.html</li>
-						<li class="fragment" data-fragment-index="3">/pfad/ganz/andere/datei.html</li>
-						<li class="fragment" data-fragment-index="3">#ende</li>
+				</section>
+				<section>
+					<h3>Relative URLs - Beispiele</h3>
+					<p>Präfixe relativ zur aktuellen URL</p>
+					<p>Beispiele ausgehend von "https://example.com/pfad/datei.html#anfang"</p>
+					<ul>
+						<li class="fragment">
+							//example.com/pfad/andere/datei.html
+							<ul class="fragment">
+								<li>https://example.com/pfad/andere/datei.html</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							/pfad/ganz/andere/datei.html
+							<ul class="fragment">
+								<li>https://example.com/pfad/ganz/andere/datei.html</li>
+							</ul>
+						</li>
+						<li class="fragment">#ende
+							<ul class="fragment">
+								<li>https://example.com/pfad/datei.html#ende</li>
+							</ul>
+						</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Relativer Pfad</h3>
 					<p>Präfixe relativ zum aktuellen Pfad</p>
-					<ul class="fragment" data-fragment-index="1">
+					<ul class="fragment">
 						<li>'../' = ein Pfadsegement "nach oben"</li>
 						<li>'./' = gleiches Pfadsegment</li>
 					</ul>
-					<p class="fragment" data-fragment-index="2">Beispiele ausgehend von "/pfad/datei.html"
-					<ul class="fragment" data-fragment-index="2">
-						<li class="fragment" data-fragment-index="3">../ganz/andere/datei.html</li>
-						<li class="fragment" data-fragment-index="3">./datei2.html</li>
+					<p class="fragment">"../" kann beliebig oft wiederholt werden</p>
+				</section>
+				<section>
+					<h3>Relativer Pfad - Beispiele</h3>
+					<p>Präfixe relativ zum aktuellen Pfad</p>
+					<p>Beispiele ausgehend von "/pfad/datei.html"</p>
+					<ul class="fragment">
+						<li class="fragment">../ganz/andere/datei.html
+							<ul>
+								<li class="fragment">/ganz/andere/datei.html</li>
+							</ul>
+						</li>
+						<li class="fragment">./datei2.html
+							<ul>
+								<li class="fragment">/pfad/datei2.html</li>
+							</ul>
+						</li>
 					</ul>
-					</p>
-					<p class="fragment" data-fragment-index="4">"../" kann beliebig oft wiederholt werden</p>
 				</section>
 			</section>
 			<section>
@@ -1328,9 +1359,9 @@
 					<p class="fragment" data-fragment-index="1">Fragment: anhängen von #&lt;Fragment&gt; an die URL</p>
 					<p class="fragment" data-fragment-index="1">Anker: id-Attribut des Tags/Elements</p>
 					<p class="fragment" data-fragment-index="2">Beispiele:
-						<br /><a target="_blank"
+						<br><a target="_blank"
 							href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element</a>
-						<br /><a target="_blank"
+						<br><a target="_blank"
 							href="https://de.wikipedia.org/wiki/HTML5#Standarddarstellung">https://de.wikipedia.org/wiki/HTML5#Standarddarstellung</a>
 					</p>
 				</section>
@@ -1342,7 +1373,7 @@
 								<li>"_self" &ndash; Neue Seite öffnet sich im gleichen Fenster (standard)</li>
 								<li class="fragment">"_blank" &ndash; Neue Seite öffnet sich in neuem Tab/Fenster</li>
 								<li class="fragment">"Bezeichner" &ndash; Neue Seite öffnet sich im bezeichneten Fenster
-									oder öffnet ein Fenster mit diesem Bezeichner, z.B.:<br />&lt;a
+									oder öffnet ein Fenster mit diesem Bezeichner, z.B.:<br>&lt;a
 									href="http://www.google.de" target="myid"&gt;Google&lt;/a&gt;</li>
 							</ul>
 						</li>
@@ -1407,7 +1438,6 @@
 					<p>Erstellen Sie auf der Seite D ein "Inhaltsvereichnis" mit Verweisen auf die einzelnen
 						Überschriften. Verweisen Sie zusätzlich von HTML-Seite A auf die einzelnen Überschriften von
 						HTML-Seite D.</p>
-					</p>
 					<p>Tipp: Erzeugung von Fließtext: <a href="http://www.loremipsum.de/">loremipsum.de/</a></p>
 				</section>
 				<section>
@@ -1540,7 +1570,7 @@
 								<li>Browser stellt Seite dar</li>
 							</ol>
 						</div>
-						<img src="./images/html-Formulare-Client-Server_1.jpg">
+						<img src="./images/html-Formulare-Client-Server_1.jpg" alt="http Beispielablauf Server Client">
 					</div>
 				</section>
 				<section>
@@ -1566,10 +1596,10 @@
 					<h3>HTTP/1.1</h3>
 					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc2068">RFC 2068</a> in 1997.
 					</p>
-					<p class="fragment">Protokoll zum Übertragen von Daten<br />über ein Netzwerk</p>
-					<p class="fragment">Striktes Request/Response Protokoll in einem<br />Client-Server Model</p>
+					<p class="fragment">Protokoll zum Übertragen von Daten<br>über ein Netzwerk</p>
+					<p class="fragment">Striktes Request/Response Protokoll in einem<br>Client-Server Model</p>
 					<p class="fragment">Zustandsloses Protokoll</p>
-					<p class="fragment">Anfragen und Antworten bestehen aus<br />Kopf (header) und Inhalt (content)</p>
+					<p class="fragment">Anfragen und Antworten bestehen aus<br>Kopf (header) und Inhalt (content)</p>
 				</section>
 				<section>
 					<h3>HTTP/1.1 - Anfrage/Request</h3>
@@ -1580,7 +1610,7 @@ Host: example.com
 					<ol>
 						<li class="fragment">Anfragemethode: GET, Leerzeichen, absolute URL, Leerzeichen,
 							Protokollversion</li>
-						<li class="fragment">HTTP-Header: Host<br />Headername Doppelpunkt Headerwert</li>
+						<li class="fragment">HTTP-Header: Host<br>Headername Doppelpunkt Headerwert</li>
 						<li class="fragment">Anfrageabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
 					</ol>
 				</section>
@@ -1603,13 +1633,13 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>HTTP Status codes</h3>
 					<ul>
-						<li class="fragment">1xx &ndash; Information<br />verhindert eine Zeitüberschreitung der Anfrage
+						<li class="fragment">1xx &ndash; Information<br>verhindert eine Zeitüberschreitung der Anfrage
 						</li>
-						<li class="fragment">2xx &ndash; Erfolg<br />Antwort geht raus</li>
-						<li class="fragment">3xx &ndash; Umleitung<br />die Prinzessin ist in einem anderen Schloss</li>
-						<li class="fragment">4xx &ndash; Client Fehler<br />die Anfrage des Clients ist fehlerbehaftet
+						<li class="fragment">2xx &ndash; Erfolg<br>Antwort geht raus</li>
+						<li class="fragment">3xx &ndash; Umleitung<br>die Prinzessin ist in einem anderen Schloss</li>
+						<li class="fragment">4xx &ndash; Client Fehler<br>die Anfrage des Clients ist fehlerbehaftet
 						</li>
-						<li class="fragment">5xx &ndash; Server Fehler<br />der Server hat einen Fehler verursacht</li>
+						<li class="fragment">5xx &ndash; Server Fehler<br>der Server hat einen Fehler verursacht</li>
 					</ul>
 				</section>
 				<section>
@@ -1671,24 +1701,27 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 					<h3>HTTP/2</h3>
 					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc7540">RFC 7540</a> in 2015.
 					</p>
-					<p>Verbesserungen gegenüber HTTP/1.1
+					<p>Verbesserungen gegenüber HTTP/1.1</p>
 					<ul>
 						<li>Komprimierte HTTP Header</li>
 						<li>Server kann mit mehr als dem angefragten Inhalt antworten (Server Push)</li>
 						<li>"chunked transfer encoding" ersetzt durch "data streaming"</li>
 						<li>Mehrere gleichzeitige HTTP-Transaktionen mit einer TCP-Verbindung</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>HTML - Formulare</h3>
 					<div class="r-stack">
-						<img class="fragment fade-out" src="images/forms_amazon-login.jpg">
-						<img class="fragment fade-in-then-out" src="images/forms_amazon-neue-addresse.jpg">
-						<img class="fragment fade-in-then-out" src="images/forms_namecheap-login.jpg">
-						<img class="fragment fade-in-then-out" src="images/forms_namecheap-add-card.jpg">
+						<img class="fragment fade-out" src="images/forms_amazon-login.jpg"
+							alt="Screenshot Amazon Login Formular">
+						<img class="fragment fade-in-then-out" src="images/forms_amazon-neue-addresse.jpg"
+							alt="Screenshot Amazon Formular Neue Adresse">
+						<img class="fragment fade-in-then-out" src="images/forms_namecheap-login.jpg"
+							alt="Screenshot Namecheap Login Formular">
+						<img class="fragment fade-in-then-out" src="images/forms_namecheap-add-card.jpg"
+							alt="Screenshot Namecheap Formular Neue Kreditkarte">
 					</div>
 				</section>
 				<section>
@@ -1838,7 +1871,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/html/aufgaben/09-bild/c.html">gitlab.com/.../TINF23B2/html/aufgaben/<br>09-bild/c.html</a>
 					</p>
 					<p>Deployed:<br><a
-								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/html/aufgaben/09-bild/c.html">gitlab.io/.../TINF23B2/html/aufgaben/<br>09-bild/c.html</a>
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/html/aufgaben/09-bild/c.html">gitlab.io/.../TINF23B2/html/aufgaben/<br>09-bild/c.html</a>
 					</p>
 				</section>
 				<section>
@@ -1848,7 +1881,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/html/aufgaben/10-formular/loesung.html">gitlab.com/.../TINF23B2/html/aufgaben/<br>10-formular/loesung.html</a>
 					</p>
 					<p>Deployed:<br><a
-								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/html/aufgaben/10-formular/loesung.html">gitlab.io/.../TINF23B2/html/aufgaben/<br>10-formular/loesung.html</a>
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/html/aufgaben/10-formular/loesung.html">gitlab.io/.../TINF23B2/html/aufgaben/<br>10-formular/loesung.html</a>
 					</p>
 				</section>
 			</section>
