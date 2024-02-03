@@ -1,0 +1,1103 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: CSS</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.two-columns-half-half {
+			display: grid;
+			grid: auto-flow / 1fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+
+		.hljs-value {
+			/* color: #4f424c; Paraiso Light */
+			color: #84613d;
+			/* Kimbie Light */
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+		.min-height-200 {
+			min-height: 200px;
+		}
+
+		.min-height-300 {
+			min-height: 300px;
+		}
+	</style>
+</head>
+
+
+<!--
+	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
+	Day1: 1,3-23,33-48
+	Day1-Praxis: 24-32,49-53
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Start CSS-Day1-->
+			<section>
+				<h1>CSS</h1>
+
+				<p>
+					Cascading Style Sheets
+				</p>
+			</section>
+			<section>
+				<h3>CSS - Mindmap</h3>
+				<iframe class="mindmap" data-src="./mindmap.html"></iframe>
+			</section>
+			<section>
+				<h3>CSS - Cascading Style Sheets</h3>
+				<ul>
+					<li>Deklarative Sprache für Stilvorlagen
+						<ul>
+							<li>Aktuelle Version CSS3</li>
+							<li>Spezifikation: <a href="https://www.w3.org/Style/CSS/">www.w3.org/Style/CSS/</a></li>
+						</ul>
+					</li>
+					<li class="li-space-above">Trennung von Struktur und Darstellung
+						<ul>
+							<li>Struktur: HTML</li>
+							<li>Stil/Layout: CSS</li>
+							<li>Unterschiedliche Darstellung für unterschiedliche Ausgabemedien (z.B. Light vs.
+								Dark-Mode)</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h3>HTML ohne CSS</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/01_html-css/ohne-css.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/01_html-css/ohne-css.html"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>HTML mit CSS</h3>
+					<iframe class="code-example full-width" data-src="./code-examples/01_html-css/mit-css.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/01_html-css/mit-css.html" data-line-numbers="7-19"></code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Stylesheets</h3>
+					<p>Sind CSS-Dokumente/Menge von CSS-Regeln</p>
+					<p class="fragment" data-fragment-index="1">Browser kennen drei Arten von Stylesheets:
+					<ul>
+						<li class="fragment" data-fragment-index="1">Browser: Grundeinstellung des Browsers<br />
+							Wird durch den Browserhersteller bestimmt</li>
+						<li class="fragment" data-fragment-index="2">Homepage: eingebunden von der Website<br />
+							Wird durch den Website-Autor bestimmt</li>
+						<li class="fragment" data-fragment-index="3">Benutzer: Nutzer-Einstellung im Browsers<br />
+							Wird durch den Nutzer bestimmt</li>
+					</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Syntax</h3>
+					<ul>
+						<li>CSS-Regel: <span class="hljs-selector-tag">Selektor</span> { <span
+								class="hljs-attribute">Eigenschaft</span>: <span class="hljs-value">Wert</span>;}</li>
+						<li class="fragment li-space-above"><span class="hljs-selector-tag">Selektor</span>
+							(Selector)<br />
+							Wer soll verändert werden?</li>
+						<li class="fragment li-space-above"><span class="hljs-attribute">Eigenschaft</span>
+							(Property)<br />
+							Was soll verändert werden?</li>
+						<li class="fragment li-space-above"><span class="hljs-value">Wert</span> (Value)<br />
+							Wie soll es sein?</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Syntax</h3>
+					<ul>
+						<li class="fragment">Mehrere Eigenschaften setzen:<br />
+							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">a</span>: <span
+								class="hljs-value">m</span>;}<br />
+							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">b</span>: <span
+								class="hljs-value">n</span>;}<br />
+							ist semantisch äquivalent zu<br />
+							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">a</span>: <span
+								class="hljs-value">m</span>; <span class="hljs-attribute">b</span>: <span
+								class="hljs-value">n</span>;}
+						</li>
+						<li class="fragment">Eigenschaften für mehrere Selektoren setzen:<br />
+							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">a</span>: <span
+								class="hljs-value">m</span>;}<br />
+							<span class="hljs-selector-tag">Y</span> { <span class="hljs-attribute">a</span>: <span
+								class="hljs-value">m</span>;}<br />
+							ist semantisch äquivalent zu<br />
+							<span class="hljs-selector-tag">X, Y</span> { <span class="hljs-attribute">a</span>: <span
+								class="hljs-value">m</span>;}
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Vererbung</h3>
+					<ul>
+						<li>Fast alle CSS-Eigenschaften werden an die Kind-Knoten vererbt!
+							<ul>
+								<li class="fragment">Gibt es zu einer Eigenschaft eines Elementes keinen Wert, wird der
+									Wert des
+									Elternknotens zu dieser Eigenschaft übernommen.</li>
+								<li class="fragment">Ausnahme: Positionierung</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Vererbung</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/02_vererbung/kindknoten.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/02_vererbung/kindknoten.html" data-line-numbers="8-10,15|15"></code>
+					</pre>
+					<aside class="notes">
+						Auch "World" wird rot (und zusätzlich fett) geschrieben!
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Einbinden in HTML</h3>
+					<ul>
+						<li class="fragment">Methode 1: Style-Attribut<br />
+							&lt;p style="<span class="hljs-attribute">font-size</span>: <span
+								class="hljs-value">large</span>; <span class="hljs-attribute">color</span>: <span
+								class="hljs-value">olive</span>;"&gt;
+							<ul>
+								<li>Selektor entfällt</li>
+							</ul>
+						</li>
+						<li>Methode 2: Style-Tag (head!)<br />
+							&lt;style&gt;
+							<span class="hljs-selector-tag">p</span> { <span class="hljs-attribute">font-size</span>:
+							<span class="hljs-value">large</span>; <span class="hljs-attribute">color</span>: <span
+								class="hljs-value">olive</span>; }
+							&lt;/style&gt;
+							<ul>
+								<li>Zentrale Stelle für Style-Angaben im Dokument</li>
+							</ul>
+						</li>
+						<li class="fragment">Methode 3: CSS-Datei (head!)<br />
+							&lt;link rel="stylesheet" type="text/css" href="CSSThemeLight.css"&gt;
+							<ul>
+								<li>Seitenübergreifend möglich</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Einfache Selektoren</h3>
+					<ul>
+						<li>Universalselektor *<ul>
+								<li>Selektiert alle Elemente!</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">Typselektor X<ul>
+								<li>Selektiert alle Elemente mit Typ X<br />z.B.: "<span
+										class="hljs-selector-tag">a</span>"</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="2">Klassenselektor <span
+								class="fragment highlight-current-red" data-fragment-index="3">.</span>Y<ul>
+								<li>Selektiert alle Elemente mit der Klasse Y<br />z.B.: "<span
+										class="hljs-selector-class"><span class="fragment highlight-current-red"
+											data-fragment-index="3">.</span>klassenname</span>"</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="4">ID-Selektor #Z<ul>
+								<li>Selektiert genau das Element mit der ID Z<br />z.B.: "<span
+										class="hljs-selector-id">#idname</span>"</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Einfache Selektoren</h3>
+					<div class="two-columns-half-half">
+						<div>
+							<pre class="language-html">
+								<code class="hljs" data-code="./code-examples/03_einfache-selektoren/einfache-selektoren_simple.html"></code>
+							</pre>
+						</div>
+						<div>
+							<pre class="language-css">
+								<code class="hljs" data-code="./code-examples/03_einfache-selektoren/einfache-selektoren.css" data-line-numbers="|1-5|7-9|11-15"></code>
+							</pre>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>CSS - Einfache Selektoren</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/03_einfache-selektoren/einfache-selektoren_extended.html"></iframe>
+				</section>
+				<section>
+					<h3>CSS - Attribut Selektoren</h3>
+					<ol>
+						<li>[att]<ul>
+								<li>Selektiert die Elemente mit Attribut "att" gesetzt</li>
+								<li>Beispiel: *[onclick] &lt;button onclick="..."&gt;</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">[att=wert]<ul>
+								<li class="fragment" data-fragment-index="1">Selektiert die Elemente mit Attribut "att"
+									exakt auf Wert "wert" gesetzt</li>
+								<li class="fragment" data-fragment-index="2">Wert darf ohne, mit einfachen oder
+									doppelten Hochkommata stehen</li>
+								<li class="fragment" data-fragment-index="2">Beispiel: p[lang=de] &lt;p
+									lang="de"&gt;...&lt;/p&gt;<br />
+									p[lang='de'] &lt;p lang="de"&gt;...&lt;/p&gt;<br />
+									p[lang="de"] &lt;p lang="de"&gt;...&lt;/p&gt;</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>CSS - Attribut Selektoren</h3>
+					<ol start="3">
+						<li>[att~=wert]<ul>
+								<li>Selektiert die Elemente mit Attribut <span class="fragment highlight-current-red"
+										data-fragment-index="1">"att"</span> die Wert <span
+										class="fragment highlight-current-red" data-fragment-index="2">"wert"</span>
+									enthalten</li>
+								<li>Beispiel: p[<span class="fragment highlight-current-red"
+										data-fragment-index="1">class</span>~=<span
+										class="fragment highlight-current-red" data-fragment-index="2">xy</span>] &lt;p
+									class="ab xy cd"&gt;...&lt;/p&gt;</li>
+								<li class="fragment" data-fragment-index="3">ABER: p[class~=x] selektiert nicht!</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="4">[att|=wert]<ul>
+								<li>Selektiert die Elemente mit Attribut <span class="fragment highlight-current-red"
+										data-fragment-index="5">"att"</span> exakt auf Wert <span
+										class="fragment highlight-current-red" data-fragment-index="6">"wert"</span>
+									gesetzt oder mit
+									Wert "wert" und Zeichen "-" beginnen</li>
+								<li>Beispiel: p[<span class="fragment highlight-current-red"
+										data-fragment-index="5">lang</span>|=<span
+										class="fragment highlight-current-red" data-fragment-index="6">en</span>] &lt;p
+									lang="en-us"&gt;...&lt;/p&gt;</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>CSS - Attribut Selektoren</h3>
+					<ol start="5">
+						<li class="fragment">[att^=wert]<ul>
+								<li>Elemente deren "att" mit "wert" beginnen</li>
+								<li>Beispiel: p[id^=ab] &lt;p id="abcde"&gt;...&lt;/p&gt;</li>
+							</ul>
+						</li>
+						<li class="fragment">[att$=wert]<ul>
+								<li>Elemente deren "att" mit "wert" endet</li>
+								<li>Beispiel: p[id$=de] &lt;p id="abcde"&gt;...&lt;/p&gt;</li>
+							</ul>
+						</li>
+						<li class="fragment">[att*=wert]<ul>
+								<li>Elemente deren "att" mit "wert" enthält</li>
+								<li>Beispiel: p[id*="b cd"] &lt;p id="ab cde"&gt;...&lt;/p&gt;</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>CSS - Kombinierte Attribut Selektoren</h3>
+					<ol start="8">
+						<li>[Selektor1][Selektor2]<ul>
+								<li class="fragment">Selektiert die Elemente, die sowohl von Selektor1 und Selektor2
+									gewählt werden</li>
+								<li class="fragment">Beispiel:<br />
+									input[lang=de][name*=xy]<br />
+									&lt;input lang="de" name="xyz" /&gt;
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Kombinatoren für Selektoren</h3>
+					<ul>
+						<li class="fragment">Nachfahren: E F<ul>
+								<li>alle F, die Nachfahren eines Elements E sind</li>
+							</ul>
+						</li>
+						<li class="fragment">Kinder: E &gt; F<ul>
+								<li>alle F, die Kinder eines Elementes E sind</li>
+							</ul>
+						</li>
+						<li class="fragment">Geschwister: E ~ F<ul>
+								<li>alle F, die nachfolgende Geschwister von E sind</li>
+							</ul>
+						</li>
+						<li class="fragment">Nachbarn: E + F<ul>
+								<li>alle F, die direkt nachfolgende Geschwister<br />von E sind</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Beispiel Nachfahren</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;p&gt;
+    <span class="hljs-selector-tag">&lt;em&gt;D&lt;/em&gt;</span>
+    E
+    &lt;ins&gt;<span class="hljs-selector-tag">&lt;em&gt;F&lt;/em&gt;</span>&lt;/ins&gt;G
+  &lt;/p&gt;
+  &lt;h1&gt;A&lt;em&gt;B&lt;/em&gt;C&lt;/h1&gt;
+  &lt;p&gt;H&lt;/p&gt;
+  &lt;span&gt;I&lt;/span&gt;
+  &lt;p&gt;J&lt;/p&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li>Nachfahren: p <span class="hljs-selector-tag">em</span></li>
+						</ul>
+					</div>
+					<p>"Descendant combinator" <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator">MDN</a></p>
+				</section>
+				<section>
+					<h3>CSS - Beispiel Kind</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;p&gt;
+    <span class="hljs-selector-tag">&lt;em&gt;D&lt;/em&gt;</span>
+    E
+    &lt;ins&gt;&lt;em&gt;F&lt;/em&gt;&lt;/ins&gt;G
+  &lt;/p&gt;
+  &lt;h1&gt;A&lt;em&gt;B&lt;/em&gt;C&lt;/h1&gt;
+  &lt;p&gt;H&lt;/p&gt;
+  &lt;span&gt;I&lt;/span&gt;
+  &lt;p&gt;J&lt;/p&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li>Kinder: p > <span class="hljs-selector-tag">em</span></li>
+						</ul>
+					</div>
+					<p>"Child combinator" <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator">MDN</a></p>
+				</section>
+				<section>
+					<h3>CSS - Beispiel Geschwister</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;p&gt;
+    &lt;em&gt;D&lt;/em&gt;
+    E
+    &lt;ins&gt;&lt;em&gt;F&lt;/em&gt;&lt;/ins&gt;G
+  &lt;/p&gt;
+  &lt;h1&gt;A&lt;em&gt;B&lt;/em&gt;C&lt;/h1&gt;
+  <span class="hljs-selector-tag">&lt;p&gt;H&lt;/p&gt;</span>
+  &lt;span&gt;I&lt;/span&gt;
+  <span class="hljs-selector-tag">&lt;p&gt;J&lt;/p&gt;</span>
+&lt;/body&gt;</pre>
+						<ul>
+							<li>Geschwister: h1 ~ <span class="hljs-selector-tag">p</span></li>
+						</ul>
+					</div>
+					<p>"General sibling combinator" <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator">MDN</a>
+					</p>
+				</section>
+				<section>
+					<h3>CSS - Beispiel Nachbarn</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;p&gt;
+    &lt;em&gt;D&lt;/em&gt;
+    E
+    &lt;ins&gt;&lt;em&gt;F&lt;/em&gt;&lt;/ins&gt;G
+  &lt;/p&gt;
+  &lt;h1&gt;A&lt;em&gt;B&lt;/em&gt;C&lt;/h1&gt;
+  <span class="hljs-selector-tag">&lt;p&gt;H&lt;/p&gt;</span>
+  &lt;span&gt;I&lt;/span&gt;
+  &lt;p&gt;J&lt;/p&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li>Nachbarn: h1 + <span class="hljs-selector-tag">p</span></li>
+						</ul>
+					</div>
+					<p>"Adjacent sibling combinator" <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator">MDN</a>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Aufgabe 1 - Selected-Ids</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./aufgaben/01-selected-ids/aufgabe1.html" data-line-numbers="1-14"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 1 - Selected-Ids</h3>
+					<p>Die Elemente mit welchen Ids werden hier selektiert?</p>
+					<div class="two-columns-half-half">
+						<ul>
+							<li>h2</li>
+							<li>.b</li>
+							<li>#li2</li>
+							<li>p[lang=de]</li>
+							<li>p[lang="de"]</li>
+							<li>*[title="x"]</li>
+							<li>*[title="x abc"]</li>
+							<li>*[title~="x"]</li>
+							<li>*[title~="x abc"]</li>
+						</ul>
+						<ul>
+							<li>*[title|="abc"]</li>
+							<li>*[title|="x abc"]</li>
+							<li>*[title^="abc"]</li>
+							<li>*[title$="c z"]</li>
+							<li>*[title*="abc"]</li>
+							<li>*[title*= "x abc"]</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 2 - Selected-Ids</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<div class="two-columns">
+						<pre class="language-html">
+							<code class="hljs" data-code="./aufgaben/02-selected-ids/aufgabe2.html" data-line-numbers="1-14"></code>
+						</pre>
+						<ul>
+							<li>h2</li>
+							<li>p li</li>
+							<li>ol li</li>
+							<li>h2 ~ p</li>
+							<li>h2 > p</li>
+							<li>p + p</li>
+							<li>h1 ~ h2</li>
+							<li>ol *</li>
+							<li>ol > *</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 3 - Selected-Ids</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<pre class="language-html">
+							<code class="hljs" data-code="./aufgaben/03-selected-ids/aufgabe3.html" data-line-numbers="1-14"></code>
+						</pre>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 3 - Selected-Ids</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>p[lang~=de] p[lang=fr]</li>
+						<li>p[lang~=de] ~ p[lang=fr]</li>
+						<li>p[lang~=de] + p[lang=fr]</li>
+						<li>#ol1 *[title|=abc]</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 4 - Styles einbinden</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./aufgaben/04-styles-einbinden/styles-einbinden.html" data-line-numbers="1-5"></code>
+					</pre>
+					<ul>
+						<li>Färben Sie per Style-Attribut den Absatz 1 rot</li>
+						<li>Färben Sie per Style-Tag den Absatz 2 grün</li>
+						<li>Färben Sie per CSS-Datei den Absatz 3 blau</li>
+						<li>Farbwerte: red, green, blue</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Lösung Aufgabe 1</h3>
+					<p>Die Elemente mit welchen Ids werden hier selektiert?</p>
+					<div class="two-columns-half-half">
+						<ul>
+							<li>h2: "h2"</li>
+							<li>.b: "ol1", "p3"</li>
+							<li>#li2: "li2"</li>
+							<li>p[lang=de]: "p3"</li>
+							<li>p[lang="de"]: "p3"</li>
+							<li>*[title="x"]</li>
+							<li>*[title="x abc"]</li>
+							<li>*[title~="x"]: "h2", "li1"</li>
+							<li>*[title~="x abc"]</li>
+						</ul>
+						<ul>
+							<li>*[title|="abc"]</li>
+							<li>*[title|="x abc"]: "li1"</li>
+							<li>*[title^="abc"]</li>
+							<li>*[title$="c z"]: "h2"</li>
+							<li>*[title*="abc"]: "h2", "li1"</li>
+							<li>*[title*= "x abc"]: "h2", "li1"</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>CSS - Lösungen Aufgabe 2</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>h2: "h2", "h3"</li>
+						<li>p li</li>
+						<li>ol li: "li1", "li2", "li3"</li>
+						<li>h2 ~ p: "p2", "p3", "p4"</li>
+						<li>h2 > p</li>
+						<li>p + p</li>
+						<li>h1 ~ h2: "h2", "h3"</li>
+						<li>ol *: "li1", "li2", "b", "li3"</li>
+						<li>ol > *: "li1", "li2", "li3"</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Lösungen Aufgabe 3</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>p[lang~=de] p[lang=fr]</li>
+						<li>p[lang~=de] ~ p[lang=fr]: "p2"</li>
+						<li>p[lang~=de] + p[lang=fr]</li>
+						<li>#ol1 *[title|=abc]</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Pseudoklassen</h3>
+					<ul>
+						<li>:link&emsp;- nicht besuchte Verweise</li>
+						<li>:visited&emsp;- besuchte Verweise</li>
+						<li>:active&emsp;- angeklicktes Element</li>
+						<li>:hover&emsp;- Element unter dem Mauszeiger</li>
+						<li>:focus&emsp;- Element mit dem Eingabefokus</li>
+						<li>:lang(x)&ensp;- Element mit Sprache x markiert</li>
+						<li>:target&emsp;- aktuelles Sprungziel (Anker)</li>
+						<li>:enabled&emsp;- freigegebenes Element</li>
+						<li>:disabled&emsp;- gesperrtes Element</li>
+						<li>:checked&emsp;- ausgewähltes Element</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Pseudoklassen Beispiele</h3>
+					<ul>
+						<li>Pseudoklassen werden an einen Selektor direkt angehängt (ohne Leerzeichen)</li>
+						<li class="fragment">Verweise, :link, :visited, :hover
+							<ul>
+								<li><span class="hljs-selector-tag">a</span><span
+										class="hljs-selector-pseudo">:link</span> { <span
+										class="hljs-attribute">color</span>: red; }</li>
+								<li><span class="hljs-selector-tag">a</span><span
+										class="hljs-selector-pseudo">:visited</span> { <span
+										class="hljs-attribute">color</span>: blue; }</li>
+								<li><span class="hljs-selector-tag">a</span><span
+										class="hljs-selector-pseudo">:hover</span> { <span
+										class="hljs-attribute">background-color</span>: silver; }</li>
+							</ul>
+						</li>
+						<li class="fragment">Input, :focus
+							<ul>
+								<li><span class="hljs-selector-tag">input</span><span
+										class="hljs-selector-pseudo">:focus</span> { <span
+										class="hljs-attribute">border-color</span>: red; }</li>
+							</ul>
+						</li>
+						<li class="fragment">Fehlt der Selektor, wird * angenommen!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Strukturelle Pseudoklassen</h3>
+					<ul>
+						<li>:first-child&emsp;- erstes Kind Element</li>
+						<li>:last-child&emsp;- letztes Kind Element</li>
+						<li>:nth-child(n)&ensp;- n-tes Kind Element</li>
+						<li>:only-child&emsp;- einziges Kind Element</li>
+						<li class="fragment smaller-font" data-fragment-index="1">:first-of-type&emsp;- erstes Element
+							dieses Typs<br />:last-of-type, :nth-of-type, :nth-last-of-type, :only-of-type</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">Mögliche Werte für "n" (<a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">MDN</a>)</p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>Zahl, z.B :nth-child(3)</li>
+						<li>odd (1, 3, 5, etc.) oder even (2, 4, 6, etc.)</li>
+						<li>Formel (&lt;An+B&gt;), z.B :nth-child(4n+4)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Strukturelle Pseudoklassen</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  <span class="hljs-selector-pseudo">&lt;h1&gt;Eine Überschrift&lt;/h1&gt;</span>
+  &lt;p&gt;Ein einfacher Absatz.&lt;/p&gt;
+  &lt;ul&gt;
+    <span class="hljs-selector-pseudo">&lt;li&gt;Erster Punkt&lt;/li&gt;</span>
+    &lt;li&gt;Zweiter Punkt&lt;/li&gt;
+    &lt;li&gt;Dritter Punkt&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li><span class="hljs-selector-pseudo">:first-child</span></li>
+							<li class="fragment">*<span class="hljs-selector-pseudo">:first-child</span></li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>CSS - Strukturelle Pseudoklassen</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;h1&gt;Eine Überschrift&lt;/h1&gt;
+  &lt;p&gt;Ein einfacher Absatz.&lt;/p&gt;
+  &lt;ul&gt;
+    <span class="hljs-selector-pseudo">&lt;li&gt;Erster Punkt&lt;/li&gt;</span>
+    &lt;li&gt;Zweiter Punkt&lt;/li&gt;
+    &lt;li&gt;Dritter Punkt&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li>ul <span class="hljs-selector-pseudo">:first-child</span><br />Achtung! Leerzeichen!
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>CSS - Strukturelle Pseudoklassen</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;h1&gt;Eine Überschrift&lt;/h1&gt;
+  &lt;p&gt;Ein einfacher Absatz.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Erster Punkt&lt;/li&gt;
+    &lt;li&gt;Zweiter Punkt&lt;/li&gt;
+    &lt;li&gt;Dritter Punkt&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li>ul<span class="hljs-selector-pseudo">:first-child</span><br />Ohne
+								Leerzeichen:<br />keine Selektion!</li>
+							<li class="fragment" data-fragment-index="1"><span class="fragment"
+									data-fragment-index="1">Warum?</span><span class="fragment" data-fragment-index="2">
+									Weil ul selbst kein first-child!</span></li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>CSS - Strukturelle Pseudoklassen</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;body&gt;
+  &lt;h1&gt;Eine Überschrift&lt;/h1&gt;
+  &lt;p&gt;Ein einfacher Absatz.&lt;/p&gt;
+  &lt;ul&gt;
+    <span class="hljs-selector-pseudo">&lt;li&gt;Erster Punkt&lt;/li&gt;</span>
+    &lt;li&gt;Zweiter Punkt&lt;/li&gt;
+    &lt;li&gt;Dritter Punkt&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;</pre>
+						<ul>
+							<li>li<span class="hljs-selector-pseudo">:first-of-type</span></li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Pseudoelemente</h3>
+					<ul>
+						<li>::marker&emsp;- Listeneinträge</li>
+						<li>::first-letter&emsp;- erster Buchstabe im block container</li>
+						<li>::after&emsp;- inline last child</li>
+						<li>::before&emsp;- inline first child</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Pseudoelemente Beispiele</h3>
+					<ul>
+						<li>Pseudoelemente werden an einen Selektor direkt angehängt (ohne Leerzeichen)</li>
+						<li class="fragment">Paragraph, ::first-letter
+							<ul>
+								<li><span class="hljs-selector-tag">p</span><span
+										class="hljs-selector-pseudo">::first-letter</span> { <span
+										class="hljs-attribute">color</span>: red; }</li>
+							</ul>
+						</li>
+						<li class="fragment">Listeneintrag, ::marker
+							<ul>
+								<li><span class="hljs-selector-tag">li</span><span
+										class="hljs-selector-pseudo">::marker</span> { <span
+										class="hljs-attribute">font-size</span>: 1.2em; }</li>
+							</ul>
+						</li>
+						<li class="fragment">Fehlt der Selektor, wird * angenommen!</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Werte</h3>
+					<ol>
+						<li>Fest vorgegebene Werte (Aufzählungstypen)</li>
+						<li class="fragment" data-fragment-index="1">Maßeinheiten
+							<ul>
+								<li class="fragment" data-fragment-index="1">px&ensp;Pixel</li>
+								<li class="fragment" data-fragment-index="2">pt&ensp;Punkt: 1pt = 1/72inch</li>
+								<li class="fragment" data-fragment-index="2">pc&ensp;Pica: 1pc = 12pt</li>
+								<li class="fragment" data-fragment-index="2">in, mm, cm&ensp;Inch, Millimeter,
+									Zentimeter</li>
+								<li class="fragment" data-fragment-index="3">em&ensp;Schriftgröße des (Eltern)Elements
+								</li>
+								<li class="fragment" data-fragment-index="3">rem&ensp;Schriftgröße des Root-Elements
+								</li>
+								<li class="fragment" data-fragment-index="3">ex&ensp;Höhe von 'x' im (Eltern)Element
+								</li>
+								<li class="fragment" data-fragment-index="4">%&ensp;Relativ zum (Eltern)Element</li>
+							</ul>
+						</li>
+					</ol>
+					<aside class="notes">
+						Beispiel für Aufzählungstypen: z.B. position: "absolute", oder float: "left"
+					</aside>
+				</section>
+				<section>
+					<h3>CSS - Werte 2</h3>
+					<ol start="3">
+						<li>Farben
+							<ul>
+								<li>Fest vorgegebene Werte (z.B. blue, red)</li>
+								<li>#RRGGBB Hexadezimal Rot, Grün und Blau<br />
+									Schwarz: #000000, Weiß: #FFFFFF
+								</li>
+							</ul>
+						</li>
+						<li class="fragment">Rechtecke
+							<ul>
+								<li>rect(top, right, bottom, left)<br />z.B. um mit <a
+										href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">clip</a> einen
+									sichtbaren Bereich anzugeben</li>
+							</ul>
+						</li>
+						<li class="fragment">Urls
+							<ul>
+								<li>url("url") z.B. um mit background-image ein Hintergrundbild zu verlinken</li>
+							</ul>
+						</li>
+					</ol>
+					<aside class="notes">
+						Farben: blue, red, green, lightblue, darkblue
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CSS - Eigenschaften</h3>
+					<ul>
+						<li>Text
+							<ul>
+								<li>Farbe, Schriftarten, Ausrichtung, "Dekoration"</li>
+							</ul>
+						</li>
+						<li>Farbe und Hintergründe
+							<ul>
+								<li>Farbe, Bilder, Wiederholung, Positionierung</li>
+							</ul>
+						</li>
+						<li>Listen</li>
+						<li>Rahmen
+							<ul>
+								<li>Farbe, Breite, Stil</li>
+							</ul>
+						</li>
+						<li>Abstände
+							<ul>
+								<li>CSS-Box-Modell</li>
+							</ul>
+						</li>
+						<li>Positionierung
+							<ul>
+								<li>fließend, statisch</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Eigenschaften - Text</h3>
+					<ul>
+						<li>text-ident
+							<ul>
+								<li>Einzug für erste Ausgabe-Zeile</li>
+							</ul>
+						</li>
+						<li class="fragment">text-align
+							<ul>
+								<li>Ausrichtung (left, right, center, justify)</li>
+							</ul>
+						</li>
+						<li class="fragment">text-decoration
+							<ul>
+								<li>Dekoration (underline, overline, line-through)</li>
+							</ul>
+						</li>
+						<li class="fragment">letter-spacing
+							<ul>
+								<li>Abstand zwischen den Buchstaben</li>
+							</ul>
+						</li>
+						<li class="fragment">text-transform
+							<ul>
+								<li>Groß-/Kleinschreibung (capitalize, uppercase, lowercase)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Eigenschaften - Schriftarten</h3>
+					<ul>
+						<li>font-family
+							<ul>
+								<li>konkrete Schriftart: Times New Roman</li>
+								<li>generische Schriftart: serif, sans-serif, monospace</li>
+								<li>Angabe ist eine priorisierte Liste!</li>
+							</ul>
+						</li>
+						<li class="fragment">font-style: Schriftstil (normal, italic, oblique)
+						</li>
+						<li class="fragment">font-variant: Schriftvariante (normal, small-caps)
+						</li>
+						<li class="fragment">font-weight: Schriftstärke (normal, bold, Zahl)
+						</li>
+						<li class="fragment">font-size: Schriftgröße (small, large, Maßeinheit)
+						</li>
+						<li class="fragment">direction: Schriftrichtung (ltr, rtl)
+						</li>
+					</ul>
+					<aside class="notes">
+						font-style: oblique -> Zeichen drehen
+					</aside>
+				</section>
+				<section>
+					<h3>CSS - Farbe und Hintergründe</h3>
+					<ul>
+						<li>color: Farbe des Vordergrundes
+						</li>
+						<li class="fragment">background-color: Farbe des Hintergrundes
+						</li>
+						<li class="fragment">background-image: Hintergrundbild
+						</li>
+						<li class="fragment">background-repeat: Wiederholung des Hintergrundbildes (repeat-x, repeat-y,
+							no-repeat)
+						</li>
+						<li class="fragment">background-attachment: Hintergrundfixierung (scroll, fixed)
+						</li>
+						<li class="fragment">background-position: Position des Hintergrundbildes
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS - Listen</h3>
+					<ul>
+						<li>list-style-type: Art der Aufzählungszeichen (decimal, lower-roman, circle, ...)
+						</li>
+						<li class="fragment">list-style-position: Art der Einrückung
+							<ul>
+								<li>inside: im Absatz
+								</li>
+								<li>outside: vor dem Absatz
+								</li>
+							</ul>
+						</li>
+						<li class="fragment">list-style-image: Angabe eines eigenen Aufzählungszeichen/icons
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Aufgabe 5 - Selected-Ids</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<div class="two-columns">
+						<pre class="language-html">
+							<code class="hljs" data-code="./aufgaben/05-selected-ids/aufgabe5.html" data-line-numbers="1-14"></code>
+						</pre>
+						<ul start="10">
+							<li>:first-child</li>
+							<li>:only-child</li>
+							<li>h2:first-of-type</li>
+							<li>.k</li>
+							<li>.p4</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 6 - Styling</h3>
+					<div class="two-columns-half-half">
+						<pre>
+&lt;<span class="hljs-name">body</span>&gt;
+  &lt;<span class="hljs-name">h1</span>&gt;Dies ist der Titel&lt;/<span class="hljs-name">h1</span>&gt;
+  &lt;p&gt;Iste quidem veteres
+  inter ponetur honeste, qui
+  vel mense brevi vel toto est
+  iunior anno. Utor permisso,
+  caudaeque pilos ut equinae
+  paulatim vello unum, demo
+  etiam unum, dum cadat elusus
+  ratione ruentis acervi, qui
+  redit in fastos et annis
+  miraturque.&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Iste quidem&lt;/li&gt;
+    &lt;li&gt;inter ponetur&lt;/li&gt;
+  &lt;/ol&gt;</pre>
+						<pre>
+  &lt;p&gt;Indignor quicquam
+  reprehendi, non quia
+  crasse compositum illepedeve
+  putetur, sed quia nuper,
+  nec veniam antiquis, sed
+  honorem Brevi vel toto
+  est iunior anno.&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Iste quidem&lt;/li&gt;
+    &lt;li&gt;inter ponetur&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;p&gt;Utor permisso, caudaeque
+  pilos ut equinae paulatim
+  vello unum, demo etiam unum.
+  Si meliora dies, ut vina,
+  poemata reddit, scire velim,
+  chartis perficit quotus
+  pretium quotus arroget
+  annus.&lt;/p&gt;
+&lt;/<span class="hljs-name">body</span>&gt;</pre>
+					</div>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 6 - Styling</h3>
+					<p>Erstellt das CSS-Styling um das HTML-Dokumt so aussehen zu lassen:</p>
+					<img src="./aufgaben/06-styling/css-praxis-aufgabe6.jpg" alt="Praxis CSS Aufgabe 6" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Lösung - Aufgabe 5 - Selected Ids</h3>
+					<p>Die Elemente mit welchen Ids werden selektiert?</p>
+					<ul>
+						<li>:first-child: "h1", "li1", "b"</li>
+						<li>:only-child: "b"</li>
+						<li>h2:first-of-type: "h2"</li>
+						<li>.k: "p4"</li>
+						<li>.p4</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Lösung - Aufgabe 6 - Styling</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/css/aufgaben/06-styling/loesung.html">gitlab.com/.../TINF23B2/css/aufgaben/<br>06-styling/loesung.html</a>
+					</p>
+					<p>
+						Deployed:<br><a
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/css/aufgaben/06-styling/loesung.html">gitlab.io/.../TINF23B2/css/aufgaben/<br>06-styling/loesung.html</a>
+					</p>
+				</section>
+			</section>
+			<!-- Ende CSS-Day1-->
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+		<script src="plugin/externalcode/externalcode.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				slideNumber: "c/t",
+				hash: true,
+				pdfSeparateFragments: false,
+				// No Vertical centering of slides
+				center: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+			});
+			Reveal.addEventListener('ready', function () {
+				var header = $('#hidden').html();
+				$('.slide-background').append(header);
+			});
+		</script>
+		<div id="hidden" style="display:none;">
+			<header>
+				<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+			</header>
+		</div>
+</body>
+
+</html>
