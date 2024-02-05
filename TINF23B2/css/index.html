@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de">
 
 <head>
 	<meta charset="utf-8">
@@ -77,8 +77,8 @@
 
 <!--
 	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
-	Day1: 1,3-23,33-48
-	Day1-Praxis: 24-32,49-53
+	Day1: 1,3-23,34-49
+	Day1-Praxis: 24-33,50-54
 -->
 
 <body>
@@ -126,7 +126,8 @@
 				</section>
 				<section>
 					<h3>HTML mit CSS</h3>
-					<iframe class="code-example full-width" data-src="./code-examples/01_html-css/mit-css.html"></iframe>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/01_html-css/mit-css.html"></iframe>
 					<pre class="language-html">
 						<code class="hljs" data-code="./code-examples/01_html-css/mit-css.html" data-line-numbers="7-19"></code>
 					</pre>
@@ -136,16 +137,15 @@
 				<section>
 					<h3>CSS - Stylesheets</h3>
 					<p>Sind CSS-Dokumente/Menge von CSS-Regeln</p>
-					<p class="fragment" data-fragment-index="1">Browser kennen drei Arten von Stylesheets:
+					<p class="fragment" data-fragment-index="1">Browser kennen drei Arten von Stylesheets:</p>
 					<ul>
-						<li class="fragment" data-fragment-index="1">Browser: Grundeinstellung des Browsers<br />
+						<li class="fragment" data-fragment-index="1">Browser: Grundeinstellung des Browsers<br>
 							Wird durch den Browserhersteller bestimmt</li>
-						<li class="fragment" data-fragment-index="2">Homepage: eingebunden von der Website<br />
+						<li class="fragment" data-fragment-index="2">Homepage: eingebunden von der Website<br>
 							Wird durch den Website-Autor bestimmt</li>
-						<li class="fragment" data-fragment-index="3">Benutzer: Nutzer-Einstellung im Browsers<br />
+						<li class="fragment" data-fragment-index="3">Benutzer: Nutzer-Einstellung im Browsers<br>
 							Wird durch den Nutzer bestimmt</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
@@ -155,34 +155,34 @@
 						<li>CSS-Regel: <span class="hljs-selector-tag">Selektor</span> { <span
 								class="hljs-attribute">Eigenschaft</span>: <span class="hljs-value">Wert</span>;}</li>
 						<li class="fragment li-space-above"><span class="hljs-selector-tag">Selektor</span>
-							(Selector)<br />
+							(Selector)<br>
 							Wer soll verändert werden?</li>
 						<li class="fragment li-space-above"><span class="hljs-attribute">Eigenschaft</span>
-							(Property)<br />
+							(Property)<br>
 							Was soll verändert werden?</li>
-						<li class="fragment li-space-above"><span class="hljs-value">Wert</span> (Value)<br />
+						<li class="fragment li-space-above"><span class="hljs-value">Wert</span> (Value)<br>
 							Wie soll es sein?</li>
 					</ul>
 				</section>
 				<section>
 					<h3>CSS - Syntax</h3>
 					<ul>
-						<li class="fragment">Mehrere Eigenschaften setzen:<br />
+						<li class="fragment">Mehrere Eigenschaften setzen:<br>
 							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">a</span>: <span
-								class="hljs-value">m</span>;}<br />
+								class="hljs-value">m</span>;}<br>
 							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">b</span>: <span
-								class="hljs-value">n</span>;}<br />
-							ist semantisch äquivalent zu<br />
+								class="hljs-value">n</span>;}<br>
+							ist semantisch äquivalent zu<br>
 							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">a</span>: <span
 								class="hljs-value">m</span>; <span class="hljs-attribute">b</span>: <span
 								class="hljs-value">n</span>;}
 						</li>
-						<li class="fragment">Eigenschaften für mehrere Selektoren setzen:<br />
+						<li class="fragment">Eigenschaften für mehrere Selektoren setzen:<br>
 							<span class="hljs-selector-tag">X</span> { <span class="hljs-attribute">a</span>: <span
-								class="hljs-value">m</span>;}<br />
+								class="hljs-value">m</span>;}<br>
 							<span class="hljs-selector-tag">Y</span> { <span class="hljs-attribute">a</span>: <span
-								class="hljs-value">m</span>;}<br />
-							ist semantisch äquivalent zu<br />
+								class="hljs-value">m</span>;}<br>
+							ist semantisch äquivalent zu<br>
 							<span class="hljs-selector-tag">X, Y</span> { <span class="hljs-attribute">a</span>: <span
 								class="hljs-value">m</span>;}
 						</li>
@@ -219,7 +219,7 @@
 				<section>
 					<h3>CSS - Einbinden in HTML</h3>
 					<ul>
-						<li class="fragment">Methode 1: Style-Attribut<br />
+						<li class="fragment">Methode 1: Style-Attribut<br>
 							&lt;p style="<span class="hljs-attribute">font-size</span>: <span
 								class="hljs-value">large</span>; <span class="hljs-attribute">color</span>: <span
 								class="hljs-value">olive</span>;"&gt;
@@ -227,7 +227,7 @@
 								<li>Selektor entfällt</li>
 							</ul>
 						</li>
-						<li>Methode 2: Style-Tag (head!)<br />
+						<li>Methode 2: Style-Tag (head!)<br>
 							&lt;style&gt;
 							<span class="hljs-selector-tag">p</span> { <span class="hljs-attribute">font-size</span>:
 							<span class="hljs-value">large</span>; <span class="hljs-attribute">color</span>: <span
@@ -237,7 +237,7 @@
 								<li>Zentrale Stelle für Style-Angaben im Dokument</li>
 							</ul>
 						</li>
-						<li class="fragment">Methode 3: CSS-Datei (head!)<br />
+						<li class="fragment">Methode 3: CSS-Datei (head!)<br>
 							&lt;link rel="stylesheet" type="text/css" href="CSSThemeLight.css"&gt;
 							<ul>
 								<li>Seitenübergreifend möglich</li>
@@ -255,19 +255,19 @@
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="1">Typselektor X<ul>
-								<li>Selektiert alle Elemente mit Typ X<br />z.B.: "<span
+								<li>Selektiert alle Elemente mit Typ X<br>z.B.: "<span
 										class="hljs-selector-tag">a</span>"</li>
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="2">Klassenselektor <span
 								class="fragment highlight-current-red" data-fragment-index="3">.</span>Y<ul>
-								<li>Selektiert alle Elemente mit der Klasse Y<br />z.B.: "<span
+								<li>Selektiert alle Elemente mit der Klasse Y<br>z.B.: "<span
 										class="hljs-selector-class"><span class="fragment highlight-current-red"
 											data-fragment-index="3">.</span>klassenname</span>"</li>
 							</ul>
 						</li>
 						<li class="fragment" data-fragment-index="4">ID-Selektor #Z<ul>
-								<li>Selektiert genau das Element mit der ID Z<br />z.B.: "<span
+								<li>Selektiert genau das Element mit der ID Z<br>z.B.: "<span
 										class="hljs-selector-id">#idname</span>"</li>
 							</ul>
 						</li>
@@ -307,8 +307,8 @@
 								<li class="fragment" data-fragment-index="2">Wert darf ohne, mit einfachen oder
 									doppelten Hochkommata stehen</li>
 								<li class="fragment" data-fragment-index="2">Beispiel: p[lang=de] &lt;p
-									lang="de"&gt;...&lt;/p&gt;<br />
-									p[lang='de'] &lt;p lang="de"&gt;...&lt;/p&gt;<br />
+									lang="de"&gt;...&lt;/p&gt;<br>
+									p[lang='de'] &lt;p lang="de"&gt;...&lt;/p&gt;<br>
 									p[lang="de"] &lt;p lang="de"&gt;...&lt;/p&gt;</li>
 							</ul>
 						</li>
@@ -369,8 +369,8 @@
 						<li>[Selektor1][Selektor2]<ul>
 								<li class="fragment">Selektiert die Elemente, die sowohl von Selektor1 und Selektor2
 									gewählt werden</li>
-								<li class="fragment">Beispiel:<br />
-									input[lang=de][name*=xy]<br />
+								<li class="fragment">Beispiel:<br>
+									input[lang=de][name*=xy]<br>
 									&lt;input lang="de" name="xyz" /&gt;
 								</li>
 							</ul>
@@ -387,7 +387,7 @@
 							</ul>
 						</li>
 						<li class="fragment">Kinder: E &gt; F<ul>
-								<li>alle F, die Kinder eines Elementes E sind</li>
+								<li>alle F, die direkt Kinder eines Elementes E sind</li>
 							</ul>
 						</li>
 						<li class="fragment">Geschwister: E ~ F<ul>
@@ -395,7 +395,7 @@
 							</ul>
 						</li>
 						<li class="fragment">Nachbarn: E + F<ul>
-								<li>alle F, die direkt nachfolgende Geschwister<br />von E sind</li>
+								<li>alle F, die direkt nachfolgende Geschwister<br>von E sind</li>
 							</ul>
 						</li>
 					</ul>
@@ -439,6 +439,7 @@
 &lt;/body&gt;</pre>
 						<ul>
 							<li>Kinder: p > <span class="hljs-selector-tag">em</span></li>
+							<li class="fragment">nur direkte Kinder!<br>nur eine Generation tief!</li>
 						</ul>
 					</div>
 					<p>"Child combinator" <a
@@ -486,8 +487,8 @@
 							<li>Nachbarn: h1 + <span class="hljs-selector-tag">p</span></li>
 						</ul>
 					</div>
-					<p>"Adjacent sibling combinator" <a
-							href="https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator">MDN</a>
+					<p>"Next sibling combinator" <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/Next-sibling_combinator">MDN</a>
 					</p>
 				</section>
 			</section>
@@ -575,15 +576,15 @@
 			</section>
 			<section>
 				<section>
-					<h3>CSS - Lösung Aufgabe 1</h3>
+					<h3>Lösung - Aufgabe 1 - Selected-Ids</h3>
 					<p>Die Elemente mit welchen Ids werden hier selektiert?</p>
 					<div class="two-columns-half-half">
 						<ul>
 							<li>h2: "h2"</li>
 							<li>.b: "ol1", "p3"</li>
 							<li>#li2: "li2"</li>
-							<li>p[lang=de]: "p3"</li>
-							<li>p[lang="de"]: "p3"</li>
+							<li>p[lang=de]: "p1", "p3"</li>
+							<li>p[lang="de"]: "p1", "p3"</li>
 							<li>*[title="x"]</li>
 							<li>*[title="x abc"]</li>
 							<li>*[title~="x"]: "h2", "li1"</li>
@@ -600,7 +601,7 @@
 					</div>
 				</section>
 				<section>
-					<h3>CSS - Lösungen Aufgabe 2</h3>
+					<h3>Lösung - Aufgabe 2 - Selected-Ids</h3>
 					<p>Die Elemente mit welchen Ids werden selektiert?</p>
 					<ul>
 						<li>h2: "h2", "h3"</li>
@@ -615,7 +616,7 @@
 					</ul>
 				</section>
 				<section>
-					<h3>CSS - Lösungen Aufgabe 3</h3>
+					<h3>Lösung - Aufgabe 3 - Selected-Ids</h3>
 					<p>Die Elemente mit welchen Ids werden selektiert?</p>
 					<ul>
 						<li>p[lang~=de] p[lang=fr]</li>
@@ -623,6 +624,18 @@
 						<li>p[lang~=de] + p[lang=fr]</li>
 						<li>#ol1 *[title|=abc]</li>
 					</ul>
+				</section>
+				<section>
+					<h3>Lösung - Aufgabe 4 - Styles-einbinden</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/css/aufgaben/04-styles-einbinden/loesung.html">gitlab.com/.../TINF23B2/css/aufgaben/<br>04-styles-einbinden/loesung.html</a><br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/css/aufgaben/04-styles-einbinden/loesung.css">gitlab.com/.../TINF23B2/css/aufgaben/<br>04-styles-einbinden/loesung.css</a>
+					</p>
+					<p>
+						Deployed:<br><a
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/css/aufgaben/04-styles-einbinden/loesung.html">gitlab.io/.../TINF23B2/css/aufgaben/<br>06-styling/loesung.html</a>
+					</p>
 				</section>
 			</section>
 			<section>
@@ -676,7 +689,7 @@
 						<li>:nth-child(n)&ensp;- n-tes Kind Element</li>
 						<li>:only-child&emsp;- einziges Kind Element</li>
 						<li class="fragment smaller-font" data-fragment-index="1">:first-of-type&emsp;- erstes Element
-							dieses Typs<br />:last-of-type, :nth-of-type, :nth-last-of-type, :only-of-type</li>
+							dieses Typs<br>:last-of-type, :nth-of-type, :nth-last-of-type, :only-of-type</li>
 					</ul>
 					<p class="fragment" data-fragment-index="2">Mögliche Werte für "n" (<a
 							href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">MDN</a>)</p>
@@ -719,7 +732,7 @@
   &lt;/ul&gt;
 &lt;/body&gt;</pre>
 						<ul>
-							<li>ul <span class="hljs-selector-pseudo">:first-child</span><br />Achtung! Leerzeichen!
+							<li>ul <span class="hljs-selector-pseudo">:first-child</span><br>Achtung! Leerzeichen!
 							</li>
 						</ul>
 					</div>
@@ -738,8 +751,8 @@
   &lt;/ul&gt;
 &lt;/body&gt;</pre>
 						<ul>
-							<li>ul<span class="hljs-selector-pseudo">:first-child</span><br />Ohne
-								Leerzeichen:<br />keine Selektion!</li>
+							<li>ul<span class="hljs-selector-pseudo">:first-child</span><br>Ohne
+								Leerzeichen:<br>keine Selektion!</li>
 							<li class="fragment" data-fragment-index="1"><span class="fragment"
 									data-fragment-index="1">Warum?</span><span class="fragment" data-fragment-index="2">
 									Weil ul selbst kein first-child!</span></li>
@@ -829,14 +842,14 @@
 						<li>Farben
 							<ul>
 								<li>Fest vorgegebene Werte (z.B. blue, red)</li>
-								<li>#RRGGBB Hexadezimal Rot, Grün und Blau<br />
+								<li>#RRGGBB Hexadezimal Rot, Grün und Blau<br>
 									Schwarz: #000000, Weiß: #FFFFFF
 								</li>
 							</ul>
 						</li>
 						<li class="fragment">Rechtecke
 							<ul>
-								<li>rect(top, right, bottom, left)<br />z.B. um mit <a
+								<li>rect(top, right, bottom, left)<br>z.B. um mit <a
 										href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">clip</a> einen
 									sichtbaren Bereich anzugeben</li>
 							</ul>
@@ -983,7 +996,7 @@
 						<pre class="language-html">
 							<code class="hljs" data-code="./aufgaben/05-selected-ids/aufgabe5.html" data-line-numbers="1-14"></code>
 						</pre>
-						<ul start="10">
+						<ul>
 							<li>:first-child</li>
 							<li>:only-child</li>
 							<li>h2:first-of-type</li>
@@ -1038,7 +1051,7 @@
 				<section>
 					<h3>Praxis - Aufgabe 6 - Styling</h3>
 					<p>Erstellt das CSS-Styling um das HTML-Dokumt so aussehen zu lassen:</p>
-					<img src="./aufgaben/06-styling/css-praxis-aufgabe6.jpg" alt="Praxis CSS Aufgabe 6" />
+					<img src="./aufgaben/06-styling/css-praxis-aufgabe6.jpg" alt="Praxis CSS Aufgabe 6">
 				</section>
 			</section>
 			<section>
@@ -1066,38 +1079,38 @@
 				</section>
 			</section>
 			<!-- Ende CSS-Day1-->
-		</div>
+			</section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-		<script src="plugin/externalcode/externalcode.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				slideNumber: "c/t",
-				hash: true,
-				pdfSeparateFragments: false,
-				// No Vertical centering of slides
-				center: false,
+			<script src="dist/reveal.js"></script>
+			<script src="plugin/notes/notes.js"></script>
+			<script src="plugin/markdown/markdown.js"></script>
+			<script src="plugin/highlight/highlight.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+			<script src="plugin/externalcode/externalcode.js"></script>
+			<script>
+				// More info about initialization & config:
+				// - https://revealjs.com/initialization/
+				// - https://revealjs.com/config/
+				Reveal.initialize({
+					slideNumber: "c/t",
+					hash: true,
+					pdfSeparateFragments: false,
+					// No Vertical centering of slides
+					center: false,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
-			});
-			Reveal.addEventListener('ready', function () {
-				var header = $('#hidden').html();
-				$('.slide-background').append(header);
-			});
-		</script>
-		<div id="hidden" style="display:none;">
-			<header>
-				<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
-			</header>
-		</div>
+					// Learn about plugins: https://revealjs.com/plugins/
+					plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+				});
+				Reveal.addEventListener('ready', function () {
+					var header = $('#hidden').html();
+					$('.slide-background').append(header);
+				});
+			</script>
+			<div id="hidden" style="display:none;">
+				<header>
+					<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
+				</header>
+			</div>
 </body>
 
 </html>
