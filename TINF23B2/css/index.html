@@ -1286,6 +1286,9 @@
 					</ul>
 					<iframe class="code-example full-width min-height-300"
 						data-src="./code-examples/08_position/position.html"></iframe>
+					<aside class="notes">
+						position: absolute und position: fixed sind zufaellig auf der exakt gleichen Position
+					</aside>
 				</section>
 				<section>
 					<h3>CSS - Anordnung von Elementen</h3>
@@ -1360,7 +1363,8 @@
 				</section>
 				<section>
 					<h3>CSS - Vars - Vererbung</h3>
-					<p>Vorsicht: CSS-Variablen speichern keinen Wert<span class="fragment">, er wird im Moment der Nutzung berechnet!</span></p>
+					<p>Vorsicht: CSS-Variablen speichern keinen Wert<span class="fragment">, er wird im Moment der
+							Nutzung berechnet!</span></p>
 					<p class="fragment">Variablen-Werte können umdefiniert werden</p>
 				</section>
 				<section>
@@ -1444,10 +1448,10 @@
 					</p>
 					<ul>
 						<li><a
-								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF22B2/css/aufgaben/08-box-modell/aufgabe8.html">aufgabe8.html</a>
+								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/css/aufgaben/08-box-modell/aufgabe8.html">aufgabe8.html</a>
 						</li>
 						<li><a
-								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/added_2021/css/aufgaben/08-box-modell/aufgabe8.css">aufgabe8.css</a>
+								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/css/aufgaben/08-box-modell/aufgabe8.css">aufgabe8.css</a>
 						</li>
 					</ul>
 				</section>
@@ -1572,13 +1576,12 @@
 					<h3>CSS - Prioritäten - Best Practices</h3>
 					<p>Vermeidet die Situation, in denen mehr als eine Regel für ein Element gilt!<br>Ausnahme:
 						Überschreiben von Regeln der Eltern</p>
-					<p class="fragment">Verwendet eine einheitliche Vorgehensweise
+					<p class="fragment">Verwendet eine einheitliche Vorgehensweise</p>
 					<ul class="fragment">
 						<li>Identifikation über Elementnamen oder(!)</li>
 						<li>Identifikation über Klassen oder</li>
 						<li>...</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
@@ -1606,17 +1609,14 @@
 				<section>
 					<h3>CSS - Media-Queries</h3>
 					<p>Beispiel "Druck"</p>
-					<p>
 					<pre>
 <span class="hljs-keyword">@media</span> print {
   <span class="hljs-selector-tag">nav</span> {
     <span class="hljs-attribute">display</span>: none;
   }
 }</pre>
-					</p>
 					<p class="fragment" data-fragment-index="1">Beispiel "Großes Displays"<br>(Inhalt nicht auf der
 						ganzen Breite)</p>
-					<p>
 					<pre class="fragment" data-fragment-index="1">
 <span class="hljs-keyword">@media</span> screen and (min-width: 1000px) {
   <span class="hljs-selector-id">#content</span> {
@@ -1624,7 +1624,6 @@
     <span class="hljs-attribute">margin</span>: auto;
   }
 }</pre>
-					</p>
 				</section>
 			</section>
 			<section>
@@ -2024,16 +2023,15 @@
 			<section>
 				<section>
 					<h3>Praxis - Aufgabe 10 - Styling</h3>
-					<p>Aus dem Folien-Repo folgende Dateien herunterladen:
+					<p>Aus dem Folien-Repo folgende Dateien herunterladen:</p>
 					<ul>
 						<li><a
-								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/TINF22B2/css/aufgaben/10-styling/aufgabe10.html?inline=false">aufgabe10.html</a>
+								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/TINF23B2/css/aufgaben/10-styling/aufgabe10.html?inline=false">aufgabe10.html</a>
 						</li>
 						<li><a
-								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/TINF22B2/css/aufgaben/10-styling/colors.css?inline=false">colors.css</a>
+								href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/raw/master/TINF23B2/css/aufgaben/10-styling/colors.css?inline=false">colors.css</a>
 						</li>
 					</ul>
-					</p>
 					<p>Erstellt eine "layout.css" sodass es je nach Breite des Browsers wie folgt aussieht.</p>
 				</section>
 				<section>
@@ -2059,38 +2057,38 @@
 				</p>
 			</section>
 			<!-- Ende CSS-Day2 -->
-			</section>
+		</div>
+	</div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
 
-			<script src="dist/reveal.js"></script>
-			<script src="plugin/notes/notes.js"></script>
-			<script src="plugin/markdown/markdown.js"></script>
-			<script src="plugin/highlight/highlight.js"></script>
-			<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-			<script src="plugin/externalcode/externalcode.js"></script>
-			<script>
-				// More info about initialization & config:
-				// - https://revealjs.com/initialization/
-				// - https://revealjs.com/config/
-				Reveal.initialize({
-					slideNumber: "c/t",
-					hash: true,
-					pdfSeparateFragments: false,
-					// No Vertical centering of slides
-					center: false,
-
-					// Learn about plugins: https://revealjs.com/plugins/
-					plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
-				});
-				Reveal.addEventListener('ready', function () {
-					var header = $('#hidden').html();
-					$('.slide-background').append(header);
-				});
-			</script>
-			<div id="hidden" style="display:none;">
-				<header>
-					<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
-				</header>
-			</div>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
+		</header>
+	</div>
 </body>
 
 </html>
