@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de">
 
 <head>
 	<meta charset="utf-8">
@@ -99,8 +99,8 @@
 				</section>
 				<section>
 					<h3>JS - Ruf</h3>
-					<img src="./images/javascript-and-python-are-weirdos.jpg" height="450px"
-						alt="Javascript and python are weirdos" />
+					<img src="./images/javascript-and-python-are-weirdos.jpg" height="450"
+						alt="Javascript and python are weirdos">
 					<p>
 						<a href="https://www.reddit.com/r/ProgrammerHumor/comments/skfag9/all_assemble/">Quelle:
 							r/ProgrammerHumor</a>
@@ -108,7 +108,7 @@
 				</section>
 				<section>
 					<h3>JS - Ruf</h3>
-					<img src="./images/javascript-the-good-parts.jpg" height="450px" alt="Javascript the good parts" />
+					<img src="./images/javascript-the-good-parts.jpg" height="450" alt="Javascript the good parts">
 					<p>
 						<a href="https://www.reddit.com/r/ProgrammerHumor/comments/621qrt/javascript_the_good_parts/">Quelle:
 							r/ProgrammerHumor</a>
@@ -129,8 +129,10 @@
 						<li class="fragment">Beginn des Browserkriegs</li>
 					</ul>
 					<div class="r-stack">
-						<img class="fragment" src="./images/browserkrieg.png" height="200">
-						<img class="fragment" src="./images/browserkrieg_best-viewed-in.png" height="200">
+						<img class="fragment" src="./images/browserkrieg.png" height="200"
+							alt="Browserkrieg Netscape vs. Internet Explorer">
+						<img class="fragment" src="./images/browserkrieg_best-viewed-in.png" height="200"
+							alt="Best-View-In Netscape or Internet Explorer banners">
 					</div>
 					<aside class="notes">
 						Brendan Eich bastelt LiveScript in 10 Tagen, inspiriert von SmallTalk und C-like Syntax
@@ -189,6 +191,14 @@
 					</pre>
 					<a
 						href="./code-examples/01_hello-world/hello-world.js">./code-examples/01_hello-world/hello-world.js</a>
+				</section>
+				<section>
+					<h3>JS - Hello World - Extended</h3>
+					<pre class="language-js">
+						<code class="hljs" data-code="./code-examples/01_hello-world/hello-world-extended.js"></code>
+					</pre>
+					<a
+						href="./code-examples/01_hello-world/hello-world-extended.js">./code-examples/01_hello-world/hello-world-extended.js</a>
 				</section>
 			</section>
 			<section>
@@ -276,7 +286,7 @@
 				<section>
 					<h3>usaDeclaresVarWar</h3>
 					<img src="https://i.redd.it/usadeclaresvarwar-v0-ckdhcyd2gzhc1.png?s=b86705bd8ac553523ab0cdbd8d4f7c5a31ff0461"
-						height="450px" alt="USA declares var war;" />
+						height="450" alt="USA declares var war;">
 					<p>
 						<a href="https://www.reddit.com/r/ProgrammerHumor/comments/1aobvi8/usadeclaresvarwar/">Quelle:
 							r/ProgrammerHumor</a>
@@ -394,7 +404,7 @@ while (Bedingung) {
 } else { 
 	//Anweisungsblock 
 }</code></pre>
-					<hr class="fragment" data-fragment-index="1" />
+					<hr class="fragment" data-fragment-index="1">
 					<pre class="language-js fragment" data-fragment-index="1">
 <code class="hljs" data-line-numbers="1-10">switch (Ausdruck){ 
 	case Wert1: 
@@ -406,6 +416,37 @@ while (Bedingung) {
 	default: 
 		//Programmblock 
 }</code></pre>
+				</section>
+				<section>
+					<h3>Truthy vs. Falsy</h3>
+					<p>Impliziert Typ-Umwandling in boolean in if-Statements oder via "!"-Operator</p>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">Truthy (MDN)</a> vs. <a
+							href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">Falsy (MDN)</a></p>
+					<p>Eins von vielen Beispieln von <a href="https://jsisweird.com">jsisweird.com</a></p>
+				</section>
+				<section>
+					<h3>Truthy</h3>
+					<ul>
+						<li>true</li>
+						<li class="fragment">42</li>
+						<li class="fragment">"0"</li>
+						<li class="fragment">[]</li>
+						<li class="fragment">{}</li>
+						<li class="fragment">Infinity</li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">Truthy (MDN)</a></p>
+				</section>
+				<section>
+					<h3>Falsy</h3>
+					<ul>
+						<li>false</li>
+						<li class="fragment">0</li>
+						<li class="fragment">""</li>
+						<li class="fragment">undefined</li>
+						<li class="fragment">null</li>
+						<li class="fragment">NaN</li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">Falsy (MDN)</a></p>
 				</section>
 			</section>
 			<section>
@@ -576,7 +617,7 @@ a = new Position(3,4); // Objekt mit x=3 und y=4
 			<section>
 				<section>
 					<h3>this</h3>
-					<p>Bezugspunkt fuer den Aufrufer/Kontext</p>
+					<p>Bezugspunkt für den Aufrufer/Kontext</p>
 					<p class="fragment">Bisher: die aktuelle Objekt-Instanz</p>
 					<pre class="language-js fragment">
 <code class="hljs" data-line-numbers="1-3|5-7|9-10|">function whatTheThis() {
@@ -993,7 +1034,7 @@ document.myForm.x.value
 	</script>
 	<div id="hidden" style="display:none;">
 		<header>
-			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
 		</header>
 	</div>
 </body>

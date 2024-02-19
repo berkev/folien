@@ -1,5 +1,6 @@
 a = "Hello World"; // Zeichenkette (String)
 a = 'Hello World'; // Zeichenkette (String)
+a = `Hello World`; // Template-String
 
 a = 4711; // Zahl (Number)
 a = -34.456E-34; // Zahl (Number)
