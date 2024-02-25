@@ -1669,7 +1669,8 @@ function Dozent(name, fach) {
 }
 
 // Prototypen-Kette setzen "Vererbung"
-Object.assign(Dozent.prototype, Person.prototype);
+//Object.assign(Dozent.prototype, Person.prototype);
+Object.setPrototypeOf(Dozent.prototype, Person.prototype);
 
 Dozent.prototype.bewerten = function (klausur) {
 	if(klausur.fach === this.fach) { /* Impl */ }
@@ -1716,6 +1717,21 @@ class Dozent extends Person {
 new Dozent("Christoph", "WebEngineering1").vorstellen();
 // "Hallo, mein Name ist Christoph"</code></pre>
 				</section>
+			</section>
+			<section>
+				<h3>Mein WAT-Moment</h3>
+				<pre class="language-js">
+					<code class="hljs" data-line-numbers="|1-4|6-9|10-11|">function wat (param1, param2) {
+	console.log(param1);
+	console.log(param2);
+}
+
+wat(
+	true /* Erklaerung */
+	[1, 2]
+)
+//true
+//undefined</code></pre>
 			</section>
 			<section>
 				<section>
