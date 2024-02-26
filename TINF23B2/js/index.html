@@ -1111,7 +1111,8 @@ document.myForm.x.value
 				</section>
 				<section>
 					<h3>JSON vs. XML</h3>
-					<p><a href="https://api.github.com/users/chr1shaefn3r">https://api.github.com/users/chr1shaefn3r</a></p>
+					<p><a href="https://api.github.com/users/chr1shaefn3r">https://api.github.com/users/chr1shaefn3r</a>
+					</p>
 					<pre class="language-json">
 <code class="hljs">{
 	"login": "chr1shaefn3r",
@@ -1123,11 +1124,11 @@ document.myForm.x.value
 }
 </code></pre>
 					<pre class="language-xml fragment">
-<code class="hljs"><user id="11996484" nodeId="MDQ6VXNlcjExOTk2NDg0">
-	<Login>chr1shaefn3r</Login>
-	<AvatarUrl>https://avatars.githubusercontent.com/u/11996484?v=4</AvatarUrl>
-	<name>Christoph Häfner</name>
-</user>
+<code class="hljs">&lt;user id="11996484" nodeId="MDQ6VXNlcjExOTk2NDg0"&gt;
+	&lt;Login&gt;chr1shaefn3r&lt;/Login&gt;
+	&lt;AvatarUrl&gt;https://avatars.githubusercontent.com/u/11996484?v=4&lt;/AvatarUrl&gt;
+	&lt;name&gt;Christoph Häfner&lt;/name&gt;
+&lt;/user&gt;
 </code></pre>
 				</section>
 			</section>
@@ -1238,7 +1239,8 @@ request.send();
 							verfügbar</li>
 						<li class="fragment" data-fragment-index="2">Ist nicht im "Internet Explorer" verfügbar</li>
 						<li class="li-space-above fragment" data-fragment-index="3">Promise-basierte API (<a
-							href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN-Promises</a>)</li>
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN-Promises</a>)
+						</li>
 						<li class="fragment" data-fragment-index="3">Spec: <a
 								href="https://fetch.spec.whatwg.org/">https://fetch.spec.whatwg.org/</a></li>
 					</ul>
@@ -1439,6 +1441,9 @@ console.log(myObject.a); // 2</code></pre>
 						<li>Optional: Lade-Indikator</li>
 					</ul>
 					<p>Github User REST-Api: "https://api.github.com/users/{username}"</p>
+					<aside class="notes">
+						Vorsicht: Github-Rate-Limiting, eine haelfte in 5G die andere ins andere
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -1538,7 +1543,7 @@ whatTheFunctionScope(["wert"]); // 1</code></pre>
 					<p class="fragment">Warum ist die Variable "index" in Zeile 5 noch gültig?!? <span
 							class="fragment">WTF?!?!</span></p>
 					<img class="fragment" src="./images/what-the-fuck-per-minute.png" alt="What the fuck per minute"
-						style="max-height:220px" />
+						style="max-height:220px">
 				</section>
 				<section>
 					<h3>Function-Scope (hoisting)</h3>
@@ -1554,7 +1559,7 @@ whatTheHoisting();
 					<p class="fragment">Warum ist die Variable "index" in Zeile 2 schon verfügbar?!? <span
 							class="fragment">WTF?!?!</span></p>
 					<img class="fragment" src="./images/what-the-fuck-per-minute.png" alt="What the fuck per minute"
-						style="max-height:220px" />
+						style="max-height:220px">
 				</section>
 				<section>
 					<h3>Block-Scope</h3>
@@ -1624,7 +1629,9 @@ do {
 // null</code></pre>
 					<img class="fragment" src="./images/mydate-prototype-chain.svg" alt="Prototype Chain Beispiel Date">
 
-					<p>Quelle: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">MDN</a></p>
+					<p>Quelle: <a
+							href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">MDN</a>
+					</p>
 				</section>
 				<section>
 					<h3>JavaScript Prototypes</h3>
@@ -1656,7 +1663,7 @@ console.log(c.sum()); // 6</code></pre>
 				<section>
 					<h3>JavaScript Prototypes/Vererbung</h3>
 					<pre class="language-js">
-	<code class="hljs" data-line-numbers="|1-6|8-11|13-14|16-18|20-21|" style="min-height: 600px">function Person(name) {
+	<code class="hljs" data-line-numbers="|1-6|8-11|13-15|17-19|21-22|" style="min-height: 610px">function Person(name) {
 	this.name = name;
 }
 Person.prototype.vorstellen = function() {
@@ -1684,11 +1691,11 @@ new Dozent("Christoph", "WebEngineering1").vorstellen();
 					<div class="two-columns-half-half">
 						<div>
 							<p>Prototypes</p>
-							<img src="./images/iron-man-mark-1.png" alt="Iron Man Mark 1 - The Prototype" />
+							<img src="./images/iron-man-mark-1.png" alt="Iron Man Mark 1 - The Prototype">
 						</div>
 						<div class="fragment">
 							<p>ES6: classes</p>
-							<img src="./images/iron-man-mark-3.png" alt="Iron Man Mark 3 - Polished" />
+							<img src="./images/iron-man-mark-3.png" alt="Iron Man Mark 3 - Polished">
 						</div>
 					</div>
 				</section>
@@ -1755,12 +1762,15 @@ wat(
 			<section>
 				<section>
 					<h3>Praxis - Aufgabe 5 - Gallery</h3>
-					<p>Download: <a href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/js/aufgaben/05-gallery/gallery-start.zip">gallery-start.zip</a></p>
+					<p>Download: <a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/js/aufgaben/05-gallery/gallery-start.zip">gallery-start.zip</a>
+					</p>
 					<ul>
 						<li>Implementiert eine Bilder-Gallery<br>und editiert ausschliesslich main.js</li>
 						<li>Implementierungs-Tips: siehe main.js</li>
 					</ul>
-					<p><img src="./aufgaben/05-gallery/gallery-ergebnis.png" height="300" alt="Screenshot Gallery-Ergebnis"></p>
+					<p><img src="./aufgaben/05-gallery/gallery-ergebnis.png" height="300"
+							alt="Screenshot Gallery-Ergebnis"></p>
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 5 - Gallery</h3>
@@ -1769,7 +1779,8 @@ wat(
 						<li>Kommentiert den "Darken" Button in index.html ein</li>
 						<li>Nutzt das bestehende Overlay-Div um eine Verdunklung zu aktivieren/deaktivieren</li>
 					</ul>
-					<p>Sehr Optional: Implementiert Darken ohne Overlay-Div, z.B. mit <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">CSS/filter</a></p>
+					<p>Sehr Optional: Implementiert Darken ohne Overlay-Div, z.B. mit <a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">CSS/filter</a></p>
 				</section>
 			</section>
 			<section>
