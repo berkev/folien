@@ -1,0 +1,11 @@
+{
+  "name": "rechner",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Exercises/Solutions for WebEng1 about express",
+  "author": "Christoph Häfner <haefner.christoph@edu.dhbw-karlsruhe.de>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
