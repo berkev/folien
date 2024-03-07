@@ -73,6 +73,8 @@
 	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
 	WebEng1_NodeJS-Day1_Http-Express-Npm: 1,3-12,16-23
 	WebEng1_NodeJS-Day1-Praxis_Aufgabe0-4: 13-15,24-29
+	WebEng1_NodeJS-Day2_HTML-Generieren-Templates: 1,31-49
+	WebEng1_NodeJS-Day2-Praxis_Aufgabe5-7: 50-55
 -->
 
 <body>
@@ -417,6 +419,419 @@ Content-Type: text/html; charset=utf-8
 				</section>
 			</section>
 			<!-- Ende NodeJS-Day1-->
+			<!-- Start NodeJS-Day2-->
+			<section>
+				<section>
+					<h3>HTML generieren</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/02-nodejs-express/express-html-response.js" data-line-numbers=""></code>
+					</pre>
+					<p>Das erzeugen von HTML-Code ist umständlich!</p>
+				</section>
+				<section>
+					<h3>SSI - Rückblick</h3>
+					<pre class="language-html">
+						<code class="hljs" data-line-numbers="">&lt;body&gt;
+	<h1>Dynamisches HTML mit Server Side Includes</h1>
+	<dl>
+		<dt>Datum/Uhrzeit auf dem Server-Rechner:</dt>
+		<dd>
+			<!--#config timefmt="%d.%m.%Y, %H.%M" -->
+			<!--#echo var="DATE_LOCAL" --> Uhr
+		</dd>
+		<dt>Name dieser HTML-Datei:</dt>
+		<dd>
+			<!--#echo var="DOCUMENT_NAME" -->
+		</dd>
+		<dt>Installierte Server-Software:</dt>
+		<dd>
+			<!--#echo var="SERVER_SOFTWARE" -->
+		</dd>
+		<dt>Ihr Web-Browser:</dt>
+		<dd>
+			<!--#echo var="HTTP_USER_AGENT" -->
+		</dd>
+	</dl>
+&lt;/body&gt;</code>
+					</pre>
+					<p>Quelle: <a href="https://wiki.selfhtml.org/wiki/Webserver/SSI">SelfHTML</a></p>
+				</section>
+				<section>
+					<h3>Vergleich: SSI vs. NodeJS</h3>
+					<div class="two-columns-half-half smaller-font">
+						<div>
+							<h4>SSI</h4>
+							<ul>
+								<li>&lt;h1&gt;abc&lt;/h1&gt;
+									<ul>
+										<li>HTML ist Grundsprache</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="1">&lt;!-- #set var="x" value="1" --&gt;
+									<ul>
+										<li>Für SSI-Befehl aus HTML "heraus springen"</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="2">Pfad entspricht Dateiname</li>
+							</ul>
+						</div>
+						<div>
+							<h4>NodeJS</h4>
+							<ul>
+								<li>response += "&lt;h1&gt;abc&lt;/h1&gt;"
+									<ul>
+										<li>HTML explizit ausgeben</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="1">let x = 1;
+									<ul>
+										<li>JavaScript ist Grundsprache der Datei</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="2">Explizite Zuordnung zu einer URL</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Grundidee: HTML-Seiten mit Einbettungen</h3>
+					<ul>
+						<li>Vorteile
+							<ul>
+								<li>HTML-Struktur leichter lesbar und änderbar</li>
+								<li>Leichter zu managen (IDE Syntaxhighlighting, etc.)</li>
+							</ul>
+						</li>
+						<li class="fragment">Bedingungen
+							<ul>
+								<li>Code hat nur kleinen Anteil</li>
+								<li>Komplexen Code auslagern!</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>PHP - Hypertext Preprocessor</h3>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Ursprünglich: Personal Homepage Tool</li>
+						<li class="fragment" data-fragment-index="2">Frei Verfügbar</li>
+						<li class="fragment" data-fragment-index="3">Große Auswahl an Bibliotheken</li>
+						<li class="fragment" data-fragment-index="4">Für viele Betriebssysteme und Webserver verfügbar
+						</li>
+						<li class="fragment li-space-above" data-fragment-index="5">Skriptsprache</li>
+						<li class="fragment" data-fragment-index="5">(Für große und komplexe Systeme nur bedingt
+							geeignet.)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>PHP - Hypertext Preprocessor</h3>
+					<h4>HTML Formular</h4>
+					<pre class="fragment language-html">
+						<code class="hljs">&lt;form action="action.php" method="post"&gt;
+	<p>Ihr Name: <input type="text" name="name" /></p> 
+	<p>Ihr Alter: <input type="text" name="alter" /></p> 
+	<p><input type="submit" /></p> 
+&lt;/form&gt;</code>
+					</pre>
+					<h4>PHP Ergebnisseite</h4>
+					<pre class="fragment language-php">
+					<code class="hljs">&lt;p&gt;
+	Hallo &lt;?php echo $_POST['name']; ?&gt;.
+	Sie sind &lt;?php echo $_POST['alter']; ?&gt; Jahre alt.
+&lt;/p&gt;</code>
+				</pre>
+					<ul>
+						<li class="fragment">Pragma "&lt;?php" und "?&gt;" für PHP-Codeblöcke</li>
+						<li class="fragment">Vorsicht: Kein gültiges HTML!</li>
+						<li class="fragment">HTML via "echo" ausgegeben</li>
+					</ul>
+				</section>
+				<section>
+					<h3>ASP.NET - Active Server Pages</h3>
+					<ul>
+						<li class="fragment">Weiterentwicklung von ASP<br />(mit Einführung von ASP.NET 2002
+							eingestellt)</li>
+						<li class="fragment">C# als Haupt-Programmiersprache,<br />aber auch VB verfügbar</li>
+						<li class="fragment">Bindung an .NET Framework von Microsoft,<br />aber inzwischen Open-Source
+							(seit 2020)</li>
+						<li class="fragment li-space-above">Mit C# auch für größere Systeme geeignet</li>
+					</ul>
+				</section>
+				<section>
+					<h3>ASP.NET - Active Server Pages</h3>
+					<pre class="language-html">
+						<code class="hljs" data-line-numbers="|2|8-16|3-7|">&lt;body&gt;
+	@{ if (IsPost) { 
+		string companyname = Request["CompanyName"]; 
+		string contactname = Request["ContactName"]; 
+		<p>You entered: <br> 
+		Company Name: @companyname <br> 
+		Contact Name: @contactname </p> 
+	} else {
+		<form method="post" action="">
+			Company Name:<br> 
+			<input type="text" name="CompanyName" value=""><br>
+			Contact Name:<br><br>
+			<input type="text" name="ContactName" value=""><br>
+			<input type="submit" value="Submit" class="submit">
+		</form> 
+	} }
+&lt;/body&gt;</code>
+					</pre>
+					<ul>
+						<li class="fragment">Pragma "@{" und "}" für C#-Codeblöcke</li>
+						<li class="fragment">Vorsicht: Kein gültiges HTML!</li>
+						<li class="fragment">HTML ohne zusätzliche Syntax ausgegeben</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JSP - Java Server Pages</h3>
+					<ul>
+						<li class="fragment">JSP ist Bestandteil von Java EE (Enterprise Edition)</li>
+						<li class="fragment">Große Auswahl an Bibliotheken und Infrastruktur</li>
+						<li class="fragment">Java als Haupt-Programmiersprache</li>
+						<li class="fragment">Application Server interpretierien JSP-Dateien<br />on-the-fly: JSP zu Java
+							zu Bytecode
+							Übersetzung</li>
+						<li class="fragment li-space-above">Für größere Systeme geeignet</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JSP - Java Server Pages</h3>
+					<h4>HTML Formular</h4>
+					<pre class="fragment language-html">
+						<code class="hljs">&lt;form action="/action" method="post"&gt;
+	<p>Ihr Name: <input type="text" name="name" /></p> 
+	<p>Ihr Alter: <input type="text" name="alter" /></p> 
+	<p><input type="submit" /></p> 
+&lt;/form&gt;</code>
+					</pre>
+					<h4>JSP Ergebnisseite</h4>
+					<pre class="fragment language-java">
+					<code class="hljs">&lt;p&gt;
+	Hallo &lt;% out.println(request.getParameter("name")); %&gt;.
+	Sie sind &lt;% out.println(request.getParameter("alter")); %&gt; Jahre alt.
+&lt;/p&gt;</code>
+				</pre>
+					<ul>
+						<li class="fragment">Pragma "&lt;%" und "%&gt;" für Java-Codeblöcke</li>
+						<li class="fragment">Vorsicht: Kein gültiges HTML!</li>
+						<li class="fragment">HTML via "out.println" ausgegeben</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Express - Templates</h3>
+					<ol class="smaller-font">
+						<li class="fragment">Template Engine registrieren: <a
+								href="https://expressjs.com/en/4x/api.html#app.engine">app.engine(ext, callback)</a>
+							<ul>
+								<li>ext: Standard Dateiendung, String</li>
+								<li>callback: Render Funktion der Template-Engine, Funktion</li>
+							</ul>
+						</li>
+						<li class="fragment">Template rendern:<br /><a
+								href="https://expressjs.com/en/4x/api.html#res.render">res.render(view [, locals] [,
+								callback])</a>
+							<ul>
+								<li>view: Pfad zur Template-Datei, String</li>
+								<li>locals: Template-Parameter, Objekt</li>
+								<li>callback: wird mit (err, html) gerufen. html muss selbst zurückgesendet werden
+									(res.send)</li>
+							</ul>
+						</li>
+						<li class="fragment">App-Einstellungen: <a
+								href="https://expressjs.com/en/4x/api.html#app.set">app.set(name,
+								value)</a>
+							<ul>
+								<li>views: Pfad zum Ordner, String|Array</li>
+								<li>view engine: Standard Dateiendung, String</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Express - Templates</h3>
+					<img src="./images/fluch-und-segen.webp" alt="Fluch und Segen Schild" />
+				</section>
+				<section>
+					<h3>Express - Templates</h3>
+					<ul>
+						<li>Segen
+							<ul class="fragment">
+								<li><a href="https://expressjs.com/en/resources/template-engines.html">Große Auswahl an
+										Template-Engines</a></li>
+								<li>Eigene (potentiell properitäre) Template-Engine kann mitgebracht werden</li>
+								<li>Bei großer Auswahl ist für jeden das richtige dabei</li>
+							</ul>
+						</li>
+						<li>Fluch
+							<ul class="fragment">
+								<li>Ist das OSS-Projekt noch aktiv? Security-Patches?</li>
+								<li>Schwer zu vergleichen (Syntax, Features, Tooling)</li>
+								<li>Projektwechsel schwieriger</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment">Wir werden "<a href="https://npmjs.com/package/eta">eta</a>" (<a
+							href="https://eta.js.org/">eta.js.org</a>) nutzen, v3. <span class="fragment">Muss
+							via<br>"npm
+							install eta" installiert werden!</span></p>
+				</section>
+				<section>
+					<h3>Express - Eta - Hello World</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/03-nodejs-templates/express-eta-hello-world.js" data-line-numbers="|1-3|5-6|8-10|12-14|"></code>
+					</pre>
+					<p>Im Browser öffnen: "<a href="http://localhost:8000/">http://localhost:8000/</a>"</p>
+				</section>
+				<section>
+					<h3>Express - Eta - Hello World</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/03-nodejs-templates/views/hello-world.eta" data-line-numbers="|2|3-11|9|"></code>
+					</pre>
+					<ul>
+						<li class="fragment">Pragma "&lt;%" und "%&gt;" für JavaScript-Codeblöcke<br />Aber: Reservierte
+							Variablen, z.B.
+							"it"</li>
+						<li class="fragment">Vorsicht: Kein gültiges HTML!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Express - Eta - Pragmas</h3>
+					<ul>
+						<li>"&lt;%" und "%&gt;", JavaScript-Codeblock</li>
+					</ul>
+					<pre class="language-html">
+						<code class="hljs" data-line-numbers=""><% if(it.somevalue === 1) { %>
+	<p>Display this paragraph</p>
+<% } else { %>
+	<p>Display this instead paragraph instead</p>
+<% } %></code>
+					</pre>
+					<p class="fragment">Spezialvariable: "it"<br />enthält das gesamte Parameterobjekt</p>
+					<p class="fragment">Nach wie vor gilt: Logik von Darstellung trennen(!!)</p>
+				</section>
+				<section>
+					<h3>Express - Eta - Pragmas</h3>
+					<ul>
+						<li>"&lt;%=" Expressions
+							<ul>
+								<li>Ergebnis des JavaScript-Ausdrucks wird ausgegeben (escaped!)</li>
+							</ul>
+						</li>
+						<li class="fragment">"&lt;%~" Raw Expressions
+							<ul>
+								<li>Ergebnis des JavaScript-Ausdrucks wird ausgegeben (raw!, <a
+										href="https://netsec.expert/images/session_id_meme.jpg">Careful: XSS!</a>)</li>
+							</ul>
+						</li>
+						<li class="fragment">"&lt;%~ includeFile('./footer')" Partial
+							<ul>
+								<li>Inhalt der Datei wird ausgegeben (raw!)</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment"><a href="https://eta.js.org/docs/syntax">Eta Syntax Dokumentation</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Express - Statische Dateien</h3>
+					<p>Bisher: Reine HTML/JSON/Plain-Text antworten auf HTTP-Anfragen.</p>
+					<p class="fragment">Aber: Für eine vollständige Website fehlen noch (mindestens) CSS-Dateien und
+						Bilder</p>
+					<ul class="fragment">
+						<li><a href="https://expressjs.com/en/api.html#express.static">express.static(root,
+								[options])</a>
+							<ul>
+								<li>Gibt eine Middleware zurück</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment">Vorsicht: Node.JS+Express sind schnarch langsam statische Dateien auszuliefern.
+						In Produktion CDN/Load Balancer/Caches/Web-Server nutzen.</p>
+				</section>
+				<section>
+					<h3>Express - Statische Dateien</h3>
+					<pre class="language-javascript">
+						<code class="hljs" data-code="./code-examples/04-nodejs-express-static/express-static.js" data-line-numbers="|1|2|5-6|8-10|12-14|"></code>
+					</pre>
+					<p>Im Browser öffnen: "<a href="http://localhost:8000/">http://localhost:8000/</a>"</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Aufgabe 5 - Name - Eta</h3>
+					<p>Erstellt einen Node.JS-Server der eine Seite mit einer Überschrift und einem Formular mit einem
+						Eingabefeld generiert.
+					<ul>
+						<li>Im Eingabefeld wird nach dem Namen gefragt:<br />"Wie ist dein Name?"</li>
+						<li>Falls noch kein Name angegeben wurde lautet die Überschrift "Hallo Du Da".</li>
+						<li>Falls ein Name angegeben wurde lautet die Überschrift "Hallo &lt;name&gt;".</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 6 - Rechner - Eta</h3>
+					<p>Programmiert einen kleinen Rechner
+					<ul>
+						<li>Formular für zwei Operanden als auch die Rechenoperation</li>
+						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
+							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
+					</ul>
+					</p>
+					<h4>Zusatz</h4>
+					<p>Bei Eingabe nicht-nummerischer Werte: Passende Fehlermeldung an passender Stelle</p>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 7 - Zähler</h3>
+					<p>Zählt die Anzahl der Seitenaufrufe mit einer Instanz-Variable und gebt die Anzahl auf der
+						Seite aus.</p>
+					<h4>Zusatz</h4>
+					<p>Unterscheidet verschiedene Nutzer und gebt spezifische Anzahl an Seitenaufrufen aus (Tipp:
+						HTTP-Header, User-Agent)</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Lösung - Aufgabe 5 - Name - Eta</h3>
+					<p>
+						<a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/05-name-eta/">TINF23B2/nodejs/aufgaben/<br>05-name-eta/</a>
+					</p>
+					<p>
+						<a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/05-name-eta/loesung-http-name-server-eta.js">TINF23B2/nodejs/aufgaben/<br>05-name-eta/loesung-http-name-server-eta.js</a>
+					</p>
+				</section>
+				<section>
+					<h3>Lösung - Aufgabe 6 - Rechner - Eta</h3>
+					<p>
+						<a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/06-rechner-eta/">TINF23B2/nodejs/aufgaben/<br>06-rechner-eta/</a>
+					</p>
+					<p>
+						<a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/06-rechner-eta/loesung-http-rechner-server-eta.js">TINF23B2/nodejs/aufgaben/<br>06-rechner-eta/loesung-http-rechner-server-eta.js</a>
+					</p>
+				</section>
+				<section>
+					<h3>Lösung - Aufgabe 7 - Zähler</h3>
+					<p>
+						<a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/07-zaehler/">TINF23B2/nodejs/aufgaben/<br>07-zaehler/</a>
+					</p>
+					<p>
+						<a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/07-zaehler/loesung-http-zaehler.js">TINF23B2/nodejs/aufgaben/<br>07-zaehler/loesung-http-zaehler.js</a>
+					</p>
+				</section>
+			</section>
+			<!-- Ende NodeJS-Day2-->
 		</div>
 	</div>
 
