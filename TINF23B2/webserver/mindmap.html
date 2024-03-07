@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markmap</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mindmap {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="mindmap"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.3.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.7"></script>
+  <script>
+    const { Markmap } = window.markmap;
+    Markmap.create("svg#mindmap", null, {
+      "t": "heading", "d": 1, "v": "Webserver",
+      "c": [
+        {
+          "t": "heading", "d": 2, "v": "Aufgaben",
+        }, {
+          "t": "heading", "d": 2, "v": "Prozessmodelle",
+        }, {
+          "t": "heading", "d": 2, "v": "Getrennte Prozesse",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Server Side Includes"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Common Gateway Interface"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "Eingebetteter Prozess",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "Apache Module"
+            },
+            {
+              "t": "list_item", "d": 4, "v": "Information Server API"
+            }
+          ]
+        }, {
+          "t": "heading", "d": 2, "v": "ohne",
+          "c": [
+            {
+              "t": "list_item", "d": 4, "v": "NodeJS"
+            }, {
+              "t": "list_item", "d": 4, "v": "Java",
+            }
+          ]
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
