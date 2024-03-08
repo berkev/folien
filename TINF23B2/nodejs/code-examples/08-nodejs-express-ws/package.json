@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-express-ws",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Code examples for WebEng1 about express and websocket",
+  "author": "Christoph Häfner <haefner.christoph@edu.dhbw-karlsruhe.de>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.3",
+    "ws": "^8.16.0"
+  }
+}
