@@ -5,9 +5,20 @@ const app = express();
 
 // Read form data form body
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static("./static"))
 
 // Initialize template engine "eta"
 const eta = new Eta({ views: path.join(__dirname, "views") })
+
+// Easter-Egg Middleware
+app.use((req, res, next) => {
+    let o1 = parseInt(req.body.operand1)
+    let o2 = parseInt(req.body.operand2)
+    if (o1 === 42 || o2 === 42) {
+        return res.redirect("/42")
+    }
+    next();
+})
 
 app.get("/", (_req, res) => {
     res.send(eta.render("calc.html", {
@@ -15,7 +26,7 @@ app.get("/", (_req, res) => {
         operand1: "",
         operand2: "",
         operator: ""
-    }));
+    }))
 })
 
 app.post("/", (req, res) => {
@@ -33,7 +44,7 @@ app.post("/", (req, res) => {
             operand1: o1,
             operand2: o2,
             operator: operator
-        }));
+        }))
     }
 
 
@@ -42,7 +53,7 @@ app.post("/", (req, res) => {
         operand1: o1,
         operand2: o2,
         operator: operator
-    }));
+    }))
 })
 
 const port = 8000;

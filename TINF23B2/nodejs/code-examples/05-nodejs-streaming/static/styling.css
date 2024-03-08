@@ -1,0 +1,12 @@
+* {
+    border: 2px solid red;
+}
+
+body {
+    background-color: grey;
+    margin: 42px;
+}
+
+h1 {
+    color: blue;
+}

@@ -1,8 +1,8 @@
 {
-  "name": "hello",
+  "name": "nodejs-express-middlewares",
   "private": true,
   "version": "1.0.0",
-  "description": "Exercises/Solutions for WebEng1 about express",
+  "description": "Code examples for WebEng1 about express",
   "author": "Christoph Häfner <haefner.christoph@edu.dhbw-karlsruhe.de>",
   "license": "MIT",
   "dependencies": {
