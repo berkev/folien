@@ -121,21 +121,19 @@
 				</section>
 				<section>
 					<h3>NodeJS</h3>
-					<p>Vorteile:
+					<p>Vorteile:</p>
 					<ul>
 						<li class="fragment">Asynchrone Performanz</li>
 						<li class="fragment">Mächtige Programmiersprache und Programmierumgebung: JavaScript +
 							Npm-Module</li>
 						<li class="fragment">Plattformunabhängig</li>
 					</ul>
-					</p>
-					<p class="fragment">Nachteile:
+					<p class="fragment">Nachteile:</p>
 					<ul>
 						<li class="fragment">Code kann Server zum Absturz bringen</li>
 						<li class="fragment">Bindung an Programmiersprache JavaScript (<a
 								href="https://giphy.com/gifs/gene-wilder-8OlT82jKm6Ugg">yikes</a>)</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
@@ -148,6 +146,20 @@
 						<code class="hljs" data-code="./code-examples/01-nodejs-http/http-request-event.js" data-line-numbers="|1-3|4|4-11|13|"></code>
 					</pre>
 					<p>'res.end' MUSS immer aufgerufen werden</p>
+				</section>
+				<section>
+					<h3>NodeJS Server starten</h3>
+					<h4>Konsole</h4>
+					<pre class="language-bash">
+						<code class="hljs">$ cd WebEng/
+$ ls
+server.js
+$ node server.js</code>
+					</pre>
+					<h4>IDE</h4>
+					<p><a href="https://code.visualstudio.com/docs/nodejs/nodejs-tutorial">VSCode Node.js Tutorial</a> <a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">(+ Debugging)</a></p>
+					<h4>Reload</h4>
+					<p>Nach jeder Dateiänderung:<br>Server stoppen und neustarten!<br>F5 im Browser reicht nicht!</p>
 				</section>
 				<section>
 					<h3>NodeJS http - ganz kurz</h3>
@@ -247,7 +259,7 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>Praxis - Aufgabe 1 - Echo</h3>
 					<p>Implementiere einen Echo-Server.<br>Bei einem GET-Request soll die URL (als plain text)
-						zurückgegeben werden.<br>Bei einem POST-Request soll der Inhalt zurückgegeben werden.</p>
+						zurückgegeben werden.<br>Bei einem POST-Request soll der Request-Inhalt (Body) zurückgegeben werden.</p>
 					<h4>Zusatz</h4>
 					<p>Start des Servers (bereit Anfragen entgegenzunehmen) wird auf der Konsole ausgeben</p>
 					<p>Herunterfahren des Servers wird auf der Konsole ausgeben (Tip: Strg+C -> 'SIGINT', process.on)
@@ -337,37 +349,34 @@ Content-Type: text/html; charset=utf-8
 					<h3>Praxis - Aufgabe 2 - Hello</h3>
 					<p>Erstellt einen Node.JS Server der per GET- und POST-Methode aufgerufen werden
 						kann (z.B. via zwei Buttons in zwei Formularen)</p>
-					<p>Programmiert den Node.JS Server, sodass:
+					<p>Programmiert den Node.JS Server, sodass:</p>
 					<ul>
 						<li>ein HTML-Dokument "Hello World from GET" mit Url bei einer get-Anfrage zurückgeliefert wird
 						</li>
 						<li>ein HTML-Dokument "Hello World from POST" mit Body bei einer post-Anfrage zurückgeliefert
 							wird</li>
 					</ul>
-					</p>
 					<h4>Zusatz</h4>
 					<p>Gebt im HTML-Dokument die aktuelle Uhrzeit aus</p>
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 3 - Name</h3>
 					<p>Erstellt einen Node.JS-Server der eine Seite mit einer Überschrift und einem Formular mit einem
-						Eingabefeld generiert.
+						Eingabefeld generiert.</p>
 					<ul>
 						<li>Im Eingabefeld wird nach dem Namen gefragt:<br>"Wie ist dein Name?"</li>
 						<li>Falls noch kein Name angegeben wurde lautet die Überschrift "Hallo Du Da".</li>
 						<li>Falls ein Name angegeben wurde lautet die Überschrift "Hallo &lt;name&gt;".</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 4 - Rechner</h3>
-					<p>Programmiert einen kleinen Rechner
+					<p>Programmiert einen kleinen Rechner</p>
 					<ul>
 						<li>Formular für zwei Operanden als auch die Rechenoperation</li>
 						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
 							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
 					</ul>
-					</p>
 					<h4>Zusatz</h4>
 					<p>Bei Eingabe nicht-nummerischer Werte: Passende Fehlermeldung an passender Stelle</p>
 				</section>
