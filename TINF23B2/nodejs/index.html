@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de">
 
 <head>
 	<meta charset="utf-8">
@@ -432,8 +432,8 @@ Content-Type: text/html; charset=utf-8
 					<h3>SSI - Rückblick</h3>
 					<pre class="language-html">
 						<code class="hljs" data-line-numbers="">&lt;body&gt;
-	<h1>Dynamisches HTML mit Server Side Includes</h1>
-	<dl>
+	&lt;h1&gt;Dynamisches HTML mit Server Side Includes&lt;/h1&gt;
+	&lt;dl&gt;
 		<dt>Datum/Uhrzeit auf dem Server-Rechner:</dt>
 		<dd>
 			<!--#config timefmt="%d.%m.%Y, %H.%M" -->
@@ -451,7 +451,7 @@ Content-Type: text/html; charset=utf-8
 		<dd>
 			<!--#echo var="HTTP_USER_AGENT" -->
 		</dd>
-	</dl>
+	&lt;/dl&gt;
 &lt;/body&gt;</code>
 					</pre>
 					<p>Quelle: <a href="https://wiki.selfhtml.org/wiki/Webserver/SSI">SelfHTML</a></p>
@@ -530,9 +530,9 @@ Content-Type: text/html; charset=utf-8
 					<h4>HTML Formular</h4>
 					<pre class="fragment language-html">
 						<code class="hljs">&lt;form action="action.php" method="post"&gt;
-	<p>Ihr Name: <input type="text" name="name" /></p> 
-	<p>Ihr Alter: <input type="text" name="alter" /></p> 
-	<p><input type="submit" /></p> 
+	&lt;p&gt;Ihr Name: &lt;input type="text" name="name"&gt;&lt;/p&gt;
+	&lt;p&gt;Ihr Alter: &lt;input type="text" name="alter"&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;input type="submit"&gt;&lt;/p&gt;
 &lt;/form&gt;</code>
 					</pre>
 					<h4>PHP Ergebnisseite</h4>
@@ -551,10 +551,10 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>ASP.NET - Active Server Pages</h3>
 					<ul>
-						<li class="fragment">Weiterentwicklung von ASP<br />(mit Einführung von ASP.NET 2002
+						<li class="fragment">Weiterentwicklung von ASP<br>(mit Einführung von ASP.NET 2002
 							eingestellt)</li>
-						<li class="fragment">C# als Haupt-Programmiersprache,<br />aber auch VB verfügbar</li>
-						<li class="fragment">Bindung an .NET Framework von Microsoft,<br />aber inzwischen Open-Source
+						<li class="fragment">C# als Haupt-Programmiersprache,<br>aber auch VB verfügbar</li>
+						<li class="fragment">Bindung an .NET Framework von Microsoft,<br>aber inzwischen Open-Source
 							(seit 2020)</li>
 						<li class="fragment li-space-above">Mit C# auch für größere Systeme geeignet</li>
 					</ul>
@@ -592,7 +592,7 @@ Content-Type: text/html; charset=utf-8
 						<li class="fragment">JSP ist Bestandteil von Java EE (Enterprise Edition)</li>
 						<li class="fragment">Große Auswahl an Bibliotheken und Infrastruktur</li>
 						<li class="fragment">Java als Haupt-Programmiersprache</li>
-						<li class="fragment">Application Server interpretierien JSP-Dateien<br />on-the-fly: JSP zu Java
+						<li class="fragment">Application Server interpretierien JSP-Dateien<br>on-the-fly: JSP zu Java
 							zu Bytecode
 							Übersetzung</li>
 						<li class="fragment li-space-above">Für größere Systeme geeignet</li>
@@ -603,9 +603,9 @@ Content-Type: text/html; charset=utf-8
 					<h4>HTML Formular</h4>
 					<pre class="fragment language-html">
 						<code class="hljs">&lt;form action="/action" method="post"&gt;
-	<p>Ihr Name: <input type="text" name="name" /></p> 
-	<p>Ihr Alter: <input type="text" name="alter" /></p> 
-	<p><input type="submit" /></p> 
+	&lt;p&gt;Ihr Name: &lt;input type="text" name="name"&gt;&lt;/p&gt;
+	&lt;p&gt;Ihr Alter: &lt;input type="text" name="alter"&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;input type="submit"&gt;&lt;/p&gt;
 &lt;/form&gt;</code>
 					</pre>
 					<h4>JSP Ergebnisseite</h4>
@@ -633,7 +633,7 @@ Content-Type: text/html; charset=utf-8
 								<li>callback: Render Funktion der Template-Engine, Funktion</li>
 							</ul>
 						</li>
-						<li class="fragment">Template rendern:<br /><a
+						<li class="fragment">Template rendern:<br><a
 								href="https://expressjs.com/en/4x/api.html#res.render">res.render(view [, locals] [,
 								callback])</a>
 							<ul>
@@ -694,7 +694,7 @@ Content-Type: text/html; charset=utf-8
 						<code class="hljs" data-code="./code-examples/03-nodejs-templates/views/hello-world.eta" data-line-numbers="|2|3-11|9|"></code>
 					</pre>
 					<ul>
-						<li class="fragment">Pragma "&lt;%" und "%&gt;" für JavaScript-Codeblöcke<br />Aber: Reservierte
+						<li class="fragment">Pragma "&lt;%" und "%&gt;" für JavaScript-Codeblöcke<br>Aber: Reservierte
 							Variablen, z.B.
 							"it"</li>
 						<li class="fragment">Vorsicht: Kein gültiges HTML!</li>
@@ -706,13 +706,13 @@ Content-Type: text/html; charset=utf-8
 						<li>"&lt;%" und "%&gt;", JavaScript-Codeblock</li>
 					</ul>
 					<pre class="language-html">
-						<code class="hljs" data-line-numbers=""><% if(it.somevalue === 1) { %>
-	<p>Display this paragraph</p>
-<% } else { %>
-	<p>Display this instead paragraph instead</p>
-<% } %></code>
+						<code class="hljs" data-line-numbers="">&lt;% if(it.somevalue === 1) { %&gt;
+	&lt;p&gt;Display this paragraph&lt;/p&gt;
+&lt;% } else { %&gt;
+	&lt;p&gt;Display this instead paragraph instead&lt;/p&gt;
+&lt;% } %&gt;</code>
 					</pre>
-					<p class="fragment">Spezialvariable: "it"<br />enthält das gesamte Parameterobjekt</p>
+					<p class="fragment">Spezialvariable: "it"<br>enthält das gesamte Parameterobjekt</p>
 					<p class="fragment">Nach wie vor gilt: Logik von Darstellung trennen(!!)</p>
 				</section>
 				<section>
@@ -767,23 +767,21 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>Praxis - Aufgabe 5 - Name - Eta</h3>
 					<p>Erstellt einen Node.JS-Server der eine Seite mit einer Überschrift und einem Formular mit einem
-						Eingabefeld generiert.
+						Eingabefeld generiert.</p>
 					<ul>
-						<li>Im Eingabefeld wird nach dem Namen gefragt:<br />"Wie ist dein Name?"</li>
+						<li>Im Eingabefeld wird nach dem Namen gefragt:<br>"Wie ist dein Name?"</li>
 						<li>Falls noch kein Name angegeben wurde lautet die Überschrift "Hallo Du Da".</li>
 						<li>Falls ein Name angegeben wurde lautet die Überschrift "Hallo &lt;name&gt;".</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 6 - Rechner - Eta</h3>
-					<p>Programmiert einen kleinen Rechner
+					<p>Programmiert einen kleinen Rechner</p>
 					<ul>
 						<li>Formular für zwei Operanden als auch die Rechenoperation</li>
 						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
 							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
 					</ul>
-					</p>
 					<h4>Zusatz</h4>
 					<p>Bei Eingabe nicht-nummerischer Werte: Passende Fehlermeldung an passender Stelle</p>
 				</section>
