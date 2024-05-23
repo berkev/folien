@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de">
 
 <head>
 	<meta charset="utf-8">
@@ -85,9 +85,9 @@
 				</p>
 				<div class="r-stack">
 					<img class="fragment" data-fragment-index="1" src="./images/rechenzentrum.jpg"
-						alt="Rechenzentrum Witz" width="361" height="275" />
+						alt="Rechenzentrum Witz" width="361" height="275">
 					<img class="fragment" data-fragment-index="2" src="./images/rechenzentrum2.jpg"
-						alt="Rechenzentrum Echt" width="920" height="394" />
+						alt="Rechenzentrum Echt" width="920" height="394">
 				</div>
 			</section>
 			<section>
@@ -98,16 +98,16 @@
 				<section>
 					<h3>Bisher: lokale Datei-Ablage</h3>
 					<p>
-						Browser greift direkt auf lokale Dateien zu<br />"file"-Protokoll
+						Browser greift direkt auf lokale Dateien zu<br>"file"-Protokoll
 					</p>
-					<img src="./images/Webserver_lokale-datei-ablage.svg" alt="Webserver: Lokale Datei-Ablage" />
+					<img src="./images/Webserver_lokale-datei-ablage.svg" alt="Webserver: Lokale Datei-Ablage">
 				</section>
 				<section>
 					<h3>Jetzt: mit Web-Server</h3>
 					<p>
-						Browser ruft Website von einem Web-Server ab<br />"http"-Protokoll
+						Browser ruft Website von einem Web-Server ab<br>"http"-Protokoll
 					</p>
-					<img src="./images/Webserver_http-abfrage.svg" alt="Webserver: HTTP-basierte Abfrage" />
+					<img src="./images/Webserver_http-abfrage.svg" alt="Webserver: HTTP-basierte Abfrage">
 				</section>
 				<section>
 					<h3>Lokal vs. Web-Server</h3>
@@ -117,7 +117,7 @@
 							<ul>
 								<li class="fragment" data-fragment-index="1">Schema "file"</li>
 								<li class="fragment" data-fragment-index="2">Rechte des Benutzers der Browser
-									öffnet<br />.
+									öffnet<br>.
 								</li>
 								<li class="fragment" data-fragment-index="3">Nur "lokaler" Zugriff</li>
 							</ul>
@@ -127,7 +127,7 @@
 							<ul>
 								<li class="fragment" data-fragment-index="1">Schema "http(s)"</li>
 								<li class="fragment" data-fragment-index="2">Rechte des Benutzers der Web-Server
-									startet<br />(&plusmn; Server-Einstellungen)</li>
+									startet<br>(&plusmn; Server-Einstellungen)</li>
 								<li class="fragment" data-fragment-index="3">Zugriff von "überall"</li>
 								<li class="fragment" data-fragment-index="4">Möglichkeit zur dynamischen Erzeugung der
 									HTML-Seite</li>
@@ -179,7 +179,7 @@
 						<li class="fragment">Anfrage interpretieren
 							<ul>
 								<li>Parameter auslesen</li>
-								<li>Inhalt der Antwort erzeugen<br />statisch oder dynamisch</li>
+								<li>Inhalt der Antwort erzeugen<br>statisch oder dynamisch</li>
 							</ul>
 						</li>
 						<li class="fragment">Antwort senden</li>
@@ -204,15 +204,15 @@
 						nur Individualanteil selbst machen
 					</p>
 					<img class="fragment" src="./images/grundidee-dynamisches-erzeugen.svg"
-						alt="Grundidee: Dynamisches erzeugen" />
+						alt="Grundidee: Dynamisches erzeugen">
 				</section>
 				<section>
 					<h3>Erste Idee: Getrennte Prozesse</h3>
-					<img style="width: 90%" src="./images/getrennte_prozesse.svg" alt="Getrennte Prozesse" />
+					<img style="width: 90%" src="./images/getrennte_prozesse.svg" alt="Getrennte Prozesse">
 				</section>
 				<section>
 					<h3>Alternativ: Eingebetteter Prozess</h3>
-					<img style="width: 90%" src="./images/eingebetteter_prozess.svg" alt="Eingebetteter Prozess" />
+					<img style="width: 90%" src="./images/eingebetteter_prozess.svg" alt="Eingebetteter Prozess">
 				</section>
 			</section>
 			<section>
@@ -221,7 +221,7 @@
 					<p>Template-Ansatz: Tags innerhalb der HTML-Datei (.shtlm, .shtm, .sht)</p>
 					<p class="fragment" data-fragment-index="1">&lt;!--#SSI-Befehl parametername="parameterwert" --&gt;
 					</p>
-					<p class="fragment" data-fragment-index="2">Ausführen einfacher Anweisungen, z.B.:
+					<p class="fragment" data-fragment-index="2">Ausführen einfacher Anweisungen, z.B.:</p>
 					<ul class="smaller-font">
 						<li class="fragment" data-fragment-index="2">#include &ndash; andere Dateien einfügen
 							(file/virtual)</li>
@@ -233,14 +233,13 @@
 						<li class="fragment" data-fragment-index="5">Globale Variable: DATE_LOCAL, DOCUMENT_NAME,
 							DOCUMENT_URI, LAST_MODIFIED</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>SSI - Beispiel</h3>
 					<pre class="language-html">
 						<code class="hljs" data-line-numbers="|4-8|6-7|11">&lt;body&gt;
-	<h1>Dynamisches HTML mit Server Side Includes</h1>
-	<dl>
+	&lt;h1&gt;Dynamisches HTML mit Server Side Includes&lt;/h1&gt;
+	&lt;dl&gt;
 		<dt>Datum/Uhrzeit auf dem Server-Rechner:</dt>
 		<dd>
 			<!--#config timefmt="%d.%m.%Y, %H.%M" -->
@@ -258,27 +257,25 @@
 		<dd>
 			<!--#echo var="HTTP_USER_AGENT" -->
 		</dd>
-	</dl>
+	&lt;/dl&gt;
 &lt;/body&gt;</code>
 					</pre>
 					<p>Quelle: <a href="https://wiki.selfhtml.org/wiki/Webserver/SSI">SelfHTML</a></p>
 				</section>
 				<section>
 					<h3>SSI - Server Side Includes</h3>
-					<p>Vorteile:
+					<p>Vorteile:</p>
 					<ul class="fragment">
 						<li>Einfach</li>
 						<li>Für alle gängigen Webserver verfügbar</li>
 					</ul>
-					</p>
-					<p>Nachteile:
+					<p>Nachteile:</p>
 					<ul class="fragment">
 						<li>Wenige Möglichkeiten</li>
 						<li>Langsam - üblicherweise getrennte Prozesse</li>
 						<li>Sehr wenig Infrastruktur für komplexe Anwendungen</li>
 						<li>Obsolete technik, schwindende Unterstützung</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>CGI - Common Gateway Interface</h3>
@@ -286,21 +283,20 @@
 				</section>
 				<section>
 					<h3>Erste Idee: Getrennte Prozesse</h3>
-					<img style="width: 90%"  src="./images/getrennte_prozesse_cgi.svg" alt="Getrennte Prozesse mit CGI" />
+					<img style="width: 90%" src="./images/getrennte_prozesse_cgi.svg" alt="Getrennte Prozesse mit CGI">
 				</section>
 				<section>
 					<h3>CGI - Common Gateway Interface</h3>
 					<p>Standardisiert als <a href="https://tools.ietf.org/html/rfc3875">RFC3875</a></p>
-					<p>HTTP &ndash; Aufruf wird an Prozess weitergereicht
+					<p>HTTP &ndash; Aufruf wird an Prozess weitergereicht</p>
 					<ul>
-						<li class="fragment">Üblicherweise Aufruf von Skripten<br />(z.B. PERL, PHP, Python)</li>
-						<li class="fragment">Übergabe von URI und POST-Daten<br />mittels stdin und Umgebungsvariablen
+						<li class="fragment">Üblicherweise Aufruf von Skripten<br>(z.B. PERL, PHP, Python)</li>
+						<li class="fragment">Übergabe von URI und POST-Daten<br>mittels stdin und Umgebungsvariablen
 						</li>
 						<li class="fragment">Rückgabe des HTML-Dokuments via stdout</li>
-						<li class="fragment">Starten eines Prozesses bei jedem Aufruf<br />(Ausnahmen, z.B. spezielles
+						<li class="fragment">Starten eines Prozesses bei jedem Aufruf<br>(Ausnahmen, z.B. spezielles
 							Apache-Modul)</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>CGI - Beispiel</h3>
@@ -326,18 +322,16 @@ print "&lt;/body&gt;&lt;/html&gt;\n";</code>
 				</section>
 				<section>
 					<h3>CGI - Common Gateway Interface</h3>
-					<p>Vorteile:
+					<p>Vorteile:</p>
 					<ul class="fragment">
 						<li>Für alle gängigen Webserver verfügbar</li>
 						<li>Für viele (Skript-)Sprachen verfügbar</li>
 					</ul>
-					</p>
-					<p>Nachteile:
+					<p>Nachteile:</p>
 					<ul class="fragment">
 						<li>Langsam - üblicherweise getrennte Prozesse</li>
 						<li>Wenig Infrastruktur für komplexe Anwendungen</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
@@ -345,19 +339,17 @@ print "&lt;/body&gt;&lt;/html&gt;\n";</code>
 					<h3>Apache Module</h3>
 					<p>Schnittstelle zur Erweitung des Apache Webservers</p>
 					<p>Viele Module frei verfügbar: PHP, Perl, Python, ...</p>
-					<p>Vorteile:
+					<p>Vorteile:</p>
 					<ul class="fragment">
 						<li>Performanz</li>
 						<li>Mächtige Programmiersprachen nutzbar</li>
 						<li>Plattformunabhängig</li>
 					</ul>
-					</p>
-					<p>Nachteile:
+					<p>Nachteile:</p>
 					<ul class="fragment">
 						<li>Code kann Server zum Absturz bringen</li>
 						<li>Mehr Sicherheitsherausforderungen</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>ISAPI - Information Server API</h3>
@@ -367,43 +359,40 @@ print "&lt;/body&gt;&lt;/html&gt;\n";</code>
 						<li>Microsoft Exchange Server</li>
 					</ul>
 					</p>
-					<p class="fragment">Aufgerufene Prozesse laufen als dll (Dynamic Link Library) im Prozess des Servers</p>
+					<p class="fragment">Aufgerufene Prozesse laufen als dll (Dynamic Link Library) im Prozess des
+						Servers</p>
 					<p class="fragment">Diverse Call-Backs an Server (z.B. CHttpServerContext)</p>
-					<p class="fragment">DLL für diverse Programmiersprachen verfügbar<br />(ASP, ASP.NET, PERL, PHP)</p>
+					<p class="fragment">DLL für diverse Programmiersprachen verfügbar<br>(ASP, ASP.NET, PERL, PHP)</p>
 				</section>
 				<section>
 					<h3>ISAPI - Information Server API</h3>
-					<p>Vorteile:
+					<p>Vorteile:</p>
 					<ul class="fragment">
 						<li>Performanz</li>
 						<li>Mächtige Programmiersprachen nutzbar</li>
 					</ul>
-					</p>
-					<p>Nachteile:
+					<p>Nachteile:</p>
 					<ul class="fragment">
 						<li>Code kann Server zum Absturz bringen</li>
 						<li>Mehr Sicherheitsherausforderungen</li>
 						<li>Plattformabhängig</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>Sprachunabhängigkeit</h3>
 					<p>Alle bisher vorgestellten Systeme machen ~kaum Einschränkungen. "Mein Code" kann in ~allen
-						Sprachen geschrieben werden.
+						Sprachen geschrieben werden.</p>
 					<ul>
 						<li>Ausnahme: SSI, eigene Mini-Skriptsprache</li>
 					</ul>
-					</p>
-					<p class="fragment">Skriptsprache auswählen (z.B. PERL), Skript kann über verschiedene Schnittstellen angesprochen
-						werden
+					<p class="fragment">Skriptsprache auswählen (z.B. PERL), Skript kann über verschiedene
+						Schnittstellen angesprochen werden</p>
 					<ul class="fragment">
 						<li>Evtl. Anpassung an Schnittstelle notwendig</li>
 						<li>Beispiel: CGI/PERL, ISAPI/PERL, Apache (mod_perl)</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Sprachabhängigkeit</h3>
@@ -439,7 +428,9 @@ print "&lt;/body&gt;&lt;/html&gt;\n";</code>
 					<ul>
 						<li class="fragment">Prolog/<a href="https://www.swi-prolog.org">SWI</a>
 							<ul>
-								<li><a href="https://www.swi-prolog.org/pldoc/doc/_SWI_/library/http/http_server.pl">library(http/http_server)</a></li>
+								<li><a
+										href="https://www.swi-prolog.org/pldoc/doc/_SWI_/library/http/http_server.pl">library(http/http_server)</a>
+								</li>
 							</ul>
 						</li>
 					</ul>
