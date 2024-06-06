@@ -436,23 +436,23 @@ Content-Type: text/html; charset=utf-8
 						<code class="hljs" data-line-numbers="">&lt;body&gt;
 	&lt;h1&gt;Dynamisches HTML mit Server Side Includes&lt;/h1&gt;
 	&lt;dl&gt;
-		<dt>Datum/Uhrzeit auf dem Server-Rechner:</dt>
-		<dd>
+		&lt;dt&gt;Datum/Uhrzeit auf dem Server-Rechner:&lt;/dt&gt;
+		&lt;dd&gt;
 			<!--#config timefmt="%d.%m.%Y, %H.%M" -->
 			<!--#echo var="DATE_LOCAL" --> Uhr
-		</dd>
-		<dt>Name dieser HTML-Datei:</dt>
-		<dd>
+		&lt;/dd&gt;
+		&lt;dt&gt;Name dieser HTML-Datei:&lt;/dt&gt;
+		&lt;dd&gt;
 			<!--#echo var="DOCUMENT_NAME" -->
-		</dd>
-		<dt>Installierte Server-Software:</dt>
-		<dd>
+		&lt;/dd&gt;
+		&lt;dt&gt;Installierte Server-Software:&lt;/dt&gt;
+		&lt;dd&gt;
 			<!--#echo var="SERVER_SOFTWARE" -->
-		</dd>
-		<dt>Ihr Web-Browser:</dt>
-		<dd>
+		&lt;/dd&gt;
+		&lt;dt&gt;Ihr Web-Browser:&lt;/dt&gt;
+		&lt;dd&gt;
 			<!--#echo var="HTTP_USER_AGENT" -->
-		</dd>
+		&lt;/dd&gt;
 	&lt;/dl&gt;
 &lt;/body&gt;</code>
 					</pre>
@@ -568,17 +568,17 @@ Content-Type: text/html; charset=utf-8
 	@{ if (IsPost) { 
 		string companyname = Request["CompanyName"]; 
 		string contactname = Request["ContactName"]; 
-		<p>You entered: <br> 
-		Company Name: @companyname <br> 
-		Contact Name: @contactname </p> 
+		&lt;p&gt;You entered: &lt;br&gt;
+		Company Name: @companyname &lt;br&gt;
+		Contact Name: @contactname &lt;/p&gt;
 	} else {
-		<form method="post" action="">
-			Company Name:<br> 
-			<input type="text" name="CompanyName" value=""><br>
-			Contact Name:<br><br>
-			<input type="text" name="ContactName" value=""><br>
-			<input type="submit" value="Submit" class="submit">
-		</form> 
+		&lt;form method="post" action=""&gt;
+			Company Name:&lt;br&gt;
+			&lt;input type="text" name="CompanyName" value=""&gt;&lt;br&gt;
+			Contact Name:&lt;br&gt;&lt;br&gt;
+			&lt;input type="text" name="ContactName" value=""&gt;&lt;br&gt;
+			&lt;input type="submit" value="Submit" class="submit"&gt;
+		&lt;/form&gt;
 	} }
 &lt;/body&gt;</code>
 					</pre>
@@ -864,7 +864,7 @@ Content-Type: text/html; charset=utf-8
 							href="https://expressjs.com/en/4x/api.html#res.render">res.render</a>) unterstützt
 						<em>KEIN</em> HTML Streaming
 					</p>
-					<iframe src="https://giphy.com/embed/QhCAwDXZ0BltK" width="480" height="270" frameBorder="0"
+					<iframe src="https://giphy.com/embed/QhCAwDXZ0BltK" width="480" height="270"
 						class="fragment" data-fragment-index="1"></iframe>
 					<p class="fragment" data-fragment-index="1"><a
 							href="https://giphy.com/gifs/cat-mrw-outside-QhCAwDXZ0BltK">via GIPHY</a></p>
@@ -872,7 +872,7 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>Express-Templates</h3>
 					<p>Rendering-Engine kann dennoch zum rendern der Einzelteile verwendet werden</p>
-					<iframe src="https://giphy.com/embed/702ybfQFkrkrWnIByR" width="480" height="270" frameBorder="0"
+					<iframe src="https://giphy.com/embed/702ybfQFkrkrWnIByR" width="480" height="270"
 						class="fragment" data-fragment-index="1"></iframe>
 					<p class="fragment" data-fragment-index="1"><a
 							href="https://giphy.com/gifs/cat-mrw-outside-QhCAwDXZ0BltK">via GIPHY</a></p>
@@ -943,7 +943,7 @@ Content-Type: text/html; charset=utf-8
 						</li>
 						<li>307 Temporary Redirect
 							<ul>
-								<li>siehe 302, plus HTTP-Methode <emph>muss</emph> gleich bleiben</li>
+								<li>siehe 302, plus HTTP-Methode <em>muss</em> gleich bleiben</li>
 							</ul>
 						</li>
 					</ul>
@@ -997,11 +997,11 @@ Content-Type: text/html; charset=utf-8
 					<h3>Template</h3>
 					<p>Variablen nur als Teil eines Rendervorgangs gültig</p>
 					<pre class="language-html">
-						<code class="hljs" data-line-numbers=""><ul>
-&lt;% it.users.forEach(function(user){ %>
-	<li><%= user.name %></li>
-<% }) %>
-</ul></code></pre>
+						<code class="hljs" data-line-numbers="">&lt;ul&gt;
+&lt;% it.users.forEach(function(user){ %&gt;
+	&lt;li&gt;&lt;%= user.name %&gt;&lt;/li&gt;
+&lt;% }) %&gt;
+&lt;/ul&gt;</code></pre>
 					<ul>
 						<li class="fragment">"it": Gültig über den gesamten Rendervorgang</li>
 						<li class="fragment">"user": Gültig innerhalb der Schleife</li>
@@ -1015,12 +1015,11 @@ Content-Type: text/html; charset=utf-8
 	const result = superComplicatedCalculation(req);
 	res.render("result.eta", { result, method: req.method });
 });</code></pre>
-					<p class="fragment">Variablen gültigkeit basierend auf dem<br>Javascript-Blockscope, hier:
+					<p class="fragment">Variablen gültigkeit basierend auf dem<br>Javascript-Blockscope, hier:</p>
 					<ul>
 						<li class="fragment">"req, res": Immer vorhanden, von Express</li>
 						<li class="fragment">"result": Selbst erstellte Variable</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Session</h3>
@@ -1039,7 +1038,6 @@ Content-Type: text/html; charset=utf-8
 						<li class="fragment" data-fragment-index="2">"id": ID der Session</li>
 						<li class="fragment" data-fragment-index="2">"name": Variable Teil der Session</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Server</h3>
@@ -1057,33 +1055,30 @@ app.listen(port);</code></pre>
 					<ul>
 						<li class="fragment">"port": Selbst angelegte Variable</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>Praxis - Aufgabe 8 - Redirect</h3>
-					<p>Programmiert einen kleinen Rechner
+					<p>Programmiert einen kleinen Rechner</p>
 					<ul>
 						<li>Formular für zwei Operanden und Rechenoperation</li>
 						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
 							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
 						<li>Im Falle eines Fehlers leitet zur Fehlerseite</li>
 					</ul>
-					</p>
 					<h4>Easter-Egg</h4>
 					<p>Falls einer der Operanden '42' leitet auf eine Easter-Egg-Seite weiter.</p>
 				</section>
 				<section>
 					<h3>Praxis - Aufgabe 9 - History</h3>
-					<p>Programmiert einen kleinen Rechner
+					<p>Programmiert einen kleinen Rechner</p>
 					<ul>
 						<li>Formular für zwei Operanden und Rechenoperation</li>
 						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
 							samt Ergebnis ausgegeben werden. Danach folgt wieder das Eingabeformular.</li>
 						<li>Zeigt auf der Ergebnisseite die letzten fünf Berechnungen und ihr Ergebnis an.</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
@@ -1222,7 +1217,7 @@ app.listen(port);</code></pre>
 			<section>
 				<section>
 					<h3>Praxis - Aufgabe 10 - Entwurfsmuster</h3>
-					<p>Programmiert einen kleinen Rechner
+					<p>Programmiert einen kleinen Rechner</p>
 					<ul>
 						<li>Formular für zwei Operanden und Rechenoperation</li>
 						<li>Werden die Parameter an den NodeJS Server übergeben, soll die durchzuführende Berechnung
@@ -1230,7 +1225,6 @@ app.listen(port);</code></pre>
 						<li>Nutzt das Model-2-Entwurfsmuster.</li>
 						<li>Implementiert das 42-Easter-Egg mit einer Middleware</li>
 					</ul>
-					</p>
 				</section>
 			</section>
 			<section>
