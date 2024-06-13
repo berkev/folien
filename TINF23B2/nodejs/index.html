@@ -733,7 +733,7 @@ Content-Type: text/html; charset=utf-8
 										href="https://netsec.expert/images/session_id_meme.jpg">Careful: XSS!</a>)</li>
 							</ul>
 						</li>
-						<li class="fragment">"&lt;%~ includeFile('./footer')" Partial
+						<li class="fragment">"&lt;%~ include('./footer')" Partial
 							<ul>
 								<li>Inhalt der Datei wird ausgegeben (raw!)</li>
 							</ul>
@@ -1238,11 +1238,11 @@ app.listen(port);</code></pre>
 					<h3>Lösung - Aufgabe 10 - Entwurfsmuster</h3>
 					<p>
 						<a
-							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/09-rechner-history/">TINF23B2/nodejs/aufgaben/<br>09-rechner-history/</a>
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/10-rechner-entwurfsmuster/">TINF23B2/nodejs/aufgaben/<br>10-rechner-entwurfsmuster/</a>
 					</p>
 					<p>
 						<a
-							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/09-rechner-history/loesung-http-rechner-server-history.js">TINF23B2/nodejs/aufgaben/<br>09-rechner-history/loesung-http-rechner-server-history.js</a>
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/nodejs/aufgaben/10-rechner-entwurfsmuster/loesung-http-rechner-server-entwurfsmuster.js">TINF23B2/nodejs/aufgaben/<br>10-rechner-entwurfsmuster/loesung-http-rechner-server-entwurfsmuster.js</a>
 					</p>
 				</section>
 			</section>
@@ -1252,10 +1252,10 @@ app.listen(port);</code></pre>
 				<section>
 					<h3>Cookies</h3>
 					<div class="r-stack">
-						<img class="fragment current-visible" src="./images/cookie-monster.png">
-						<img class="fragment current-visible" src="./images/come-to-the-dark-side-we-have-cookies.png">
-						<img class="fragment current-visible" src="./images/tracking-heise.jpg" style="width: 65%">
-						<img class="fragment current-visible" src="./images/tracking-nytimes.jpg">
+						<img class="fragment current-visible" src="./images/cookie-monster.png" alt="Cookie Monster">
+						<img class="fragment current-visible" src="./images/come-to-the-dark-side-we-have-cookies.png" alt="Come to the Dark Side">
+						<img class="fragment current-visible" src="./images/tracking-heise.jpg" style="width: 65%" alt="Tracking Heise">
+						<img class="fragment current-visible" src="./images/tracking-nytimes.jpg" alt="Tracking NY-Times">
 					</div>
 				</section>
 				<section>
@@ -1264,7 +1264,7 @@ app.listen(port);</code></pre>
 					<p class="fragment">Bedeutet: Jede Anfrage muss alle Informationen beinhalten um die Antwort
 						generieren zu können</p>
 					<p class="fragment">?? Wie dann Sessions im Web anbieten ??</p>
-					<p class="fragment">Ohne Sessions kein Warenkorb, kein Einloggen,<br />kein "Zuletzt betrachtet"
+					<p class="fragment">Ohne Sessions kein Warenkorb, kein Einloggen,<br>kein "Zuletzt betrachtet"
 					</p>
 					<p class="fragment">Client muss Info mitschicken, aber Server den Wert vorgeben</p>
 					<p class="fragment">!! Cookies !!</p>
@@ -1279,11 +1279,11 @@ app.listen(port);</code></pre>
 							Domain an <em>und</em> schickt das Cookie
 							mit</li>
 					</ol>
-					<img class="fragment" data-fragment-index="2" src="./images/cookies.jpg" style="width: 50%">
+					<img class="fragment" data-fragment-index="2" src="./images/cookies.jpg" style="width: 50%" alt="Picture of a stack of cookies">
 				</section>
 				<section>
 					<h3>Cookies: Funktionsweise</h3>
-					<p>Spezifiziert als <a href="https://datatracker.ietf.org/doc/html/rfc2109">RFC 2109</a>:<br />"HTTP
+					<p>Spezifiziert als <a href="https://datatracker.ietf.org/doc/html/rfc2109">RFC 2109</a>:<br>"HTTP
 						State Management Mechanism"</p>
 					<p class="fragment" data-fragment-index="1">HTTP-Header: "Set-Cookie" (2)</p>
 					<pre class="fragment" data-fragment-index="1"><code data-line-numbers="">HTTP/1.0 200 OK
@@ -1300,10 +1300,10 @@ Cookie: theme=light; sessionToken=abc123
 				</section>
 				<section>
 					<h3>Cookies: Anatomy</h3>
-					<p>Einfaches Key=Value Paar, z.B.:<br />sessionToken=abc123</p>
-					<p class="fragment">Value darf alle druckbare ASCII-Zeichen:<br />"!" bis "~" ohne: "," und ";"</p>
-					<p class="fragment">Zusätzliche Attribute:<br />Domain+Path, Expires/Max-Age, Secure und
-						HttpOnly<br />werden mit ";"
+					<p>Einfaches Key=Value Paar, z.B.:<br>sessionToken=abc123</p>
+					<p class="fragment">Value darf alle druckbare ASCII-Zeichen:<br>"!" bis "~" ohne: "," und ";"</p>
+					<p class="fragment">Zusätzliche Attribute:<br>Domain+Path, Expires/Max-Age, Secure und
+						HttpOnly<br>werden mit ";"
 						hinter den Value gehängt</p>
 					<p class="fragment"><em>Nur</em> das Key=Value Paar wird an den Server zurückgeschickt!</p>
 				</section>
@@ -1312,14 +1312,14 @@ Cookie: theme=light; sessionToken=abc123
 					<ul>
 						<li class="fragment">Domain und Path
 							<ul>
-								<li>Gibt den Geltungsbereich des Cookies an, z.B.:<br />Domain=sub.example.com;
+								<li>Gibt den Geltungsbereich des Cookies an, z.B.:<br>Domain=sub.example.com;
 									Path=/accounts;</li>
 							</ul>
 						</li>
 						<li class="fragment">Expires und Max-Age
 							<ul>
-								<li>Gibt die Geltungsdauer des Cookies an, z.B.:<br />Expires=Tue, 15 Jan 2042 13:37:00
-									GMT;<br />oder: Max-Age: 3600;</li>
+								<li>Gibt die Geltungsdauer des Cookies an, z.B.:<br>Expires=Tue, 15 Jan 2042 13:37:00
+									GMT;<br>oder: Max-Age: 3600;</li>
 								<li>Ohne: Session-Cookie (Client definiert)</li>
 							</ul>
 						</li>
@@ -1366,7 +1366,7 @@ Cookie: theme=light; sessionToken=abc123
 						<li><a
 								href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie">document.cookie</a>
 							<ul>
-								<li>String aller Cookies, ";"-Separiert, z.B.:<br /><span
+								<li>String aller Cookies, ";"-Separiert, z.B.:<br><span
 										class="smaller-font">'enwikimwuser-sessionId=e53e40071b987899a83b;
 										enwikiwmE-sessionTickLastTickTime=1654374542173;
 										enwikiwmE-sessionTickTickCount=83'</span>
@@ -1390,14 +1390,13 @@ document.cookie // theme=light; user=Me
 			</section>
 			<section>
 				<h3>Praxis - Aufgabe 11 - Session</h3>
-				<p>Erweitert den Taschenrechner um ein kleines Login mit Session-spezifischer Historie
+				<p>Erweitert den Taschenrechner um ein kleines Login mit Session-spezifischer Historie</p>
 				<ul>
 					<li>Login-Seite: Formular mit einem Textinput für den Usernamen. In der HTTP-Antwort soll ein Cookie
 						mit Session-Id=Username gesetzt werden.</li>
 					<li>Berechnungs-Seite: Wenn Client einen Cookie mit Session-Id mitschickt soll eine User-spezifische
 						Berechnungs-Historie angezeigt werden.</li>
 				</ul>
-				</p>
 			</section>
 			<section>
 				<section>
@@ -1441,13 +1440,13 @@ document.cookie // theme=light; user=Me
 				</section>
 				<section>
 					<h3>WebSockets Protokoll Overhead</h3>
-					<img src="./images/websocket-protocol.jpg" alt="WebSocket Protokoll" style="width: 80%" />
+					<img src="./images/websocket-protocol.jpg" alt="WebSocket Protokoll" style="width: 80%">
 					<p class="fragment">Nur wenige Byte Protokoll Overhead: 2 - 10 Byte</p>
 				</section>
 				<section>
 					<h3>Socket?!?</h3>
 					<p>Wie kann man sich einen Socket vorstellen?</p>
-					<img class="fragment" src="./images/portals.png" alt="Portals Portals" style="width: 40%" />
+					<img class="fragment" src="./images/portals.png" alt="Portals Portals" style="width: 40%">
 					<p class="fragment">Raus: socket.send<br>Rein: socket.onmessage</p>
 				</section>
 				<section>
@@ -1559,7 +1558,7 @@ socket.send("Hello Server");</code></pre>
 					<p class="fragment">Sicherheitsvorkehrung: Server niemals(!!) als Root/Administrator starten</p>
 					<p class="fragment">Dateisystem-API: <a
 							href="https://nodejs.org/dist/latest-v16.x/docs/api/fs.html">fs</a></p>
-					<p class="fragment">Mehrere Geschmacksrichtungen:<br /><a
+					<p class="fragment">Mehrere Geschmacksrichtungen:<br><a
 							href="https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#callback-api">Callback-API</a>,
 						<a href="https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#promises-api">Promise-API</a> und
 						<a
@@ -1607,7 +1606,7 @@ socket.send("Hello Server");</code></pre>
 				</section>
 				<section>
 					<h3>NodeJS - Database</h3>
-					<p>Ökosystem bietet für (fast) alle Datenbanken<br />eine Bibliothek:</p>
+					<p>Ökosystem bietet für (fast) alle Datenbanken<br>eine Bibliothek:</p>
 					<ul>
 						<li class="fragment" data-fragment-index="1"><a
 								href="https://www.npmjs.com/package/mysql">MySql</a></li>
@@ -1621,12 +1620,11 @@ socket.send("Hello Server");</code></pre>
 			</section>
 			<section>
 				<h3>Praxis - Aufgabe 13 - Persistenz</h3>
-				<p>Erweitert das Taschenrechner-Projekt, um eine JSON-basierte Konfiguration:
+				<p>Erweitert das Taschenrechner-Projekt, um eine JSON-basierte Konfiguration:</p>
 				<ul>
 					<li>Port: Auf welchem Port der Server horcht</li>
 					<li>Historienlänge: Wie viele Einträge die Historie speichert</li>
 				</ul>
-				</p>
 				<h4>Zusatz</h4>
 				<p>Persistiert die Historie in einer Datei</p>
 			</section>

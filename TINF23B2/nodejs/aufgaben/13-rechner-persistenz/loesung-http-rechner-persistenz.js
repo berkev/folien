@@ -44,7 +44,7 @@ app.post("/", (req, res) => {
 
     // Insert into the front
     history.splice(0, 0, `${o1} ${operator} ${o2} = ${result}`);
-    // Limit to five
+    // Limit history
     history.splice(config.historyLength);
 
     return res.send(eta.render("calc.html", {
