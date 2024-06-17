@@ -1,0 +1,13 @@
+{
+  "name": "01-add-function",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Code example for WebEng1 about webassembly",
+  "author": "Christoph Häfner <haefner.christoph@edu.dhbw-karlsruhe.de>",
+  "license": "MIT",
+  "main": "compile.js",
+  "type": "module",
+  "dependencies": {
+    "binaryen": "^117.0.0"
+  }
+}

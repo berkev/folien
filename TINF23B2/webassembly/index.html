@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng1: WebAssembly</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
+	WebAssembly: all
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>WebAssembly</h1>
+
+				<p>
+					Nicht(!) klausurrelevant
+				</p>
+
+				<img src="./images/WebAssembly_Logo.svg" alt="WebAssembly Logo" height="250">
+			</section>
+			<section>
+				<section>
+					<h3>Historie</h3>
+					<p>Idee: weniger Sprachfeature anbieten ermöglicht schneller Ausführung</p>
+					<p class="fragment">~2013: Erste Gehversuche bei Mozilla,<br>Projektname asm.js</p>
+					<p class="fragment">JS-subset um von OdinMonkey in quasi nativer Performance ausgeführt zu werden</p>
+					<p class="fragment">~2017: Breiter Konsenus aller Browserhersteller, WebAssembly in Chrome, Safari, Firefox und Edge</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>WebAssembly</h3>
+					<p>ist der Zugang zu "low-level" Performance im Web<br>(vergleichbar mit Java-Native-Interface)</p>
+					<p class="fragment">WebAssembly wird in einem Binärformat an den Browser geschickt, anstatt im Klartext</p>
+					<p class="fragment">Binärformat kann in einem Textformat angezeigt werden (WAT, nicht zu verwechseln mit <a
+							href="https://www.destroyallsoftware.com/talks/wat">WAT</a>)</p>
+					<p><a href="https://webassembly.org/">webassembly.org</a></p>
+				</section>
+				<section>
+					<h3>WebAssembly #2</h3>
+					<p>wird in einer Sandbox ausgeführt<br>(entsprechend der von JS)</p>
+					<p class="fragment">findet auch außerhalb des Webs Einsatzmöglichkeiten (z.B. <a href="https://shopify.dev/docs/apps/build/functions">Shopify Functions</a>)</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>WebAssembly Binärformat</h3>
+					<img src="./images/alttexthere-e3dc86ddc7603_856.png"
+						alt="Vergleich JavaScript vs. Jpg Verarbeitung" height="450" class="fragment" data-fragment-index="1" >
+					<p class="fragment" data-fragment-index="1" >Source: <a
+							href="https://web.dev/articles/optimizing-content-efficiency-javascript-startup-optimization#parsecompile">Parse/Compile
+							by Addy Osmani</a></p>
+				</section>
+				<section>
+					<h3>WebAssembly Textformat</h3>
+					<h4>JavaScript</h4>
+					<pre class="language-js">
+						<code class="hljs">export default (lhs, rhs) => {
+	return param1 + param2
+}</code>
+					</pre>
+					<h4 class="fragment">WebAssembly Textformat</h4>
+					<pre class="language-wasm fragment">
+						<code class="hljs" data-code="./code-examples/01_add-function/add.wat" data-line-numbers="|1,9|2|3-8|"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>WAT vs. WASM</h3>
+					<pre class="language-wasm">
+						<code class="hljs" data-code="./code-examples/01_add-function/add.wat"></code>
+					</pre>
+					<p>Wasm Text Länge: 167</p>
+					<p>Wasm Binary Länge: 41</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Wasm im Browser laden</h3>
+					<p>Native Unterstützung via "WebAssembly"-API: <a href="https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface">MDN</a></p>
+
+					<p>Moderne API: <a href="https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static">WebAssembly.instantiateStreaming</a></p>
+					<pre class="language-js">
+						<code class="hljs">WebAssembly.instantiateStreaming(source[, importObject])</code>
+					</pre>
+					<p>source: Quelle für die WebAssembly Binärdatei</p>
+					<p>importObject: Quelle für alle imports des WebAssembly-Modules</p>
+				</section>
+				<section>
+					<h3>Wasm im Browser laden</h3>
+					<pre class="language-js">
+						<code class="hljs">WebAssembly.instantiateStreaming(fetch("simple.wasm")).then(
+	(results) => {
+		// Do something with the results!
+		// e.g. call exported methods via:
+		// results.instance.exports
+	},
+);</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Wasm im Browser laden</h3>
+					<pre class="language-js">
+						<code class="hljs" data-code="./code-examples/01_add-function/add.js" data-line-numbers="|1,11|2|3,4|5|6,7|"></code>
+					</pre>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/01_add-function/add.html"></iframe>
+					Beispiel: <a href="./code-examples/01_add-function/add.html">01_add-function/add.html</a>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+		</header>
+	</div>
+</body>
+
+</html>
