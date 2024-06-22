@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de">
 
 <head>
 	<meta charset="utf-8">
@@ -68,8 +68,7 @@
 			<section>
 				<section>
 					<h3>Performance</h3>
-					<p>
-						... ist oft relativ<span class="fragment"> (Works on my machine!):</span>
+					<p>... ist oft relativ<span class="fragment"> (Works on my machine!):</span></p>
 					<ul>
 						<li class="fragment">Eine Website kann schnell für deinen einen User (in einem schnellen
 							Netzwerk, mit einem
@@ -82,7 +81,6 @@
 							reagieren bei
 							Interaktionen.</li>
 					</ul>
-					</p>
 				</section>
 				<section>
 					<h3>Performance</h3>
@@ -90,9 +88,9 @@
 						Warum ist Performance wichtig?
 					</p>
 					<p>
-						Zum Beispiel weil zufriedene Kunden mehr kaufen:<br /><a
+						Zum Beispiel weil zufriedene Kunden mehr kaufen:<br><a
 							href="https://web.dev/vodafone/">Vodafone:
-							A 31% improvement in LCP<br />increased sales by 8%</a><br /><a
+							A 31% improvement in LCP<br>increased sales by 8%</a><br><a
 							href="https://web.dev/tokopedia/">How focusing on web performance improved Tokopedia's
 							click-through rate by 35%</a>
 					</p>
@@ -108,7 +106,7 @@
 				<section>
 					<h3>Kennzahl: TTFB</h3>
 					<ul>
-						<li>Time to first byte (TTFB)<br />[Good: 0.8s, Poor: 1.8s]<br />...measures the time between
+						<li>Time to first byte (TTFB)<br>[Good: 0.8s, Poor: 1.8s]<br>...measures the time between
 							the request for a resource and when the first byte of a response begins to arrive (<a
 								href="https://web.dev/ttfb/">web.dev/ttfb/</a>)</li>
 					</ul>
@@ -119,11 +117,11 @@
 				<section>
 					<h3>Kennzahl: TTFB</h3>
 					<ul>
-						<li>Time to first byte (TTFB)<br />[Good: 0.8s, Poor: 1.8s]<br />from startTime to responseStart
+						<li>Time to first byte (TTFB)<br>[Good: 0.8s, Poor: 1.8s]<br>from startTime to responseStart
 						</li>
 					</ul>
 					<img src="./images/performance-navigation-timing-timestamp-diagram.svg"
-						alt="A visualization of network request timings. The timings from left to right are Redirect, Service Worker Init, Service Worker Fetch event, HTTP Cache, DNS, TCP, Request, Early Hints (103), Response (which overlaps with Prompt for Unload), Processing, and Load. The associated timings are redirectStart and redirectEnd, fetchStart, domainLookupStart, domainLookupEnd, connectStart, secureConnectionStart, connectEnd, requestStart, interimResponseStart, responseStart, unloadEventStart, unloadEventEnd, responseEnd, domInteractive, domContentLoadedEventStart, domContentLoadedEventEnd, domComplete, loadEventStart, and loadEventEnd." />
+						alt="A visualization of network request timings. The timings from left to right are Redirect, Service Worker Init, Service Worker Fetch event, HTTP Cache, DNS, TCP, Request, Early Hints (103), Response (which overlaps with Prompt for Unload), Processing, and Load. The associated timings are redirectStart and redirectEnd, fetchStart, domainLookupStart, domainLookupEnd, connectStart, secureConnectionStart, connectEnd, requestStart, interimResponseStart, responseStart, unloadEventStart, unloadEventEnd, responseEnd, domInteractive, domContentLoadedEventStart, domContentLoadedEventEnd, domComplete, loadEventStart, and loadEventEnd.">
 					<aside class="notes">
 						TTFB: Redirect, DNS, TCP (Secure), Request-Start, Request-End
 					</aside>
@@ -131,61 +129,59 @@
 				<section>
 					<h3>Kennzahl: FCP</h3>
 					<ul>
-						<li>First Contentful Paint (FCP)<br />[Good: 1.8s, Poor: 3.0s]<br />...measures the time from
+						<li>First Contentful Paint (FCP)<br>[Good: 1.8s, Poor: 3.0s]<br>...measures the time from
 							when
 							the
 							page starts loading to when
 							any part of the page's content is rendered on the screen (<a
 								href="https://web.dev/fcp/">web.dev/fcp/</a>)</li>
 					</ul>
-					<img src="./images/fcp-timeline-googlecom_856.png" alt="FCP timeline from google.com"
-						height="300" />
+					<img src="./images/fcp-timeline-googlecom_856.png" alt="FCP timeline from google.com" height="300">
 				</section>
 				<section>
 					<h3>Kennzahl: LCP</h3>
 					<ul>
-						<li>Largest Contentful Paint (LCP)<br />[Good: 2.5s, Poor: 4.0s]<br />...reports the render time
+						<li>Largest Contentful Paint (LCP)<br>[Good: 2.5s, Poor: 4.0s]<br>...reports the render time
 							of
 							the largest image or text block visible within the viewport, relative to when the page first
 							started loading (<a href="https://web.dev/lcp/">web.dev/lcp/</a>)</li>
 					</ul>
 					<img src="./images/largest-contentful-paint-6c5554de0eac7_856.png"
-						alt="Largest Contentful Paint timeline from google.com" height="300" />
+						alt="Largest Contentful Paint timeline from google.com" height="300">
 				</section>
 				<section>
 					<h3>Kennzahl: TTI</h3>
 					<ul>
-						<li>Time to Interactive (TTI)<br />[Good: &lt;5s] ...measures the time from when the page starts
+						<li>Time to Interactive (TTI)<br>[Good: &lt;5s] ...measures the time from when the page starts
 							loading to
 							when it is capable of responding to input (<a href="https://web.dev/tti/">web.dev/tti/</a>)
 						</li>
 					</ul>
 					<img src="./images/a-page-load-timeline-show-762f93f25ad4b.svg"
-						alt="A page load timeline showing how to compute TTI" height="380" />
+						alt="A page load timeline showing how to compute TTI" height="380">
 				</section>
 				<section>
 					<h3>Kennzahl: CLS</h3>
 					<ul>
-						<li>Cumulative Layout Shift (CLS)<br />[Good: 0.1, Poor: 0.25]<br />...measure of the largest
+						<li>Cumulative Layout Shift (CLS)<br>[Good: 0.1, Poor: 0.25]<br>...measure of the largest
 							burst of layout shift scores for every unexpected layout shift that occurs during the entire
 							lifespan of a page (<a href="https://web.dev/cls/">web.dev/cls/</a>)</li>
 					</ul>
 					<img src="./images/distance-fraction-example-9146d2a862482_856.png"
-						alt="Distance fraction example with one unstable element" height="300" />
+						alt="Distance fraction example with one unstable element" height="300">
 				</section>
 				<section>
 					<h3>Kennzahlen (User-Centric)</h3>
 					<p>Ab 2024 eine neue Core Web Vital metric<br>(Launch-Blog: <a
 							href="https://web.dev/blog/inp-cwv-launch">web.dev/inp-cwv-launch/</a>):</p>
 					<ul>
-						<li>Interaction to Next Paint (INP)<br />[Good: 0.2s, Poor: 0.5s]<br />...assesses
+						<li>Interaction to Next Paint (INP)<br>[Good: 0.2s, Poor: 0.5s]<br>...assesses
 							responsiveness. A low INP means the page was consistently able to
-							respond quickly to user interactions. (<a
-								href="https://web.dev/inp/">web.dev/inp/</a>)</li>
+							respond quickly to user interactions. (<a href="https://web.dev/inp/">web.dev/inp/</a>)</li>
 					</ul>
 					<img src="https://web.dev/static/articles/inp/image/a-diagram-depicting-inte-d2bec16a5952.svg"
 						alt="A diagram depicting an interaction on the main thread. The user makes an input while blocking tasks run. The input is delayed until those tasks complete, after which the pointerup, mouseup, and click event handlers run, then rendering and painting work is kicked off until the next frame is presented."
-						height="193.81333333333" />
+						height="194">
 				</section>
 			</section>
 		</div>
@@ -218,7 +214,7 @@
 	</script>
 	<div id="hidden" style="display:none;">
 		<header>
-			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo" />
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
 		</header>
 	</div>
 </body>
