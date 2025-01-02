@@ -1,7 +1,7 @@
-# Vorlesung Web-Engineering 1
+# Vorlesung Web-Engineering
 
 Dieses Projekt enthält die Vorlesungsfolien für die Vorlesungen
-Web-Engineering 1
+Web-Engineering 1 (TINF21-23B2) und Web-Engineering (ab TINF24B2)
 
 an der Dualen Hochschule Baden-Württemberg Karlsruhe.
 [karlsruhe.dhbw.de/](https://www.karlsruhe.dhbw.de/startseite.html)
@@ -20,13 +20,13 @@ $ npm start
 ```
 
 Damit sind die Folien unter [localhost:3000](http://localhost:3000) aufrufbar.
-Wichtig ist der abschließende "/" am Ende der Url: `http://localhost:3000/TINF23B2/html/`.
+Wichtig ist der abschließende "/" am Ende der Url: `http://localhost:3000/TINF24B2/html/`.
 
 ## Gitlab Pages
 
 Additionally the pages are hosted on GitLab Pages:
 
-[https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/)
+[https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/](https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/)
 
 ## Update reveal.js
 
