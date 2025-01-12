@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng: HTML</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.code-example {
+			border: 2px solid grey;
+		}
+
+		iframe.full-width {
+			width: 100%;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.two-columns {
+			display: grid;
+			grid: auto-flow / 2fr 1fr;
+			grid-auto-flow: column
+		}
+
+		.text-column {
+			margin: 5px;
+		}
+
+		.li-space-above {
+			margin-top: 55px;
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+		.highlight-whitespace-red {
+			background-color: red;
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
+	WebEng_HTML-Mindmap
+	Day1: 1,3-24 WebEng_HTML-Day1_Tags-Attribute
+	Day1-Praxis: 28-31 WebEng_HTML-Day1-Praxis_Aufgabe0-1
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>HTML</h1>
+				<p>Hypertext Markup Language</p>
+			</section>
+			<section>
+				<h3>HTML - Mindmap</h3>
+				<iframe class="mindmap" data-src="./mindmap.html"></iframe>
+			</section>
+			<!-- Beginn HTML-Day1 -->
+			<section>
+				<h3>HTML - Hypertext Markup Language</h3>
+				<p>Hypertext - Übertext</p>
+				<ul>
+					<li>Text mit Querverweisen zur Bildung einer netzartigen Struktur</li>
+					<li class="fragment">Vergleichbar mit Inhaltsverzeichnissen aus Büchern</li>
+				</ul>
+			</section>
+			<section data-background-opacity="0.5"
+				data-background-image="https://upload.wikimedia.org/wikipedia/commons/a/ae/Metal_movable_type.jpg">
+				<h3>HTML - Hypertext Markup Language</h3>
+				<p>Markup Language - Auszeichnungssprache</p>
+			</section>
+			<section>
+				<h3>HTML - Hypertext Markup Language</h3>
+				<p>Markup Language - Auszeichnungssprache</p>
+				<ul class="fragment">
+					<li>Darstellung von Inhalt eines Dokumentes erweitert um die Information, wie der Text strukturiert
+						ist</li>
+					<li class="fragment">Ursprünglich: Angaben für den Setzer im "Drucksatz"</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h3>Historie - Steinzeit</h3>
+					<ul>
+						<li>1945: "As We May Think" - Ein Artikel über ein Gerät mit dem Namen <a href="https://en.wikipedia.org/wiki/Memex">Memex</a></li>
+					</ul>
+					<blockquote cite="https://en.wikipedia.org/wiki/Memex">
+						<p>[...] an electromechanical device enabling individuals to develop and read a large self-contained research library, create and follow associative trails of links [...]</p>
+					  </blockquote>
+					  <p>—Vannevar Bush, <cite>As We May Think</cite></p>
+				</section>
+				<section>
+					<h3>Historie - Bronzezeit</h3>
+					<ul>
+						<li>1989 (Anfang): Tim Berners-Lee schreibt seine ersten Vorschläge für ein World Wide Web</li>
+					</ul>
+					<p>Beschreibung eines "web"s mit "hypertext documents" die von "browsern" betrachtet werden</p>
+					<ul>
+						<li class="fragment">1990 (Ende): Erster Webserver und Browser für Demonstrationen</li>
+						<li class="fragment">1993: Erste HTML-Spezifikation von der Internet Engineering Task Force
+							(IETF)</li>
+					</ul>
+					<p>
+						Quelle: <a href="https://home.cern/science/computing/birth-web/short-history-web">CERN: A short
+							history of the Web</a>
+					</p>
+				</section>
+				<section>
+					<h3>Historie - Eisenzeit</h3>
+					<ul>
+						<li>1995: HTML 2.0 als <a href="https://datatracker.ietf.org/doc/html/rfc1866">RFC 1866</a>
+							veröffentlicht</li>
+						<li class="fragment">1997: HTML 3.2 durch das World Wide Web Consortium (W3C, <a
+								href="www.w3c.org">www.w3c.org</a>)
+							veröffentlicht</li>
+						<li class="fragment">1997-2000: HTML 4.x mit "Strict", "Transitional" und "Frameset"
+							veröffentlicht</li>
+						<li class="fragment">2008: HTML 5 durch das WW3C veröffentlicht</li>
+					</ul>
+					<p>
+						Quelle: <a href="https://en.wikipedia.org/wiki/HTML">Wikipedia: HTML</a>
+					</p>
+					<aside class="notes">
+						3.0 wurde Vorgeschlagen, aber nie aufgenommen, weil zu lang und Browser haben sich zu schnell
+						weiterentwickelt
+						Strict: in which deprecated elements are forbidden
+						Transitional: in which deprecated elements are allowed
+						Frameset: in which mostly only frame related elements are allowed.
+					</aside>
+				</section>
+				<section>
+					<h3>Historie - Neuzeit</h3>
+					<ul>
+						<li>2014: HTML 5 veröffentlicht als <a href="https://www.w3.org/2014/10/html5-rec.html.en">W3C
+								Recommendation</a>
+							<ul>
+								<li>Verbesserte Unterstützung für Multimedia</li>
+								<li>Viele neue semantische Tags (main, footer, ...)</li>
+								<li>Verbesserte Unterstützung für Web-Anwendungen, z.B. Window- und Navigator-APIs</li>
+							</ul>
+						</li>
+						<li class="fragment">2019: HTML als "Living Standard": <a
+								href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+							veröffentlicht von der Web Hypertext Application Technology Working Group (WHATWG)</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Markup - Auszeichnungen</h3>
+					<ul>
+						<li>Angaben dazu, wie der Text strukturiert ist
+							<ul>
+								<li>Überschriften</li>
+								<li>Absätze</li>
+								<li>Verweise (Links)</li>
+								<li>Tabellen</li>
+								<li>Zitate</li>
+								<li>Blöcke</li>
+								<li>Bilder</li>
+								<li>...</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Tags - Elemente</h3>
+					<ul>
+						<li>Struktur: &lt;tagname&gt;&lt;/tagname&gt;</li>
+						<li class="fragment" data-fragment-index="0">Öffnendes Tag: <b
+								class="fragment highlight-current-red" data-fragment-index="1">&lt;</b>tagname<b
+								class="fragment highlight-current-red" data-fragment-index="1">&gt;</b></li>
+						<li class="fragment" data-fragment-index="2">Schließendes Tag: &lt;<b
+								class="fragment highlight-current-red">/</b>tagname&gt;</li>
+					</ul>
+					<p class="fragment">"geöffnete" Tags müssen bis auf wenige Ausnahmen geschlossen werden!</p>
+					<ul>
+						<li class="fragment">Beispiel: &lt;p&gt;Mein Absatz&lt;/p&gt;</li>
+						<li class="fragment">Ausnahme: &lt;br&gt; (Zeilenumbruch)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Empty Tags - Leere Auszeichnungen</h3>
+					<ul>
+						<li>Dürfen keinen Inhalt haben</li>
+						<li>Dürfen keinen schließendes Tag haben</li>
+					</ul>
+					<p class="fragment" data-fragment-index="0">Beispiele</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">&lt;hr&gt; oder &lt;hr/&gt; (Horizontale Linie)
+						</li>
+						<li class="fragment" data-fragment-index="1">&lt;img&gt; oder &lt;img/&gt; (Bild)</li>
+					</ul>
+					<p>Englisch: "void elements" <a
+							href="https://developer.mozilla.org/en-US/docs/Glossary/Void_element">MDN</a></p>
+					<p class="fragment" data-fragment-index="2">NICHT</p>
+					<ul>
+						<li class="fragment" data-fragment-index="3">&lt;hr&gt;&lt;/hr&gt;</li>
+						<li class="fragment" data-fragment-index="3">&lt;img&gt;&lt;/img&gt;</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Tag Attribute</h3>
+					<ul>
+						<li>Struktur:<br>&lt;tagname attribut1="value1" attribut2="value2"...&gt;&lt;/tagname&gt;</li>
+						<li>Beispiel:<br>&lt;p lang="en"&gt;This paragraph is marked as english&lt;/p&gt;</li>
+					</ul>
+					<ul class="fragment">
+						<li>Für manche Attribute muss kein Wert angegeben werden. (Schlechter Stil)</li>
+						<li>Anführungszeichen können in HTML entfallen, wenn der Wert nur aus einem Wort
+							besteht.<br>(Ganz schlechter Stil!!)</li>
+					</ul>
+				</section>
+				<!-- TODO: Probleme mit Tag-Attribute und dem Trailing-Slash beschreiben: https://developer.mozilla.org/en-US/docs/Glossary/Void_element-->
+				<section>
+					<h3>Tag Baumstruktur - Schachtelung</h3>
+					<p>Tags können und müssen ineinader<br>verschachtelt werden!</p>
+					<p>Ein Tag, das in einem anderen Tag geöffnet wird muss geschlossen werden, bevor das erste Tag
+						geschlossen werden kann.</p>
+					<ul>
+						<li class="fragment"><span style="color:green">Richtig</span>:&nbsp;&lt;<span
+								style="color: blue">tag1</span>&gt;&lt;tag2&gt;&lt;/tag2&gt;&lt;/<span
+								style="color: blue">tag1</span>&gt;</li>
+						<li class="fragment"><span style="color:red">Falsch</span>:&nbsp;&nbsp;&lt;<span
+								style="color: blue">tag1</span>&gt;&lt;tag2&gt;&lt;/<span
+								style="color: blue">tag1</span>&gt;&lt;/tag2&gt;</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML vs. XML</h3>
+					<ul>
+						<li>Sehen sich sehr ähnlich, HTML ist aber weniger "strikt"
+							<ul class="fragment">
+								<li>Nicht alle geöffneten Tags müssen geschlossen werden</li>
+								<li>Mögliches entfallen von Anführungszeichen bei Attributwerten (immernoch schlechter
+									Stil!)</li>
+								<li>Andere Dokumenttyp-Deklaration</li>
+								<li>Groß- und Kleinschreibung in Tags</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Hello World</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/01_hello-world/hello-world.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/01_hello-world/hello-world.html" data-line-numbers="|1|2,10|3-6|7-9"></code>
+					</pre>
+					<a
+						href="./code-examples/01_hello-world/hello-world.html">./code-examples/01_hello-world/hello-world.html</a>
+				</section>
+				<section>
+					<h3>Aufbau eines HTML-Dokuments</h3>
+					<ul>
+						<li>Dokumenttyp-Deklaration
+							<ul>
+								<li>HTML5: &lt;!DOCTYPE html&gt;</li>
+							</ul>
+						</li>
+						<li>Dokument (&lt;html&gt;) besteht aus:
+							<ul>
+								<li>Kopfdaten: &lt;head&gt;&lt;/head&gt;</li>
+								<li>Inhalt: &lt;body&gt;&lt;/body&gt;</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Nur Text?</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/02_just-text/just-text.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/02_just-text/just-text.html" data-line-numbers="9-33"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Absätze und Überschriften</h3>
+					<ul>
+						<li>Absätze: &lt;p&gt;&lt;/p&gt;
+							<ul>
+								<li>Beginnt mit einer neuen Zeile, danacht folgt ein Zeilenumbruch.</li>
+								<li>Standard: Abstand vor und nach dem Absatz.</li>
+							</ul>
+						</li>
+						<li>Überschriften: &lt;h1&gt;&lt;/h1&gt;...&lt;h6&gt;&lt;/h6&gt;
+							<ul>
+								<li>Beginnt jeweils mit einer neuen Zeile, danach folgt ein Zeilenumbruch.</li>
+								<li>&lt;h1&gt; ist die höchstrangige Überschrift, &lt;h6&gt; die niedrigstrangige.</li>
+								<li>Von &lt;h1&gt; nach &lt;h6&gt; wird die Schrift und die Abstände kleiner.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Absätze und Überschriften</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/03_absaetze-ueberschriften/absaetze-ueberschriften.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/03_absaetze-ueberschriften/absaetze-ueberschriften.html" data-line-numbers="9-16"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Fett, kursiv, hoch und tief</h3>
+					<ul>
+						<li>Fett: &lt;b&gt;&lt;/b&gt; (<b>bold</b>)
+							<ul>
+								<li>Text zwischen &lt;b&gt; und &lt;/b&gt; wird fett ausgegeben</li>
+							</ul>
+						</li>
+						<li>Kursiv: &lt;i&gt;&lt;/i&gt; (<i>italic</i>)
+							<ul>
+								<li>Text zwischen &lt;i&gt; und &lt;/i&gt; wird kursiv ausgegeben</li>
+							</ul>
+						</li>
+						<li>Hochstellung: &lt;sup&gt;&lt;/sup&gt; (<sup>superscript</sup>)
+							<ul>
+								<li>Text zwischen &lt;sup&gt; und &lt;/sup&gt; wird hochgestellt</li>
+							</ul>
+						</li>
+						<li>Tiefstellung: &lt;sub&gt;&lt;/sub&gt; (<sub>subscript</sub>)
+							<ul>
+								<li>Text zwischen &lt;sub&gt; und &lt;/sub&gt; wird tiefgestellt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Fett, kursiv, hoch und tief</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/04_fett-kursiv-hoch-tief/fett-kursiv-hoch-tief.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/04_fett-kursiv-hoch-tief/fett-kursiv-hoch-tief.html" data-line-numbers="9-17"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Zeilenumbruch</h3>
+					<ul>
+						<li>Umbruch: &lt;br&gt; oder &lt;br&gt; (line break)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Zeilenumbruch</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/05_zeilenumbruch/zeilenumbruch.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/05_zeilenumbruch/zeilenumbruch.html" data-line-numbers="9-17"></code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Aufgabe 0 - HTML</h3>
+					<p>Texteditor - Empfehlungen</p>
+					<ul>
+						<li>Windows: <a href="https://notepad-plus-plus.org/">Notepad++</a></li>
+						<li>Ubuntu: <a href="https://help.gnome.org/users/gedit/stable/">Gedit</a>, <a
+								href="https://kate-editor.org/de/">Kate</a></li>
+						<li>MacOS: <a href="https://www.barebones.com/products/bbedit/">BBEdit</a> (30-Tage IDE-Trial)
+						</li>
+					</ul>
+					<p>Browser</p>
+					<ul>
+						<li>Windows/Ubuntu: <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>, <a
+								href="https://www.chromium.org/getting-involved/download-chromium/">Chromium</a> oder
+							derivate:<br><a href="https://www.google.com/chrome/">Chrome</a>, <a
+								href="https://www.opera.com/">Opera</a>, <a href="https://brave.com/">Brave</a></li>
+						<li>MacOS: +Safari</li>
+					</ul>
+					<p>CLI-Texteditor: vim with ":syntax on"</p>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 0 - HTML</h3>
+					<p>Online-Tools</p>
+					<ul>
+						<li>Dev-Env: <a href="https://stackblitz.com">Stackblitz.com</a></li>
+						<li>Code-Snippets: <a href="https://codepen.io">Codepen.io</a></li>
+						<li>Static File Hosting: <a href="https://surge.sh">Surge.sh</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 1 - CV</h3>
+					<p>Schreiben Sie eine HTML-Seite auf der sie sich selbst darstellen (z.B. in Form eines
+						Lebenslaufs). Verwenden Sie dazu Überschriften, Absätze und Textvorhebungen.</p>
+					<p>Tip: Syntax-Check: <a href="https://validator.w3.org/nu/">https://validator.w3.org/nu/</a>
+						<br>(Check by text input)
+					</p>
+					<p>Tip: Erzeugung von Fließtext: <a href="http://www.loremipsum.de/">http://www.loremipsum.de/</a>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Lösung - Aufgabe 1 - CV</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF24B2/html/aufgaben/01-cv/loesung.html">gitlab.com/.../TINF24B2/html/aufgaben/<br>01-cv/loesung.html</a>
+					</p>
+					<p>
+						Deployed:<br><a
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/01-cv/loesung.html">gitlab.io/.../TINF24B2/html/aufgaben/<br>01-cv/loesung.html</a>
+					</p>
+				</section>
+			</section>
+			<!-- Ende HTML-Day1 -->
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+	<script src="plugin/externalcode/externalcode.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: "c/t",
+			hash: true,
+			pdfSeparateFragments: false,
+			// No Vertical centering of slides
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [Externalcode, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<div id="hidden" style="display:none;">
+		<header>
+			<img height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
+		</header>
+	</div>
+</body>
+
+</html>
