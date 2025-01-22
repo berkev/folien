@@ -84,6 +84,8 @@
 	Day1-Praxis: 28-31 WebEng_HTML-Day1-Praxis_Aufgabe0-1
 	Day2: 1,30-62,65-84 WebEng_HTML-Day2_Inline-Block-Screen-Reader-Sonderzeichen-Listen-Tabellen
 	Day2-Praxis: 63-64,85-89 WebEng_HTML-Day2-Praxis_Aufgabe2-6
+	Day3: 1,90-118,123-145 WebEng_HTML-Day3_Verweise-Bilder-URL-HTTP-Formulare
+	Day3-Praxis: 119-122,146-149 WebEng_HTML-Day3-Praxis_Aufgabe7-10
 -->
 
 <body>
@@ -1298,6 +1300,7 @@
 				</section>
 			</section>
 			<!-- Ende HTML-Day2 -->
+			<!-- Start HTML-Day3 -->
 			<section>
 				<section>
 					<h3>Was bisher geschah</h3>
@@ -1435,6 +1438,765 @@
 					</ul>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h3>HTML - Verweise (Links)</h3>
+					<p>Wie aus einem normalen Dokument ein:<br>
+						<a href="https://www.youtube.com/watch?v=7Twnmhe948A">Hyper Hyper</a> Dokument<br>
+						oder<br>
+						<a href="https://www.youtube.com/watch?v=75Mw8r5gW8E">Hypa Hypa</a> Dokument<br>
+						wird
+					</p>
+				</section>
+				<section>
+					<h3>HTML - Verweise (Links)</h3>
+					<ul>
+						<li>&lt;a&gt; &ndash; Verweis/Link (anker)
+							<ul>
+								<li>href: Verweisziel als URL</li>
+								<li class="fragment" data-fragment-index="1">target: Ziel-Fenster</li>
+								<li class="fragment" data-fragment-index="2">rel: Art des Verweises</li>
+								<li class="fragment" data-fragment-index="3">hreflang: Sprache des Ziels</li>
+								<li class="fragment" data-fragment-index="4">type: Dokumenttyp des Ziels</li>
+								<li class="fragment" data-fragment-index="4">download: Verweis zum Download gedacht</li>
+								<li class="fragment" data-fragment-index="5">Inhalt: auf ihn kann geklickt werden</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="5">&lt;a href="https://www.karlsruhe.dhbw.de/"&gt;Ein
+						Verweis auf die DHBW-Karlsruhe&lt;/a&gt;</p>
+					<aside class="notes">
+						rel Beispiel "external", "bookmark"
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>URL - Uniform Resource Locator</h3>
+					<p>Identifiziert und lokalisiert eine Ressource, über die zu verwendende Zugriffsmethode und den Ort
+						der Ressource in Computernetzwerken.</p>
+					<p class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red"
+							data-fragment-index="2">&lt;Schema&gt;</span><span class="fragment highlight-current-red"
+							data-fragment-index="3">:</span><span class="fragment highlight-current-red"
+							data-fragment-index="4">&lt;schema-spezifisch&gt;</span></p>
+					<ul>
+						<li class="fragment" data-fragment-index="2">Schema<ul>
+								<li class="fragment" data-fragment-index="2">Definiert schema-spezifischen Teil</li>
+								<li class="fragment" data-fragment-index="2">Name des Schemas entspricht meist dem
+									Übertragungsprotokoll</li>
+								<li class="fragment" data-fragment-index="2">Beispiele: <span
+										class="fragment highlight-current-red" data-fragment-index="4">http,
+										https</span>, ftp, mailto, file,
+									smtp, imap</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						Resource, zum Beispiel eine Webseite
+						Zugriffsmethode, zum Beispiel das verwendete Netzwerkprotokoll wie HTTP oder FTP
+					</aside>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p><span class="fragment highlight-current-red" data-fragment-index="1">http</span>:<span
+							class="fragment highlight-current-red" data-fragment-index="1">//</span><span
+							class="fragment highlight-current-red"
+							data-fragment-index="2">&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;
+					</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Schema (hier http oder https)
+						</li>
+						<li class="fragment" data-fragment-index="2">Server<ul>
+								<li>Voll qualifizierter Domain-Name (FQDN)<br>z.B. "www.dhbw.de" oder "example.com"
+								</li>
+								<li>IPv4-Adresse dezimal, punkt-getrennt<br>z.B. 193.99.144.80</li>
+								<li>IPv6-Adresse hexadezimal, doppelpunkt-getreent, in eckigen Klammern<br>z.B.
+									[2a02:2e0:3fe:1001:302::]</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						Gemäß Spezifikation (RFC1900) soll die Verwendung von IP-Adressen vermieden werden wo immer
+						möglich!
+					</aside>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>http://&lt;Server&gt;<span class="fragment highlight-current-red"
+							data-fragment-index="1">:&lt;Port&gt;</span><span class="fragment highlight-current-red"
+							data-fragment-index="2">/&lt;Pfad&gt;</span><br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Port<ul>
+								<li>Positive, ganze Zahl &lt;= 65535</li>
+								<li>Falls nicht vorhanden wird der Standard-Port des Schemas verwendet, z.B. http: 80,
+									https: 443</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="2">Pfad<ul>
+								<li>beliebige Zeichenkette ohne '?'</li>
+								<li>typischerweise mit '/' unterteilt (segmentiert)</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						2^16 = 65536
+					</aside>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<span
+							class="fragment highlight-current-red"
+							data-fragment-index="1"><br>?&lt;Anfrage&gt;</span>#&lt;Fragment&gt;</p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Anfrage (Query)<ul>
+								<li>Keine verbindliche Spezifikation</li>
+								<li>Liste an Name-Wert-Paaren</li>
+								<li>Name und Wert mit '=' trennen, Paare mit '&amp;'<br>z.B.
+									x=6&amp;y=0&amp;q=Suchanfrage</li>
+								<li>Sonder- und Steuerzeichen korrekt codieren!</li>
+								<li>Vorsicht: moderne Browser-UIs verstecken URL-Codierung und Schema</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>&lt;Schema&gt;://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;<span
+							class="fragment highlight-current-red" data-fragment-index="1">#&lt;Fragment&gt;</span></p>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Fragment<ul>
+								<li>Verweist auf Element der Zielseite</li>
+								<li>Wird dem Server nie mitgeteilt</li>
+								<li>Verwendung in Kombination des a-Tags</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Basic Authentication</h3>
+					<p>&lt;Schema&gt;://<span class="fragment highlight-current-red"
+							data-fragment-index="1">&lt;Benutzer&gt;:&lt;Passwort&gt;@</span>&lt;Server&gt;:&lt;Port&gt;...
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>Im Schema http/https veraltet</li>
+						<li>Browser reagieren unterschiedlich (Rückfrage, Verweigerung, ...)</li>
+						<li>Für andere Schemata (z.B. FTP) wird es weiterhin genutzt</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">Beispiel: "private" Websiten, z.B. Urlaubsblogs,
+						Hochzeitswebsiten, etc.</p>
+				</section>
+				<section>
+					<h3>URL Kodierung</h3>
+					<p>Steuer- und Sonderzeichen müssen kodiert werden</p>
+					<p class="fragment" data-fragment-index="1">Codierung erfolgt byteweise durch '%' und Angabe des
+						Zeichencodes (hexadezimal, zweistellig)</p>
+					<p class="fragment" data-fragment-index="1">Unicode-Zeichen via '%u' und vierstelliger
+						Hexadezimalzahl</p>
+					<p class="fragment" data-fragment-index="2">Beispiele:</p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>'&amp;' = '%26' (ASCII)</li>
+						<li>'&euro;' = '%E2%82%AC' (Byteweise, UTF-8)</li>
+						<li>'&euro;' = '%u20AC' (Unicode, UTF-16)</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Relative URLs</h3>
+					<p>Präfixe relativ zur aktuellen URL</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>'//' = Gleiches Schema</li>
+						<li>'/' = Gleicher Server (und Port)</li>
+						<li>'#' = Gleiche Ressource (anderes Element)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Relative URLs - Beispiele</h3>
+					<p>Präfixe relativ zur aktuellen URL</p>
+					<p>Beispiele ausgehend von "https://example.com/pfad/datei.html#anfang"</p>
+					<ul>
+						<li class="fragment">
+							//example.com/pfad/andere/datei.html
+							<ul class="fragment">
+								<li>https://example.com/pfad/andere/datei.html</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							/pfad/ganz/andere/datei.html
+							<ul class="fragment">
+								<li>https://example.com/pfad/ganz/andere/datei.html</li>
+							</ul>
+						</li>
+						<li class="fragment">#ende
+							<ul class="fragment">
+								<li>https://example.com/pfad/datei.html#ende</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Relativer Pfad</h3>
+					<p>Präfixe relativ zum aktuellen Pfad</p>
+					<ul class="fragment">
+						<li>'../' = ein Pfadsegement "nach oben"</li>
+						<li>'./' = gleiches Pfadsegment</li>
+					</ul>
+					<p class="fragment">"../" kann beliebig oft wiederholt werden</p>
+				</section>
+				<section>
+					<h3>Relativer Pfad - Beispiele</h3>
+					<p>Präfixe relativ zum aktuellen Pfad</p>
+					<p>Beispiele ausgehend von "/pfad/datei.html"</p>
+					<ul class="fragment">
+						<li class="fragment">../ganz/andere/datei.html
+							<ul>
+								<li class="fragment">/ganz/andere/datei.html</li>
+							</ul>
+						</li>
+						<li class="fragment">./datei2.html
+							<ul>
+								<li class="fragment">/pfad/datei2.html</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Verweis - Fragment + Anker</h3>
+					<p>Zweck: An bestimmte Stelle auf einem (sehr) langen Dokument springen.</p>
+					<p class="fragment" data-fragment-index="1">Fragment: anhängen von #&lt;Fragment&gt; an die URL</p>
+					<p class="fragment" data-fragment-index="1">Anker: id-Attribut des Tags/Elements</p>
+					<p class="fragment" data-fragment-index="2">Beispiele:
+						<br><a target="_blank"
+							href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element</a>
+						<br><a target="_blank"
+							href="https://de.wikipedia.org/wiki/HTML5#Standarddarstellung">https://de.wikipedia.org/wiki/HTML5#Standarddarstellung</a>
+					</p>
+				</section>
+				<section>
+					<h3>Verweis - Target</h3>
+					<ul>
+						<li>Werte: "_self", "_blank", Bezeichner
+							<ul>
+								<li>"_self" &ndash; Neue Seite öffnet sich im gleichen Fenster (standard)</li>
+								<li class="fragment">"_blank" &ndash; Neue Seite öffnet sich in neuem Tab/Fenster</li>
+								<li class="fragment">"Bezeichner" &ndash; Neue Seite öffnet sich im bezeichneten Fenster
+									oder öffnet ein Fenster mit diesem Bezeichner, z.B.:<br>&lt;a
+									href="http://www.google.de" target="myid"&gt;Google&lt;/a&gt;</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						Neuer Tab -> neue Targets!
+					</aside>
+				</section>
+				<section>
+					<h3>Verweis - Download</h3>
+					<p>Deklariert den Link als Download (anstatt Anzeige)</p>
+					<ul class="fragment">
+						<li>Werte: leer oder Dateiname</li>
+						<li>&lt;a href="/static/lebenslauf.pdf" download="ChristophHaefner"&gt;Lebenslauf&lt;/a&gt;
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Verweis - rel</h3>
+					<p>Verweisart (relationship) - Leerzeichen getrennte Liste</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>Liste von Werten:
+							<ul>
+								<li>"alternate" &ndash; Alternative Darstellung</li>
+								<li>"bookmark" &ndash; Bester permanenter Verweis</li>
+								<li class="fragment" data-fragment-index="2">"author" &ndash; Autor des Dokumentes</li>
+								<li class="fragment" data-fragment-index="2">"help" &ndash; Verweis zur Hilfe</li>
+								<li class="fragment" data-fragment-index="2">"search" &ndash; Verweis zur Suche</li>
+								<li class="fragment" data-fragment-index="3">"nofollow" &ndash; Autor unterstützt den
+									Inhalt nicht</li>
+								<li class="fragment" data-fragment-index="3">"noreferrer" &ndash; Keine Referenz
+									mitschicken</li>
+								<li class="fragment" data-fragment-index="4">"prefetch", "preload", ("preconnect",
+									"prerender") Performanceoptimierung für Navigation</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Verweis - Attribute</h3>
+					<ul>
+						<li>hreflang - Sprache des Verweisziels
+							<ul>
+								<li>Wert: Sprachbezeichner (z.B. de, en, en-us, ...)</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">type - Dokumenttyp des Verweisziels
+							<ul>
+								<li>Wert: MIME-type</li>
+							</ul>
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">hreflang und type nur eine Vorindikation</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Aufgabe 7 - Verweise</h3>
+					<p>Erstellen Sie drei kleine HTML-Seiten A, B und C. Verweisen sie von A auf B und von B auf C.</p>
+					<p>Erstellen Sie eine umfangreiche Seite D mit mehreren Überschriften und Absätzen, die jeweils
+						eine ganze Bildschirmseite füllen.</p>
+					<p>Erstellen Sie auf der Seite D ein "Inhaltsvereichnis" mit Verweisen auf die einzelnen
+						Überschriften. Verweisen Sie zusätzlich von HTML-Seite A auf die einzelnen Überschriften von
+						HTML-Seite D.</p>
+					<p>Tipp: Erzeugung von Fließtext: <a href="http://www.loremipsum.de/">loremipsum.de/</a></p>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 8 - Verweise</h3>
+					<p>Verweisen Sie von B jetzt so auf C, dass bei jedem Folgen des Verweises ein neues Fenster
+						(oder Tab) geöffnet wird.</p>
+					<p>Verweisen Sie von A so auf D, dass einmal ein neues Fenster geöffnet wird, beim wiederholten
+						Folgen des Verweises aber immer dieses Fenster wieder angewählt wird.</p>
+					<p>Verweisen Sie auch von HTML-Seite C auf das erzeugte Fenster für HTML-Seite D.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Lösung - Aufgabe 7 - Verweise</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF24B2/html/aufgaben/07-verweise/">gitlab.com/.../TINF24B2/html/aufgaben/<br>07-verweise/</a>
+					</p>
+					<p>Deployed</p>
+					<ul>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/07-verweise/a.html">07-verweise/a.html</a>
+						</li>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/07-verweise/b.html">07-verweise/b.html</a>
+						</li>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/07-verweise/c.html">07-verweise/c.html</a>
+						</li>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/07-verweise/d.html">07-verweise/d.html</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Lösung - Aufgabe 8 - Verweise</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF24B2/html/aufgaben/08-verweise/">gitlab.com/.../TINF24B2/html/aufgaben/<br>08-verweise/</a>
+					</p>
+					<p>Deployed</p>
+					<ul>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/08-verweise/a.html">08-verweise/a.html</a>
+						</li>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/08-verweise/b.html">08-verweise/b.html</a>
+						</li>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/08-verweise/c.html">08-verweise/c.html</a>
+						</li>
+						<li><a
+								href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/08-verweise/d.html">08-verweise/d.html</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Bilder</h3>
+					<ul>
+						<li>&lt;img&gt; &ndash; Bild (image)<ul>
+								<li>src: Bildquelle<ul>
+										<li>Wert: absolute oder relative URL</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="1">alt: Alternative Beschreibung<ul>
+										<li>Wert: Text</li>
+										<li>Achtung: Text wird oft als Tooltip angezeigt</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="2">width: Breite<ul>
+										<li>Wert: Ganze Zahl Pixel oder "%"</li>
+									</ul>
+								</li>
+								<li class="fragment" data-fragment-index="2">height: Höhe<ul>
+										<li>Wert: Ganze Zahl Pixel oder "%"</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Bilder - Attribute</h3>
+					<ul>
+						<li>crossorigin - Bild stammt von anderem Server
+							<ul>
+								<li>Wert: "anonymous", "use-credentials"</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">ismap - Wenn Verweis, Mitschicken der
+							Klick-Koordinaten
+							<ul>
+								<li>Wert: "ismap", leer</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Bilder - Performance-Attribute</h3>
+					<ul>
+						<li>decoding - Hinweis wie Browser Bild verarbeiten soll
+							<ul>
+								<li>Wert: "sync", "async", "auto"</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="1">loading - Hinweis wann Browser Bild laden soll
+							<ul>
+								<li>Wert: "eager", "lazy"</li>
+								<li>Achtung: nicht von allen Browsern unterstützt, nur wenn JavaScript aktiviert ist
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3><b class="fragment highlight-current-red" data-fragment-index="1">H</b>yper<b
+							class="fragment highlight-current-red" data-fragment-index="1">t</b>ext <b
+							class="fragment highlight-current-red" data-fragment-index="1">T</b>ransport <b
+							class="fragment highlight-current-red" data-fragment-index="1">P</b>rotocol</h3>
+					<div class="two-columns">
+						<div class="text-column">
+							<ol class="fragment">
+								<li>Browser sendet HTTP GET Request an Server</li>
+								<li>Server berechnet Seite</li>
+								<li>Server schickt Seite an Browser</li>
+								<li>Browser stellt Seite dar</li>
+							</ol>
+						</div>
+						<img src="./images/html-Formulare-Client-Server_1.jpg" alt="http Beispielablauf Server Client">
+					</div>
+				</section>
+				<section>
+					<h3>HTTP - OSI Schichten-Modell</h3>
+					<p>Open Systems Interconnection model (OSI) beschreibt sieben Schichten (Layer)</p>
+					<ol reversed="reversed">
+						<li class="fragment" data-fragment-index="5">Anwendung - HTTP(S), DNS, DHCP, FTP</li>
+						<li class="fragment" data-fragment-index="5">Darstellung</li>
+						<li class="fragment" data-fragment-index="5">Sitzung</li>
+						<li class="fragment" data-fragment-index="4">Transport &ndash; TCP/UDP</li>
+						<li class="fragment" data-fragment-index="3">Vermittlung &ndash; IP (Router)</li>
+						<li class="fragment" data-fragment-index="2">Sicherung &ndash; Ethernet (Switch, MAC)</li>
+						<li class="fragment" data-fragment-index="1">Bitübertragung &ndash; 1000BASE-T (Netzwerkkabel)
+						</li>
+					</ol>
+					<aside class="notes">
+						Application, Presentation, Session, Transport, Network, Data Link, Physical
+						DNS=Domain Name Systems
+						DHCP=Dynamic Host Configuration Protocol
+					</aside>
+				</section>
+				<section>
+					<h3>HTTP/1.1</h3>
+					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc2068">RFC 2068</a> in 1997.
+					</p>
+					<p class="fragment">Protokoll zum Übertragen von Daten<br>über ein Netzwerk</p>
+					<p class="fragment">Striktes Request/Response Protokoll in einem<br>Client-Server Model</p>
+					<p class="fragment">Zustandsloses Protokoll</p>
+					<p class="fragment">Anfragen und Antworten bestehen aus<br>Kopf (header) und Inhalt (content)</p>
+				</section>
+				<section>
+					<h3>HTTP/1.1 - Anfrage/Request</h3>
+					<pre><code class="language-http hljs" data-line-numbers="1|2|3|">GET /index.html HTTP/1.1
+Host: example.com
+
+					</code></pre>
+					<ol>
+						<li class="fragment">Anfragemethode: GET, Leerzeichen, absolute URL, Leerzeichen,
+							Protokollversion</li>
+						<li class="fragment">HTTP-Header: Host<br>Headername Doppelpunkt Headerwert</li>
+						<li class="fragment">Anfrageabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+					</ol>
+				</section>
+				<section>
+					<h3>HTTP/1.1 - Antwort/Response</h3>
+					<pre><code class="language-http hljs" data-line-numbers="1|2-4|5|6|">HTTP/1.1 200 OK
+Server: Apache/1.3.29 (Unix) PHP/4.3.4
+Content-Length: 123456
+Content-Type: text/html; charset=utf-8
+
+&lt;!DOCTYPE ...</code></pre>
+					<ul>
+						<li class="fragment">Statuszeile: Protokoll, Leerzeichen, Statuscode, Leerzeichen, Beschreibung
+						</li>
+						<li class="fragment">HTTP-Header: Headername Doppelpunkt Headerwert</li>
+						<li class="fragment">Headerabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+						<li class="fragment">Inhalt (Body)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP Status codes</h3>
+					<ul>
+						<li class="fragment">1xx &ndash; Information<br>verhindert eine Zeitüberschreitung der Anfrage
+						</li>
+						<li class="fragment">2xx &ndash; Erfolg<br>Antwort geht raus</li>
+						<li class="fragment">3xx &ndash; Umleitung<br>die Prinzessin ist in einem anderen Schloss</li>
+						<li class="fragment">4xx &ndash; Client Fehler<br>die Anfrage des Clients ist fehlerbehaftet
+						</li>
+						<li class="fragment">5xx &ndash; Server Fehler<br>der Server hat einen Fehler verursacht</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP Status codes</h3>
+					<ul>
+						<li>100 &ndash; Information</li>
+						<li>200 &ndash; Erfolg</li>
+						<li class="fragment">3xx &ndash; Umleitung
+							<ul>
+								<li>301 Moved Permanently<br>Dauerhaft unter neuer URL zu finden</li>
+								<li>302 Found<br>Temporär unter neuer URL zu finden</li>
+							</ul>
+						</li>
+						<li class="fragment">4xx &ndash; Client Fehler
+							<ul>
+								<li>401/403 Unauthorized/Forbidden</li>
+								<li>404 Not Found</li>
+							</ul>
+						</li>
+						<li>500 &ndash; Server Fehler</li>
+					</ul>
+					<aside class="notes">Status Code: 100, HTTP-Header Expect "100-continue", Client soll auch den Body
+						schicken https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect</aside>
+				</section>
+				<section>
+					<h3>HTTP Anfragemethode POST</h3>
+					<p>Anfrage kommt mit Inhalt (Body)</p>
+					<pre><code class="language-http hljs" data-line-numbers="|1|2-4|5|6|">POST /test HTTP/1.1
+Host: example.com
+Content-Type: text/plain
+Content-Length: 32
+
+This is my awesome request body</code></pre>
+					<ul>
+						<li class="fragment">Anfragemethode: POST, Leerzeichen, absolute URL, Leerzeichen,
+							Protokollversion</li>
+						<li class="fragment">HTTP-Header: Host, Content-Type</li>
+						<li class="fragment">Headerabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+						<li class="fragment">Inhalt/Body</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP: Wikipedia-Suche</h3>
+					<p>Anfrage:</p>
+					<pre><code class="language-http hljs" data-line-numbers="|1|2-4|6|">POST /wiki/Spezial:Search HTTP/1.1
+Host: de.wikipedia.org
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 24
+
+search=Katze&go=Artikel</code></pre>
+				</section>
+				<section>
+					<h3>HTTP: Wikipedia-Suche</h3>
+					<p>Antwort:</p>
+					<pre><code class="language-http hljs" data-line-numbers="|1|2|">HTTP/1.1 302 Found
+Location: http://de.wikipedia.org/wiki/Katze</code></pre>
+					<p class="fragment">Client (Browser) schickt eine weitere GET-Anfrage um "Location" abzurufen (und
+						anzuzeigen)</p>
+				</section>
+				<section>
+					<h3>HTTP/2</h3>
+					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc7540">RFC 7540</a> in 2015.
+					</p>
+					<p>Verbesserungen gegenüber HTTP/1.1</p>
+					<ul>
+						<li>Komprimierte HTTP Header</li>
+						<li>Server kann mit mehr als dem angefragten Inhalt antworten (Server Push)</li>
+						<li>"chunked transfer encoding" ersetzt durch "data streaming"</li>
+						<li>Mehrere gleichzeitige HTTP-Transaktionen mit einer TCP-Verbindung</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<div class="r-stack">
+						<img class="fragment fade-out" src="images/forms_amazon-login.jpg"
+							alt="Screenshot Amazon Login Formular">
+						<img class="fragment fade-in-then-out" src="images/forms_amazon-neue-addresse.jpg"
+							alt="Screenshot Amazon Formular Neue Adresse">
+						<img class="fragment fade-in-then-out" src="images/forms_namecheap-login.jpg"
+							alt="Screenshot Namecheap Login Formular">
+						<img class="fragment fade-in-then-out" src="images/forms_namecheap-add-card.jpg"
+							alt="Screenshot Namecheap Formular Neue Kreditkarte">
+					</div>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<p>Nicht alle Browser unterstützen alle neuen HTML5 Formular-Möglichkeiten</p>
+					<ul>
+						<li>Neue Eingabetypen</li>
+						<li>Validierung</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>&lt;form&gt; &ndash; Formular
+							<ul>
+								<li>method: Sendemethode</li>
+								<li>action: Sendeziel (auszulösende "Aktion")</li>
+								<li>name: eindeutiger Name des Formulars</li>
+								<li>target: Zielfenster</li>
+								<li class="li-space-above fragment" data-fragment-index="1">autocomplete:
+									Autovervollständigung</li>
+								<li class="fragment" data-fragment-index="1">formnovalidate: Validierung vor Übertragung
+								</li>
+								<li class="li-space-above fragment" data-fragment-index="2">formenctype:
+									Enkodierungsmethode</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						formenctype: Form data set encoding type to use for form submission
+					</aside>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>method &ndash; Sendemethode
+							<ul>
+								<li>Wert: "post", "get"</li>
+								<li class="fragment" data-fragment-index="1">"get" &ndash; Eingabeparameter werden an
+									URL angehängt</li>
+								<li class="fragment" data-fragment-index="2">"post" &ndash; Eingabeparameter werden als
+									Nachrichteninhalt gesendet</li>
+							</ul>
+						</li>
+						<li class="fragment" data-fragment-index="3">action &ndash; Sendeziel
+							<ul>
+								<li>Wert: absolute oder relative URL</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes">
+						get: einfach sichtbar, gut für z.B. Bookmarks
+						post: nicht so einfach sichtbar, nicht einfach speicherbar
+					</aside>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>name &ndash; Name des Formulars
+							<ul>
+								<li>Wert: bezüglich aller form-Tags eindeutiger Bezeichner</li>
+								<li>Dient der Auswahl eines Formulars (JavaScript/CSS)</li>
+							</ul>
+						</li>
+						<li class="fragment">target &ndash; Zielfenster
+							<ul>
+								<li>Wert: "_blank", "_self", Bezeichner</li>
+								<li>Gleiche Funktion wie bei Verweisen</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>autocomplete &ndash; Autovervollständigung
+							<ul>
+								<li>Wert: "on", "off" (default ist "on")</li>
+								<li>Autovervollständigung durch Browser erwünscht?</li>
+								<li>Voreinstellung für alle Eingabefelder</li>
+							</ul>
+						</li>
+						<li class="fragment">formnovalidate &ndash; Validierung durch Browser
+							<ul>
+								<li>Wert: "novalidate", leer</li>
+								<li>Deaktiviert Validierung durch den Browser</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/14_eingabefelder/input.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/14_eingabefelder/input.html" data-line-numbers="|11,13|12"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Named</h3>
+					<ul>
+						<li>name &ndash; eindeutiger Names des Eingabefeldes
+							<ul>
+								<li>Wert: eindeutiger Bezeichner</li>
+								<li>Wird als Parametername verwendet</li>
+								<li>Dient der Auswahl eines Parameters (JavaScript/CSS)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Eingabefelder - Input - Named</h3>
+					<iframe class="code-example full-width"
+						data-src="./code-examples/14_eingabefelder/input-named.html"></iframe>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/14_eingabefelder/input-named.html" data-line-numbers="|11,13|12"></code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Praxis - Aufgabe 9 - Bild</h3>
+					<p>Fügen Sie auf Seite C ein Bild ein.</p>
+					<p>Bieten Sie das Bild auf Seite C zum Download an.</p>
+					<p>Fügen Sie mehrere bildschirmfüllende Bilder auf Seite C ein und nutzen Sie loading="lazy".<br>
+						Wie verhalten Sie die verschiedenen Browser beim runterscrollen?</p>
+				</section>
+				<section>
+					<h3>Praxis - Aufgabe 10 - Formular</h3>
+					<p>Schreiben Sie eine HTML-Seite mit einem Formular mit einem Eingabefeld. Die mit dem Formular
+						aufgerufene Seite sei die Suche von <a
+							href="https://www.wolframalpha.com/">wolframalpha.com</a>.</p>
+					<p>Beobachten Sie mit dem Browser die Kommunikation zum Server und dessen Antwort, wenn Sie als
+						Methode "post" oder "get" verwenden.</p>
+					<p>Tipp: Nutzen Sie die Suche auf <a href="https://www.wolframalpha.com/">wolframalpha.com</a> und
+						beobachten Sie die URL und ihre Parameter</p>
+					<aside class="notes">
+						Wolframalpha: https://www.wolframalpha.com/input/?i=Suche
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Lösung - Aufgabe 9 - Bild</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF24B2/html/aufgaben/09-bild/c.html">gitlab.com/.../TINF24B2/html/aufgaben/<br>09-bild/c.html</a>
+					</p>
+					<p>Deployed:<br><a
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/09-bild/c.html">gitlab.io/.../TINF24B2/html/aufgaben/<br>09-bild/c.html</a>
+					</p>
+				</section>
+				<section>
+					<h3>Lösung - Aufgabe 10 - Formular</h3>
+					<p>
+						Code:<br><a
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF24B2/html/aufgaben/10-formular/loesung.html">gitlab.com/.../TINF24B2/html/aufgaben/<br>10-formular/loesung.html</a>
+					</p>
+					<p>Deployed:<br><a
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/html/aufgaben/10-formular/loesung.html">gitlab.io/.../TINF24B2/html/aufgaben/<br>10-formular/loesung.html</a>
+					</p>
+				</section>
+			</section>
+			<!-- Ende HTML-Day3 -->
 		</div>
 	</div>
 
