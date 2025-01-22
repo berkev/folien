@@ -1298,6 +1298,143 @@
 				</section>
 			</section>
 			<!-- Ende HTML-Day2 -->
+			<section>
+				<section>
+					<h3>Was bisher geschah</h3>
+					<img src="./images/was-bisher-geschah.jpg" alt="Was bisher geschah">
+				</section>
+				<section>
+					<h3>Block- vs. Inline-Elemente</h3>
+					<ul>
+						<li>Block-Elemente (<a
+								href="https://developer.mozilla.org/en-US/docs/Glossary/Block-level_content">MDN</a>)
+							<ul>
+								<li>können Block- oder Inline-Elemente enthalten</li>
+							</ul>
+						</li>
+						<li>Inline-Elemente (<a
+								href="https://developer.mozilla.org/en-US/docs/Glossary/Inline-level_content">MDN</a>)
+							<ul>
+								<li>dürfen keine Blockelemente enthalten</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Wichtige Globale Attribute</h3>
+					<ul>
+						<li>id - Eindeutiger Name des Elementes</li>
+						<li>class - Zuordnung des Elements zu einer oder mehreren Gruppen</li>
+						<li>lang - Sprache des Elementinhalts</li>
+						<li>tabindex - Tabulator-Reihenfolge</li>
+						<li>data-* - anwendungsspezifische Daten</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Semantische Auszeichnung</h3>
+					<h4><code>&lt;strong&gt;</code> & <code>&lt;b&gt;</code></h4>
+					<ul>
+						<li>Das &lt;b&gt;-Tag hat weniger semantisches gewicht</li>
+						<li>Das &lt;b&gt;-Tag soll Aufmerksamkeit auf sich ziehen ohne eine Notwendigkeit zu
+							suggerieren.</li>
+						<li>Das &lt;strong&gt;-Tag sollte wichtige Inhalte hervorheben oder dann
+							verwendet werden wenn dringlichkeit Vermittelt werden soll.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Semantische Auszeichnung</h3>
+					<ul>
+						<li>&lt;cite&gt; &ndash; Zitatangabe</li>
+						<li>&lt;code&gt; &ndash; Text der (Programmier)-Code</li>
+						<li>&lt;hr&gt; &ndash; Thematischer Wechsel</li>
+						<li>&lt;pre&gt; &ndash; Vorfomartierter Text</li>
+						<li>&lt;article&gt; &ndash; Artikel</li>
+						<li>&lt;header&gt;/&lt;main&gt;/&lt;footer&gt; &ndash; einleitender-, haupt-, abschließender
+							Teil</li>
+						<li>&lt;nav&gt; &ndash; Navigation</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Screen Reader</h3>
+					<img src="./images/semantic-good.jpg" alt="Semantic Good">
+				</section>
+				<section>
+					<h3>Sonderzeichen in HTML</h3>
+					<ul>
+						<li>Entity &ndash; Entität<ul>
+								<li>&amp;#Code-Nummer;&emsp;(Code-Nummer ist dezimal)</li>
+								<li>&amp;#xUTF8-Nummer;&emsp;(UTF8-Nummer ist dezimal)</li>
+								<li>&amp;Name;&emsp;(Name ist vordefiniert)</li>
+							</ul>
+						</li>
+						<li>Verpflichtende vordefinierte Entitäten<ul>
+								<li>Anführungszeichen&emsp;&quot;&emsp;&amp;quot; oder &amp;#34;</li>
+								<li>Kaufmanns-Und&emsp;&amp;&emsp;&amp;amp; oder &amp;#38;</li>
+								<li>Kleiner&emsp;&lt;&emsp;&amp;lt; oder &amp;#60;</li>
+								<li>Größer&emsp;&gt;&emsp;&amp;gt; oder &amp;#62;</li>
+							</ul>
+						</li>
+						<li>Viele weitere Entitäten:<br><a
+								href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">13.5
+								Named character references</a>, z.B. &amp;copy;&ensp;&copy;</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Leerzeichen in HTML</h3>
+					<ul>
+						<li>&amp;nbsp; <span class="highlight-whitespace-red">&nbsp;</span></li>
+						<li>&amp;ensp; <span class="highlight-whitespace-red">&ensp;</span></li>
+						<li>&amp;emsp; <span class="highlight-whitespace-red">&emsp;</span></li>
+						<li>&amp;hairsp; <span class="highlight-whitespace-red">&hairsp;</span></li>
+						<li>&amp;VeryThinSpace; <span class="highlight-whitespace-red">&VeryThinSpace;</span></li>
+				</section>
+				<section>
+					<h3>Listen</h3>
+					<ul>
+						<li>&lt;ul&gt; &ndash; Unsortierte Liste (unordered list)<ul>
+								<li>Üblicherweise dargestellt mit einem Punkt</li>
+							</ul>
+						</li>
+						<li>&lt;ol&gt; &ndash; sortierte Liste (ordered list)<ul>
+								<li>Üblicherweise dargestellt mit arabischen Zahlen</li>
+							</ul>
+						</li>
+						<li>&lt;li&gt; &ndash; Listen-Element (list element)<ul>
+								<li>Einzelnes Listen-Element</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML Tabellen</h3>
+					<ul>
+						<li>&lt;table&gt; &ndash; Tabelle</li>
+						<li>&lt;tr&gt; &ndash; Tabellenzeile (table row)</li>
+						<li>&lt;td&gt; &ndash; Tabelleninhalt (table data)</li>
+						<li>&lt;th&gt; &ndash; Spalten/Zeilen-Überschrift (table header)<ul>
+								<li>"scope" Attribut mit Wert "row" oder "col"</li>
+							</ul>
+						</li>
+						<li>&lt;thead&gt; &ndash; Kopfzeile</li>
+						<li>&lt;tbody&gt; &ndash; Tabelleninhalt</li>
+						<li>&lt;tfoot&gt; &ndash; Fu&szlig;zeile</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Zellen zusammenfassen</h3>
+					<p>Attribute für td-Elemente:</p>
+					<ul>
+						<li>colspan &ndash; Spalten zusammenfassen<ul>
+								<li>Wert: ganze Zahl größer 0</li>
+							</ul>
+						</li>
+						<li>rowspan &ndash; Zeilen zusammenfassen<ul>
+								<li>Wert: ganze Zahl größer 0</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 	</div>
 
