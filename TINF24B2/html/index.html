@@ -83,7 +83,7 @@
 	Day1: 1,3-24 WebEng_HTML-Day1_Tags-Attribute
 	Day1-Praxis: 28-31 WebEng_HTML-Day1-Praxis_Aufgabe0-1
 	Day2: 1,30-62,65-84 WebEng_HTML-Day2_Inline-Block-Screen-Reader-Sonderzeichen-Listen-Tabellen
-	Day2-Praxis: 52-53,70-74 WebEng_HTML-Day2-Praxis_Aufgabe2-6
+	Day2-Praxis: 63-64,85-89 WebEng_HTML-Day2-Praxis_Aufgabe2-6
 -->
 
 <body>
@@ -475,7 +475,7 @@
 			<section>
 				<section>
 					<h3>Was bisher geschah</h3>
-					<img src="./images/was-bisher-geschah.jpg" alt="Was bisher gescah">
+					<img src="./images/was-bisher-geschah.jpg" alt="Was bisher geschah">
 				</section>
 				<section>
 					<h3>Tags & Attribute</h3>
@@ -536,10 +536,10 @@
 				<section>
 					<h3>Bisherige Tags</h3>
 					<ul>
-						<li>h1, h2, h3, h4, h5, h6</li>
-						<li>p, br</li>
-						<li>b, i</li>
-						<li>sup, sub</li>
+						<li>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</li>
+						<li>&lt;p&gt;, &lt;br&gt;</li>
+						<li>&lt;b&gt;, &lt;i&gt;</li>
+						<li>&lt;sup&gt;, &lt;sub&gt;</li>
 					</ul>
 					<p>Sind diese Tags alle gleichwertig?</p>
 				</section>
@@ -548,22 +548,26 @@
 				<section>
 					<h3>Block- vs. Inline-Elemente</h3>
 					<ul>
-						<li>Block-Elemente
+						<li>Block-Elemente (<a
+								href="https://developer.mozilla.org/en-US/docs/Glossary/Block-level_content">MDN</a>)
 							<ul>
 								<li>können Block- oder Inline-Elemente enthalten</li>
 								<li class="fragment" data-fragment-index="1">beginnt mit einer neuen Zeile davor und
 									danach</li>
 								<li class="fragment" data-fragment-index="1">(üblicherweise) mit Abstand davor und
 									danach</li>
-								<li class="fragment" data-fragment-index="2">bisher: h1 ... h6, p</li>
+								<li class="fragment" data-fragment-index="2">bisher: &lt;h1&gt; ... &lt;h6&gt;,
+									&lt;p&gt;</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="3">Inline-Elemente
+						<li class="fragment" data-fragment-index="3">Inline-Elemente (<a
+								href="https://developer.mozilla.org/en-US/docs/Glossary/Inline-level_content">MDN</a>)
 							<ul>
 								<li class="fragment" data-fragment-index="3">dürfen keine Blockelemente enthalten</li>
 								<li class="fragment" data-fragment-index="4">Kein (extra) Zeilenumbruch</li>
 								<li class="fragment" data-fragment-index="4">(üblicherweise) keine Abstände</li>
-								<li class="fragment" data-fragment-index="5">bisher: b, i, sup, sub, br</li>
+								<li class="fragment" data-fragment-index="5">bisher: &lt;b&gt;, &lt;i&gt;, &lt;sup&gt;,
+									&lt;sub&gt;, &lt;br&gt;</li>
 							</ul>
 						</li>
 					</ul>
@@ -731,26 +735,28 @@
 					<h4><code>&lt;strong&gt;</code> & <code>&lt;b&gt;</code></h4>
 					<ul>
 						<li>Beide Tags sorgen für einen fettgedruckten Text</li>
-						<li class="fragment">Das b-Tag hat weniger semantisches gewicht</li>
-						<li class="fragment">Das b-Tag sollte z.B. verwendet werden für Stichwörter oder Produkt-Namen.
+						<li class="fragment">Das &lt;b&gt;-Tag hat weniger semantisches gewicht</li>
+						<li class="fragment">Das &lt;b&gt;-Tag sollte z.B. verwendet werden für Stichwörter oder
+							Produkt-Namen.
 							Es soll Aufmerksamkeit auf sich ziehen ohne eine Notwendigkeit zu suggerieren.</li>
-						<li class="fragment">Das strong-Tag sollte wichtige Inhalte hervorheben oder dann verwendet
+						<li class="fragment">Das &lt;strong&gt;-Tag sollte wichtige Inhalte hervorheben oder dann
+							verwendet
 							werden wenn dringlichkeit Vermittelt werden soll.</li>
 					</ul>
 				</section>
 				<section>
 					<h3>Semantische Auszeichnung</h3>
 					<ul>
-						<li class="fragment" data-fragment-index="1">em &ndash; emphasis (Betonung)</li>
-						<li class="fragment" data-fragment-index="2">strong &ndash; "strong importance" (hohe
+						<li class="fragment" data-fragment-index="1">&lt;em&gt; &ndash; emphasis (Betonung)</li>
+						<li class="fragment" data-fragment-index="2">&lt;strong&gt; &ndash; "strong importance" (hohe
 							Wichtigkeit)</li>
-						<li class="fragment" data-fragment-index="3">mark &ndash; marked (Markiert)</li>
+						<li class="fragment" data-fragment-index="3">&lt;mark&gt; &ndash; marked (Markiert)</li>
 					</ul>
 					<p class="smaller-font">Optische Textauszeichnung</p>
 					<ul class="smaller-font">
-						<li class="fragment" data-fragment-index="1">i &ndash; italics (kursive Schrift)</li>
-						<li class="fragment" data-fragment-index="2">b &ndash; bold (Fettdruck)</li>
-						<li class="fragment" data-fragment-index="3">u &ndash; underline (Unterstrichen)</li>
+						<li class="fragment" data-fragment-index="1">&lt;i&gt; &ndash; italics (kursive Schrift)</li>
+						<li class="fragment" data-fragment-index="2">&lt;b&gt; &ndash; bold (Fettdruck)</li>
+						<li class="fragment" data-fragment-index="3">&lt;u&gt; &ndash; underline (Unterstrichen)</li>
 					</ul>
 					<p class="fragment smaller-font" data-fragment-index="4">Betonung, hohe Wichtigkeit,
 						Markierung:<br>&lt;em&gt;<em>semantische</em>&lt;/em&gt;
@@ -769,23 +775,24 @@
 				<section>
 					<h3>Semantische Auszeichnung<br>Inline-Beispiele</h3>
 					<ul>
-						<li>dfn &ndash; Begriffsdefinition<ul>
+						<li>&lt;dfn&gt; &ndash; Begriffsdefinition<ul>
 								<li>Üblicherweise kursiv</li>
 							</ul>
 						</li>
-						<li>cite &ndash; Zitatangabe<ul>
+						<li>&lt;cite&gt; &ndash; Zitatangabe<ul>
 								<li>Üblicherweise kursiv</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="1">abbr &ndash; Abkürzung oder Akronym<ul>
+						<li class="fragment" data-fragment-index="1">&lt;abbr&gt; &ndash; Abkürzung oder Akronym<ul>
 								<li>Üblicherweise keine besondere Formatierung</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="2">time &ndash; Zeitangabe<ul>
+						<li class="fragment" data-fragment-index="2">&lt;time&gt; &ndash; Zeitangabe<ul>
 								<li>Attribut "datetime" für maschinenlesbare Form!</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="2">code &ndash; Text der (Programmier)-Code darstellt
+						<li class="fragment" data-fragment-index="2">&lt;code&gt; &ndash; Text der (Programmier)-Code
+							darstellt
 							<ul>
 								<li>Üblicherweise Schreibmaschinenschrift</li>
 							</ul>
@@ -795,20 +802,20 @@
 				<section>
 					<h3>Semantische Auszeichnung<br>Block-Beispiele</h3>
 					<ul>
-						<li>hr &ndash; Thematischer Wechsel<ul>
+						<li>&lt;hr&gt; &ndash; Thematischer Wechsel<ul>
 								<li>Üblicherweise eine horizontale Linie</li>
 							</ul>
 						</li>
-						<li class="fragment">pre &ndash; Vorfomartierter Text<ul>
+						<li class="fragment">&lt;pre&gt; &ndash; Vorfomartierter Text<ul>
 								<li>Stellt auch Leerzeichen, Zeilen und Umbrüche dar</li>
 								<li>Üblicherweise Schreibmaschinenschrift</li>
 							</ul>
 						</li>
-						<li class="fragment">blockquote &ndash; Zitat auf Absatzebene<ul>
+						<li class="fragment">&lt;blockquote&gt; &ndash; Zitat auf Absatzebene<ul>
 								<li>Üblicherweise beidseitig eingerückt, z.B. <a href="#/5">Memex</a></li>
 							</ul>
 						</li>
-						<li class="fragment">figure &ndash; "Abbildung"<ul>
+						<li class="fragment">&lt;figure&gt; &ndash; "Abbildung"<ul>
 								<li>in sich geschlossener, vom Text getrennter Inhalt</li>
 								<li>optionale Unterschrift: &lt;figcaption&gt;</li>
 							</ul>
@@ -818,22 +825,23 @@
 				<section>
 					<h3>Semantische Auszeichnung<br>Block-Beispiele</h3>
 					<ul>
-						<li>article &ndash; Artikel<ul>
+						<li>&lt;article&gt; &ndash; Artikel<ul>
 								<li>Abgeschlossener, unabhängiger Inhalt</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="1">section &ndash; Abschnitt<ul>
+						<li class="fragment" data-fragment-index="1">&lt;section&gt; &ndash; Abschnitt<ul>
 								<li class="smaller-font">Thematisch zusammengehöriger Teil mit Überschrift</li>
 							</ul>
 						</li>
-						<li class="fragment" data-fragment-index="2">aside &ndash; Randbemerkung
+						<li class="fragment" data-fragment-index="2">&lt;aside&gt; &ndash; Randbemerkung
 						</li>
-						<li class="fragment" data-fragment-index="3">header/main/footer &ndash; einleitender-, haupt-,
+						<li class="fragment" data-fragment-index="3">&lt;header&gt;/&lt;main&gt;/&lt;footer&gt; &ndash;
+							einleitender-, haupt-,
 							abschließender Teil
 						</li>
-						<li class="fragment" data-fragment-index="3">nav &ndash; Navigation
+						<li class="fragment" data-fragment-index="3">&lt;nav&gt; &ndash; Navigation
 						</li>
-						<li class="fragment" data-fragment-index="4">address &ndash; Kontaktinformation<ul>
+						<li class="fragment" data-fragment-index="4">&lt;address&gt; &ndash; Kontaktinformation<ul>
 								<li>Kontakt zum Inhalteersteller!!</li>
 							</ul>
 						</li>
@@ -1014,11 +1022,11 @@
 				<section>
 					<h3>Unsortierte Liste</h3>
 					<ul>
-						<li>ul &ndash; Unsortierte Liste (unordered list)<ul>
+						<li>&lt;ul&gt; &ndash; Unsortierte Liste (unordered list)<ul>
 								<li>Üblicherweise dargestellt mit einem Punkt</li>
 							</ul>
 						</li>
-						<li>li &ndash; Listen-Element (list element)<ul>
+						<li>&lt;li&gt; &ndash; Listen-Element (list element)<ul>
 								<li>Einzelnes Listen-Element</li>
 							</ul>
 						</li>
@@ -1035,7 +1043,7 @@
 				<section>
 					<h3>Sortierte Liste</h3>
 					<ul>
-						<li>ol &ndash; sortierte Liste (ordered list)<ul>
+						<li>&lt;ol&gt; &ndash; sortierte Liste (ordered list)<ul>
 								<li>Üblicherweise dargestellt mit arabischen Zahlen</li>
 							</ul>
 						</li>
@@ -1086,15 +1094,15 @@
 				<section>
 					<h3>Listen - Definitionsliste</h3>
 					<ul>
-						<li>dl &ndash; Definitionsliste (definition list)<ul>
+						<li>&lt;dl&gt; &ndash; Definitionsliste (definition list)<ul>
 								<li>Stellt Name und Beschreibung üblicherweise eingerückt dar</li>
 							</ul>
 						</li>
-						<li>dt &ndash; Definitionsname (definition term)<ul>
+						<li>&lt;dt&gt; &ndash; Definitionsname (definition term)<ul>
 								<li>zu definierender Begriff</li>
 							</ul>
 						</li>
-						<li>dd &ndash; Definition (description details)<ul>
+						<li>&lt;dd&gt; &ndash; Definition (description details)<ul>
 								<li>die Definition selbst</li>
 							</ul>
 						</li>
@@ -1120,15 +1128,15 @@
 				<section>
 					<h3>HTML Tabellen</h3>
 					<ul>
-						<li>table &ndash; Tabelle<ul>
+						<li>&lt;table&gt; &ndash; Tabelle<ul>
 								<li>Umfasst die gesamte Tabelle</li>
 							</ul>
 						</li>
-						<li>tr &ndash; Tabellenzeile (table row)<ul>
+						<li>&lt;tr&gt; &ndash; Tabellenzeile (table row)<ul>
 								<li>deklariert eine neue Zeile</li>
 							</ul>
 						</li>
-						<li>td &ndash; Tabelleninhalt (table data)<ul>
+						<li>&lt;td&gt; &ndash; Tabelleninhalt (table data)<ul>
 								<li>Definiert den Inhalt eine Zelle</li>
 							</ul>
 						</li>
@@ -1146,17 +1154,17 @@
 					<h3>HTML Tabellen</h3>
 					<p>Mehr Tags innerhalb des table-Element:</p>
 					<ul>
-						<li>caption &ndash; Überschrift (Legende)<ul>
+						<li>&lt;caption&gt; &ndash; Überschrift (Legende)<ul>
 								<li>Üblicherweise über der Tabelle dargestellt</li>
 							</ul>
 						</li>
-						<li class="fragment">th &ndash; Spalten/Zeilen-Überschrift (table header)<ul>
+						<li class="fragment">&lt;th&gt; &ndash; Spalten/Zeilen-Überschrift (table header)<ul>
 								<li>"scope" Attribut mit Wert "row" oder "col"</li>
 							</ul>
 						</li>
-						<li class="fragment">colgroup &ndash; Spaltenanzahl festlegen (columns)<ul>
+						<li class="fragment">&lt;colgroup&gt; &ndash; Spaltenanzahl festlegen (columns)<ul>
 								<li>Definiert die Anzahl vorhandener Spalten</li>
-								<li>col &ndash; Spalte (column), empty tag<ul>
+								<li>&lt;col&gt; &ndash; Spalte (column), empty tag<ul>
 										<li>"span" Attribut mit Wert ganze Zahl größer 0</li>
 									</ul>
 								</li>
@@ -1213,9 +1221,9 @@
 				<section>
 					<h3>Tabelle Strukturierter</h3>
 					<ul>
-						<li>thead &ndash; Kopfzeile</li>
-						<li>tbody &ndash; Tabelleninhalt</li>
-						<li>tfoot &ndash; Fu&szlig;zeile</li>
+						<li>&lt;thead&gt; &ndash; Kopfzeile</li>
+						<li>&lt;tbody&gt; &ndash; Tabelleninhalt</li>
+						<li>&lt;tfoot&gt; &ndash; Fu&szlig;zeile</li>
 					</ul>
 				</section>
 				<section>
