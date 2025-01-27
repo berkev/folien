@@ -1390,6 +1390,7 @@
 						<li>&amp;emsp; <span class="highlight-whitespace-red">&emsp;</span></li>
 						<li>&amp;hairsp; <span class="highlight-whitespace-red">&hairsp;</span></li>
 						<li>&amp;VeryThinSpace; <span class="highlight-whitespace-red">&VeryThinSpace;</span></li>
+					</ul>
 				</section>
 				<section>
 					<h3>Listen</h3>
@@ -1567,7 +1568,6 @@
 						<li class="fragment" data-fragment-index="1">Fragment<ul>
 								<li>Verweist auf Element der Zielseite</li>
 								<li>Wird dem Server nie mitgeteilt</li>
-								<li>Verwendung in Kombination des a-Tags</li>
 							</ul>
 						</li>
 					</ul>
@@ -1663,10 +1663,9 @@
 			</section>
 			<section>
 				<section>
-					<h3>Verweis - Fragment + Anker</h3>
+					<h3>Verweis - Fragment + Element-ID</h3>
 					<p>Zweck: An bestimmte Stelle auf einem (sehr) langen Dokument springen.</p>
-					<p class="fragment" data-fragment-index="1">Fragment: anhängen von #&lt;Fragment&gt; an die URL</p>
-					<p class="fragment" data-fragment-index="1">Anker: id-Attribut des Tags/Elements</p>
+					<p class="fragment" data-fragment-index="1">#Fragment an die URL + id-Attribut des &lt;tag&gt;</p>
 					<p class="fragment" data-fragment-index="2">Beispiele:
 						<br><a target="_blank"
 							href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element</a>
@@ -1690,15 +1689,6 @@
 					<aside class="notes">
 						Neuer Tab -> neue Targets!
 					</aside>
-				</section>
-				<section>
-					<h3>Verweis - Download</h3>
-					<p>Deklariert den Link als Download (anstatt Anzeige)</p>
-					<ul class="fragment">
-						<li>Werte: leer oder Dateiname</li>
-						<li>&lt;a href="/static/lebenslauf.pdf" download="ChristophHaefner"&gt;Lebenslauf&lt;/a&gt;
-						</li>
-					</ul>
 				</section>
 				<section>
 					<h3>Verweis - rel</h3>
@@ -1917,7 +1907,7 @@ Host: example.com
 
 					</code></pre>
 					<ol>
-						<li class="fragment">Anfragemethode: GET, Leerzeichen, absolute URL, Leerzeichen,
+						<li class="fragment">Anfragemethode: GET, Leerzeichen, absoluter Pfad, Leerzeichen,
 							Protokollversion</li>
 						<li class="fragment">HTTP-Header: Host<br>Headername Doppelpunkt Headerwert</li>
 						<li class="fragment">Anfrageabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
@@ -2156,7 +2146,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 				<section>
 					<h3>Praxis - Aufgabe 9 - Bild</h3>
 					<p>Fügen Sie auf Seite C ein Bild ein.</p>
-					<p>Bieten Sie das Bild auf Seite C zum Download an.</p>
+					<p>Was wird angezeigt wenn "src" nicht erreichbar ist?</p>
 					<p>Fügen Sie mehrere bildschirmfüllende Bilder auf Seite C ein und nutzen Sie loading="lazy".<br>
 						Wie verhalten Sie die verschiedenen Browser beim runterscrollen?</p>
 				</section>
