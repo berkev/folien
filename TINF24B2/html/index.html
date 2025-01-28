@@ -2187,6 +2187,168 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 				</section>
 			</section>
 			<!-- Ende HTML-Day3 -->
+			<section>
+				<section>
+					<h3>Was bisher geschah</h3>
+					<img src="./images/was-bisher-geschah.jpg" alt="Was bisher geschah">
+				</section>
+				<section>
+					<h3>HTML - Verweise (Links)</h3>
+					<ul>
+						<li>&lt;a&gt; &ndash; Verweis/Link (anker)
+							<ul>
+								<li>href: Verweisziel als URL</li>
+								<li>rel: Art des Verweises (bookmark, search, nofollow)</li>
+								<li>Inhalt: auf ihn kann geklickt werden</li>
+							</ul>
+						</li>
+					</ul>
+					<p>&lt;a href="https://www.karlsruhe.dhbw.de/"&gt;Ein
+						Verweis auf die DHBW-Karlsruhe&lt;/a&gt;</p>
+				</section>
+				<section>
+					<h3>URL - Uniform Resource Locator</h3>
+					<p>Identifiziert und lokalisiert eine Ressource, über die zu verwendende Zugriffsmethode und den Ort
+						der Ressource in Computernetzwerken.</p>
+					<p>&lt;Schema&gt;:>&lt;schema-spezifisch&gt;</p>
+					<p>http://&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+					<ul>
+						<li>Server: Voll qualifizierter Domain-Name (FQDN)<br>z.B. "www.dhbw.de" oder "example.com"</li>
+						<li>Port: Positive, ganze Zahl &lt;= 65535</li>
+						<li>Pfad: beliebige Zeichenkette ohne '?'</li>
+					</ul>
+				</section>
+				<section>
+					<h3>URL Schema: http/https</h3>
+					<p>http://&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+					<ul>
+						<li>Anfrage (Query)<ul>
+								<li>Keine verbindliche Spezifikation</li>
+								<li>Liste an Name-Wert-Paaren</li>
+								<li>Name und Wert mit '=' trennen, Paare mit '&amp;'<br>z.B.
+									x=6&amp;y=0&amp;q=Suchanfrage</li>
+							</ul>
+						</li>
+						<li>Fragment<ul>
+								<li>Verweist auf Element der Zielseite</li>
+								<li>Wird dem Server nie mitgeteilt</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Relative URLs</h3>
+					<p>Präfixe relativ zur aktuellen URL</p>
+					<ul>
+						<li>'//' = Gleiches Schema</li>
+						<li>'/' = Gleicher Server (und Port)</li>
+						<li>'#' = Gleiche Ressource (anderes Element)</li>
+					</ul>
+					<h3>Relativer Pfad</h3>
+					<p>Präfixe relativ zum aktuellen Pfad</p>
+					<ul>
+						<li>'../' = ein Pfadsegement "nach oben"</li>
+						<li>'./' = gleiches Pfadsegment</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Bilder</h3>
+					<ul>
+						<li>&lt;img&gt; &ndash; Bild (image)<ul>
+								<li>src: Bildquelle<ul>
+										<li>Wert: absolute oder relative URL</li>
+									</ul>
+								</li>
+								<li>alt: Alternative Beschreibung<ul>
+										<li>Wert: Text</li>
+									</ul>
+								</li>
+								<li>loading - Hinweis wann Browser Bild laden soll
+									<ul>
+										<li>Wert: "eager", "lazy"</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP/1.1</h3>
+					<p>Standardisiert als <a href="https://datatracker.ietf.org/doc/html/rfc2068">RFC 2068</a> in 1997.
+					</p>
+					<p>Protokoll zum Übertragen von Daten<br>über ein Netzwerk</p>
+					<p>Striktes Request/Response Protokoll in einem<br>Client-Server Model</p>
+					<p>Zustandsloses Protokoll</p>
+					<p>Anfragen und Antworten bestehen aus<br>Kopf (header) und Inhalt (content)</p>
+				</section>
+				<section>
+					<h3>HTTP/1.1 - Anfrage/Request</h3>
+					<pre><code class="language-http hljs">GET /index.html HTTP/1.1
+Host: example.com
+
+					</code></pre>
+					<ol>
+						<li>Anfragemethode: GET, Leerzeichen, absoluter Pfad, Leerzeichen,
+							Protokollversion</li>
+						<li>HTTP-Header: Host<br>Headername Doppelpunkt Headerwert</li>
+						<li>Anfrageabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+					</ol>
+				</section>
+				<section>
+					<h3>HTTP/1.1 - Antwort/Response</h3>
+					<pre><code class="language-http hljs">HTTP/1.1 200 OK
+Server: Apache/1.3.29 (Unix) PHP/4.3.4
+Content-Length: 123456
+Content-Type: text/html; charset=utf-8
+
+&lt;!DOCTYPE ...</code></pre>
+					<ul>
+						<li>Statuszeile: Protokoll, Leerzeichen, Statuscode, Leerzeichen, Beschreibung
+						</li>
+						<li>HTTP-Header: Headername Doppelpunkt Headerwert</li>
+						<li>Headerabschluss: Leerzeile (&lt;CR&gt;&lt;LF&gt;)</li>
+						<li>Inhalt (Body)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTTP Status codes</h3>
+					<ul>
+						<li>1xx &ndash; Information<br>verhindert eine Zeitüberschreitung der Anfrage</li>
+						<li>2xx &ndash; Erfolg<br>Antwort geht raus</li>
+						<li>3xx &ndash; Umleitung<br>die Prinzessin ist in einem anderen Schloss</li>
+						<li>4xx &ndash; Client Fehler<br>die Anfrage des Clients ist fehlerbehaftet</li>
+						<li>5xx &ndash; Server Fehler<br>der Server hat einen Fehler verursacht</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML - Formulare</h3>
+					<ul>
+						<li>&lt;form&gt; &ndash; Formular
+							<ul>
+								<li>method: Sendemethode<ul>
+										<li>Wert: "post", "get"</li>
+									</ul>
+								</li>
+								<li>action: Sendeziel<ul>
+										<li>Wert: absolute oder relative URL</li>
+									</ul>
+								</li>
+								<li>name: eindeutiger Name des Formulars<ul>
+										<li>Wert: bezüglich aller form-Tags eindeutiger Bezeichner</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>&lt;input&gt; &ndash; Eingabefeld
+							<ul><li>name &ndash; eindeutiger Names des Eingabefeldes
+								<ul>
+									<li>Wert: eindeutiger Bezeichner</li>
+								</ul>
+							</li>
+							</ul>
+					</ul>
+				</section>
+			</section>
 		</div>
 	</div>
 
