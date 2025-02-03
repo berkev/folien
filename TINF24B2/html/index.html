@@ -2213,8 +2213,8 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 					<h3>URL - Uniform Resource Locator</h3>
 					<p>Identifiziert und lokalisiert eine Ressource, über die zu verwendende Zugriffsmethode und den Ort
 						der Ressource in Computernetzwerken.</p>
-					<p>&lt;Schema&gt;:>&lt;schema-spezifisch&gt;</p>
-					<p>http://&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+					<p>&lt;Schema&gt;:&lt;schema-spezifisch&gt;</p>
+					<p>http://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
 					<ul>
 						<li>Server: Voll qualifizierter Domain-Name (FQDN)<br>z.B. "www.dhbw.de" oder "example.com"</li>
 						<li>Port: Positive, ganze Zahl &lt;= 65535</li>
@@ -2223,7 +2223,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 				</section>
 				<section>
 					<h3>URL Schema: http/https</h3>
-					<p>http://&lt;Server&gt;</span>:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
+					<p>http://&lt;Server&gt;:&lt;Port&gt;/&lt;Pfad&gt;<br>?&lt;Anfrage&gt;#&lt;Fragment&gt;</p>
 					<ul>
 						<li>Anfrage (Query)<ul>
 								<li>Keine verbindliche Spezifikation</li>
@@ -2233,7 +2233,7 @@ Location: http://de.wikipedia.org/wiki/Katze</code></pre>
 							</ul>
 						</li>
 						<li>Fragment<ul>
-								<li>Verweist auf Element der Zielseite</li>
+								<li>ID eines Elements auf der Zielseite</li>
 								<li>Wird dem Server nie mitgeteilt</li>
 							</ul>
 						</li>
@@ -3020,7 +3020,7 @@ Content-Type: text/html; charset=utf-8
 				<section>
 					<h3>Head - Redirect</h3>
 					<p>Redirect basierend auf &lt;meta&gt;, aka "HTML-Redirekt":</p>
-					<p>&lt;meta http-equiv="refresh" content="3; URL=http://www.example.com/"&gt;"</p>
+					<p>&lt;meta http-equiv="refresh" content="3; url=http://www.example.com/" /&gt;</p>
 				</section>
 			</section>
 			<section>
@@ -3050,19 +3050,19 @@ Content-Type: text/html; charset=utf-8
 					<p>Beispiel: Google Suchergebniss-Seite</p>
 					<div class="r-stack">
 						<img class="fragment current-visible" src="./images/google-search-result-page_1.png"
-							width="150%" alt="Google Search Result Page Step One">
+							width="850" alt="Google Search Result Page Step One">
 						<img class="fragment current-visible" src="./images/google-search-result-page_2.png"
-							width="150%" alt="Google Search Result Page Step Two">
+							width="850" alt="Google Search Result Page Step Two">
 						<img class="fragment current-visible" src="./images/google-search-result-page_3.png"
-							width="150%" alt="Google Search Result Page Step Three">
+							width="850" alt="Google Search Result Page Step Three">
 						<img class="fragment current-visible" src="./images/google-search-result-page_4.png"
-							width="150%" alt="Google Search Result Page Step Four">
+							width="850" alt="Google Search Result Page Step Four">
 						<img class="fragment current-visible" src="./images/google-search-result-page_5.png"
-							width="150%" alt="Google Search Result Page Step Five">
+							width="850" alt="Google Search Result Page Step Five">
 						<img class="fragment current-visible" src="./images/google-search-result-page_6.png"
-							width="150%" alt="Google Search Result Page Step Six">
+							width="850" alt="Google Search Result Page Step Six">
 						<img class="fragment current-visible" src="./images/google-search-result-page_7.png"
-							width="150%" alt="Google Search Result Page Step Seven">
+							width="850" alt="Google Search Result Page Step Seven">
 					</div>
 				</section>
 				<section>
@@ -3099,7 +3099,6 @@ Content-Type: text/html; charset=utf-8
 				</section>
 				<section>
 					<h3>Naming is hard</h3>
-					<p>
 					<ul>
 						<li>"Chunked Transfer-Encoding" ist ein eindeutiger Name, ABER nur für HTTP/1.1 gültig, ab
 							HTTP/2 neues Verfahren ohne eindeutigen Namen</li>
@@ -3111,7 +3110,6 @@ Content-Type: text/html; charset=utf-8
 						<li>wurde auch "progressive rendering" genannt, doch dieses Prinzip wird technisch an sehr
 							vielen Stellen genutzt</li>
 					</ul>
-					</p>
 					<aside class="notes">
 						Steve Sounders: Autor mehrer O'Reilly Bücher zum Thema "Web-Performance"
 					</aside>
@@ -3122,7 +3120,7 @@ Content-Type: text/html; charset=utf-8
 						<li>Keiner kennt das Feature<span class="fragment"> (ihr jetzt schon!)</span></li>
 					</ul>
 					<img src="https://media.giphy.com/media/55SfA4BxofRBe/giphy.gif?cid=ecf05e47ymiciept7j2h4shzxsy3yu4zk8eg7xlcu74odwt0&rid=giphy.gif&ct=g"
-						class="fragment" alt="the office steve finger guns" width="80%">
+						class="fragment" alt="the office steve finger guns" width="850">
 				</section>
 				<section>
 					<h3>Streamed HTML - Nachteile</h3>
