@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebEng: Prompt Engineering</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		header {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+
+		iframe.mindmap {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.smaller-font {
+			font-size: smaller;
+		}
+
+
+		iframe {
+			background-color: white;
+		}
+
+		#llmresults td {
+            text-align: center;
+        }
+
+		@media print {
+			.toggleDarkmode {
+				display: none;
+			}
+		}
+	</style>
+</head>
+
+<!--
+	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
+	WebEng_Intro-Mindmap
+	Tag 1: 1-15 WebEng_Intro
+-->
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Prompt Engineering</h1>
+
+				<p>
+					aka. die Pandemie nach der Pandemie
+				</p>
+			</section>
+			<section>
+				<h2>Prompt Engineering</h2>
+
+				<blockquote cite="https://en.wikipedia.org/wiki/Prompt_engineering">
+					<p>[...] is the process of structuring or crafting an instruction in order to produce the best
+						possible output from a generative artificial intelligence (AI) model.</p>
+				</blockquote>
+
+				<p>—Wikipedia, <a href="https://en.wikipedia.org/wiki/Prompt_engineering"><cite>Prompt
+							Engineering</cite></a></p>
+			</section>
+			<section>
+				<section>
+					<h2>Gruppenarbeit</h2>
+					<p>
+						Ziele:
+					</p>
+					<ul>
+						<li>Stärken und Schwächen von Large&nbsp;Language&nbsp;Models erkunden und dokumentieren</li>
+						<li>Hands-On Erfahrung mit LLMs sammeln</li>
+						<li>Den "besten" Prompt um die Aufgabe zu lösen finden</li>
+						<li class="fragment">Zehn(!) Zusatzpunkte für die Klausur<br>(im 2.&nbsp;Semester) mitnehmen
+						</li>
+					</ul>
+					<p>Jede Gruppe arbeitet mit einem LLM<br>(OpenAI o3, o4; DeepSeek; Mistral AI; Llama)</p>
+				</section>
+				<section>
+					<h2>Gruppenarbeit</h2>
+					<ul>
+						<li>Teams: 2-4 Studenten, dokumentiert in Moodle</li>
+						<li>Abgabe als Merge-Request in Gitlab</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Aufgabe</h2>
+					<p>Erstellen einer Website<span class="fragment">, <a
+								href="https://youtu.be/DyDfgMOUjCI?feature=shared&t=72">duh</a></span></p>
+					<ul>
+						<li>nur Frontend (HTML, CSS, JavaScript)</li>
+						<li>keine Persistenz</li>
+						<li>Kanban-Board</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Aufgabe</h2>
+					<p>Quelle: <a
+							href="https://vorlagen.melitia-roth.de/data/kanban-board-vorlage-2.jpg">vorlagen.melitia-roth.de</a>
+					</p>
+					<img height="450" src="./images/kanban-board-vorlage-2.jpg" alt="Kanban-Board">
+				</section>
+				<section>
+					<h2>Aufgabe</h2>
+					<p>Kanban-Board mit:</p>
+					<ul>
+						<li>Drei Spalten: "ToDo", "In Progress", "Done"</li>
+						<li>Drei Karten-Arten:<br>"Bug"&nbsp;(rot), "User&nbsp;Story"&nbsp;(gr&uuml;n),
+							"Task"&nbsp;(blau)</li>
+						<li>Zwei Karten-Eigenschaften: Titel, Beschreibung, Arbeitspacketgr&ouml;&szlig;e in Stunden
+						</li>
+						<li>Erstellen und l&ouml;schen von Karten</li>
+						<li>Verschieben von Karten per Drag&Drop</li>
+						<li>Responsive Layout/Design</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h2>LLM/Prompt Qualit&auml;tskriterien</h2>
+				<p>Einordnung der LLMs,<br>nicht(!) die Bewertung eurer Arbeit</p>
+				<ul>
+					<li>Semantisches HTML</li>
+					<li>Valides HTML (<a href="https://validator.w3.org">validator.w3.org</a>)</li>
+					<li>Modernes JavaScript (kein var, etc.)</li>
+					<li>Clean Code</li>
+					<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)</li>
+					<li>minimale L&ouml;sung (kein Framework, keine Umwege)</li>
+					<li>Responsive Design (Handy, Tablet, Desktop)</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Bewertungskriterien</h2>
+				<p>die Bewertung eurer Arbeit</p>
+				<ul>
+					<li>2&emsp;&mdash;&emsp;alle Qualit&auml;tskriterien erf&uuml;llt</li>
+					<li>4&emsp;&mdash;&emsp;Merge-Request erstellt</li>
+					<li>2&emsp;&mdash;&emsp;Ergebnisse vollst&auml;ndig im Merge-Request dokumentiert</li>
+					<li>2&emsp;&mdash;&emsp;Vorstellung der Ergebnisse in der Vorlesung (max 8 Minuten pro Gruppe)</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Ergebnisübersicht</h2>
+				<table id="llmresults">
+					<tr>
+						<td></td>
+						<th scope="col">Template o3-mini</th>
+					</tr>
+					<tr>
+						<th scope="row">Semant HTML</th>
+						<td>✅</td>
+					</tr>
+					<tr>
+						<th scope="row">Valides HTML</th>
+						<td>✅</td>
+					</tr>
+					<tr>
+						<th scope="row">Mod JS</th>
+						<td>❌</td>
+					</tr>
+					<tr>
+						<th scope="row">Clean Code</th>
+						<td>❌</td>
+					</tr>
+					<tr>
+						<th scope="row">D&amp;D Feedback</th>
+						<td>❌</td>
+					</tr>
+					<tr>
+						<th scope="row">Respon Design</th>
+						<td>✅</td>
+					</tr>
+				</table>
+			</section>
+			<section>
+				<section>
+					<h2>Template: ChatGPT (o3-mini)</h2>
+					<p>Optional: Prompt um Prompt zu Generieren</p>
+					<p>Final promot: Create a website that...</p>
+				</section>
+				<section>
+					<h2>Template: ChatGPT (o3-mini)</h2>
+					<ul>
+						<li>Semantisches HTML<br>sections</li>
+						<li>Valides HTML<br><a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fchr1shaefn3r-dhbw.gitlab.io%2Fvorlesung-webeng1%2FTINF24B2%2Fprompt-engineering%2Fergebnisse%2Ftemplate-gruppe-z-chatgpt-o3-mini%2F">validator@ergebnisse/template-gruppe-z-chatgpt-o3-mini/</a></li>
+						<li>Modernes JavaScript (kein var, etc.)<br>Check</li>
+						<li>Clean Code<br>Sprechende Variablen und Funktionsnamen</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Template: ChatGPT (o3-mini)</h2>
+					<ul>
+						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>Dropzones mit blauem Rahmen hervorgehoben</li>
+						<li>minimale L&ouml;sung (kein Framework, keine Umwege)<br>Check</li>
+						<li>Responsive Design (Handy, Tablet, Desktop)<br>Check</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			slideNumber: true,
+			hash: true,
+			pdfSeparateFragments: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.addEventListener('ready', function () {
+			var header = $('#hidden').html();
+			$('.slide-background').append(header);
+		});
+	</script>
+	<script>
+		function toggleDarkmode() {
+			const themeLink = document.getElementById('theme');
+
+			if (themeLink.getAttribute('href') == 'dist/theme/white.css') {
+				themeLink.setAttribute('href', 'dist/theme/black.css');
+			} else {
+				themeLink.setAttribute('href', 'dist/theme/white.css');
+			}
+		}
+	</script>
+	<div id="hidden" style="display:none;">
+		<header style="display: flex; flex-direction: row; align-items: center;">
+			<img style="padding-right: 15px" height="40" src="dhbw-logo-small.svg" alt="DHBW-Logo">
+			<button class="toggleDarkmode" onclick="toggleDarkmode()">&#9788;</button>
+		</header>
+	</div>
+</body>
+
+</html>
