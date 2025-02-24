@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>WebEng1: JavaScript</title>
+	<title>WebEng: JavaScript</title>
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
@@ -62,11 +62,20 @@
 			border: 2px solid grey;
 			text-align: left;
 		}
+
+		@media print {
+			.toggleDarkmode {
+				display: none;
+			}
+		}
 	</style>
 </head>
 
 <!--
 	PDF-Export (/?view=print, https://revealjs.com/pdf-export/)
+	WebEng_JS-Mindmap
+	Day1: 1,3-38,41-62 WebEng_JS-Day1_Eigenschaften-Sprachtutorial-Browser-APIs-Event-Handler-Formularzugriff
+	Day1-Praxis: 39-40,63-65 WebEng_JS-Day1-Praxis_Aufgabe1-3
 -->
 
 <body>
@@ -992,7 +1001,8 @@ function dragStartHandler(event) {
 		event.preventDefault();
 	}
 }</code></pre>
-				<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer">DataTransfer (MDN)</a></p>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer">DataTransfer (MDN)</a>
+					</p>
 				</section>
 				<section>
 					<h3>OnDragEnter</h3>
@@ -1034,7 +1044,9 @@ function dragStartHandler(event) {
 	} // else if ...
 	event.target.appendChild(li);
 }</code></pre>
-					<p class="fragment">Falls 'move':<br>l&ouml;schen des alten Elements implementieren<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragover_event">MDN-Beispiel</a></p>
+					<p class="fragment">Falls 'move':<br>l&ouml;schen des alten Elements implementieren<br><a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragover_event">MDN-Beispiel</a>
+					</p>
 				</section>
 			</section>
 			<section>
@@ -1082,11 +1094,11 @@ document.myForm.x.value
 					<h3>Lösung - Aufgabe 3 - Superheldenmission</h3>
 					<p>
 						Code:<br><a
-							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF23B2/js/aufgaben/03-superheldenmission/main.js">gitlab.com/.../TINF23B2/js/aufgaben/<br>03-superheldenmission/main.js</a>
+							href="https://gitlab.com/chr1shaefn3r-dhbw/vorlesung-webeng1/-/blob/master/TINF24B2/js/aufgaben/03-superheldenmission/main.js">gitlab.com/.../TINF24B2/js/aufgaben/<br>03-superheldenmission/main.js</a>
 					</p>
 					<p>
 						Deployed:<br><a
-							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF23B2/js/aufgaben/03-superheldenmission/index.html">gitlab.io/.../TINF23B2/js/aufgaben/<br>03-superheldenmission/index.html</a>
+							href="https://chr1shaefn3r-dhbw.gitlab.io/vorlesung-webeng1/TINF24B2/js/aufgaben/03-superheldenmission/index.html">gitlab.io/.../TINF24B2/js/aufgaben/<br>03-superheldenmission/index.html</a>
 					</p>
 				</section>
 			</section>

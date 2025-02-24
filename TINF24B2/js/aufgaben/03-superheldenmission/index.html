@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<title>Aufgabe 3 - Superheldenmission</title>
+
+	<style>
+		.superhelden {
+			display: flex;
+			justify-content: space-evenly;
+			flex-wrap: wrap;
+		}
+
+		.superhelden > div {
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Superheldenmission</h1>
+	<p>Beginne ein beraubendes Abenteuer mit deinen Lieblingshelden.</p>
+
+	<div class="superhelden">
+		<div>
+			<p>Hawkeye</p>
+			<input type="checkbox" onchange="toggleSuperHeld(this)">
+		</div>
+		<div>
+			<p>Hulk</p>
+			<input type="checkbox" onchange="toggleSuperHeld(this)">
+		</div>
+		<div>
+			<p>Iron-Man</p>
+			<input type="checkbox" onchange="toggleSuperHeld(this)">
+		</div>
+		<div>
+			<p>Captain America</p>
+			<input type="checkbox" onchange="toggleSuperHeld(this)">
+		</div>
+		<div>
+			<p>Thor</p>
+			<input type="checkbox" onchange="toggleSuperHeld(this)">
+		</div>
+	</div>
+
+	<p>Bereit?</p>
+	<button id="start" onclick="startAbenteuer()" disabled>Abenteuer beginnen</button>
+	<p>Du spielt mit <span id="superheldencount">0</span> Superhelden</p>
+
+	<script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
