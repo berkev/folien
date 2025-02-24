@@ -951,6 +951,94 @@ element.addEventListener("click", function(event) {
 			</section>
 			<section>
 				<section>
+					<h3>Drag and Drop</h3>
+					<iframe class="code-example full-width" style="min-height:400px"
+						data-src="./code-examples/03_drag-and-drop/index.html"></iframe>
+				</section>
+				<section>
+					<h3>HTML</h3>
+					<pre class="language-html">
+						<code class="hljs" data-code="./code-examples/03_drag-and-drop/index.html" data-line-numbers="17-30|19-24|26-30"></code>
+					</pre>
+				</section>
+				<section>
+					<h3>Draggable</h3>
+					<ul>
+						<li><a
+								href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable">draggable</a>
+							&ndash; ob das Element gezogen werden kann (Globales Attribut)
+							<ul>
+								<li>Wert &ndash; true, false, auto</li>
+								<li>auto &ndash; Bilder, Textmarkierungen, Links</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>OnDragStart</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-2|4-12|5-10|11-14|">// set this to something specific to your site
+const internalDNDType = 'text/x-example';
+
+function dragStartHandler(event) {
+	if (event.target instanceof HTMLLIElement) {
+		// use the element's data-value="" attribute
+		// as the value to be moving:
+		event.dataTransfer.setData(internalDNDType, event.target.dataset.value);
+		// only allow moves
+		event.dataTransfer.effectAllowed = 'move';
+	} else {
+		// don't allow selection to be dragged
+		event.preventDefault();
+	}
+}</code></pre>
+				<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer">DataTransfer (MDN)</a></p>
+				</section>
+				<section>
+					<h3>OnDragEnter</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|1-4|5-11|">function dragEnterHandler(event) {
+	// reports whether or not the drop target is potentially
+	// willing to accept the drop,
+	// by canceling the event.
+	const items = event.dataTransfer.items;
+	for (const item of items) {
+		if (item.kind == 'string' && item.type == internalDNDType) {
+			event.preventDefault();
+			return;
+		}
+	}
+}</code></pre>
+				</section>
+				<section>
+					<h3>OnDragOver</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|2-3|4-5|">function dragOverHandler(event) {
+	// specifies what feedback will be shown to the user
+	event.dataTransfer.dropEffect = 'copy';
+	// This event also needs to be canceled.
+	event.preventDefault();
+}</code></pre>
+					<p class="fragment">Optisches-Feedback:<br>z.B. Randfarbe der Dropzone &auml;ndern</p>
+				</section>
+				<section>
+					<h3>OnDrop</h3>
+					<pre class="language-js">
+						<code class="hljs" data-line-numbers="|2-3|4-8|9|">function dropHandler(event) {
+	const li = document.createElement('li');
+	const data = event.dataTransfer.getData(internalDNDType);
+	if (data == 'fruit-apple') {
+		li.textContent = 'Apples';
+	} else if (data == 'fruit-kiwi') {
+		li.textContent = 'Kiwis';
+	} // else if ...
+	event.target.appendChild(li);
+}</code></pre>
+					<p class="fragment">Falls 'move':<br>l&ouml;schen des alten Elements implementieren<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dragover_event">MDN-Beispiel</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
 					<h3>Zugriff auf Formulardaten</h3>
 					<pre class="language-js">
 	<code class="hljs" data-line-numbers="1-2|4-5|7-8|">// indiziert

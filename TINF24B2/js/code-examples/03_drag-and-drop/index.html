@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Drag and Drop</title>
+
+    <style>
+        #dropzone {
+            border: 2px dotted blue;
+            min-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Drag and Drop</h1>
+    <p>Sort your favourite fruits!</p>
+    <ul ondragstart="dragStartHandler(event)">
+        <li draggable="true" data-value="fruit-apple">Apple</li>
+        <li draggable="true" data-value="fruit-kiwi">Kiwi</li>
+        <li draggable="true" data-value="fruit-banana">Banana</li>
+        <li draggable="true" data-value="fruit-blueberry">Blueberry</li>
+    </ul>
+    <p>Drop your favorite fruits below:</p>
+    <ol id="dropzone"
+        ondragenter="dragEnterHandler(event)"
+        ondragover="dragOverHandler(event)"
+        ondrop="dropHandler(event)">
+    </ol>
+
+    <script>
+        // set this to something specific to your site
+        const internalDNDType = 'text/x-example';
+
+        function dragStartHandler(event) {
+            if (event.target instanceof HTMLLIElement) {
+                // use the element's data-value="" attribute
+                // as the value to be moving:
+                event.dataTransfer.setData(internalDNDType, event.target.dataset.value);
+                // only allow moves
+                event.dataTransfer.effectAllowed = 'move';
+            } else {
+                // don't allow selection to be dragged
+                event.preventDefault();
+            }
+        }
+        function dragEnterHandler(event) {
+            // reports whether or not the drop target is potentially
+            // willing to accept the drop,
+            // by canceling the event.
+            const items = event.dataTransfer.items;
+            for (const item of items) {
+                if (item.kind == 'string' && item.type == internalDNDType) {
+                    event.preventDefault();
+                    return;
+                }
+            }
+        }
+        function dragOverHandler(event) {
+            // specifies what feedback will be shown to the user
+            event.dataTransfer.dropEffect = 'copy';
+            // This event also needs to be canceled.
+            event.preventDefault();
+        }
+        function dropHandler(event) {
+            const li = document.createElement('li');
+            const data = event.dataTransfer.getData(internalDNDType);
+            if (data == 'fruit-apple') {
+                li.textContent = 'Apples';
+            } else if (data == 'fruit-kiwi') {
+                li.textContent = 'Kiwis';
+            } else if (data == 'fruit-banana') {
+                li.textContent = 'Bananas';
+            } else if (data == 'fruit-blueberry') {
+                li.textContent = 'Blueberries';
+            } else {
+                li.textContent = 'Unknown Fruit';
+            }
+            event.target.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>
