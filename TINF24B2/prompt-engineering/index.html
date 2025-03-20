@@ -204,29 +204,36 @@
 					<tr>
 						<td></td>
 						<th scope="col"><a href="https://chat.deepseek.com">DeepSeek-R1 (A)</a></th>
+						<th scope="col"><a href="https://claude.ai">Claude</a> (3.7 Sonnet) (B)</th>
 					</tr>
 					<tr>
 						<th scope="row">Semant HTML</th>
 						<td>✅</td>
+						<td>✅/❌</td>
 					</tr>
 					<tr>
 						<th scope="row">Valides HTML</th>
+						<td>✅</td>
 						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Mod JS</th>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Clean Code</th>
+						<td>✅</td>
 						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">D&amp;D Feedback</th>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Respon Design</th>
+						<td>✅</td>
 						<td>✅</td>
 					</tr>
 				</table>
@@ -751,6 +758,86 @@ Erstelle ein **Kanban-Board** mit den folgenden Anforderungen:
 						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>✅ Dropzones bei Hovern grau hervorgehoben</li>
 						<li>minimale L&ouml;sung (kein Framework, keine Umwege)<br>✅</li>
 						<li>Responsive Design (Handy, Tablet, Desktop)<br>✅</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Claude (3.7 Sonnet) (B)</h2>
+					<textarea class="prompts">
+Erstelle eine moderne Kanban Board Web-Anwendung mit reinem JavaScript, CSS und HTML, die folgenden Anforderungen erfüllt:
+Grundstruktur und Funktionalität
+* Entwickle ein Kanban Board mit drei Spalten: "To Do", "In Progress" und "Done"
+* Die Überschrift der Website soll Kanban Board anzeigen
+* Implementiere drei unterschiedliche Kartentypen mit folgender Farbcodierung:
+	* Bug (rot)
+	* User Story (grün)
+	* Task (blau)
+* Jede Karte muss folgende Informationen anzeigen:
+	* Titel
+	* Ausführliche Beschreibung
+	* Geschätzte Arbeitszeit in Stunden
+	* Kategorie (Bug/Story/Task) mit entsprechender Farbkennzeichnung
+						
+Interaktive Funktionen
+* Vollständige Drag & Drop-Funktionalität mit visuellem Feedback:
+	* Hervorhebung der Zielzone durch Farbwechsel UND veränderte Umrandung
+	* Gestrichelte Umrandung für leere Dropzonen (auch ohne abgelegte Karte)
+* Karten-Management:
+	* Hinzufügen neuer Karten über ein Modal-Dialog
+	* Löschen bestehender Karten durch einen Lösch Button oben rechts (ein einfaches X) auf jeder Karte
+	* Verschieben zwischen allen 3 Spalten ("To Do", "In Progress" und "Done") per Drag & Drop
+						
+UI/UX-Design
+* Modernes, ansprechendes Gesamtdesign (nicht nur grundlegende Divs)
+* Auffallender, visuell hervorgehobener "Karte hinzufügen"-Button
+* Modal-Dialog zum Hinzufügen neuer Karten:
+	* Alle Eingabefelder übersichtlich untereinander angeordnet
+	* Klar erkennbarer Bestätigungs-Button am unteren Rand
+* Gleichmäßiges Padding in allen Elementen
+* Klare visuelle Abgrenzung aller UI-Elemente
+* Nutze als Schriftart "Arial Black" für Überschriften, für Texte "Arial"
+						
+Technische Anforderungen
+* Umsetzung als einzelne HTML-Datei (keine externen Dateien)
+* Verzicht auf Frameworks oder externe Bibliotheken
+* Semantisch korrektes HTML (Tags gemäß ihrer Bedeutung verwendet)
+* W3C-validierter HTML-Code
+* Modernes JavaScript (ES6+)
+* Sauberer, gut strukturierter und kommentierter Code
+* Vollständig responsive Darstellung:
+	* Optimierte Ansicht für Smartphone, Tablet und Desktop
+	* Flexibles Layout, das sich an verschiedene Bildschirmgrößen anpasst
+						
+Zusätzliche Hinweise
+* Alle interaktiven Elemente sollten klargebenes visuelles Feedback geben
+* Bei Drag & Drop: Hervorhebung potenzieller Ablagebereiche
+* Benutzerfreundliche Fehlermeldungen bei ungültigen Eingaben
+* Einheitlichen Design-Stil mit harmonischem Farbschema verwenden
+						
+Bitte liefere die vollständige Implementierung als eine einzige HTML-Datei, die alle erforderlichen CSS- und JavaScript-Komponenten enthält.						
+					</textarea>
+				</section>
+				<section>
+					<h2>Claude (3.7 Sonnet) (B)</h2>
+					<iframe style="height:62vh;" data-src="./ergebnisse/gruppe-b-claude-3.7-sonnet/index.html"></iframe>
+				</section>
+				<section>
+					<h2>Claude (3.7 Sonnet) (B)</h2>
+					<ul>
+						<li><a href="https://anthropic.com">Anthropic</a></li>
+						<li>Semantisches HTML<br>header, h1-h3, form, label, input, textarea, select, button & span</li>
+						<li>Valides HTML ✅</li>
+						<li>Modernes JavaScript (kein var, etc.) ✅</li>
+						<li>Clean Code ✅</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Claude (3.7 Sonnet) (B)</h2>
+					<ul>
+						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>Dropzones mit grauem gestricheltem Rahmen hervorgehoben und beim Drag & Hover eingefärbt</li>
+						<li>minimale L&ouml;sung (kein Framework, keine Umwege) ✅</li>
+						<li>Responsive Design (Handy, Tablet, Desktop) ✅</li>
 					</ul>
 				</section>
 			</section>
