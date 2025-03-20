@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cae;
+            --light-color: #f5f7fa;
+            --dark-color: #2c3e50;
+            --bug-color: #e74c3c;
+            --story-color: #2ecc71;
+            --task-color: #3498db;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 6px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark-color);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            font-family: "Arial Black", Arial, sans-serif;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .board {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 280px;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            max-height: calc(100vh - 170px);
+        }
+        
+        .column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eef2f7;
+            margin-bottom: 15px;
+        }
+        
+        .column-header h2 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+        
+        .cards-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            min-height: 200px;
+            padding: 5px;
+            border: 2px dashed transparent;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .cards-container.drag-over {
+            background-color: rgba(74, 111, 165, 0.1);
+            border: 2px dashed var(--primary-color);
+        }
+        
+        .cards-container:empty {
+            border: 2px dashed #e1e5eb;
+        }
+        
+        .card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            cursor: grab;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card.is-dragging {
+            opacity: 0.5;
+            transform: scale(0.95);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .card-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-right: 25px;
+            word-break: break-word;
+        }
+        
+        .card-delete {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #aaa;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .card-delete:hover {
+            color: #e74c3c;
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        .card-type {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-type.bug {
+            background-color: var(--bug-color);
+        }
+        
+        .card-type.story {
+            background-color: var(--story-color);
+        }
+        
+        .card-type.task {
+            background-color: var(--task-color);
+        }
+        
+        .card-description {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #555;
+            word-break: break-word;
+        }
+        
+        .card-time {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .add-card-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 15px;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .add-card-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+        
+        .add-card-btn i {
+            font-size: 1.2rem;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-group .error {
+            color: var(--bug-color);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.has-error input,
+        .form-group.has-error textarea,
+        .form-group.has-error select {
+            border-color: var(--bug-color);
+        }
+        
+        .form-group.has-error .error {
+            display: block;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: #e9ecef;
+            color: var(--dark-color);
+            border: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #dee2e6;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .board {
+                flex-direction: column;
+            }
+            
+            .column {
+                margin-bottom: 20px;
+                min-width: 100%;
+                max-height: none;
+            }
+            
+            .cards-container {
+                max-height: 500px;
+            }
+            
+            .modal {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Plus symbol for buttons */
+        .plus-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: relative;
+        }
+        
+        .plus-icon:before,
+        .plus-icon:after {
+            content: "";
+            position: absolute;
+            background-color: white;
+        }
+        
+        .plus-icon:before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        
+        .plus-icon:after {
+            width: 2px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kanban Board</h1>
+    </header>
+    
+    <div class="container">
+        <div class="board">
+            <!-- To Do Column -->
+            <div class="column" id="todo-column">
+                <div class="column-header">
+                    <h2>To Do</h2>
+                </div>
+                <div class="cards-container" data-column="todo"></div>
+                <button class="add-card-btn" data-column="todo">
+                    <span class="plus-icon"></span> Karte hinzufügen
+                </button>
+            </div>
+            
+            <!-- In Progress Column -->
+            <div class="column" id="progress-column">
+                <div class="column-header">
+                    <h2>In Progress</h2>
+                </div>
+                <div class="cards-container" data-column="progress"></div>
+                <button class="add-card-btn" data-column="progress">
+                    <span class="plus-icon"></span> Karte hinzufügen
+                </button>
+            </div>
+            
+            <!-- Done Column -->
+            <div class="column" id="done-column">
+                <div class="column-header">
+                    <h2>Done</h2>
+                </div>
+                <div class="cards-container" data-column="done"></div>
+                <button class="add-card-btn" data-column="done">
+                    <span class="plus-icon"></span> Karte hinzufügen
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal-overlay" id="add-card-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Neue Karte hinzufügen</h3>
+            </div>
+            <form id="add-card-form">
+                <input type="hidden" id="column-target" value="">
+                
+                <div class="form-group" id="title-group">
+                    <label for="card-title">Titel</label>
+                    <input type="text" id="card-title" placeholder="Titel der Karte eingeben">
+                    <div class="error">Bitte gib einen Titel ein.</div>
+                </div>
+                
+                <div class="form-group" id="description-group">
+                    <label for="card-description">Beschreibung</label>
+                    <textarea id="card-description" placeholder="Ausführliche Beschreibung"></textarea>
+                    <div class="error">Bitte gib eine Beschreibung ein.</div>
+                </div>
+                
+                <div class="form-group" id="time-group">
+                    <label for="card-time">Geschätzte Zeit (Stunden)</label>
+                    <input type="number" id="card-time" min="0.5" step="0.5" placeholder="z.B. 2.5">
+                    <div class="error">Bitte gib eine gültige Zeit ein (mindestens 0.5 Stunden).</div>
+                </div>
+                
+                <div class="form-group" id="type-group">
+                    <label for="card-type">Kategorie</label>
+                    <select id="card-type">
+                        <option value="">-- Wähle eine Kategorie --</option>
+                        <option value="bug">Bug</option>
+                        <option value="story">User Story</option>
+                        <option value="task">Task</option>
+                    </select>
+                    <div class="error">Bitte wähle eine Kategorie aus.</div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Abbrechen</button>
+                    <button type="submit" class="btn btn-primary" id="save-btn">Karte speichern</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        /**
+         * Kanban Board App
+         * 
+         * Eine moderne Kanban Board Anwendung mit Drag & Drop-Funktionalität,
+         * Kartenmanagement und responsivem Design.
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM-Elemente
+            const addCardButtons = document.querySelectorAll('.add-card-btn');
+            const cardsContainers = document.querySelectorAll('.cards-container');
+            const modalOverlay = document.getElementById('add-card-modal');
+            const addCardForm = document.getElementById('add-card-form');
+            const columnTarget = document.getElementById('column-target');
+            const cancelBtn = document.getElementById('cancel-btn');
+            
+            // Formularfelder
+            const cardTitleInput = document.getElementById('card-title');
+            const cardDescriptionInput = document.getElementById('card-description');
+            const cardTimeInput = document.getElementById('card-time');
+            const cardTypeSelect = document.getElementById('card-type');
+            
+            // Formulargruppen für Validierung
+            const titleGroup = document.getElementById('title-group');
+            const descriptionGroup = document.getElementById('description-group');
+            const timeGroup = document.getElementById('time-group');
+            const typeGroup = document.getElementById('type-group');
+            
+            // Drag & Drop Variablen
+            let draggedCard = null;
+            
+            // Beispieldaten zum Testen (optional)
+            const initialData = [
+                {
+                    id: "card-1",
+                    title: "Login-Fehler beheben",
+                    description: "Benutzer können sich nach 3 fehlgeschlagenen Versuchen nicht mehr anmelden.",
+                    time: 2.5,
+                    type: "bug",
+                    column: "todo"
+                },
+                {
+                    id: "card-2",
+                    title: "Benutzerprofil erstellen",
+                    description: "Benutzer sollen ein Profil mit Bild und persönlichen Informationen anlegen können.",
+                    time: 5,
+                    type: "story",
+                    column: "progress"
+                },
+                {
+                    id: "card-3",
+                    title: "API-Dokumentation aktualisieren",
+                    description: "Die API-Dokumentation muss mit den neuen Endpunkten aktualisiert werden.",
+                    time: 3,
+                    type: "task",
+                    column: "done"
+                }
+            ];
+            
+            /**
+             * Initialisierung der Anwendung
+             */
+            function init() {
+                // Beispieldaten laden
+                loadInitialData();
+                
+                // Event-Listener
+                setupEventListeners();
+            }
+            
+            /**
+             * Beispieldaten in das Board laden
+             */
+            function loadInitialData() {
+                initialData.forEach(cardData => {
+                    createCardElement(cardData);
+                });
+            }
+            
+            /**
+             * Event-Listener für alle interaktiven Elemente einrichten
+             */
+            function setupEventListeners() {
+                // Hinzufügen-Buttons
+                addCardButtons.forEach(button => {
+                    button.addEventListener('click', handleAddCardClick);
+                });
+                
+                // Modal-Formular
+                addCardForm.addEventListener('submit', handleFormSubmit);
+                cancelBtn.addEventListener('click', closeModal);
+                modalOverlay.addEventListener('click', function(e) {
+                    if (e.target === modalOverlay) {
+                        closeModal();
+                    }
+                });
+                
+                // Drag & Drop für alle Container
+                setupDragAndDrop();
+            }
+            
+            /**
+             * Drag & Drop-Funktionalität einrichten
+             */
+            function setupDragAndDrop() {
+                // Drag-Events für Karten einrichten
+                document.addEventListener('dragstart', handleDragStart);
+                document.addEventListener('dragend', handleDragEnd);
+                
+                // Drop-Events für Container einrichten
+                cardsContainers.forEach(container => {
+                    container.addEventListener('dragover', handleDragOver);
+                    container.addEventListener('dragenter', handleDragEnter);
+                    container.addEventListener('dragleave', handleDragLeave);
+                    container.addEventListener('drop', handleDrop);
+                });
+            }
+            
+            /**
+             * Event-Handler für den Start des Drag-Vorgangs
+             */
+            function handleDragStart(e) {
+                if (e.target.classList.contains('card')) {
+                    draggedCard = e.target;
+                    e.dataTransfer.setData('text/plain', e.target.id);
+                    e.target.classList.add('is-dragging');
+                    
+                    // Verzögerung, um den visuellen Effekt zu verbessern
+                    setTimeout(() => {
+                        e.target.style.opacity = '0.5';
+                    }, 0);
+                }
+            }
+            
+            /**
+             * Event-Handler für das Ende des Drag-Vorgangs
+             */
+            function handleDragEnd(e) {
+                if (e.target.classList.contains('card')) {
+                    e.target.classList.remove('is-dragging');
+                    e.target.style.opacity = '1';
+                    draggedCard = null;
+                }
+            }
+            
+            /**
+             * Event-Handler für das Überfahren eines Drop-Bereichs
+             */
+            function handleDragOver(e) {
+                if (e.preventDefault) {
+                    e.preventDefault(); // Erlaubt das Ablegen
+                }
+                return false;
+            }
+            
+            /**
+             * Event-Handler für das Betreten eines Drop-Bereichs
+             */
+            function handleDragEnter(e) {
+                if (e.target.classList.contains('cards-container')) {
+                    e.target.classList.add('drag-over');
+                }
+            }
+            
+            /**
+             * Event-Handler für das Verlassen eines Drop-Bereichs
+             */
+            function handleDragLeave(e) {
+                if (e.target.classList.contains('cards-container')) {
+                    e.target.classList.remove('drag-over');
+                }
+            }
+            
+            /**
+             * Event-Handler für das Ablegen einer Karte
+             */
+            function handleDrop(e) {
+                e.preventDefault();
+                
+                // Drop-Bereich-Styling zurücksetzen
+                if (e.target.classList.contains('cards-container')) {
+                    e.target.classList.remove('drag-over');
+                    
+                    // Karte in den neuen Container verschieben
+                    const cardId = e.dataTransfer.getData('text/plain');
+                    const card = document.getElementById(cardId);
+                    
+                    if (card && e.target.classList.contains('cards-container')) {
+                        e.target.appendChild(card);
+                    }
+                }
+                return false;
+            }
+            
+            /**
+             * Event-Handler für den Klick auf "Karte hinzufügen"
+             */
+            function handleAddCardClick(e) {
+                const column = e.currentTarget.getAttribute('data-column');
+                columnTarget.value = column;
+                openModal();
+            }
+            
+            /**
+             * Modal öffnen
+             */
+            function openModal() {
+                modalOverlay.classList.add('active');
+                cardTitleInput.focus();
+                
+                // Formular zurücksetzen
+                resetForm();
+            }
+            
+            /**
+             * Modal schließen
+             */
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                resetForm();
+            }
+            
+            /**
+             * Formular zurücksetzen
+             */
+            function resetForm() {
+                addCardForm.reset();
+                
+                // Fehlermarkierungen entfernen
+                titleGroup.classList.remove('has-error');
+                descriptionGroup.classList.remove('has-error');
+                timeGroup.classList.remove('has-error');
+                typeGroup.classList.remove('has-error');
+            }
+            
+            /**
+             * Formular validieren
+             */
+            function validateForm() {
+                let isValid = true;
+                
+                // Titel validieren
+                if (!cardTitleInput.value.trim()) {
+                    titleGroup.classList.add('has-error');
+                    isValid = false;
+                } else {
+                    titleGroup.classList.remove('has-error');
+                }
+                
+                // Beschreibung validieren
+                if (!cardDescriptionInput.value.trim()) {
+                    descriptionGroup.classList.add('has-error');
+                    isValid = false;
+                } else {
+                    descriptionGroup.classList.remove('has-error');
+                }
+                
+                // Zeit validieren
+                const timeValue = parseFloat(cardTimeInput.value);
+                if (isNaN(timeValue) || timeValue < 0.5) {
+                    timeGroup.classList.add('has-error');
+                    isValid = false;
+                } else {
+                    timeGroup.classList.remove('has-error');
+                }
+                
+                // Typ validieren
+                if (!cardTypeSelect.value) {
+                    typeGroup.classList.add('has-error');
+                    isValid = false;
+                } else {
+                    typeGroup.classList.remove('has-error');
+                }
+                
+                return isValid;
+            }
+            
+            /**
+             * Event-Handler für das Absenden des Formulars
+             */
+            function handleFormSubmit(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    // Kartendaten sammeln
+                    const cardData = {
+                        id: `card-${Date.now()}`, // Eindeutige ID generieren
+                        title: cardTitleInput.value.trim(),
+                        description: cardDescriptionInput.value.trim(),
+                        time: parseFloat(cardTimeInput.value),
+                        type: cardTypeSelect.value,
+                        column: columnTarget.value
+                    };
+                    
+                    // Karte erstellen und hinzufügen
+                    createCardElement(cardData);
+                    
+                    // Modal schließen
+                    closeModal();
+                }
+            }
+            
+            /**
+             * Karte erstellen und zum Board hinzufügen
+             */
+            function createCardElement(cardData) {
+                // Container für die Spalte finden
+                const container = document.querySelector(`.cards-container[data-column="${cardData.column}"]`);
+                
+                if (!container) return;
+                
+                // Neue Karte erstellen
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = cardData.id;
+                card.draggable = true;
+                
+                // Typ-spezifische Klasse hinzufügen (für farbliche Markierung am oberen Rand)
+                card.classList.add(`card-${cardData.type}`);
+                
+                // HTML für die Karte
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title">${escapeHTML(cardData.title)}</div>
+                        <button class="card-delete" title="Karte löschen">✕</button>
+                    </div>
+                    <div class="card-type ${cardData.type}">${getTypeLabel(cardData.type)}</div>
+                    <div class="card-description">${escapeHTML(cardData.description)}</div>
+                    <div class="card-time">Geschätzte Zeit: ${cardData.time} Stunden</div>
+                `;
+                
+                // Karte zum Container hinzufügen
+                container.appendChild(card);
+                
+                // Lösch-Button Event-Handler hinzufügen
+                const deleteBtn = card.querySelector('.card-delete');
+                deleteBtn.addEventListener('click', function() {
+                    card.remove();
+                });
+            }
+            
+            /**
+             * Typ-Label basierend auf dem Typ-Wert zurückgeben
+             */
+            function getTypeLabel(type) {
+                switch (type) {
+                    case 'bug': return 'Bug';
+                    case 'story': return 'User Story';
+                    case 'task': return 'Task';
+                    default: return 'Unbekannt';
+                }
+            }
+            
+            /**
+             * HTML-Escape-Funktion zur Verhinderung von XSS
+             */
+            function escapeHTML(str) {
+                return str.replace(/[&<>"']/g, function(match) {
+                    return {
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        '"': '&quot;',
+                        "'": '&#39;'
+                    }[match];
+                });
+            }
+            
+            // Anwendung initialisieren
+            init();
+        });
+    </script>
+</body>
+</html>
