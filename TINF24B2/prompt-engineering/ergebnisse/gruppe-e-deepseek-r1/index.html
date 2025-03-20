@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <style>
+        :root {
+            --todo: #ff6b6b;
+            --progress: #4ecdc4;
+            --done: #45b7d1;
+            --bug: #ff4757;
+            --user-story: #2ed573;
+            --task: #1e90ff;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .container {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            height: calc(100vh - 4rem);
+        }
+
+        .column {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column-header {
+            text-align: center;
+            padding: 1rem;
+            margin: -1rem -1rem 1rem;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .todo .column-header { background: var(--todo); }
+        .progress .column-header { background: var(--progress); }
+        .done .column-header { background: var(--done); }
+
+        .drop-zone {
+            min-height: 100px;
+            flex-grow: 1;
+            padding: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .drop-zone.dragover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: move;
+            transition: transform 0.2s;
+            border-left: 5px solid;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .bug { border-color: var(--bug); }
+        .user-story { border-color: var(--user-story); }
+        .task { border-color: var(--task); }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .delete-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add-card {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            color: #2c3e50;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            color: #2c3e50;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.25rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column todo">
+            <div class="column-header">ToDo</div>
+            <div class="drop-zone"></div>
+        </div>
+        <div class="column progress">
+            <div class="column-header">In Progress</div>
+            <div class="drop-zone"></div>
+        </div>
+        <div class="column done">
+            <div class="column-header">Done</div>
+            <div class="drop-zone"></div>
+        </div>
+    </div>
+
+    <div class="add-card" onclick="showModal()">+ Create Card</div>
+
+    <div id="modal" class="modal">
+        <h2>Create New Card</h2>
+        <form id="cardForm" onsubmit="createCard(event)">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Type</label>
+                <select required >
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="bug">Bug</option>
+                    <option value="user-story">User Story</option>
+                    <option value="task">Task</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Hours</label>
+                <input type="number" required min="1">
+            </div>
+            <button type="submit">Create</button>
+            <button type="button" onclick="hideModal()">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        let draggedCard = null;
+
+        function showModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function hideModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function createCard(e) {
+            e.preventDefault();
+            const formData = e.target.elements;
+            const card = document.createElement('div');
+            card.className = `card ${formData[2].value}`;
+            card.draggable = true;
+            card.innerHTML = `
+                <div class="card-header">
+                    <h3>${formData[0].value}</h3>
+                    <button class="delete-btn" onclick="this.parentElement.parentElement.remove()">×</button>
+                </div>
+                <p>${formData[1].value}</p>
+                <small>${formData[3].value} hours</small>
+            `;
+
+            card.addEventListener('dragstart', handleDragStart);
+            card.addEventListener('dragend', handleDragEnd);
+
+            document.querySelector('.todo .drop-zone').appendChild(card);
+            hideModal();
+            document.getElementById('cardForm').reset();
+        }
+
+        function handleDragStart(e) {
+            draggedCard = e.target;
+            e.target.classList.add('dragging');
+            e.target.style.opacity = '0.5';
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+            e.target.style.opacity = '1';
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.classList.remove('dragover');
+            });
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            const zone = e.target.closest('.drop-zone');
+            if (zone) {
+                zone.classList.add('dragover');
+                
+                const afterElement = getDragAfterElement(zone, e.clientY);
+                const draggable = document.querySelector('.dragging');
+                
+                if (afterElement == null) {
+                    zone.appendChild(draggable);
+                } else {
+                    zone.insertBefore(draggable, afterElement);
+                }
+            }
+        }
+
+        function handleDragLeave(e) {
+            const zone = e.target.closest('.drop-zone');
+            if (zone) {
+                zone.classList.remove('dragover');
+            }
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const zone = e.target.closest('.drop-zone');
+            if (zone && draggedCard) {
+                zone.classList.remove('dragover');
+                const afterElement = getDragAfterElement(zone, e.clientY);
+                
+                if (afterElement == null) {
+                    zone.appendChild(draggedCard);
+                } else {
+                    zone.insertBefore(draggedCard, afterElement);
+                }
+            }
+        }
+
+        function getDragAfterElement(zone, y) {
+            const draggableElements = [...zone.querySelectorAll('.card:not(.dragging)')];
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        // Initialize event listeners
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            zone.addEventListener('dragover', handleDragOver);
+            zone.addEventListener('dragleave', handleDragLeave);
+            zone.addEventListener('drop', handleDrop);
+        });
+    </script>
+</body>
+</html>
