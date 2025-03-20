@@ -158,9 +158,11 @@
 						<td></td>
 						<th scope="col">o3-mini (K)</th>
 						<th scope="col">Claude Sonnett (C)</th>
+						<th scope="col"><a href="https://mistral.ai/">mistral-small-2501</a></th>
 					</tr>
 					<tr>
 						<th scope="row">Semant HTML</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -168,9 +170,11 @@
 						<th scope="row">Valides HTML</th>
 						<td>✅</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Mod JS</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -178,14 +182,17 @@
 						<th scope="row">Clean Code</th>
 						<td>✅</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">D&amp;D Feedback</th>
 						<td>✅</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Respon Design</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -426,6 +433,64 @@ Please provide the complete implementation with separate sections for HTML, CSS,
 						<li>minimale L&ouml;sung (kein Framework, keine Umwege)<br>Check</li>
 						<li>Responsive Design (Handy, Tablet, Desktop)<br>Check</li>
 					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+				  <h2>Mistral Small (mistral-small-2501)</h2>
+				  <textarea class="prompts">
+Design a modern webpage with a kanban board:
+Three columns: “ToDo”, “In Progress”, “Done” 
+Three card types: “Bug” (red), “User Story” (green), “Task” (blue)  
+Two card properties: title, description, Work package size in hours  
+Creating cards in a dialog window 
+Deleting cards 
+Moving maps via drag and drop 
+Responsive layout/design  
+Quality:  
+Semantic HTML  
+Valid HTML (Pay attention and avoid this possible error: The first child option element of a select element with a required attribute, and without a multiple attribute, and without a size attribute whose value is greater than 1, must have either an empty value attribute, or must have no text content. Consider either adding a placeholder option label, or adding a size attribute with a value equal to the number of option elements.)
+Modern JavaScript (no var, etc.)  
+Clean code  
+Drag&Drop feedback (highlight drop zones with different colors and avoid bugs (The columns should be highlighted in different colors when you hover over them with a card to indicate where you can drop it. That´s a key feature. It should work even if there is already a card in this column. If you don't hover over it, the color should disappear) --> that is very important!)  
+minimal solution (no framework, no detours, no external sources)
+Responsive design (mobile phone, tablet, desktop) --> also very important
+				  </textarea>
+				</section>
+				<section>
+				  <h2>Mistral Small (mistral-small-2501)</h2>
+				  <iframe
+					data-src="./ergebnisse/gruppe-j-mistral-small-2501/index.html"
+				  ></iframe>
+				</section>
+				<section>
+				  <h2>Mistral Small (mistral-small-2501)</h2>
+				  <ul>
+					<li>Semantisches HTML<br />sections</li>
+					<li>
+					  Valides HTML<br /><a
+						href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fchr1shaefn3r-dhbw.gitlab.io%2Fvorlesung-webeng1%2FTINF24B2%2Fprompt-engineering%2Fergebnisse%2Fgruppe-j-mistral-small-2501%2F/index.html"
+						>validator@ergebnisse/gruppe-j-mistral/</a
+					  >
+					</li>
+					<li>Modernes JavaScript (kein var, etc.)<br />✅</li>
+					<li>
+					  Clean Code<br />Sprechende Variablen und Funktionsnamen ✅
+					</li>
+				  </ul>
+				</section>
+				<section>
+				  <h2>Mistral Small (mistral-small-2501)</h2>
+				  <ul>
+					<li>
+					  Drag&Drop Feedback (Dropzones hervorheben, etc.)<br />Dropzones
+					  werden farbig hervorgehoben ✅
+					</li>
+					<li>
+					  minimale L&ouml;sung (kein Framework, keine Umwege)<br />✅
+					</li>
+					<li>Responsive Design (Handy, Tablet, Desktop)<br />✅</li>
+				  </ul>
 				</section>
 			</section>
 		</div>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .kanban-board {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        gap: 1rem;
+      }
+
+      .column {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 1rem;
+        width: 30%;
+        min-width: 200px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s;
+      }
+
+      .column h2 {
+        margin-top: 0;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: white;
+        cursor: grab;
+      }
+
+      .card.bug {
+        border-color: red;
+      }
+
+      .card.user-story {
+        border-color: green;
+      }
+
+      .card.task {
+        border-color: blue;
+      }
+
+      .column.highlight-todo {
+        background-color: #ffcccc;
+      }
+
+      .column.highlight-in-progress {
+        background-color: #ccffcc;
+      }
+
+      .column.highlight-done {
+        background-color: #ccccff;
+      }
+
+      dialog {
+        border: none;
+        border-radius: 5px;
+        padding: 1rem;
+      }
+
+      dialog form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      dialog label {
+        margin-top: 0.5rem;
+      }
+
+      dialog button {
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .kanban-board {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .column {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Kanban Board</h1>
+    </header>
+    <main>
+      <section class="kanban-board">
+        <div class="column" id="todo" data-status="ToDo">
+          <h2>ToDo</h2>
+        </div>
+        <div class="column" id="in-progress" data-status="In Progress">
+          <h2>In Progress</h2>
+        </div>
+        <div class="column" id="done" data-status="Done">
+          <h2>Done</h2>
+        </div>
+      </section>
+      <button id="add-card-btn">Add Card</button>
+    </main>
+    <dialog id="card-dialog">
+      <form id="card-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>Select a type</option>
+          <option value="Bug">Bug</option>
+          <option value="User Story">User Story</option>
+          <option value="Task">Task</option>
+        </select>
+        <label for="size">Work Package Size (hours):</label>
+        <input type="number" id="size" name="size" required />
+        <button type="submit">Create Card</button>
+        <button type="button" id="close-dialog">Close</button>
+      </form>
+    </dialog>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const columns = document.querySelectorAll(".column");
+        const addCardBtn = document.getElementById("add-card-btn");
+        const cardDialog = document.getElementById("card-dialog");
+        const cardForm = document.getElementById("card-form");
+        const closeDialogBtn = document.getElementById("close-dialog");
+
+        let draggedCard = null;
+
+        addCardBtn.addEventListener("click", () => {
+          cardDialog.showModal();
+        });
+
+        closeDialogBtn.addEventListener("click", () => {
+          cardDialog.close();
+        });
+
+        cardForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const title = event.target.title.value;
+          const description = event.target.description.value;
+          const type = event.target.type.value;
+          const size = event.target.size.value;
+
+          createCard(title, description, type, size);
+          cardDialog.close();
+          cardForm.reset();
+        });
+
+        columns.forEach((column) => {
+          column.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            column.classList.add(`highlight-${column.id}`);
+          });
+
+          column.addEventListener("dragleave", () => {
+            column.classList.remove(`highlight-${column.id}`);
+          });
+
+          column.addEventListener("drop", (event) => {
+            event.preventDefault();
+            column.classList.remove(`highlight-${column.id}`);
+            if (draggedCard) {
+              column.appendChild(draggedCard);
+              draggedCard = null;
+            }
+          });
+        });
+
+        function createCard(title, description, type, size) {
+          const card = document.createElement("div");
+          card.classList.add("card", type.toLowerCase().replace(" ", "-"));
+          card.draggable = true;
+          card.innerHTML = `
+            <h3>${title}</h3>
+            <p>${description}</p>
+            <p><strong>Size:</strong> ${size} hours</p>
+            <button class="delete-btn">Delete</button>
+        `;
+
+          card.addEventListener("dragstart", () => {
+            draggedCard = card;
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 0);
+          });
+
+          card.addEventListener("dragend", () => {
+            setTimeout(() => {
+              card.style.display = "block";
+              draggedCard = null;
+            }, 0);
+          });
+
+          card.querySelector(".delete-btn").addEventListener("click", () => {
+            card.remove();
+          });
+
+          document.getElementById("todo").appendChild(card);
+        }
+      });
+    </script>
+  </body>
+</html>
