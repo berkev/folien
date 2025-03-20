@@ -246,6 +246,44 @@
 				</table>
 			</section>
 			<section>
+				<h2>Ergebnisübersicht</h2>
+				<table id="llmresults">
+					<tr>
+						<td></td>
+						<th scope="col"><a href="https://chat.deepseek.com">DeepSeek-R1 (E)</a></th>
+					</tr>
+					<tr>
+						<th scope="row">Semant HTML</th>
+						<td>❌</td>
+					</tr>
+					<tr>
+						<th scope="row">Valides HTML</th>
+						<td>✅</td>
+		
+					</tr>
+					<tr>
+						<th scope="row">Mod JS</th>
+						<td>✅</td>
+				
+					</tr>
+					<tr>
+						<th scope="row">Clean Code</th>
+						<td>✅</td>
+				
+					</tr>
+					<tr>
+						<th scope="row">D&amp;D Feedback</th>
+						<td>✅</td>
+				
+					</tr>
+					<tr>
+						<th scope="row">Respon Design</th>
+						<td>✅</td>
+				
+					</tr>
+				</table>
+			</section>
+			<section>
 				<section>
 					<h2>Template: ChatGPT (o3-mini)</h2>
 					<textarea class="prompts">
@@ -888,6 +926,46 @@ Es sind folgende Qualitätskritereien zu beachten: Semantisches HTML; Valiedes H
 
 			</section>
 			<!-- Gruppe D -->
+			<section>
+				<section>
+					<h2>Gruppe E: Deepseek-R1</h2>
+					<h3>Prompt</h3>
+					<textarea class="prompts">
+Erstelle eine Kanban-Board Webseite mit:
+Drei Spalten: "ToDo", "In Progress", "Done"
+Drei Karten-Arten:
+"Bug" (rot), "User Story" (grün), "Task" (blau)
+Zwei Karten-Eigenschaften: Titel, Beschreibung,
+Arbeitspacketgröße in Stunden
+Erstellen und löschen von Karten
+Verschieben von Karten per Drag&Drop (dabei sollen die Karten in die Felder gezogen werden)
+Responsive Layout/Design
+einen schönen hintergrund mit gradient und guten spacing (welches den Bildschirm ausfüllt)
+					</textarea>
+				</section>
+				<section>
+					<h2>Deepseek-R1</h2>
+					<iframe data-src="./ergebnisse/gruppe-e-deepseek-r1/index.html"></iframe>
+				</section>
+				<section>
+					<h2>Deepseek-R1</h2>
+					<ul>
+						<li>Kein Semantisches HTML<br>nutzt für Spalten und Aufgabenkarten hauptsächlich divs</li>
+						<li>Valides HTML<br><a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fchr1shaefn3r-dhbw.gitlab.io%2Fvorlesung-webeng1%2FTINF24B2%2Fprompt-engineering%2Fergebnisse%2Fgruppe-e-deepseek-r1%2F/index.html">validator@ergebnisse/gruppe-e-deepseek-r1/</a></li>
+						<li>Modernes JavaScript <br> <ul><li>const </li><li>querySelector</li><li>Arrow-Funktions</li></ul></li>
+						
+					</ul>
+				</section>
+				<section>
+					<h2>Gruppe K: ChatGPT (o3-mini)</h2>
+					<ul>
+						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>✅ Dropzone leuchtet grau auf</li>
+						<li>minimale L&ouml;sung<br>✅ Check (keine Frameworks, alles in einer Datei)</li>
+						<li>Responsive Design (Handy, Tablet, Desktop)<br>✅ Check, Mit Android und Apple Geräten getestet</li>
+					</ul>
+				</section>
+			</section>
+			<section>
 		</div>
 	</div>
 
