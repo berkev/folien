@@ -158,9 +158,11 @@
 						<td></td>
 						<th scope="col">Template o3-mini (Z)</th>
 						<th scope="col">o3-mini (K)</th>
+						<th scope="col">Claude Sonnett 3.7</th>
 					</tr>
 					<tr>
 						<th scope="row">Semant HTML</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -168,24 +170,29 @@
 						<th scope="row">Valides HTML</th>
 						<td>✅</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Mod JS</th>
 						<td>❌</td>
+						<td>✅</td>
 						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Clean Code</th>
 						<td>❌</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">D&amp;D Feedback</th>
 						<td>❌</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Respon Design</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -305,6 +312,127 @@ Erstelle eine Kanban-Board-Anwendung in JavaScript mit folgenden Anforderungen:
 						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>✅ Dropzone leuchtet grau auf</li>
 						<li>minimale L&ouml;sung<br>✅ Check (keine Frameworks, alles in einer Datei)</li>
 						<li>Responsive Design (Handy, Tablet, Desktop)<br>✅ Check, Mit Android und Apple Geräten getestet</li>
+					</ul>
+				</section>
+			</section>
+
+			<section></section>
+				<section>
+					<h2>Claude 3.7 Sonnet</h2>
+					<p style="font-weight: bold;font-size: xx-large; text-align: left;">Prompt um Prompt zu Generieren:</p>
+					<textarea class="prompts">
+You are an expert for prompt engineering. The following prompt contains instructions for a canban-board which should be used in real life. Please rework my prompt to optimize the result:
+You are an expert for webengineering. Your task is to create a Kanban-board with the following features: "" Feature 1: Three columns with the title "ToDo", "In Progress", "Done" "" Feature 2: Three different styles of notes "Bug" (color red), "User Story" (green), "Task" (blue) ) "" Feature 3: Each note should have a title, a discription and the estimated time requiered to fullfill the task in hours "" Feature 4: The user should be able to easily create and delete new sheets and move them via drag-and-drop "" Feature 5: The design should be responsive """" Important: I want you to use HTML, CSS and JavaScript, please don´t use any kind of frameworks and try to keep the code modern and clean
+
+
+					</textarea>
+				</section>
+				<section>
+					<h2>Claude 3.7 Sonnet</h2>
+					<p style="font-weight: bold;font-size: xx-large; text-align: left;">Generierter Prompt:</p>
+
+					<textarea class="prompts">
+# Task: Create a Vanilla JavaScript Kanban Board Implementation
+## Context
+You are tasked with creating a modern, framework-free Kanban board implementation using only vanilla web technologies. The solution should be production-ready, accessible, and follow modern web development best practices.
+## Technical Requirements
+- Use only vanilla HTML5, CSS3, and ES6+ JavaScript
+- No external libraries, frameworks, or dependencies
+- Cross-browser compatible (Chrome, Firefox, Safari, Edge)
+- Mobile-first responsive design
+- Semantic HTML markup
+- ARIA attributes for accessibility
+## Core Features
+### 1. Board Structure
+- Create three columns with the following properties:
+	- Column titles: "To Do", "In Progress", "Done"
+	- Each column should be equally spaced
+	- Visual separation between columns
+	- Column headers should be sticky when scrolling
+### 2. Card Types
+Implement three distinct card types with the following specifications:
+1. Bug Reports
+	- Background color: #ffebee (light red)
+	- Border: 2px solid #ef5350 (darker red)
+	- Icon: Bug icon (UTF-8 character or SVG)
+2. User Stories
+	- Background color: #e8f5e9 (light green)
+	- Border: 2px solid #66bb6a (darker green)
+	- Icon: User icon (UTF-8 character or SVG)
+3. Tasks
+	- Background color: #e3f2fd (light blue)
+	- Border: 2px solid #42a5f5 (darker blue)
+	- Icon: Checkbox icon (UTF-8 character or SVG)
+### 3. Card Properties
+Each card must include:
+- Title field (required, max 50 characters)
+- Description field (required, supports basic markdown, max 200 characters)
+- Estimated hours field (required, numeric, 0.5-100 hours)
+- Creation timestamp
+- Card type indicator
+- Delete button
+- Visual feedback for dragging state
+### 4. Interaction Requirements
+- Implement drag-and-drop using the HTML5 Drag and Drop API
+- Add new card functionality:
+	- Floating action button or '+' button in each column
+	- Modal form for card creation
+	- Form validation for required fields
+- Delete functionality:
+	- Confirmation dialog before deletion
+	- Visual feedback during deletion
+- Persist board state in localStorage
+### 5. Responsive Design Requirements
+- Breakpoints:
+	- Mobile: 320px - 768px (single column view)
+	- Tablet: 769px - 1024px (two column view)
+	- Desktop: 1025px+ (three column view)
+- Touch support for mobile devices
+- Maintain usability across all viewport sizes
+## Additional Specifications
+- Implement smooth animations for drag-and-drop operations
+- Include loading states and error handling
+- Implement undo/redo functionality for card movements
+- Ensure all interactive elements have hover and focus states
+- Add keyboard navigation support
+## Expected Deliverables
+1. HTML structure with semantic markup
+2. CSS styles with modern layout techniques (Grid/Flexbox)
+3. JavaScript modules implementing all functionality
+4. Comments explaining complex logic
+5. Basic documentation for usage and maintenance
+## Performance Requirements
+- No visible performance lag with 50+ cards
+- Smooth animations running at 60fps
+- Efficient DOM manipulation
+- Optimized event listeners
+Please provide the complete implementation with separate sections for HTML, CSS, and JavaScript code, along with explanatory comments.
+
+					</textarea>
+				</section>
+				
+				
+				<section>
+					<h2>Claude 3.7 Sonnet</h2>
+					<p style="font-weight: bold;font-size: xx-large; text-align: left;">Ergebnis:</p>
+
+					<iframe style="height: 60vh" data-src="../.././TINF24B2/prompt-engineering/ergebnisse/gruppe_c_claude_3.7_sonnet/Kanban.html"></iframe>
+				</section>
+				<section>
+					<h2>Claude 3.7 Sonnet</h2>
+					<ul>
+						<li>Semantisches HTML<br>sections</li>
+						<li>Valides HTML<br><a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fchr1shaefn3r-dhbw.gitlab.io%2Fvorlesung-webeng1%2FTINF24B2%2Fprompt-engineering%2Fergebnisse%2Fgruppe_c_claude_3.7_sonnet%2FKanban.html">validator@ergebnisse/gruppe_c_claude_3.7_sonnet/</a></li>
+						<li>Modernes JavaScript (kein var, etc.)<br>Check</li>
+						<li>Clean Code<br>Sprechende Variablen und Funktionsnamen</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Claude 3.7 Sonnet</h2>
+					<ul>
+						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>Dropzones mit blauem Rahmen hervorgehoben</li>
+						<li>minimale L&ouml;sung (kein Framework, keine Umwege)<br>Check</li>
+						<li>Responsive Design (Handy, Tablet, Desktop)<br>Check</li>
 					</ul>
 				</section>
 			</section>
