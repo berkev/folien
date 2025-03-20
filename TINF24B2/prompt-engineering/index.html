@@ -205,14 +205,17 @@
 						<td></td>
 						<th scope="col"><a href="https://chat.deepseek.com">DeepSeek-R1 (A)</a></th>
 						<th scope="col"><a href="https://claude.ai">Claude</a> (3.7 Sonnet) (B)</th>
+						<th scope="col"><a href="https://gemini.google.com">Gemini2 "(D)</a></th>
 					</tr>
 					<tr>
 						<th scope="row">Semant HTML</th>
 						<td>✅</td>
 						<td>✅/❌</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Valides HTML</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -220,9 +223,11 @@
 						<th scope="row">Mod JS</th>
 						<td>✅</td>
 						<td>✅</td>
+						<td>✅</td>
 					</tr>
 					<tr>
 						<th scope="row">Clean Code</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -230,9 +235,11 @@
 						<th scope="row">D&amp;D Feedback</th>
 						<td>✅</td>
 						<td>✅</td>
+						<td>🧐</td>
 					</tr>
 					<tr>
 						<th scope="row">Respon Design</th>
+						<td>✅</td>
 						<td>✅</td>
 						<td>✅</td>
 					</tr>
@@ -841,6 +848,46 @@ Bitte liefere die vollständige Implementierung als eine einzige HTML-Datei, die
 					</ul>
 				</section>
 			</section>
+
+			<!-- Gruppe D -->
+			<section>
+				<section>
+					<h2>Gemini2 Flash Preview (Github Copilot) "G:D"</h2>
+					<textarea class="prompts">
+Final Prompt: 
+
+Erstelle eine Website / Kanban-Board mit folgenden Funktionen: Drei Spalten: "ToDo", "In Progress", "Done"; Drei Karten-Arten: "Bug"(rot), "User Story"(grün), "Task"(blau); Drei Karten-Eigenschaften: Titel, Beschreibung, Arbeitspacketgröße in Stunden; Erstellen und löschen von Karten; Verschieben von Karten per Drag & Drop; Responsive Layout / Design (Die Fläche soll immer ausgenutzt: Großer Bildschirm Spalten Horizontal, Kleiner Bildschirm Spalten Vertikal ); Ansprechendes Layout, Design;
+
+Es sind folgende Qualitätskritereien zu beachten: Semantisches HTML; Valiedes HTML; Modernes JavaScript; Clean Code; Drag & Drop Feedback; Kein Framework; Nur eine Datei / index.html; Responsive Design;
+					</textarea>
+				</section>
+
+				<section>
+					<h2>Gemini2 Flash Preview (Github Copilot) "G:D"</h2>
+					<iframe data-src="./ergebnisse/gruppe-d-gemini2-flash-preview/index.html"></iframe>
+				</section>
+
+				<section>
+					<h2>Gemini2 Flash Preview (Github Copilot) "G:D"</h2>
+					<ul>
+						<li>Semantisches HTML<br>sections</li>
+						<li>Valides HTML<br><a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fchr1shaefn3r-dhbw.gitlab.io%2Fvorlesung-webeng1%2FTINF24B2%2Fprompt-engineering%2Fergebnisse%2Fgruppe-d-gemini2-flash-preview%2F/index.html">validator@ergebnisse/gruppe-d-gemini2-flash-preview/</a></li>
+						<li>Modernes JavaScript (kein var, etc.)<br>Check</li>
+						<li>Clean Code<br>Sprechende Variablen und Funktionsnamen</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Gemini2 Flash Preview (Github Copilot) "G:D"</h2>
+					<ul>
+						<li>Drag&Drop Feedback (Dropzones hervorheben, etc.)<br>Dropzones zwischen Spalten, nicht beim Neuanordnen in einer Spalte</li>
+						<li>minimale L&ouml;sung (kein Framework, keine Umwege)<br>Check</li>
+						<li>Responsive Design (Handy, Tablet, Desktop)<br>Check</li>
+					</ul>
+				</section>
+
+			</section>
+			<!-- Gruppe D -->
 		</div>
 	</div>
 
